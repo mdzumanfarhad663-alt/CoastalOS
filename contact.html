@@ -10,7 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
-.page-hero .lede{max-width:60ch}
+.contact-top{padding-top:clamp(36px,4vw,56px)}
+.contact-top h1{color:#fff;max-width:13ch;font-size:clamp(2.1rem,3.4vw,3rem)}
+.pick-call{all:unset;cursor:pointer;color:#fff;font-weight:600;border-bottom:1.5px solid var(--teal-2);padding-bottom:1px;transition:color .2s,border-color .2s}
+.pick-call:hover{color:var(--teal-2)}
+.pick-call:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
 .faq-grid h2{max-width:12ch}
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -39,41 +43,33 @@
 
 <main id="main">
 
-<!-- HERO -->
-<section class="page-hero">
-  <div class="wrap rv">
-    <p class="kicker">Contact</p>
-    <h1>Request a Property Review.</h1>
-    <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS can add revenue, reduce cost, and give you clearer visibility.</p>
-  </div>
-</section>
-
-<!-- FORM -->
-<section class="sec cta" id="review">
+<!-- REQUEST A PROPERTY REVIEW -->
+<section class="sec cta contact-top" id="review">
   <div class="wrap cta-grid">
     <div class="rv">
       <p class="kicker">Request a property review</p>
-      <h2>Your property. Our operating platform.</h2>
+      <h1>Your property. Our operating platform.</h1>
       <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS can add revenue, reduce cost, and give you clearer visibility.</p>
       <ol class="next">
         <li><span>1</span><div><b>Share a few details</b><small>About your property and goals.</small></div></li>
         <li><span>2</span><div><b>We review your property</b><small>Revenue, operations and costs.</small></div></li>
         <li><span>3</span><div><b>Talk through the findings</b><small>A clear conversation with our team.</small></div></li>
       </ol>
-      <div class="alt-contact"><b>Prefer to talk first?</b><p>Select “A call with our team” in the form, and we’ll arrange a conversation instead of starting with a review.</p></div>
+      <div class="alt-contact"><b>Prefer to talk first?</b><p>Choose <button type="button" class="pick-call" data-pick-call>A call with our team</button> and we’ll arrange a conversation instead of starting with a review.</p></div>
     </div>
     <form id="reviewForm" class="rv d2" novalidate>
-      <div class="form-head"><b>Request a Property Review</b></div>
-      <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
-      <div class="f"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
-      <div class="f"><label for="property">Property name</label><input id="property" name="property" required><span class="err" aria-live="polite"></span></div>
-      <div class="f"><label for="location">Location</label><input id="location" name="location" placeholder="City, state"></div>
+      <div class="form-head"><b>Tell us about your property</b></div>
       <fieldset class="f full"><legend>I’d like</legend>
         <div class="chips">
           <input type="radio" name="request" id="q1" value="Property review" checked><label for="q1">A property review</label>
           <input type="radio" name="request" id="q2" value="Call with the team"><label for="q2">A call with our team</label>
         </div>
       </fieldset>
+      <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+      <div class="f"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
+      <div class="f"><label for="property">Property name</label><input id="property" name="property" required><span class="err" aria-live="polite"></span></div>
+      <div class="f"><label for="location">Location</label><input id="location" name="location" placeholder="City, state"></div>
+      
       <fieldset class="f full"><legend>Number of rooms</legend>
         <div class="chips">
           <input type="radio" name="rooms" id="r1" value="Under 15"><label for="r1">Under 15</label>

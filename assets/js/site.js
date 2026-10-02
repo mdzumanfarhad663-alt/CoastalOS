@@ -40,6 +40,8 @@
   if(form){
   // ?request=call (from "Talk to Our Team" links) pre-selects a call instead of a review
   if(/[?&]request=call(&|$)/.test(location.search))document.getElementById('q2').checked=true;
+  // "A call with our team" shortcut buttons (contact page)
+  document.querySelectorAll('[data-pick-call]').forEach(function(b){b.addEventListener('click',function(){document.getElementById('q2').checked=true;document.getElementById('name').focus()})});
   form.addEventListener('submit',function(e){
     e.preventDefault();var ok=true;
     form.querySelectorAll('[required]').forEach(function(el){
