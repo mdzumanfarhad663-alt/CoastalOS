@@ -213,3 +213,16 @@ footer a:hover{color:#fff}
   .js .rv{opacity:1!important;transform:none!important}
   .steps-flow::after{transform:none!important}
 }
+
+/* ===== Sub-pages: page hero + CTA band ===== */
+.page-hero{padding:clamp(56px,7vw,96px) 0 clamp(56px,7vw,88px)}
+.page-hero h1{max-width:18ch}
+.page-hero .lede{margin-top:22px}
+.cta-band{text-align:center}
+.cta-band h2{margin-inline:auto;max-width:18ch}
+.cta-band .lede{margin-inline:auto}
+.cta-band .kicker{justify-content:center}
+.cta-band .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:32px}
+.btn-ghost-light{border-color:rgba(255,255,255,.35);color:#fff;background:transparent}
+.btn-ghost-light:hover{border-color:#fff}
+@media (max-width:480px){.cta-band .hero-ctas .btn{width:100%}}
