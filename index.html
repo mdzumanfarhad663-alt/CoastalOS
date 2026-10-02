@@ -294,8 +294,13 @@ header.site.scrolled{border-color:var(--line);background:rgba(255,255,255,.92)}
 .metrics{margin-top:var(--gap);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
 .metric{padding:22px;display:grid;gap:12px}
 .metric small{font-size:.9rem;color:var(--muted)}
+.prop .ph-img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.prop .ph-img:has(img)::after{content:none}
+.prop h3{font-size:1.15rem;margin:0;color:var(--ink)}
+.prop .loc{margin:0;font-size:.9rem;color:var(--muted)}
+.metrics-note{margin-top:var(--gap);padding:22px;color:var(--muted);font-size:.95rem}
 .proof-note{margin-top:18px;font-size:.88rem;color:var(--muted)}
-@media (max-width:900px){.proof-grid{grid-template-columns:1fr}.prop:first-child .ph-img{min-height:220px}.metrics{grid-template-columns:1fr 1fr}}
+@media (max-width:900px){.proof-grid{grid-template-columns:1fr}.prop:first-child .ph-img{min-height:0;flex:none;aspect-ratio:16/9}.metrics{grid-template-columns:1fr 1fr}}
 
 /* ===== FAQ ===== */
 .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,80px)}
@@ -658,23 +663,19 @@ footer a:hover{color:#fff}
 </section>
 
 <!-- PROOF -->
+<!-- TEMPORARY: Coastal Getaway images/properties pending client approval for CoastalOS. See assets/portfolio/SOURCES.md -->
 <section class="sec" id="proof">
   <div class="wrap">
     <div class="sec-head rv">
       <p class="kicker">Portfolio</p>
-      <h2>Properties running on CoastalOS.</h2>
+      <h2>Properties in the Coastal portfolio.</h2>
     </div>
     <div class="proof-grid">
-      <article class="card prop rv d1" aria-label="Featured property, details to come"><div class="ph-img"></div><div class="meta"><span class="skel lg w60"></span><span class="skel w40"></span></div></article>
-      <article class="card prop rv d2" aria-label="Property, details to come"><div class="ph-img"></div><div class="meta"><span class="skel lg w60"></span><span class="skel w40"></span></div></article>
-      <article class="card prop rv d3" aria-label="Property, details to come"><div class="ph-img"></div><div class="meta"><span class="skel lg w60"></span><span class="skel w40"></span></div></article>
+      <article class="card prop rv d1"><div class="ph-img"><img src="assets/portfolio/island-house-resort-hotel-pool.webp" width="1600" height="900" alt="Aerial view of the courtyard pool at Island House Resort Hotel, North Redington Beach" loading="lazy" decoding="async"></div><div class="meta"><h3>Island House Resort Hotel</h3><p class="loc">North Redington Beach, FL · Resort hotel</p></div></article>
+      <article class="card prop rv d2"><div class="ph-img"><img src="assets/portfolio/patriots-boutique-motel-exterior.webp" width="1000" height="667" alt="Exterior of Patriots' Boutique Motel, San Clemente" loading="lazy" decoding="async"></div><div class="meta"><h3>Patriots' Boutique Motel</h3><p class="loc">San Clemente, CA · Motel</p></div></article>
+      <article class="card prop rv d3"><div class="ph-img"><img src="assets/portfolio/the-pineola-aerial.webp" width="1000" height="663" alt="Aerial view of The Pineola and surrounding mountains, Newland" loading="lazy" decoding="async"></div><div class="meta"><h3>The Pineola</h3><p class="loc">Newland, NC · Mountain inn</p></div></article>
     </div>
-    <div class="metrics rv">
-      <div class="card metric"><span class="skel lg w50"></span><small>Revenue growth</small></div>
-      <div class="card metric"><span class="skel lg w50"></span><small>Average daily rate</small></div>
-      <div class="card metric"><span class="skel lg w50"></span><small>Direct booking share</small></div>
-      <div class="card metric"><span class="skel lg w50"></span><small>Guest review score</small></div>
-    </div>
+    <p class="card metrics-note rv">Property results will be shared here as they're verified.</p>
   </div>
 </section>
 
