@@ -9,9 +9,13 @@ Static, responsive prototype of the CoastalOS marketing site, built for client r
 | `index.html` | Home: full sales journey (platform, outcomes, portfolio, FAQ, property review form) |
 | `about.html` | About CoastalOS: origin, principles, who we work with, focus |
 | `services.html` | Services: five capability groups, engagement steps, FAQ |
+| `contact.html` | Contact: request a property review or a call (form, next steps, FAQ) |
+| `portfolio.html` | Portfolio: properties in the Coastal portfolio (temporary, see below) |
 | `index-1.html` | Earlier homepage version, kept for reference |
 
-Platform, Portfolio and Contact currently link to sections on the homepage (`index.html#platform`, `#proof`, `#review`). A separate `platform.html` can replace the Platform link later.
+Platform links to the homepage section `index.html#platform`; a separate `platform.html` can replace it later. Every "Request a Property Review" button goes to `contact.html`, and every "Talk to Our Team" button goes to `contact.html?request=call`, which pre-selects "A call with our team" in the form. The homepage keeps its own copy of the form.
+
+The forms only validate in the browser and show a thank-you message. Nothing is sent: no email, CRM or form service is connected.
 
 ## How to run
 
@@ -26,9 +30,9 @@ Then visit http://localhost:8000.
 ## Structure
 
 - `assets/css/site.css` — shared styles: design tokens, base typography, header and mobile menu, buttons, cards, icon tiles, reveal animation, FAQ, CTA band, form, footer, mobile sticky CTA, and reused components (principles list, step flow, hotel illustration layout).
-- `assets/js/site.js` — shared behavior: header scroll state, mobile menu (Escape closes it), one-time scroll reveals, mobile sticky CTA, and in-page nav highlighting on the homepage.
-- Each page keeps its page-specific CSS in a small `<style>` block. Homepage-only scripts (comparison toggle, outcome tabs, form validation) stay inline in `index.html`.
-- `assets/portfolio/` — property images for the homepage Portfolio section.
+- `assets/js/site.js` — shared behavior: header scroll state, mobile menu (Escape closes it), one-time scroll reveals, mobile sticky CTA, in-page nav highlighting on the homepage, and the property review form (validation and `?request=call`).
+- Each page keeps its page-specific CSS in a small `<style>` block. Homepage-only scripts (comparison toggle, outcome tabs) stay inline in `index.html`.
+- `assets/portfolio/` — property images for the homepage Portfolio section and `portfolio.html`.
 
 ## Awaiting client confirmation
 
@@ -43,6 +47,8 @@ Then visit http://localhost:8000.
 - How CoastalOS relates to Coastal Hospitality Group, Coastal Management Company and Coastal Getaway.
 - Locations or regions served.
 - Which services are offered on their own and which only as a full package.
-- Contact details (phone, email, address) and any privacy or consent wording for the form.
+- Contact details for the Contact page: phone number, email address and office address.
+- Expected response time after a form request, if he wants one stated.
+- Privacy notice or consent wording for the form, and where form requests should be delivered (email, CRM or form service).
 - Final logo files (SVG or transparent PNG).
 - **Founder note (About page):** a finished founder-note section is commented out in `about.html` (search for `FOUNDER NOTE`). It needs Jed's own text, his name and title, and a portrait photo saved as `assets/about/founder.jpg`. Uncomment it once those arrive.
