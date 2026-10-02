@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CoastalOS — The Operating System for Independent Hotels</title>
+<meta name="description" content="CoastalOS is a technology-enabled hotel management platform for independent and boutique hotels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0E2A47; --navy-2:#163A5E; --navy-3:#0A2038; --teal:#1C8C8A; --teal-2:#6FD0CC; --teal-soft:#E3F2F1;
+  --sun:#C9932F; --sun-soft:#F6EBD5; --bg:#F6F9FA; --paper:#FFFFFF; --ink:#132235; --muted:#4F6175; --line:#D9E3E8;
+  --display:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r-sm:8px; --r-md:14px; --r-lg:22px;
+  --wrap:1200px; --gap:clamp(20px,3vw,32px); --sec:clamp(80px,10vw,136px);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#F6F9FA}}
+:root[data-theme="dark"]{--bg:#F6F9FA}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(84px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);color:var(--navy);margin:0;letter-spacing:-.025em;line-height:1.06}
+h1{font-size:clamp(2.7rem,6.2vw,5rem);font-weight:600}
+h2{font-size:clamp(2rem,4.2vw,3.25rem);font-weight:600}
+h3{font-size:1.3rem;font-weight:600;letter-spacing:-.01em}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(20px,4vw,40px)}
+.sec{padding:var(--sec) 0;position:relative}
+.lede{font-size:clamp(1.1rem,1.6vw,1.25rem);color:var(--muted);max-width:60ch}
+.kicker{font-family:var(--display);font-weight:500;color:var(--teal);font-size:1.05rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.kicker::before{content:"";width:18px;height:2px;background:currentColor;border-radius:2px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--navy);color:#fff;padding:10px 14px;z-index:999}
+.skip:focus{left:8px}
+
+/* reveal: one consistent entrance, JS-gated so no-JS shows everything */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv.d1{transition-delay:.08s}.js .rv.d2{transition-delay:.16s}.js .rv.d3{transition-delay:.24s}.js .rv.d4{transition-delay:.32s}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font:600 1rem var(--display);padding:15px 26px;border-radius:999px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s,transform .25s var(--ease),box-shadow .25s;position:relative}
+.btn svg{width:18px;height:18px;transition:transform .25s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 10px 24px -12px rgba(14,42,71,.7)}
+.btn-primary:hover{background:var(--teal);transform:translateY(-1px)}
+.btn-ghost{border-color:rgba(14,42,71,.25);color:var(--navy);background:rgba(255,255,255,.6)}
+.btn-ghost:hover{border-color:var(--navy);background:#fff}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-light:hover{background:var(--sun-soft)}
+
+/* Placeholders */
+.ph{border:1.5px dashed var(--sun);background:repeating-linear-gradient(135deg,#fff 0 12px,#FBF6EC 12px 24px);border-radius:var(--r-md);color:#7A5A1C;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;font-size:.92rem;gap:4px}
+.ph strong{font-family:var(--display);font-size:1rem;color:#5E4512}
+.tag-ph{display:inline-block;font-size:.74rem;font-weight:600;color:#7A5A1C;background:#FBF1DC;border:1px dashed var(--sun);padding:2px 8px;border-radius:6px;vertical-align:middle;white-space:nowrap}
+
+/* Header */
+header.site{position:sticky;top:0;z-index:50;background:rgba(246,249,250,.82);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+header.site.scrolled{border-color:var(--line);background:rgba(255,255,255,.9)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:80px;gap:24px;transition:height .3s}
+header.scrolled .nav{height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-word{font:600 1.5rem var(--display);color:var(--navy);letter-spacing:-.02em}
+.logo-word span{color:var(--teal)}
+.nav ul{display:flex;gap:6px;list-style:none;margin:0;padding:0}
+.nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.98rem;padding:8px 14px;border-radius:999px;transition:color .2s,background .2s}
+.nav ul a:hover,.nav ul a.active{color:var(--navy);background:rgba(14,42,71,.06)}
+.nav .btn{padding:11px 20px;font-size:.95rem}
+.menu-btn{display:none;background:#fff;border:1.5px solid var(--line);border-radius:12px;width:46px;height:46px;cursor:pointer}
+.menu-btn span{display:block;width:18px;height:2px;background:var(--navy);margin:4px auto;transition:transform .3s,opacity .3s}
+.nav.open .menu-btn span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav.open .menu-btn span:nth-child(2){opacity:0}
+.nav.open .menu-btn span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:linear-gradient(90deg,var(--teal),var(--sun));transform-origin:0 50%;transform:scaleX(0)}
+@media (max-width:980px){
+  .nav ul,.nav .nav-cta{display:none}
+  .menu-btn{display:block}
+  .nav.open ul{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:16px clamp(20px,4vw,40px) 28px;border-bottom:1px solid var(--line);gap:4px;box-shadow:0 30px 40px -30px rgba(14,42,71,.4)}
+  .nav.open ul a{font-size:1.15rem;color:var(--navy);display:block;padding:12px 0}
+}
+
+/* HERO */
+.hero{padding:clamp(40px,6vw,80px) 0 clamp(64px,8vw,104px);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(14,42,71,.09) 1px,transparent 1.2px);background-size:26px 26px;mask-image:radial-gradient(ellipse 70% 70% at 75% 45%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 70% at 75% 45%,#000 20%,transparent 75%);pointer-events:none}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:center;position:relative}
+.hero h1{max-width:12ch}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln>span{display:inline-block}
+.js .hero h1 .ln>span{transform:translateY(105%);transition:transform 1s var(--ease)}
+.js .loaded .hero h1 .ln>span{transform:none}
+.hero h1 .ln:nth-child(2)>span{transition-delay:.1s}
+.hero h1 .ln:nth-child(3)>span{transition-delay:.2s}
+.js .hero-fade{opacity:0;transform:translateY(14px);transition:opacity .9s var(--ease) .45s,transform .9s var(--ease) .45s}
+.js .loaded .hero-fade{opacity:1;transform:none}
+.hero .lede{margin-top:26px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.hero-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid var(--line);background:rgba(255,255,255,.75);border-radius:999px;font-size:.9rem;color:var(--navy);font-weight:500}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--teal);display:block}
+.pill:nth-child(2) i{background:var(--sun)}.pill:nth-child(3) i{background:var(--navy)}
+.hero-art{position:relative;aspect-ratio:1/1;max-width:560px;justify-self:end;width:100%}
+.hero-art svg{width:100%;height:100%;overflow:visible}
+.orbit{fill:none;stroke:var(--line);stroke-width:1.5}
+.orbit.dash{stroke-dasharray:3 8}
+.spin{transform-origin:280px 280px;animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spoke{stroke:var(--teal);stroke-width:1.5;opacity:.35}
+.packet{fill:var(--teal)}
+.packet.gold{fill:var(--sun)}
+.node{opacity:0;transform:scale(.85);transform-box:fill-box;transform-origin:center;transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.loaded .node{opacity:1;transform:none}
+.node rect{fill:#fff;stroke:var(--line);filter:drop-shadow(0 8px 14px rgba(14,42,71,.08))}
+.node text{font:500 13.5px var(--body);fill:var(--navy)}
+.node circle{fill:var(--teal)}
+.core-ring{fill:none;stroke:var(--teal);stroke-width:1.5;opacity:.5;transform-origin:280px 280px;animation:ring 3.6s var(--ease) infinite}
+.core-ring.r2{animation-delay:1.8s}
+@keyframes ring{0%{transform:scale(.9);opacity:.6}100%{transform:scale(1.7);opacity:0}}
+.sun-arc{stroke-dasharray:80;stroke-dashoffset:80;transition:stroke-dashoffset 1.4s var(--ease) .5s}
+.loaded .sun-arc{stroke-dashoffset:0}
+.float-card{position:absolute;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;box-shadow:0 20px 40px -24px rgba(14,42,71,.45);font-size:.82rem;color:var(--muted);animation:bob 6s ease-in-out infinite}
+.float-card b{display:block;font:600 .95rem var(--display);color:var(--navy)}
+.float-card.a{left:-6%;bottom:8%}
+.float-card.b{right:-2%;top:4%;animation-delay:-3s}
+.float-card .row{display:flex;align-items:center;gap:10px}
+.float-card .ico{width:30px;height:30px;border-radius:9px;background:var(--teal-soft);display:grid;place-items:center}
+.float-card .ico svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:2}
+.float-card.b .ico{background:var(--sun-soft)}.float-card.b .ico svg{stroke:var(--sun)}
+@keyframes bob{50%{transform:translateY(-8px)}}
+@media (max-width:920px){.hero-grid{grid-template-columns:1fr}.hero-art{justify-self:center;max-width:460px;margin-top:8px}.float-card.a{left:0}.float-card.b{right:0}}
+
+/* Marquee strip */
+.strip{border-block:1px solid var(--line);background:#fff;overflow:hidden;padding:18px 0}
+.strip-track{display:flex;gap:48px;width:max-content;animation:marq 40s linear infinite}
+.strip:hover .strip-track{animation-play-state:paused}
+.strip span{font:500 1.05rem var(--display);color:var(--navy);display:flex;align-items:center;gap:48px;white-space:nowrap}
+.strip span::after{content:"";width:6px;height:6px;border-radius:50%;background:var(--sun)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* OPPORTUNITY with toggle */
+.opp-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(32px,6vw,88px);align-items:center}
+.opp h2{max-width:15ch}
+.opp-body p{color:var(--muted)}
+.opp-body p+p{margin-top:18px}
+.compare{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(20px,3vw,32px);box-shadow:0 30px 60px -44px rgba(14,42,71,.5)}
+.seg{display:inline-flex;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:4px;position:relative;margin-bottom:22px}
+.seg button{font:600 .92rem var(--display);border:0;background:transparent;color:var(--muted);padding:9px 18px;border-radius:999px;cursor:pointer;position:relative;z-index:1;transition:color .3s}
+.seg button[aria-pressed="true"]{color:#fff}
+.seg .thumb{position:absolute;top:4px;bottom:4px;left:4px;border-radius:999px;background:var(--navy);transition:transform .45s var(--ease),width .45s var(--ease)}
+.cmp-stage{position:relative;height:300px}
+.cmp-stage svg{width:100%;height:100%}
+.cmp-cap{margin-top:14px;font-size:.95rem;color:var(--muted);min-height:3em}
+.cmp-stage .lnk{stroke:var(--line);stroke-width:1.5;fill:none;transition:opacity .5s,stroke .5s}
+.cmp-stage .box rect{fill:#fff;stroke:var(--line);transition:transform .7s var(--ease)}
+.cmp-stage text{font:500 12px var(--body);fill:var(--navy)}
+.cmp-stage .hub{opacity:0;transition:opacity .5s .2s}
+.cmp-stage .scatter{transition:opacity .5s}
+.centralized .cmp-stage .hub{opacity:1}
+.centralized .cmp-stage .scatter{opacity:0}
+.cmp-stage .box{transition:transform .8s var(--ease)}
+@media (max-width:860px){.opp-grid{grid-template-columns:1fr}.cmp-stage{height:260px}}
+
+/* PLATFORM */
+.platform{background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);border-top:1px solid var(--line)}
+.platform-head{text-align:center;max-width:780px;margin:0 auto 64px}
+.platform-head .kicker{justify-content:center}
+.platform-head .lede{margin:20px auto 0}
+.diagram{display:grid;grid-template-columns:1fr minmax(230px,300px) 1fr;gap:32px;align-items:center;position:relative}
+.col-title{font:600 1rem var(--display);color:var(--sun);margin-bottom:14px}
+.right .col-title{text-align:left}
+.cap-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.cap{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:16px 18px;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;position:relative;transition:border-color .3s,transform .3s var(--ease),box-shadow .3s;cursor:default}
+.cap .ic{width:40px;height:40px;border-radius:11px;background:var(--teal-soft);display:grid;place-items:center;transition:background .3s}
+.cap svg{width:21px;height:21px;stroke:var(--teal);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke .3s}
+.cap b{display:block;font:600 1.05rem var(--display);color:var(--navy)}
+.cap span{font-size:.93rem;color:var(--muted);line-height:1.5}
+.cap:hover,.cap:focus-within{border-color:var(--teal);transform:translateY(-2px);box-shadow:0 18px 30px -22px rgba(14,42,71,.5)}
+.cap:hover .ic{background:var(--teal)}.cap:hover svg{stroke:#fff}
+.left .cap::after,.right .cap::before{content:"";position:absolute;top:50%;width:33px;height:1.5px;background:linear-gradient(90deg,var(--teal),var(--teal));opacity:.4;transform:scaleX(0);transition:transform .8s var(--ease),opacity .3s}
+.left .cap::after{right:-34px;transform-origin:0 50%}.right .cap::before{left:-34px;transform-origin:100% 50%}
+.diagram.in .cap::after,.diagram.in .cap::before{transform:scaleX(1)}
+.cap:hover::after,.cap:hover::before{opacity:1}
+.core{background:radial-gradient(120% 90% at 50% 0%,var(--navy-2) 0%,var(--navy) 55%,var(--navy-3) 100%);color:#fff;border-radius:var(--r-lg);padding:48px 26px;text-align:center;box-shadow:0 40px 70px -34px rgba(14,42,71,.7);position:relative;overflow:hidden}
+.core::before{content:"";position:absolute;inset:9px;border:1.5px solid rgba(111,208,204,.45);border-radius:16px;pointer-events:none}
+.core::after{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent 0 75%,rgba(111,208,204,.22) 85%,transparent 95%);animation:spin 8s linear infinite}
+.core>*{position:relative;z-index:1}
+.core .mark{margin:0 auto 16px;width:60px}
+.core h3{color:#fff;font-size:2.1rem}
+.core p{color:#B9CADB;margin-top:8px;font-size:.98rem}
+.core .active-cap{margin-top:18px;display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(111,208,204,.15);color:var(--teal-2);font-size:.86rem;font-weight:500;min-width:170px;transition:opacity .25s}
+.delivered{margin-top:44px;background:var(--navy);border-radius:var(--r-lg);padding:26px 30px;display:flex;gap:18px;align-items:center;color:#B9CADB;position:relative;overflow:hidden}
+.delivered svg{flex:none;width:34px;height:34px;stroke:var(--sun);fill:none;stroke-width:1.7}
+.delivered strong{font-family:var(--display);color:#fff;font-size:1.2rem}
+.delivered .btn{margin-left:auto;flex:none}
+@media (max-width:1040px){
+  .diagram{grid-template-columns:1fr 1fr}
+  .core{grid-column:1/-1;order:-1;max-width:460px;margin:0 auto 8px;width:100%}
+  .left .cap::after,.right .cap::before{display:none}
+}
+@media (max-width:640px){.diagram{grid-template-columns:1fr}.delivered{flex-direction:column;align-items:flex-start}.delivered .btn{margin-left:0}}
+.illus-note{text-align:center;color:var(--muted);font-size:.85rem;margin-top:18px}
+
+/* OUTCOMES */
+.outcomes{background:var(--navy);color:#D4E0EB;overflow:hidden}
+.outcomes::before{content:"";position:absolute;right:-200px;top:-200px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(28,140,138,.35),transparent 65%);pointer-events:none}
+.outcomes h2{color:#fff;max-width:16ch}
+.outcomes .kicker{color:var(--teal-2)}
+.out-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap}
+.outcomes .lede{color:#A9BDD0;max-width:42ch}
+.out-tabs{margin-top:56px;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,64px);align-items:stretch}
+.out-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.14)}
+.out-list button{all:unset;box-sizing:border-box;display:block;width:100%;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.14);cursor:pointer;position:relative}
+.out-list button:focus-visible{outline:3px solid var(--sun);outline-offset:4px}
+.out-list h3{color:#7F97AF;font-size:clamp(1.3rem,2.2vw,1.65rem);transition:color .3s;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.out-list h3 small{font:500 .85rem var(--body);color:#5F7A95}
+.out-list p{max-height:0;overflow:hidden;opacity:0;color:#B6C7D8;font-size:.98rem;transition:max-height .5s var(--ease),opacity .4s,margin .4s;max-width:46ch}
+.out-list .bar{position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--sun);transform:scaleX(0);transform-origin:0 50%}
+.out-list button[aria-selected="true"] h3{color:#fff}
+.out-list button[aria-selected="true"] p{max-height:120px;opacity:1;margin-top:12px}
+.out-list button[aria-selected="true"] .bar{animation:fill 7s linear forwards}
+.paused .out-list button[aria-selected="true"] .bar{animation:none;transform:scaleX(1)}
+@keyframes fill{to{transform:scaleX(1)}}
+.out-panel{background:linear-gradient(160deg,#163A5E,#0F2D4C);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:clamp(22px,3vw,34px);position:relative;min-height:380px;display:flex;flex-direction:column}
+.out-panel .ptitle{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#fff;font:600 1rem var(--display)}
+.illus{font:500 .74rem var(--body);color:#A9BDD0;border:1px solid rgba(255,255,255,.2);padding:3px 9px;border-radius:999px;white-space:nowrap}
+.viz{flex:1;margin-top:18px;position:relative}
+.viz>div{position:absolute;inset:0;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s var(--ease);pointer-events:none}
+.viz>div.on{opacity:1;transform:none;pointer-events:auto}
+.viz svg{width:100%;height:100%}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;color:#A9BDD0;margin-top:auto;padding-top:14px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.draw{stroke-dasharray:900;stroke-dashoffset:900}
+.on .draw{animation:dr 1.6s var(--ease) forwards}
+@keyframes dr{to{stroke-dashoffset:0}}
+.grow{transform:scaleY(0);transform-origin:bottom;transform-box:fill-box}
+.on .grow{animation:gr .9s var(--ease) forwards}
+@keyframes gr{to{transform:scaleY(1)}}
+.chat{display:flex;flex-direction:column;gap:12px;padding-top:6px}
+.bub{max-width:78%;padding:11px 14px;border-radius:14px;font-size:.9rem;opacity:0;transform:translateY(8px)}
+.on .bub{animation:pop .5s var(--ease) forwards}
+.on .bub:nth-child(2){animation-delay:.5s}.on .bub:nth-child(3){animation-delay:1s}.on .bub:nth-child(4){animation-delay:1.5s}
+@keyframes pop{to{opacity:1;transform:none}}
+.bub.g{background:rgba(255,255,255,.1);color:#E6EEF5;align-self:flex-start;border-bottom-left-radius:4px}
+.bub.h{background:var(--teal);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.bub.k{background:var(--sun-soft);color:#5E4512;align-self:flex-end;border-bottom-right-radius:4px;display:flex;gap:8px;align-items:center}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kpi{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px}
+.kpi small{color:#A9BDD0;font-size:.8rem}
+.kpi b{display:block;color:#fff;font:600 1.3rem var(--display);margin-top:2px}
+.kpi .spark{height:28px;margin-top:6px}
+.tagline{margin-top:72px;font:500 clamp(1.5rem,3vw,2.3rem)/1.25 var(--display);color:#fff;max-width:24ch;letter-spacing:-.02em}
+.tagline em{font-style:normal;color:var(--teal-2)}
+@media (max-width:900px){.out-tabs{grid-template-columns:1fr}.out-panel{min-height:340px}}
+
+/* HOW */
+.phil{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-top:52px}
+.phil div{border-top:2px solid var(--navy);padding-top:22px}
+.phil .n{font:600 .9rem var(--display);color:var(--sun);display:block;margin-bottom:10px}
+.phil h3{font-size:1.3rem}
+.phil p{color:var(--muted);margin-top:10px;font-size:.98rem}
+@media (max-width:760px){.phil{grid-template-columns:1fr}}
+.flow{margin-top:72px;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(24px,4vw,44px);overflow-x:auto;box-shadow:0 30px 60px -48px rgba(14,42,71,.5)}
+.flow-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:34px;flex-wrap:wrap}
+.flow-title{font:600 1.15rem var(--display);color:var(--navy)}
+.flow-track{position:relative;min-width:900px}
+.flow-line{position:absolute;top:23px;left:7%;right:7%;height:2px;background:var(--line)}
+.flow-line i{position:absolute;inset:0;background:linear-gradient(90deg,var(--teal),var(--sun));transform:scaleX(0);transform-origin:0 50%;transition:transform 2.6s var(--ease)}
+.flow.in .flow-line i{transform:scaleX(1)}
+.flow ol{list-style:none;margin:0;padding:0;display:flex;counter-reset:s;position:relative}
+.flow li{flex:1;text-align:center;counter-increment:s;padding:0 6px}
+.flow li .dot{display:grid;place-items:center;width:48px;height:48px;margin:0 auto 14px;border-radius:50%;background:#fff;border:2px solid var(--line);color:var(--muted);font:600 1rem var(--display);transition:background .4s,border-color .4s,color .4s,transform .4s var(--ease)}
+.flow li .dot svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+.flow.in li .dot{border-color:var(--teal);color:var(--teal);background:var(--teal-soft)}
+.flow.in li.hub .dot{background:var(--navy);border-color:var(--navy);color:#fff;transform:scale(1.12)}
+.flow li span{font-weight:600;color:var(--navy);font-size:.95rem;display:block}
+.flow li small{color:var(--muted);font-size:.83rem;display:block;margin-top:4px;line-height:1.4}
+.flow li .dot{transition-delay:calc(var(--i) * .3s)}
+
+/* OWNERS */
+.owners{background:#fff;border-block:1px solid var(--line)}
+.owners-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,88px);align-items:center}
+.owners-visual{position:relative}
+.owners .ph{aspect-ratio:4/3.2}
+.owners-badge{position:absolute;right:-18px;bottom:-24px;background:var(--navy);color:#fff;border-radius:18px;padding:20px 22px;max-width:230px;box-shadow:0 26px 40px -24px rgba(14,42,71,.8)}
+.owners-badge b{font:600 1.1rem/1.25 var(--display);display:block}
+.owners-badge small{color:#A9BDD0;font-size:.85rem;display:block;margin-top:6px}
+.owners p.lede{margin-top:20px}
+.owners blockquote{margin:30px 0 0;padding:4px 0 4px 22px;border-left:3px solid var(--sun);font:500 1.2rem/1.45 var(--display);color:var(--navy)}
+.owners ul{margin:26px 0 0;padding:0;list-style:none;display:grid;gap:14px}
+.owners li{padding-left:28px;position:relative}
+.owners li::before{content:"";position:absolute;left:0;top:.62em;width:14px;height:2px;background:var(--teal)}
+@media (max-width:860px){.owners-grid{grid-template-columns:1fr}.owners-badge{right:12px}}
+
+/* PROOF */
+.proof-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+.proof-grid{margin-top:44px;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:var(--gap)}
+.prop .ph{aspect-ratio:4/3}
+.prop:first-child .ph{aspect-ratio:auto;height:100%;min-height:280px}
+.prop:first-child{display:flex;flex-direction:column}
+.prop:first-child .ph{flex:1}
+.prop h3{margin-top:18px;font-size:1.15rem}
+.prop p{color:var(--muted);font-size:.95rem;margin-top:6px}
+.metrics{margin-top:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
+.metrics .ph{min-height:120px}
+@media (max-width:900px){.proof-grid{grid-template-columns:1fr}.prop:first-child .ph{min-height:240px}.metrics{grid-template-columns:1fr 1fr}}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,6vw,88px)}
+details{border-bottom:1px solid var(--line);padding:4px 0}
+details:first-child{border-top:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;padding:20px 40px 20px 0;font:600 1.12rem var(--display);color:var(--navy);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:50%;width:14px;height:14px;margin-top:-7px;background:linear-gradient(var(--teal),var(--teal)) center/14px 2px no-repeat,linear-gradient(var(--teal),var(--teal)) center/2px 14px no-repeat;transition:transform .3s var(--ease)}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);padding:0 40px 22px 0;max-width:62ch}
+@media (max-width:860px){.faq-grid{grid-template-columns:1fr}}
+
+/* CTA */
+.cta{background:var(--navy);color:#B9CADB;overflow:hidden}
+.cta::before{content:"";position:absolute;left:-180px;bottom:-260px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(201,147,47,.22),transparent 65%)}
+.cta::after{content:"";position:absolute;right:-120px;top:-160px;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(28,140,138,.35),transparent 65%)}
+.cta-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,88px);align-items:start;position:relative;z-index:1}
+.cta h2{color:#fff;max-width:13ch}
+.cta .kicker{color:var(--teal-2)}
+.cta .lede{margin-top:20px;color:#A9BDD0}
+.steps{list-style:none;margin:36px 0 0;padding:0;display:grid;gap:18px}
+.steps li{display:grid;grid-template-columns:36px 1fr;gap:14px;align-items:start}
+.steps li span{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(111,208,204,.5);color:var(--teal-2);display:grid;place-items:center;font:600 .95rem var(--display)}
+.steps b{color:#fff;font-family:var(--display);font-weight:600;display:block}
+.steps small{font-size:.92rem}
+.alt-contact{margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14)}
+.alt-contact b{font-family:var(--display);color:#fff;font-size:1.1rem}
+.alt-contact p{margin-top:6px}
+form{background:#fff;border-radius:var(--r-lg);padding:clamp(24px,4vw,40px);display:grid;grid-template-columns:1fr 1fr;gap:18px;box-shadow:0 40px 80px -40px rgba(0,0,0,.6);color:var(--ink)}
+.form-head{grid-column:1/-1}
+.form-head b{font:600 1.35rem var(--display);color:var(--navy)}
+.form-head p{color:var(--muted);font-size:.95rem;margin-top:4px}
+.f{display:flex;flex-direction:column;gap:6px}
+.f.full{grid-column:1/-1}
+label{font-weight:600;font-size:.92rem;color:var(--navy)}
+label i{font-style:normal;color:var(--muted);font-weight:400}
+input,select,textarea{font:inherit;font-size:1rem;padding:13px 14px;border:1.5px solid var(--line);border-radius:var(--r-sm);background:#FBFCFD;color:var(--ink);width:100%;transition:border-color .2s,box-shadow .2s,background .2s}
+input:hover,select:hover,textarea:hover{border-color:#B9C8D1}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--teal);background:#fff;box-shadow:0 0 0 4px rgba(28,140,138,.15)}
+input[aria-invalid="true"]{border-color:#B3261E}
+textarea{min-height:110px;resize:vertical}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips label{font-weight:500;border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;cursor:pointer;color:var(--muted);transition:all .2s}
+.chips input:checked+label{background:var(--navy);border-color:var(--navy);color:#fff}
+.chips input:focus-visible+label{outline:3px solid var(--sun);outline-offset:2px}
+.err{color:#B3261E;font-size:.85rem;min-height:1em}
+.consent{font-size:.85rem;color:var(--muted)}
+.form-done{grid-column:1/-1;background:var(--teal-soft);border-radius:var(--r-md);padding:18px;color:var(--navy);font-weight:500;display:flex;gap:12px;align-items:center}
+.form-done svg{width:24px;height:24px;stroke:var(--teal);fill:none;stroke-width:2.4;flex:none}
+@media (max-width:900px){.cta-grid{grid-template-columns:1fr}}
+@media (max-width:540px){form{grid-template-columns:1fr}}
+
+/* Footer */
+footer{background:var(--navy-3);color:#A9BDD0;padding:64px 0 40px;font-size:.95rem}
+.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+footer .logo-word{color:#fff}
+footer h4{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+footer a{text-decoration:none;transition:color .2s}
+footer a:hover{color:#fff}
+.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.85rem}
+@media (max-width:760px){.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
+
+/* Mobile sticky CTA */
+.mcta{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:60;display:none;transform:translateY(140%);transition:transform .4s var(--ease)}
+.mcta.show{transform:none}
+.mcta .btn{width:100%;justify-content:center;box-shadow:0 18px 40px -12px rgba(14,42,71,.7)}
+@media (max-width:760px){.mcta{display:block}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .js .rv,.js .hero-fade,.js .hero h1 .ln>span,.node,.bub{opacity:1!important;transform:none!important}
+  .draw{stroke-dashoffset:0}.grow{transform:none}
+  .strip-track{width:auto;flex-wrap:wrap;justify-content:center}
+  .flow-line i{transform:scaleX(1)}
+}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site" id="top">
+  <div class="wrap nav" id="nav">
+    <a href="#top" class="logo" aria-label="CoastalOS home">
+      <!-- LOGO PLACEHOLDER: swap this SVG + wordmark for Jed's final logo -->
+      <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 22a12 12 0 0 1 24 0" fill="none" stroke="#C9932F" stroke-width="3" stroke-linecap="round"/><path d="M4 26c5-3 9 3 16 0s11 3 16 0" fill="none" stroke="#1C8C8A" stroke-width="3" stroke-linecap="round"/><path d="M9 31c4-2 7 2 11 0s7 2 11 0" fill="none" stroke="#0E2A47" stroke-width="2.4" stroke-linecap="round"/></svg>
+      <span class="logo-word">Coastal<span>OS</span></span>
+    </a>
+    <ul id="menu">
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#outcomes">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#proof">Portfolio</a></li>
+      <li><a href="#review">Contact</a></li>
+    </ul>
+    <a href="#review" class="btn btn-primary nav-cta">Request a Property Review</a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="progress" aria-hidden="true"></div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1><span class="ln"><span>The Operating</span></span><span class="ln"><span>System for</span></span><span class="ln"><span>Independent Hotels.</span></span></h1>
+      <div class="hero-fade">
+        <p class="lede">CoastalOS is a technology-enabled hotel management platform that helps independent and boutique properties grow revenue, lower operating costs, and run with more clarity.</p>
+        <div class="hero-ctas">
+          <a href="#platform" class="btn btn-primary">See How CoastalOS Works <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          <a href="#review" class="btn btn-ghost">Talk to Our Team</a>
+        </div>
+        <div class="hero-pills">
+          <span class="pill"><i></i>Increase revenue</span>
+          <span class="pill"><i></i>Reduce operating costs</span>
+          <span class="pill"><i></i>Owner visibility</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 560 560">
+        <defs>
+          <path id="s1" d="M280 280 L280 70"/><path id="s2" d="M280 280 L462 175"/><path id="s3" d="M280 280 L462 385"/>
+          <path id="s4" d="M280 280 L280 490"/><path id="s5" d="M280 280 L98 385"/><path id="s6" d="M280 280 L98 175"/>
+        </defs>
+        <circle cx="280" cy="280" r="210" class="orbit"/>
+        <g class="spin"><circle cx="280" cy="280" r="140" class="orbit dash"/><circle cx="420" cy="280" r="4" fill="#C9932F"/><circle cx="140" cy="280" r="3" fill="#1C8C8A"/></g>
+        <g>
+          <use href="#s1" class="spoke"/><use href="#s2" class="spoke"/><use href="#s3" class="spoke"/>
+          <use href="#s4" class="spoke"/><use href="#s5" class="spoke"/><use href="#s6" class="spoke"/>
+        </g>
+        <!-- data packets travelling between properties-side functions and the core -->
+        <circle r="4" class="packet"><animateMotion dur="3.2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#s1"/></animateMotion></circle>
+        <circle r="4" class="packet gold"><animateMotion dur="3.6s" begin="-1s" repeatCount="indefinite"><mpath href="#s2"/></animateMotion></circle>
+        <circle r="4" class="packet"><animateMotion dur="3s" begin="-2s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#s3"/></animateMotion></circle>
+        <circle r="4" class="packet gold"><animateMotion dur="3.4s" begin="-.5s" repeatCount="indefinite"><mpath href="#s4"/></animateMotion></circle>
+        <circle r="4" class="packet"><animateMotion dur="3.8s" begin="-1.6s" repeatCount="indefinite" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#s5"/></animateMotion></circle>
+        <circle r="4" class="packet gold"><animateMotion dur="3.3s" begin="-2.4s" repeatCount="indefinite"><mpath href="#s6"/></animateMotion></circle>
+
+        <circle cx="280" cy="280" r="80" class="core-ring"/><circle cx="280" cy="280" r="80" class="core-ring r2"/>
+        <circle cx="280" cy="280" r="82" fill="#0E2A47"/>
+        <circle cx="280" cy="280" r="72" fill="none" stroke="#1C8C8A" stroke-opacity=".5"/>
+        <path d="M254 276a26 26 0 0 1 52 0" fill="none" stroke="#C9932F" stroke-width="4" stroke-linecap="round" class="sun-arc"/>
+        <path d="M246 289c8-5 15 5 34 0s23 5 34 0" fill="none" stroke="#6FD0CC" stroke-width="3.5" stroke-linecap="round"/>
+        <text x="280" y="322" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="600" font-size="18" fill="#fff">CoastalOS</text>
+
+        <g class="node" style="transition-delay:.5s"><rect x="205" y="48" width="150" height="44" rx="22"/><circle cx="228" cy="70" r="4"/><text x="290" y="75" text-anchor="middle">Revenue</text></g>
+        <g class="node" style="transition-delay:.6s"><rect x="390" y="153" width="150" height="44" rx="22"/><circle cx="413" cy="175" r="4" fill="#C9932F"/><text x="473" y="180" text-anchor="middle">Reservations</text></g>
+        <g class="node" style="transition-delay:.7s"><rect x="390" y="363" width="150" height="44" rx="22"/><circle cx="413" cy="385" r="4"/><text x="473" y="390" text-anchor="middle">Guest check-in</text></g>
+        <g class="node" style="transition-delay:.8s"><rect x="205" y="468" width="150" height="44" rx="22"/><circle cx="228" cy="490" r="4" fill="#C9932F"/><text x="290" y="495" text-anchor="middle">Owner reporting</text></g>
+        <g class="node" style="transition-delay:.9s"><rect x="20" y="363" width="156" height="44" rx="22"/><circle cx="43" cy="385" r="4"/><text x="106" y="390" text-anchor="middle">Staffing &amp; payroll</text></g>
+        <g class="node" style="transition-delay:1s"><rect x="20" y="153" width="156" height="44" rx="22"/><circle cx="43" cy="175" r="4" fill="#C9932F"/><text x="103" y="180" text-anchor="middle">Marketing</text></g>
+      </svg>
+      <div class="float-card a"><div class="row"><span class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/></svg></span><div><b>Rates updated</b>Across every channel</div></div></div>
+      <div class="float-card b"><div class="row"><span class="ico"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9"/></svg></span><div><b>Guest checked in</b>Digital key sent</div></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-label="Functions CoastalOS coordinates">
+  <div class="strip-track">
+    <span>Revenue management</span><span>Reservations</span><span>Digital check-in</span><span>Marketing &amp; distribution</span><span>Property technology</span><span>On-site team management</span><span>Payroll &amp; HR</span><span>Financial reporting</span><span>Owner reporting</span><span>Operational controls</span>
+    <span aria-hidden="true">Revenue management</span><span aria-hidden="true">Reservations</span><span aria-hidden="true">Digital check-in</span><span aria-hidden="true">Marketing &amp; distribution</span><span aria-hidden="true">Property technology</span><span aria-hidden="true">On-site team management</span><span aria-hidden="true">Payroll &amp; HR</span><span aria-hidden="true">Financial reporting</span><span aria-hidden="true">Owner reporting</span><span aria-hidden="true">Operational controls</span>
+  </div>
+</div>
+
+<!-- OPPORTUNITY -->
+<section class="sec opp" id="about">
+  <div class="wrap opp-grid">
+    <div class="rv">
+      <p class="kicker">The opportunity</p>
+      <h2>Your hotel shouldn’t require an entire company to operate it.</h2>
+      <div class="opp-body" style="margin-top:26px">
+        <p>Every independent property carries the same jobs: reservations, front desk, pricing, guest messages, marketing, payroll, bookkeeping and reporting. Usually each one is handled separately, property by property.</p>
+        <p>Modern technology makes it possible to run much of that work once, centrally, and well. That leaves your on-site team free for the hospitality only they can deliver.</p>
+      </div>
+    </div>
+    <div class="compare rv d2" id="compare">
+      <div class="seg" role="group" aria-label="Compare operating models">
+        <span class="thumb"></span>
+        <button type="button" aria-pressed="true" data-mode="today">Managed separately</button>
+        <button type="button" aria-pressed="false" data-mode="central">With CoastalOS</button>
+      </div>
+      <div class="cmp-stage" aria-hidden="true">
+        <svg viewBox="0 0 460 300" preserveAspectRatio="xMidYMid meet">
+          <g class="scatter">
+            <path class="lnk" d="M95 60 L230 150 M365 60 L230 150 M60 150 L230 150 M400 150 L230 150 M95 240 L230 150 M365 240 L230 150" stroke-dasharray="3 6"/>
+            <path class="lnk" d="M95 60 L60 150 M365 60 L400 150 M95 240 L365 240" stroke-dasharray="3 6"/>
+            <g><rect x="200" y="132" width="60" height="36" rx="8" fill="#FBF1DC" stroke="#C9932F"/><text x="230" y="155" text-anchor="middle">Owner</text></g>
+          </g>
+          <g class="hub">
+            <path d="M95 60 L230 150 M365 60 L230 150 M60 150 L230 150 M400 150 L230 150 M95 240 L230 150 M365 240 L230 150" stroke="#1C8C8A" stroke-width="1.6" fill="none"/>
+            <rect x="180" y="122" width="100" height="56" rx="14" fill="#0E2A47"/><text x="230" y="155" text-anchor="middle" fill="#fff" style="fill:#fff;font-weight:600;font-family:Outfit">CoastalOS</text>
+          </g>
+          <g class="box"><rect x="45" y="42" width="100" height="36" rx="18"/><text x="95" y="65" text-anchor="middle">Pricing</text></g>
+          <g class="box"><rect x="315" y="42" width="100" height="36" rx="18"/><text x="365" y="65" text-anchor="middle">Reservations</text></g>
+          <g class="box"><rect x="5" y="132" width="110" height="36" rx="18"/><text x="60" y="155" text-anchor="middle">Guest messages</text></g>
+          <g class="box"><rect x="345" y="132" width="110" height="36" rx="18"/><text x="400" y="155" text-anchor="middle">Scheduling</text></g>
+          <g class="box"><rect x="45" y="222" width="100" height="36" rx="18"/><text x="95" y="245" text-anchor="middle">Payroll &amp; HR</text></g>
+          <g class="box"><rect x="315" y="222" width="100" height="36" rx="18"/><text x="365" y="245" text-anchor="middle">Reporting</text></g>
+        </svg>
+      </div>
+      <p class="cmp-cap" aria-live="polite">Each function runs on its own tools and people, and the owner is left connecting the pieces.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM -->
+<section class="sec platform" id="platform">
+  <div class="wrap">
+    <div class="platform-head rv">
+      <p class="kicker">The CoastalOS platform</p>
+      <h2>One operating platform. Every critical function.</h2>
+      <p class="lede">CoastalOS centralizes the work behind a great hotel, using modern technology to drive efficiency and grow direct business.</p>
+    </div>
+
+    <div class="diagram" id="diagram">
+      <div class="left">
+        <p class="col-title rv">Grow direct revenue</p>
+        <ul class="cap-list">
+          <li class="cap rv d1" tabindex="0" data-cap="Direct booking"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></span><div><b>Direct Booking</b><span>Reservations on each hotel’s own branded website.</span></div></li>
+          <li class="cap rv d2" tabindex="0" data-cap="Marketing &amp; distribution"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l5 4V6L7 10H4zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><div><b>Marketing &amp; Distribution</b><span>Search, social, email and channel management that brings guests back direct.</span></div></li>
+          <li class="cap rv d3" tabindex="0" data-cap="Revenue management"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><div><b>Revenue Management</b><span>Data-driven pricing and inventory across every channel.</span></div></li>
+          <li class="cap rv d4" tabindex="0" data-cap="Reservations &amp; support"><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"/></svg></span><div><b>Reservations &amp; Guest Support</b><span>A central team handling calls, chat and email.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="core rv" role="img" aria-label="CoastalOS central platform, managed centrally and delivered to every property">
+        <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M8 22a12 12 0 0 1 24 0" fill="none" stroke="#C9932F" stroke-width="3" stroke-linecap="round"/><path d="M4 27c5-3 9 3 16 0s11 3 16 0" fill="none" stroke="#6FD0CC" stroke-width="3" stroke-linecap="round"/></svg>
+        <h3>CoastalOS</h3>
+        <p>The operating core, managed centrally</p>
+        <span class="active-cap" aria-hidden="true">Technology · people · process</span>
+      </div>
+
+      <div class="right">
+        <p class="col-title rv">Run the hotel</p>
+        <ul class="cap-list">
+          <li class="cap rv d1" tabindex="0" data-cap="Digital check-in"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg></span><div><b>Digital &amp; Self Check-In</b><span>Contactless arrival with help available when guests need it.</span></div></li>
+          <li class="cap rv d2" tabindex="0" data-cap="Team &amp; payroll"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/></svg></span><div><b>On-Site Team &amp; Payroll</b><span>Hiring, scheduling, training, payroll and HR coordinated centrally.</span></div></li>
+          <li class="cap rv d3" tabindex="0" data-cap="Financials &amp; controls"><span class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><div><b>Financials &amp; Controls</b><span>Back office, purchasing, accounting and operational controls.</span></div></li>
+          <li class="cap rv d4" tabindex="0" data-cap="Owner reporting"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><div><b>Owner Reporting</b><span>Clear reporting on revenue, rates, labor and performance.</span></div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="delivered rv">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg>
+      <p><strong>Delivered to your independent hotel.</strong><br>Your brand, your guests. More direct bookings, less OTA dependence, and a leaner operation.</p>
+      <a href="#review" class="btn btn-light">Request a Property Review</a>
+    </div>
+    <p class="illus-note">Diagram adapted from the CoastalOS concept graphic. Capabilities to be confirmed with the client.</p>
+  </div>
+</section>
+
+<!-- OUTCOMES -->
+<section class="sec outcomes" id="outcomes">
+  <div class="wrap" style="position:relative">
+    <div class="out-head rv">
+      <div>
+        <p class="kicker">Outcomes</p>
+        <h2>What owners get from the platform.</h2>
+      </div>
+      <p class="lede">Four outcomes guide every decision we make for a property.</p>
+    </div>
+
+    <div class="out-tabs" id="outTabs">
+      <div class="out-list rv d1" role="tablist" aria-label="Outcomes">
+        <button role="tab" id="t0" aria-controls="p0" aria-selected="true"><h3>Grow revenue <small>01</small></h3><p>Revenue management, distribution, marketing and centralized rate control, with a steady push toward direct bookings.</p><span class="bar"></span></button>
+        <button role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1"><h3>Reduce operating costs <small>02</small></h3><p>Technology, centralization and automation, with efficient staffing and clear oversight of payroll and labor.</p><span class="bar"></span></button>
+        <button role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><h3>Modernize the guest experience <small>03</small></h3><p>Easy booking, fast communication, convenient check-in, and support that responds when guests need it.</p><span class="bar"></span></button>
+        <button role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><h3>Give owners visibility <small>04</small></h3><p>Reporting on revenue, occupancy, rates, expenses, labor and property performance, all in one place.</p><span class="bar"></span></button>
+      </div>
+
+      <div class="out-panel rv d2">
+        <div class="ptitle"><span id="ptitle">Revenue mix over a season</span><span class="illus">Illustrative only</span></div>
+        <div class="viz">
+          <div id="p0" role="tabpanel" aria-labelledby="t0" class="on">
+            <svg viewBox="0 0 400 220" aria-label="Illustrative chart: direct bookings rising as a share of revenue">
+              <g stroke="rgba(255,255,255,.08)"><line x1="0" y1="40" x2="400" y2="40"/><line x1="0" y1="100" x2="400" y2="100"/><line x1="0" y1="160" x2="400" y2="160"/></g>
+              <path class="draw" d="M0 170 C60 160 90 150 140 130 S230 90 280 75 S360 50 400 40" fill="none" stroke="#6FD0CC" stroke-width="3"/>
+              <path class="draw" d="M0 90 C70 95 120 110 180 118 S300 135 400 140" fill="none" stroke="#C9932F" stroke-width="3" stroke-dasharray="900" style="animation-delay:.3s"/>
+              <circle cx="400" cy="40" r="5" fill="#6FD0CC"/>
+            </svg>
+          </div>
+          <div id="p1" role="tabpanel" aria-labelledby="t1">
+            <svg viewBox="0 0 400 220" aria-label="Illustrative chart: operating cost by function, before and after centralization">
+              <g font-family="Instrument Sans" font-size="11" fill="#A9BDD0">
+                <text x="30" y="214">Front desk</text><text x="128" y="214">Reservations</text><text x="232" y="214">Admin</text><text x="318" y="214">Marketing</text>
+              </g>
+              <g>
+                <rect class="grow" x="30" y="40" width="34" height="160" rx="5" fill="rgba(255,255,255,.18)"/><rect class="grow" x="70" y="90" width="34" height="110" rx="5" fill="#6FD0CC" style="animation-delay:.2s"/>
+                <rect class="grow" x="130" y="60" width="34" height="140" rx="5" fill="rgba(255,255,255,.18)"/><rect class="grow" x="170" y="120" width="34" height="80" rx="5" fill="#6FD0CC" style="animation-delay:.3s"/>
+                <rect class="grow" x="232" y="80" width="34" height="120" rx="5" fill="rgba(255,255,255,.18)"/><rect class="grow" x="272" y="130" width="34" height="70" rx="5" fill="#6FD0CC" style="animation-delay:.4s"/>
+                <rect class="grow" x="318" y="100" width="34" height="100" rx="5" fill="rgba(255,255,255,.18)"/><rect class="grow" x="358" y="135" width="34" height="65" rx="5" fill="#6FD0CC" style="animation-delay:.5s"/>
+              </g>
+            </svg>
+          </div>
+          <div id="p2" role="tabpanel" aria-labelledby="t2">
+            <div class="chat">
+              <div class="bub g">Hi! We land late tonight, around 11pm. Is that OK?</div>
+              <div class="bub h">No problem at all. Your digital check-in is ready, and your room key will arrive by text.</div>
+              <div class="bub k">🔑 Room 204 · key active from 3:00 PM</div>
+              <div class="bub g">Perfect, thank you!</div>
+            </div>
+          </div>
+          <div id="p3" role="tabpanel" aria-labelledby="t3">
+            <div class="kpis">
+              <div class="kpi"><small>Occupancy</small><b>— %</b><svg class="spark" viewBox="0 0 120 28"><path class="draw" d="M0 22 L20 18 L40 20 L60 12 L80 14 L100 6 L120 8" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div>
+              <div class="kpi"><small>ADR</small><b>$ —</b><svg class="spark" viewBox="0 0 120 28"><path class="draw" d="M0 20 L20 21 L40 16 L60 15 L80 10 L100 11 L120 5" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div>
+              <div class="kpi"><small>Labor cost</small><b>— %</b><svg class="spark" viewBox="0 0 120 28"><path class="draw" d="M0 6 L20 9 L40 8 L60 14 L80 15 L100 19 L120 20" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div>
+              <div class="kpi"><small>Guest rating</small><b>— / 5</b><svg class="spark" viewBox="0 0 120 28"><path class="draw" d="M0 18 L20 16 L40 17 L60 12 L80 10 L100 9 L120 7" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="legend" id="legend"><span><i style="background:#6FD0CC"></i>Direct bookings</span><span><i style="background:#C9932F"></i>Third-party channels</span></div>
+      </div>
+    </div>
+    <p class="tagline rv">High-touch hospitality where it matters. <em>Technology where it doesn’t.</em></p>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="rv">
+      <p class="kicker">How CoastalOS operates</p>
+      <h2 style="max-width:18ch">A simple philosophy, applied property by property.</h2>
+    </div>
+    <div class="phil">
+      <div class="rv d1"><span class="n">Centralize</span><h3>Centralize what can be centralized.</h3><p>Reservations, pricing, marketing and back-office work run once, for every property, by a dedicated team.</p></div>
+      <div class="rv d2"><span class="n">Automate</span><h3>Automate what can be automated.</h3><p>Routine steps happen in the background, so staff time goes to guests and the property.</p></div>
+      <div class="rv d3"><span class="n">Humanize</span><h3>Keep hospitality human.</h3><p>On-site teams focus on clean rooms, a warm welcome, and solving problems in person.</p></div>
+    </div>
+
+    <div class="flow rv" id="flow" role="region" aria-label="The guest journey with CoastalOS" tabindex="0">
+      <div class="flow-top"><p class="flow-title">The guest journey with CoastalOS</p><span class="tag-ph" style="background:var(--teal-soft);border-color:var(--teal);color:var(--teal)">Illustrative flow</span></div>
+      <div class="flow-track">
+        <div class="flow-line"><i></i></div>
+        <ol>
+          <li style="--i:0"><div class="dot"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18"/></svg></div><span>Booking</span><small>Direct or any channel</small></li>
+          <li class="hub" style="--i:1"><div class="dot"><svg viewBox="0 0 24 24"><path d="M6 13a6 6 0 0 1 12 0M4 17c3-2 5 2 8 0s5 2 8 0"/></svg></div><span>CoastalOS</span><small>Managed centrally</small></li>
+          <li style="--i:2"><div class="dot"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg></div><span>Guest communication</span><small>Before arrival</small></li>
+          <li style="--i:3"><div class="dot"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9"/></svg></div><span>Digital check-in</span><small>Contactless arrival</small></li>
+          <li style="--i:4"><div class="dot"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg></div><span>Property operations</span><small>On-site team</small></li>
+          <li style="--i:5"><div class="dot"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div><span>Review</span><small>Feedback captured</small></li>
+          <li style="--i:6"><div class="dot"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></div><span>Repeat guest</span><small>Back direct</small></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OWNERS -->
+<section class="sec owners">
+  <div class="wrap owners-grid">
+    <div class="owners-visual rv">
+      <div class="ph"><strong>Property photo</strong>Approved CoastalOS property image from Jed</div>
+      <div class="owners-badge"><b>Operator-built</b><small>Shaped by years of running independent hotels</small></div>
+    </div>
+    <div class="rv d2">
+      <p class="kicker">Built by hotel owners</p>
+      <h2>Developed inside real hotels, not a software lab.</h2>
+      <p class="lede">CoastalOS grew out of years of owning and operating independent hotels. Every part of the platform was shaped by the daily work of running properties and answering to owners.</p>
+      <blockquote>We built the platform we wanted for our own hotels. <span class="tag-ph">Confirm quote with Jed</span></blockquote>
+      <ul>
+        <li>Part of the Coastal family alongside Coastal Hospitality Group and Coastal Management Company <span class="tag-ph">Confirm wording</span></li>
+        <li>Years in operation and number of properties <span class="tag-ph">Placeholder</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="sec" id="proof">
+  <div class="wrap">
+    <div class="proof-head rv">
+      <div>
+        <p class="kicker">Portfolio</p>
+        <h2>Properties running on CoastalOS.</h2>
+      </div>
+      <span class="tag-ph">Awaiting approved properties and verified results</span>
+    </div>
+    <div class="proof-grid">
+      <article class="prop rv d1"><div class="ph"><strong>Featured property photo</strong>Approved image</div><h3>Property name</h3><p>Location · rooms · property type</p></article>
+      <article class="prop rv d2"><div class="ph"><strong>Property photo</strong>Approved image</div><h3>Property name</h3><p>Location · rooms · property type</p></article>
+      <article class="prop rv d3"><div class="ph"><strong>Property photo</strong>Approved image</div><h3>Property name</h3><p>Location · rooms · property type</p></article>
+    </div>
+    <div class="metrics">
+      <div class="ph rv d1"><strong>Revenue growth</strong>Verified figure needed</div>
+      <div class="ph rv d2"><strong>ADR improvement</strong>Verified figure needed</div>
+      <div class="ph rv d3"><strong>Direct booking share</strong>Verified figure needed</div>
+      <div class="ph rv d4"><strong>Guest review score</strong>Verified figure needed</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap faq-grid">
+    <div class="rv">
+      <p class="kicker">Questions owners ask</p>
+      <h2 style="max-width:12ch">Before you get in touch.</h2>
+    </div>
+    <div class="rv d2">
+      <details><summary>Is CoastalOS software I install?</summary><p>No. CoastalOS is an operating platform: our team, technology and processes working together to run the core functions of your hotel, centrally.</p></details>
+      <details><summary>What size of property is it built for?</summary><p>Independent and boutique hotels, motels, inns and resorts, typically around 15 to 100 rooms.</p></details>
+      <details><summary>Do we keep our own brand?</summary><p>Yes. Your property keeps its name, website and guests. CoastalOS works behind the scenes to grow direct business under your brand.</p></details>
+      <details><summary>What happens in a property review?</summary><p>We look at how your hotel runs today and where centralization and technology could add revenue, lower cost, or improve visibility. <span class="tag-ph">Confirm process with Jed</span></p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta" id="review">
+  <div class="wrap cta-grid">
+    <div class="rv">
+      <p class="kicker">Request a property review</p>
+      <h2>Your property. Our operating platform.</h2>
+      <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS can add revenue, reduce cost, and give you clearer visibility.</p>
+      <ol class="steps">
+        <li><span>1</span><div><b>Share a few details</b><small>Takes about two minutes.</small></div></li>
+        <li><span>2</span><div><b>We review your property</b><small>Revenue, operations and costs.</small></div></li>
+        <li><span>3</span><div><b>Talk through the findings</b><small>A clear conversation, no obligation.</small></div></li>
+      </ol>
+      <div class="alt-contact">
+        <b>Prefer to talk first?</b>
+        <p>Phone and email for the CoastalOS team <span class="tag-ph">Placeholder</span></p>
+      </div>
+    </div>
+    <form id="reviewForm" class="rv d2" novalidate>
+      <div class="form-head"><b>Request a Property Review</b><p>We’ll reply within one business day. <span class="tag-ph">Confirm</span></p></div>
+      <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+      <div class="f"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
+      <div class="f"><label for="property">Property name</label><input id="property" name="property" required><span class="err" aria-live="polite"></span></div>
+      <div class="f"><label for="location">Location</label><input id="location" name="location" placeholder="City, state"></div>
+      <fieldset class="f full" style="border:0;padding:0;margin:0"><legend style="font-weight:600;font-size:.92rem;color:var(--navy);margin-bottom:8px">Number of rooms</legend>
+        <div class="chips">
+          <input type="radio" name="rooms" id="r1" value="Under 15"><label for="r1">Under 15</label>
+          <input type="radio" name="rooms" id="r2" value="15–40"><label for="r2">15–40</label>
+          <input type="radio" name="rooms" id="r3" value="41–100"><label for="r3">41–100</label>
+          <input type="radio" name="rooms" id="r4" value="100+"><label for="r4">100+</label>
+        </div>
+      </fieldset>
+      <div class="f full"><label for="msg">What would you like to improve? <i>(optional)</i></label><textarea id="msg" name="message"></textarea></div>
+      <p class="consent f full">Privacy and consent wording to be supplied by CoastalOS. <span class="tag-ph">Placeholder</span></p>
+      <div class="f full"><button class="btn btn-primary" type="submit" style="justify-content:center">Request a Property Review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="logo-word">Coastal<span style="color:#6FD0CC">OS</span></span>
+        <p style="margin-top:10px;max-width:34ch">The Operating System for Independent Hotels.</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="#platform">Platform</a></li><li><a href="#outcomes">Services</a></li><li><a href="#about">About</a></li><li><a href="#proof">Portfolio</a></li></ul></div>
+      <div><h4>Get started</h4><ul><li><a href="#review">Request a Property Review</a></li><li><a href="#review">Talk to Our Team</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 CoastalOS. Prototype for client review.</span>
+      <span>Address and legal links <span class="tag-ph">Placeholder</span></span>
+    </div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a href="#review" class="btn btn-primary">Request a Property Review</a></div>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  requestAnimationFrame(function(){document.body.classList.add('loaded')});
+
+  // header, progress bar, mobile CTA, active nav
+  var header=document.querySelector('header.site'),bar=document.querySelector('.progress'),mcta=document.getElementById('mcta'),review=document.getElementById('review');
+  var links=[].slice.call(document.querySelectorAll('#menu a'));
+  function onScroll(){
+    var y=window.scrollY,h=document.documentElement.scrollHeight-innerHeight;
+    header.classList.toggle('scrolled',y>8);
+    bar.style.transform='scaleX('+(h>0?y/h:0)+')';
+    var r=review.getBoundingClientRect();
+    mcta.classList.toggle('show',y>600&&r.top>innerHeight*.6);
+    var cur='';links.forEach(function(a){var s=document.querySelector(a.getAttribute('href'));if(s&&s.getBoundingClientRect().top<160)cur=a.getAttribute('href')});
+    links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')===cur)});
+  }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // mobile menu
+  var nav=document.getElementById('nav'),btn=nav.querySelector('.menu-btn');
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Close menu':'Open menu')});
+  links.forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')})});
+  addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.focus()}});
+
+  // reveals
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv,#diagram,#flow').forEach(function(el){io.observe(el)});
+
+  // compare toggle
+  var cmp=document.getElementById('compare'),seg=cmp.querySelector('.seg'),thumb=seg.querySelector('.thumb'),bs=seg.querySelectorAll('button'),cap=cmp.querySelector('.cmp-cap');
+  var caps={today:'Each function runs on its own tools and people, and the owner is left connecting the pieces.',central:'One platform coordinates every function, and the owner gets one clear view of the property.'};
+  function setMode(m){
+    bs.forEach(function(b){var on=b.dataset.mode===m;b.setAttribute('aria-pressed',on);if(on){thumb.style.width=b.offsetWidth+'px';thumb.style.transform='translateX('+(b.offsetLeft-4)+'px)'}});
+    cmp.classList.toggle('centralized',m==='central');cap.textContent=caps[m];
+  }
+  bs.forEach(function(b){b.addEventListener('click',function(){autoCmp=false;setMode(b.dataset.mode)})});
+  setMode('today');addEventListener('resize',function(){setMode(cmp.classList.contains('centralized')?'central':'today')});
+  var autoCmp=!reduce;
+  new IntersectionObserver(function(es){if(es[0].isIntersecting&&autoCmp){setTimeout(function(){if(autoCmp)setMode('central')},1800)}},{threshold:.6}).observe(cmp);
+
+  // diagram hover -> core label
+  var ac=document.querySelector('.active-cap'),def=ac.textContent;
+  document.querySelectorAll('.cap').forEach(function(c){
+    function on(){ac.style.opacity=0;setTimeout(function(){ac.innerHTML=c.dataset.cap;ac.style.opacity=1},150)}
+    function off(){ac.textContent=def}
+    c.addEventListener('mouseenter',on);c.addEventListener('focus',on);c.addEventListener('mouseleave',off);c.addEventListener('blur',off);
+  });
+
+  // outcome tabs with autoplay
+  var wrap=document.getElementById('outTabs'),tabs=[].slice.call(wrap.querySelectorAll('[role=tab]')),panels=wrap.querySelectorAll('[role=tabpanel]');
+  var titles=['Revenue mix over a season','Cost by function, before and after','A guest conversation, handled centrally','The owner’s weekly view'];
+  var legends=['<span><i style="background:#6FD0CC"></i>Direct bookings</span><span><i style="background:#C9932F"></i>Third-party channels</span>','<span><i style="background:rgba(255,255,255,.3)"></i>Managed separately</span><span><i style="background:#6FD0CC"></i>Centralized</span>','<span>Sample conversation</span>','<span>Figures shown once verified data is supplied</span>'];
+  var idx=0,timer=null,auto=!reduce;
+  function show(i,focus){
+    idx=i;tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i);t.tabIndex=k===i?0:-1});
+    panels.forEach(function(p,k){p.classList.remove('on');if(k===i){void p.offsetWidth;p.classList.add('on')}});
+    document.getElementById('ptitle').textContent=titles[i];document.getElementById('legend').innerHTML=legends[i];
+    if(focus)tabs[i].focus();
+    clearTimeout(timer);if(auto)timer=setTimeout(function(){show((idx+1)%4)},7000);
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){auto=false;wrap.classList.add('paused');show(i)});
+    t.addEventListener('keydown',function(e){var n=null;if(e.key==='ArrowDown'||e.key==='ArrowRight')n=(i+1)%4;if(e.key==='ArrowUp'||e.key==='ArrowLeft')n=(i+3)%4;if(n!==null){e.preventDefault();auto=false;wrap.classList.add('paused');show(n,true)}});
+  });
+  if(reduce)wrap.classList.add('paused');
+  new IntersectionObserver(function(es){if(es[0].isIntersecting){show(idx)}else clearTimeout(timer)},{threshold:.3}).observe(wrap);
+
+  // form
+  var form=document.getElementById('reviewForm');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();var ok=true;
+    form.querySelectorAll('[required]').forEach(function(el){
+      var err=el.parentNode.querySelector('.err'),msg='',lab=el.parentNode.querySelector('label').textContent.toLowerCase();
+      if(!el.value.trim())msg='Enter your '+lab+'.';
+      else if(el.type==='email'&&!/^\S+@\S+\.\S+$/.test(el.value))msg='Enter a valid email, like name@hotel.com.';
+      err.textContent=msg;el.setAttribute('aria-invalid',msg?'true':'false');if(msg&&ok){el.focus();ok=false}
+    });
+    if(ok&&!form.querySelector('.form-done')){var d=document.createElement('p');d.className='form-done';d.setAttribute('role','status');d.innerHTML='<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Request received. This prototype form doesn’t send yet; delivery is connected at build.';form.appendChild(d);form.querySelector('button[type=submit]').disabled=true}
+  });
+})();
+</script>
+</body>
+</html>
