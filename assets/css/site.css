@@ -43,6 +43,7 @@ a{color:inherit}
 /* single reveal pattern */
 .js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
 .js .rv.in{opacity:1;transform:none}
+.js .rv.rv-now{transition:none}
 .js .rv.d1{transition-delay:.06s}.js .rv.d2{transition-delay:.12s}.js .rv.d3{transition-delay:.18s}
 
 /* Shared: icon tile + card */
