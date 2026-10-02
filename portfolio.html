@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Portfolio — CoastalOS</title>
+<meta name="description" content="Properties in the Coastal portfolio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.prop{padding:12px 12px 22px;display:flex;flex-direction:column}
+.prop .ph-img{aspect-ratio:4/3;border-radius:12px}
+.prop .ph-img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.prop .ph-img:has(img)::after{content:none}
+.prop .meta{display:grid;gap:8px;padding:18px 8px 0}
+.prop h2{font-size:1.2rem;letter-spacing:-.01em}
+.prop .loc{font-size:.95rem;color:var(--muted)}
+.prop .type{justify-self:start;font:500 .85rem var(--display);color:var(--navy);background:var(--teal-soft);border-radius:var(--r-pill);padding:4px 12px}
+.results{margin-top:clamp(40px,5vw,56px);padding:clamp(24px,3vw,32px);display:flex;align-items:center;gap:18px}
+.results p{color:var(--muted);font-size:1.02rem}
+.results b{display:block;font:600 1.1rem var(--display);color:var(--navy);margin-bottom:4px}
+@media (max-width:980px){.pf-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.pf-grid{grid-template-columns:1fr}.results{align-items:flex-start}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site" id="top">
+  <div class="wrap nav" id="nav">
+    <a href="index.html" class="logo" aria-label="CoastalOS home">
+      <!-- LOGO: replace this SVG + wordmark with the client's final logo file -->
+      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><path d="M9 21a11 11 0 0 1 22 0" fill="none" stroke="#C9932F" stroke-width="2.6" stroke-linecap="round"/><path d="M5 26c5-3 9 3 15 0s10 3 15 0" fill="none" stroke="#1C8C8A" stroke-width="2.6" stroke-linecap="round"/><path d="M10 31c4-2 6 2 10 0s6 2 10 0" fill="none" stroke="#0E2A47" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <span class="logo-word">Coastal<span>OS</span></span>
+    </a>
+    <ul id="menu">
+      <li><a href="index.html#platform">Platform</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html" class="active" aria-current="page">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta">Request a Property Review</a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap rv">
+    <p class="kicker">Portfolio</p>
+    <h1>Properties in the Coastal portfolio.</h1>
+    <p class="lede">Independent hotels, motels and inns across Florida, California and North Carolina.</p>
+  </div>
+</section>
+
+<!-- TEMPORARY: Coastal Getaway images/properties pending client approval for CoastalOS. See assets/portfolio/SOURCES.md -->
+<section class="sec sec-white" aria-label="Properties">
+  <div class="wrap">
+    <div class="pf-grid">
+      <article class="card prop rv d1">
+        <div class="ph-img"><img src="assets/portfolio/island-house-resort-hotel-pool.webp" width="1600" height="900" alt="Aerial view of the courtyard pool at Island House Resort Hotel, North Redington Beach" loading="lazy" decoding="async"></div>
+        <div class="meta"><h2>Island House Resort Hotel</h2><p class="loc">North Redington Beach, FL</p><span class="type">Resort hotel</span></div>
+      </article>
+      <article class="card prop rv d2">
+        <div class="ph-img"><img src="assets/portfolio/patriots-boutique-motel-exterior.webp" width="1000" height="667" alt="Exterior of Patriots' Boutique Motel, San Clemente" loading="lazy" decoding="async"></div>
+        <div class="meta"><h2>Patriots’ Boutique Motel</h2><p class="loc">San Clemente, CA</p><span class="type">Motel</span></div>
+      </article>
+      <article class="card prop rv d3">
+        <div class="ph-img"><img src="assets/portfolio/the-pineola-aerial.webp" width="1000" height="663" alt="Aerial view of The Pineola and surrounding mountains, Newland" loading="lazy" decoding="async"></div>
+        <div class="meta"><h2>The Pineola</h2><p class="loc">Newland, NC</p><span class="type">Mountain inn</span></div>
+      </article>
+    </div>
+    <div class="card results rv">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span>
+      <p><b>Results</b>Property results will be shared here as they’re verified.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta cta-band">
+  <div class="wrap rv">
+    <p class="kicker">Request a property review</p>
+    <h2>Your property. Our operating platform.</h2>
+    <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS can add revenue, reduce cost, and give you clearer visibility.</p>
+    <div class="hero-ctas">
+      <a href="contact.html" class="btn btn-light">Request a Property Review</a>
+      <a href="contact.html?request=call" class="btn btn-ghost-light">Talk to Our Team</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="logo-word">Coastal<span style="color:#6FD0CC">OS</span></span>
+        <p style="margin-top:10px;max-width:34ch">The Operating System for Independent Hotels.</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="index.html#platform">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Get started</h4><ul><li><a href="contact.html">Request a Property Review</a></li><li><a href="contact.html?request=call">Talk to Our Team</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">© 2026 CoastalOS</div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a href="contact.html" class="btn btn-primary">Request a Property Review</a></div>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
