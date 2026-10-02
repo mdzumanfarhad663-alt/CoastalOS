@@ -10,19 +10,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
+/* About uses ~25% less vertical section padding than the homepage */
+.sec{padding:calc(var(--sec) * .75) 0}
+.page-hero{padding:clamp(44px,5vw,72px) 0 clamp(44px,5vw,64px)}
+.page-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,64px);align-items:center}
+.hero-mark{justify-self:end;width:100%;max-width:400px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 50%,var(--teal-soft) 0,rgba(230,243,242,.45) 55%,transparent 72%);display:grid;place-items:center}
+.hero-mark svg{width:74%;height:auto;opacity:.6}
+@media (max-width:860px){.page-hero-grid{grid-template-columns:1fr}.hero-mark{display:none}}
 .owners .lede+.lede{margin-top:14px}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);align-items:stretch}
+.why{padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;gap:12px}
+.why .who-label{font:600 .85rem var(--display);color:var(--muted);letter-spacing:.02em}
+.why h3{font-size:1.25rem}
+.why p{color:var(--muted);font-size:.97rem;line-height:1.55}
+.why.ours{background:var(--navy);border-color:var(--navy);box-shadow:var(--shadow-lg)}
+.why.ours .who-label{color:var(--teal-2)}
+.why.ours h3{color:#fff}
+.why.ours p{color:#B9CADB}
+.why.ours .ic{background:rgba(111,208,204,.14)}
+.why.ours .ic svg{stroke:var(--teal-2)}
+@media (max-width:900px){.why-grid{grid-template-columns:1fr}}
+/* Founder note (section is commented out until Jed supplies text and photo) */
+.founder-card{display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,48px);align-items:center;padding:clamp(24px,4vw,44px)}
+.founder-card img{width:200px;height:200px;object-fit:cover;border-radius:50%}
+.founder-card blockquote{margin:0;font:500 clamp(1.15rem,1.8vw,1.4rem)/1.5 var(--display);color:var(--navy)}
+.founder-card figcaption{margin-top:18px;color:var(--muted)}
+.founder-card figcaption b{display:block;color:var(--navy);font-family:var(--display)}
+@media (max-width:700px){.founder-card{grid-template-columns:1fr}.founder-card img{width:140px;height:140px}}
 .who-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
 .who .lede{margin-top:18px}
 .types{list-style:none;margin:0;padding:clamp(22px,3vw,32px);display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .types li{display:flex;align-items:center;gap:12px;font:600 1.02rem var(--display);color:var(--navy)}
 .types .note{grid-column:1/-1;border-top:1px solid var(--line);padding-top:16px;margin-top:4px;font:400 .95rem var(--body);color:var(--muted)}
-.focus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
-.focus{padding:clamp(22px,2.6vw,28px);display:grid;gap:14px;align-content:start}
-.focus h3{font-size:1.1rem}
-.focus p{color:var(--muted);font-size:.95rem;line-height:1.55}
-@media (max-width:980px){.focus-grid{grid-template-columns:1fr 1fr}}
 @media (max-width:860px){.who-grid{grid-template-columns:1fr}}
-@media (max-width:560px){.focus-grid,.types{grid-template-columns:1fr}}
+@media (max-width:560px){.types{grid-template-columns:1fr}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -52,10 +73,15 @@
 
 <!-- HERO -->
 <section class="page-hero">
-  <div class="wrap rv">
-    <p class="kicker">About CoastalOS</p>
-    <h1>Built by hotel owners, for hotel owners.</h1>
-    <p class="lede">CoastalOS is a technology-enabled hotel management and operating platform for independent and boutique hotels. It brings hospitality, technology, operations and asset management together, so owners can grow revenue, run leaner and see clearly how their property performs.</p>
+  <div class="wrap page-hero-grid">
+    <div class="rv">
+      <p class="kicker">About CoastalOS</p>
+      <h1>Built by hotel owners, for hotel owners.</h1>
+      <p class="lede">CoastalOS is a technology-enabled hotel management and operating platform for independent and boutique hotels. It brings hospitality, technology, operations and asset management together, so owners can grow revenue, run leaner and see clearly how their property performs.</p>
+    </div>
+    <div class="hero-mark rv d2" aria-hidden="true">
+      <svg viewBox="3 6 34 28"><path d="M9 21a11 11 0 0 1 22 0" fill="none" stroke="#C9932F" stroke-width="1.6" stroke-linecap="round"/><path d="M5 26c5-3 9 3 15 0s10 3 15 0" fill="none" stroke="#1C8C8A" stroke-width="1.6" stroke-linecap="round"/><path d="M10 31c4-2 6 2 10 0s6 2 10 0" fill="none" stroke="#0E2A47" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </div>
   </div>
 </section>
 
@@ -146,21 +172,35 @@
   </div>
 </section>
 
-<!-- FOCUS -->
+<!-- WHY -->
 <section class="sec">
   <div class="wrap">
     <div class="sec-head rv">
-      <p class="kicker">Our focus</p>
-      <h2>Four outcomes guide everything we do.</h2>
+      <p class="kicker">Our approach</p>
+      <h2>Why an operator-built platform.</h2>
+      <p class="lede">Independent owners usually choose between buying software or handing the hotel to a management company. CoastalOS takes a different route.</p>
     </div>
-    <div class="focus-grid">
-      <article class="card focus rv d1"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><h3>Grow revenue</h3><p>Revenue management, distribution, marketing and centralized rate control, with a steady push toward direct bookings.</p></article>
-      <article class="card focus rv d2"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><h3>Reduce operating costs</h3><p>Technology, centralization and automation, with efficient staffing and clear oversight of payroll and labor.</p></article>
-      <article class="card focus rv d3"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg></span><h3>Modernize the guest experience</h3><p>Easy booking, fast communication, convenient check-in, and support that responds when guests need it.</p></article>
-      <article class="card focus rv d3"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><h3>Give owners visibility</h3><p>Reporting on revenue, occupancy, rates, expenses, labor and property performance, all in one place.</p></article>
+    <div class="why-grid">
+      <article class="card why rv d1"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span class="who-label">Software vendor</span><h3>Gives you tools.</h3><p>Useful technology, but you and your team still run reservations, pricing, staffing and reporting yourselves.</p></article>
+      <article class="card why rv d2"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span><span class="who-label">Traditional management company</span><h3>Runs the hotel its own way.</h3><p>The day-to-day is handled for you, on the management company’s own terms and approach.</p></article>
+      <article class="card why ours rv d3"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="who-label">CoastalOS</span><h3>An operator-built platform.</h3><p>Runs the core functions of your hotel centrally, while your brand, your guests and your independence stay yours.</p></article>
     </div>
   </div>
 </section>
+
+<!-- FOUNDER NOTE: hidden until Jed supplies his note and photo (see README). Uncomment to show.
+<section class="sec sec-white">
+  <div class="wrap">
+    <figure class="card founder-card rv" style="margin:0">
+      <img src="assets/about/founder.jpg" width="400" height="400" alt="Portrait of [founder name]">
+      <div>
+        <blockquote><p>[Founder note from Jed, in his own words.]</p></blockquote>
+        <figcaption><b>[Founder name]</b>[Title], CoastalOS</figcaption>
+      </div>
+    </figure>
+  </div>
+</section>
+-->
 
 <!-- CTA -->
 <section class="sec cta cta-band">
@@ -170,7 +210,7 @@
     <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS can add revenue, reduce cost, and give you clearer visibility.</p>
     <div class="hero-ctas">
       <a href="index.html#review" class="btn btn-light">Request a Property Review</a>
-      <a href="index.html#review" class="btn btn-ghost-light">Talk to Our Team</a>
+      <a href="index.html?request=call#review" class="btn btn-ghost-light">Talk to Our Team</a>
     </div>
   </div>
 </section>
@@ -184,7 +224,7 @@
         <p style="margin-top:10px;max-width:34ch">The Operating System for Independent Hotels.</p>
       </div>
       <div><h4>Explore</h4><ul><li><a href="index.html#platform">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="index.html#proof">Portfolio</a></li></ul></div>
-      <div><h4>Get started</h4><ul><li><a href="index.html#review">Request a Property Review</a></li><li><a href="index.html#review">Talk to Our Team</a></li></ul></div>
+      <div><h4>Get started</h4><ul><li><a href="index.html#review">Request a Property Review</a></li><li><a href="index.html?request=call#review">Talk to Our Team</a></li></ul></div>
     </div>
     <div class="foot-bottom">© 2026 CoastalOS</div>
   </div>

@@ -45,3 +45,4 @@ Then visit http://localhost:8000.
 - Which services are offered on their own and which only as a full package.
 - Contact details (phone, email, address) and any privacy or consent wording for the form.
 - Final logo files (SVG or transparent PNG).
+- **Founder note (About page):** a finished founder-note section is commented out in `about.html` (search for `FOUNDER NOTE`). It needs Jed's own text, his name and title, and a portrait photo saved as `assets/about/founder.jpg`. Uncomment it once those arrive.

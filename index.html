@@ -538,7 +538,7 @@
         <p style="margin-top:10px;max-width:34ch">The Operating System for Independent Hotels.</p>
       </div>
       <div><h4>Explore</h4><ul><li><a href="index.html#platform">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="index.html#proof">Portfolio</a></li></ul></div>
-      <div><h4>Get started</h4><ul><li><a href="#review">Request a Property Review</a></li><li><a href="#review">Talk to Our Team</a></li></ul></div>
+      <div><h4>Get started</h4><ul><li><a href="#review">Request a Property Review</a></li><li><a href="index.html?request=call#review">Talk to Our Team</a></li></ul></div>
     </div>
     <div class="foot-bottom">© 2026 CoastalOS</div>
   </div>
@@ -576,6 +576,8 @@
   var oo=new IntersectionObserver(function(es){if(es[0].isIntersecting){oo.disconnect();show(0)}},{threshold:.3});oo.observe(wrap);
 
   var form=document.getElementById('reviewForm');
+  // ?request=call (from "Talk to Our Team" links) pre-selects a call instead of a review
+  if(/[?&]request=call(&|$)/.test(location.search))document.getElementById('q2').checked=true;
   form.addEventListener('submit',function(e){
     e.preventDefault();var ok=true;
     form.querySelectorAll('[required]').forEach(function(el){
