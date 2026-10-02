@@ -277,7 +277,8 @@ header.site.scrolled{border-color:var(--line);background:rgba(255,255,255,.92)}
 /* ===== OWNERS ===== */
 .owners-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
 .owners-visual{position:relative}
-.owners .ph-img{aspect-ratio:4/3.1}
+.owners-art{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)}
+.owners-art svg{width:100%;height:auto}
 .owners-badge{position:absolute;right:-16px;bottom:-20px;background:var(--navy);color:#fff;border-radius:var(--r-md);padding:18px 20px;max-width:220px;box-shadow:var(--shadow-lg)}
 .owners-badge b{font:600 1.05rem/1.25 var(--display);display:block}
 .owners-badge small{color:#A9BDD0;font-size:.85rem;display:block;margin-top:6px;line-height:1.4}
@@ -320,6 +321,7 @@ details p{color:var(--muted);padding:0 40px 22px 0;max-width:62ch}
 .next b{color:#fff;font-family:var(--display);font-weight:600;display:block}
 .next small{font-size:.92rem}
 .alt-contact{margin-top:32px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:grid;gap:10px}
+.alt-contact p{font-size:.95rem}
 .alt-contact b{font-family:var(--display);color:#fff;font-size:1.05rem}
 form{background:#fff;border-radius:var(--r-lg);padding:clamp(24px,4vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:16px;box-shadow:var(--shadow-lg);color:var(--ink)}
 .form-head{grid-column:1/-1;margin-bottom:4px}
@@ -607,8 +609,45 @@ footer a:hover{color:#fff}
 <section class="sec sec-white owners">
   <div class="wrap owners-grid">
     <div class="owners-visual rv">
-      <div class="ph-img" role="img" aria-label="Property photograph to come"></div>
-      <div class="owners-badge"><b>Operator-built</b><small>Shaped by years of running independent hotels</small></div>
+      <figure class="owners-art" role="img" aria-label="Illustration of an independent coastal hotel connected to the CoastalOS platform" style="margin:0">
+        <svg viewBox="0 0 560 434" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E6F3F2"/><stop offset="1" stop-color="#F6F9FA"/></linearGradient>
+            <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1C8C8A"/><stop offset="1" stop-color="#0E2A47"/></linearGradient>
+          </defs>
+          <rect width="560" height="434" fill="url(#sky)"/>
+          <circle cx="410" cy="128" r="54" fill="#F6EBD5"/>
+          <path d="M356 128a54 54 0 0 1 108 0" fill="none" stroke="#C9932F" stroke-width="3" stroke-linecap="round"/>
+          <!-- hotel -->
+          <rect x="96" y="132" width="250" height="196" rx="6" fill="#fff" stroke="#DCE5EA" stroke-width="2"/>
+          <path d="M84 138 L221 82 L358 138 Z" fill="#0E2A47"/>
+          <rect x="190" y="108" width="62" height="14" rx="3" fill="#163A5E"/>
+          <g fill="#E6F3F2" stroke="#DCE5EA">
+            <rect x="122" y="160" width="40" height="34" rx="3"/><rect x="180" y="160" width="40" height="34" rx="3"/><rect x="238" y="160" width="40" height="34" rx="3"/><rect x="296" y="160" width="28" height="34" rx="3"/>
+            <rect x="122" y="214" width="40" height="34" rx="3"/><rect x="238" y="214" width="40" height="34" rx="3"/><rect x="296" y="214" width="28" height="34" rx="3"/>
+          </g>
+          <rect x="180" y="214" width="40" height="34" rx="3" fill="#F6EBD5" stroke="#C9932F"/>
+          <rect x="190" y="268" width="62" height="60" rx="4" fill="#0E2A47"/>
+          <rect x="176" y="262" width="90" height="10" rx="3" fill="#1C8C8A"/>
+          <!-- palms -->
+          <g stroke="#0E2A47" stroke-width="3" fill="none" stroke-linecap="round">
+            <path d="M70 330 C72 290 66 262 74 236"/><path d="M74 236 C60 228 48 232 40 242M74 236 C86 224 100 226 108 234M74 236 C70 222 62 216 52 214M74 236 C82 222 92 218 102 218"/>
+            <path d="M376 330 C378 298 372 276 380 256"/><path d="M380 256 C368 250 358 252 352 260M380 256 C390 246 402 248 408 254M380 256 C378 244 370 240 362 238"/>
+          </g>
+          <!-- sea -->
+          <path d="M0 330 H560 V434 H0 Z" fill="url(#sea)"/>
+          <path d="M0 352 C40 342 80 362 120 352 S200 342 240 352 S320 362 360 352 S440 342 480 352 S540 362 560 352" fill="none" stroke="#6FD0CC" stroke-width="2.5" opacity=".7"/>
+          <path d="M0 384 C50 376 90 392 140 384 S240 376 290 384 S390 392 440 384 S530 376 560 384" fill="none" stroke="#6FD0CC" stroke-width="2" opacity=".4"/>
+          <!-- platform link -->
+          <path d="M346 214 C420 214 430 240 470 240" fill="none" stroke="#1C8C8A" stroke-width="2" stroke-dasharray="4 6"/>
+          <g transform="translate(436 222)">
+            <rect width="100" height="72" rx="14" fill="#0E2A47"/>
+            <path d="M34 34a16 16 0 0 1 32 0" fill="none" stroke="#C9932F" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M28 42c6-4 12 4 22 0s16 4 22 0" fill="none" stroke="#6FD0CC" stroke-width="2.6" stroke-linecap="round"/>
+            <text x="50" y="60" text-anchor="middle" font-family="Outfit,sans-serif" font-weight="600" font-size="12" fill="#fff">CoastalOS</text>
+          </g>
+        </svg>
+      </figure>
     </div>
     <div class="rv d2">
       <p class="kicker">Built by hotel owners</p>
@@ -667,10 +706,7 @@ footer a:hover{color:#fff}
         <li><span>2</span><div><b>We review your property</b><small>Revenue, operations and costs.</small></div></li>
         <li><span>3</span><div><b>Talk through the findings</b><small>A clear conversation with our team.</small></div></li>
       </ol>
-      <div class="alt-contact" aria-label="Direct contact details to come">
-        <b>Prefer to talk first?</b>
-        <span class="skel dark w60"></span><span class="skel dark w40"></span>
-      </div>
+      <div class="alt-contact"><b>Prefer to talk first?</b><p>Select “A call with our team” in the form, and we’ll arrange a conversation instead of starting with a review.</p></div>
     </div>
     <form id="reviewForm" class="rv d2" novalidate>
       <div class="form-head"><b>Request a Property Review</b></div>
@@ -678,6 +714,12 @@ footer a:hover{color:#fff}
       <div class="f"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
       <div class="f"><label for="property">Property name</label><input id="property" name="property" required><span class="err" aria-live="polite"></span></div>
       <div class="f"><label for="location">Location</label><input id="location" name="location" placeholder="City, state"></div>
+      <fieldset class="f full"><legend>I’d like</legend>
+        <div class="chips">
+          <input type="radio" name="request" id="q1" value="Property review" checked><label for="q1">A property review</label>
+          <input type="radio" name="request" id="q2" value="Call with the team"><label for="q2">A call with our team</label>
+        </div>
+      </fieldset>
       <fieldset class="f full"><legend>Number of rooms</legend>
         <div class="chips">
           <input type="radio" name="rooms" id="r1" value="Under 15"><label for="r1">Under 15</label>
@@ -687,8 +729,7 @@ footer a:hover{color:#fff}
         </div>
       </fieldset>
       <div class="f full"><label for="msg">What would you like to improve? <i>(optional)</i></label><textarea id="msg" name="message"></textarea></div>
-      <div class="consent f full" aria-label="Privacy and consent text to come"><span class="skel"></span><span class="skel w60"></span></div>
-      <div class="f full"><button class="btn btn-primary" type="submit">Request a Property Review</button></div>
+            <div class="f full"><button class="btn btn-primary" type="submit">Request a Property Review</button></div>
     </form>
   </div>
 </section>
