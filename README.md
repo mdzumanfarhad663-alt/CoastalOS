@@ -37,8 +37,11 @@ Then visit http://localhost:8000.
 ## Awaiting client confirmation
 
 **Portfolio (temporary)**
-- Property names and images come from https://coastalgetaway.com/. See `assets/portfolio/SOURCES.md`. Jed still needs to approve their use on CoastalOS, and confirm whether these properties may be described as running on CoastalOS.
-- No portfolio metrics are shown until verified results are supplied.
+- Six properties from https://coastalgetaway.com/ appear on `portfolio.html`, and the first three on the homepage. Names, locations, types and page URLs come from the Coastal Getaway property pages. Images and sources are listed in `assets/portfolio/SOURCES.md`.
+- The homepage shows the first three cards from `portfolio.html`; when property details change, update both files.
+- Every property link opens the Coastal Getaway page in a new tab with `?utm_source=coastalos&utm_medium=portfolio&utm_campaign=property_card` added (merged with any existing query string).
+- Jed needs to approve: using these properties and images on CoastalOS; whether they may be described as running on CoastalOS; Malibu Resort Motel's city (the site lists both St. Pete Beach and North Redington Beach); the Malibu and Geneva image matches; and whether he has front-exterior photos for Island House and The Pineola.
+- No ratings, prices, reviews or metrics are shown. Property results will be added once verified.
 
 **Facts still needed from Jed (left out of the About and Services pages)**
 - Founding year, and how many years of hotel ownership and operation to cite.

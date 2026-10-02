@@ -10,20 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
-.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
-.prop{padding:12px 12px 22px;display:flex;flex-direction:column}
-.prop .ph-img{aspect-ratio:4/3;border-radius:12px}
-.prop .ph-img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.prop .ph-img:has(img)::after{content:none}
-.prop .meta{display:grid;gap:8px;padding:18px 8px 0}
-.prop h2{font-size:1.2rem;letter-spacing:-.01em}
-.prop .loc{font-size:.95rem;color:var(--muted)}
-.prop .type{justify-self:start;font:500 .85rem var(--display);color:var(--navy);background:var(--teal-soft);border-radius:var(--r-pill);padding:4px 12px}
-.results{margin-top:clamp(40px,5vw,56px);padding:clamp(24px,3vw,32px);display:flex;align-items:center;gap:18px}
-.results p{color:var(--muted);font-size:1.02rem}
-.results b{display:block;font:600 1.1rem var(--display);color:var(--navy);margin-bottom:4px}
-@media (max-width:980px){.pf-grid{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.pf-grid{grid-template-columns:1fr}.results{align-items:flex-start}}
+.pf-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,4vw,56px);align-items:end}
+.pf-stat{font:500 1.05rem var(--display);color:var(--muted);white-space:nowrap;padding-bottom:6px}
+.pf-stat b{font:600 clamp(1.8rem,2.6vw,2.3rem) var(--display);color:var(--navy);letter-spacing:-.02em;margin-right:4px}
+.pf-stat span{margin:0 12px;color:#9FB0BF}
+@media (max-width:760px){.pf-hero{grid-template-columns:1fr;align-items:start}.pf-stat{padding-bottom:0}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -53,34 +44,28 @@
 
 <!-- HERO -->
 <section class="page-hero">
-  <div class="wrap rv">
-    <p class="kicker">Portfolio</p>
-    <h1>Properties in the Coastal portfolio.</h1>
-    <p class="lede">Independent hotels, motels and inns across Florida, California and North Carolina.</p>
+  <div class="wrap pf-hero rv">
+    <div>
+      <p class="kicker">Portfolio</p>
+      <h1>Properties in the Coastal portfolio.</h1>
+      <p class="lede">Hotels, motels and inns in Florida, California and North Carolina, from beach towns to the mountains.</p>
+    </div>
+    <p class="pf-stat"><b>6</b> properties<span aria-hidden="true">·</span><b>3</b> states</p>
   </div>
 </section>
 
 <!-- TEMPORARY: Coastal Getaway images/properties pending client approval for CoastalOS. See assets/portfolio/SOURCES.md -->
 <section class="sec sec-white" aria-label="Properties">
   <div class="wrap">
-    <div class="pf-grid">
-      <article class="card prop rv d1">
-        <div class="ph-img"><img src="assets/portfolio/island-house-resort-hotel-pool.webp" width="1600" height="900" alt="Aerial view of the courtyard pool at Island House Resort Hotel, North Redington Beach" loading="lazy" decoding="async"></div>
-        <div class="meta"><h2>Island House Resort Hotel</h2><p class="loc">North Redington Beach, FL</p><span class="type">Resort hotel</span></div>
-      </article>
-      <article class="card prop rv d2">
-        <div class="ph-img"><img src="assets/portfolio/patriots-boutique-motel-exterior.webp" width="1000" height="667" alt="Exterior of Patriots' Boutique Motel, San Clemente" loading="lazy" decoding="async"></div>
-        <div class="meta"><h2>Patriots’ Boutique Motel</h2><p class="loc">San Clemente, CA</p><span class="type">Motel</span></div>
-      </article>
-      <article class="card prop rv d3">
-        <div class="ph-img"><img src="assets/portfolio/the-pineola-aerial.webp" width="1000" height="663" alt="Aerial view of The Pineola and surrounding mountains, Newland" loading="lazy" decoding="async"></div>
-        <div class="meta"><h2>The Pineola</h2><p class="loc">Newland, NC</p><span class="type">Mountain inn</span></div>
-      </article>
+    <div class="pcard-grid">
+      <a class="card pcard rv d1" href="https://coastalgetaway.com/property/island-house-resort-hotel/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="View Island House Resort Hotel on Coastal Getaway (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/island-house-resort-hotel.webp" width="1000" height="750" alt="Aerial view of the courtyard pool at Island House Resort Hotel, North Redington Beach" loading="lazy" decoding="async"></div><div class="pcard-meta"><h2 class="pcard-name">Island House Resort Hotel</h2><p class="pcard-loc">North Redington Beach, FL</p><span class="pcard-type">Resort hotel</span><span class="pcard-view" aria-hidden="true">View property <i>↗</i></span></div></a>
+      <a class="card pcard rv d2" href="https://coastalgetaway.com/property/malibu-resort/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="View Malibu Resort Motel on Coastal Getaway (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/malibu-resort-motel.webp" width="1000" height="750" alt="Street-front exterior of Malibu Resort Motel" loading="lazy" decoding="async"></div><div class="pcard-meta"><h2 class="pcard-name">Malibu Resort Motel</h2><p class="pcard-loc">St. Pete Beach, FL</p><span class="pcard-type">Motel</span><span class="pcard-view" aria-hidden="true">View property <i>↗</i></span></div></a>
+      <a class="card pcard rv d3" href="https://coastalgetaway.com/property/patriots-boutique-motel/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="View Patriots’ Boutique Motel on Coastal Getaway (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/patriots-boutique-motel.webp" width="1000" height="750" alt="Exterior of Patriots’ Boutique Motel, San Clemente" loading="lazy" decoding="async"></div><div class="pcard-meta"><h2 class="pcard-name">Patriots’ Boutique Motel</h2><p class="pcard-loc">San Clemente, CA</p><span class="pcard-type">Motel</span><span class="pcard-view" aria-hidden="true">View property <i>↗</i></span></div></a>
+      <a class="card pcard rv d1" href="https://coastalgetaway.com/property/bluebird-day-inn/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="View Bluebird Day Inn &amp; Suites on Coastal Getaway (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/bluebird-day-inn.webp" width="1000" height="750" alt="Lawn and guest wings of Bluebird Day Inn &amp; Suites, South Lake Tahoe" loading="lazy" decoding="async"></div><div class="pcard-meta"><h2 class="pcard-name">Bluebird Day Inn &amp; Suites</h2><p class="pcard-loc">South Lake Tahoe, CA</p><span class="pcard-type">Inn</span><span class="pcard-view" aria-hidden="true">View property <i>↗</i></span></div></a>
+      <a class="card pcard rv d2" href="https://coastalgetaway.com/property/the-pineola-newland-nc/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="View The Pineola on Coastal Getaway (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/the-pineola.webp" width="1000" height="750" alt="Aerial view of The Pineola and surrounding mountains, Newland" loading="lazy" decoding="async"></div><div class="pcard-meta"><h2 class="pcard-name">The Pineola</h2><p class="pcard-loc">Newland, NC</p><span class="pcard-type">Mountain inn</span><span class="pcard-view" aria-hidden="true">View property <i>↗</i></span></div></a>
+      <a class="card pcard rv d3" href="https://coastalgetaway.com/property/geneva-riverside-hotel-tiki/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="View Geneva Riverside Hotel &amp; Tiki Bar on Coastal Getaway (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/geneva-riverside-hotel.webp" width="1000" height="750" alt="Grounds and buildings of Geneva Riverside Hotel, Lake Lure" loading="lazy" decoding="async"></div><div class="pcard-meta"><h2 class="pcard-name">Geneva Riverside Hotel &amp; Tiki Bar</h2><p class="pcard-loc">Lake Lure, NC</p><span class="pcard-type">Hotel</span><span class="pcard-view" aria-hidden="true">View property <i>↗</i></span></div></a>
     </div>
-    <div class="card results rv">
-      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span>
-      <p><b>Results</b>Property results will be shared here as they’re verified.</p>
-    </div>
+    <p class="results-strip rv">Property results will be shared here as they’re verified.</p>
   </div>
 </section>
 
