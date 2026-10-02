@@ -34,4 +34,21 @@
     rvs.forEach(function(el){if(el.getBoundingClientRect().top<innerHeight){el.classList.add('in','rv-now')}else{io.observe(el)}});
   }
   addEventListener('beforeprint',revealAll);
+
+  // Property review form (homepage and contact page): front-end validation only, nothing is sent
+  var form=document.getElementById('reviewForm');
+  if(form){
+  // ?request=call (from "Talk to Our Team" links) pre-selects a call instead of a review
+  if(/[?&]request=call(&|$)/.test(location.search))document.getElementById('q2').checked=true;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();var ok=true;
+    form.querySelectorAll('[required]').forEach(function(el){
+      var err=el.parentNode.querySelector('.err'),msg='',lab=el.parentNode.querySelector('label').textContent.toLowerCase();
+      if(!el.value.trim())msg='Enter your '+lab+'.';
+      else if(el.type==='email'&&!/^\S+@\S+\.\S+$/.test(el.value))msg='Enter a valid email, like name@hotel.com.';
+      err.textContent=msg;el.setAttribute('aria-invalid',msg?'true':'false');if(msg&&ok){el.focus();ok=false}
+    });
+    if(ok&&!form.querySelector('.form-done')){var d=document.createElement('p');d.className='form-done';d.setAttribute('role','status');d.innerHTML='<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Thanks. Your request has been noted in this preview.';form.appendChild(d);form.querySelector('button[type=submit]').disabled=true}
+  });
+  }
 })();

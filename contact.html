@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Request a Property Review — CoastalOS</title>
+<meta name="description" content="Request a property review or a call with the CoastalOS team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.page-hero .lede{max-width:60ch}
+.faq-grid h2{max-width:12ch}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site" id="top">
+  <div class="wrap nav" id="nav">
+    <a href="index.html" class="logo" aria-label="CoastalOS home">
+      <!-- LOGO: replace this SVG + wordmark with the client's final logo file -->
+      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><path d="M9 21a11 11 0 0 1 22 0" fill="none" stroke="#C9932F" stroke-width="2.6" stroke-linecap="round"/><path d="M5 26c5-3 9 3 15 0s10 3 15 0" fill="none" stroke="#1C8C8A" stroke-width="2.6" stroke-linecap="round"/><path d="M10 31c4-2 6 2 10 0s6 2 10 0" fill="none" stroke="#0E2A47" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <span class="logo-word">Coastal<span>OS</span></span>
+    </a>
+    <ul id="menu">
+      <li><a href="index.html#platform">Platform</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="btn btn-primary nav-cta">Request a Property Review</a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap rv">
+    <p class="kicker">Contact</p>
+    <h1>Request a Property Review.</h1>
+    <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS can add revenue, reduce cost, and give you clearer visibility.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="sec cta" id="review">
+  <div class="wrap cta-grid">
+    <div class="rv">
+      <p class="kicker">Request a property review</p>
+      <h2>Your property. Our operating platform.</h2>
+      <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS can add revenue, reduce cost, and give you clearer visibility.</p>
+      <ol class="next">
+        <li><span>1</span><div><b>Share a few details</b><small>About your property and goals.</small></div></li>
+        <li><span>2</span><div><b>We review your property</b><small>Revenue, operations and costs.</small></div></li>
+        <li><span>3</span><div><b>Talk through the findings</b><small>A clear conversation with our team.</small></div></li>
+      </ol>
+      <div class="alt-contact"><b>Prefer to talk first?</b><p>Select “A call with our team” in the form, and we’ll arrange a conversation instead of starting with a review.</p></div>
+    </div>
+    <form id="reviewForm" class="rv d2" novalidate>
+      <div class="form-head"><b>Request a Property Review</b></div>
+      <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
+      <div class="f"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
+      <div class="f"><label for="property">Property name</label><input id="property" name="property" required><span class="err" aria-live="polite"></span></div>
+      <div class="f"><label for="location">Location</label><input id="location" name="location" placeholder="City, state"></div>
+      <fieldset class="f full"><legend>I’d like</legend>
+        <div class="chips">
+          <input type="radio" name="request" id="q1" value="Property review" checked><label for="q1">A property review</label>
+          <input type="radio" name="request" id="q2" value="Call with the team"><label for="q2">A call with our team</label>
+        </div>
+      </fieldset>
+      <fieldset class="f full"><legend>Number of rooms</legend>
+        <div class="chips">
+          <input type="radio" name="rooms" id="r1" value="Under 15"><label for="r1">Under 15</label>
+          <input type="radio" name="rooms" id="r2" value="15–40"><label for="r2">15–40</label>
+          <input type="radio" name="rooms" id="r3" value="41–100"><label for="r3">41–100</label>
+          <input type="radio" name="rooms" id="r4" value="100+"><label for="r4">100+</label>
+        </div>
+      </fieldset>
+      <div class="f full"><label for="msg">What would you like to improve? <i>(optional)</i></label><textarea id="msg" name="message"></textarea></div>
+            <div class="f full"><button class="btn btn-primary" type="submit">Request a Property Review</button></div>
+    </form>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-white">
+  <div class="wrap faq-grid">
+    <div class="rv">
+      <p class="kicker">Questions owners ask</p>
+      <h2>Before you get in touch.</h2>
+    </div>
+    <div class="rv d2">
+      <details><summary>Is CoastalOS software I install?</summary><p>No. CoastalOS is an operating platform: our team, technology and processes working together to run the core functions of your hotel, centrally.</p></details>
+      <details><summary>What size of property is it built for?</summary><p>Independent and boutique hotels, motels, inns and resorts, typically around 15 to 100 rooms.</p></details>
+      <details><summary>Do we keep our own brand?</summary><p>Yes. Your property keeps its name, website and guests. CoastalOS works behind the scenes to grow direct business under your brand.</p></details>
+      <details><summary>What happens in a property review?</summary><p>We look at how your hotel runs today and where centralization and technology could add revenue, lower cost, or improve visibility.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="logo-word">Coastal<span style="color:#6FD0CC">OS</span></span>
+        <p style="margin-top:10px;max-width:34ch">The Operating System for Independent Hotels.</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="index.html#platform">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h4>Get started</h4><ul><li><a href="contact.html">Request a Property Review</a></li><li><a href="contact.html?request=call">Talk to Our Team</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">© 2026 CoastalOS</div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a href="contact.html" class="btn btn-primary">Request a Property Review</a></div>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
