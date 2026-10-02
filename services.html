@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Services — CoastalOS</title>
+<meta name="description" content="Every critical hotel function on one operating platform: revenue, reservations, operations, technology and owner reporting for independent hotels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.jump{list-style:none;margin:32px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.jump a{display:inline-block;text-decoration:none;font:500 .95rem var(--display);color:var(--navy);background:var(--paper);border:1.5px solid var(--line);border-radius:var(--r-pill);padding:9px 16px;transition:border-color .2s,background .2s}
+.jump a:hover{border-color:var(--navy)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.svc{padding:clamp(22px,2.6vw,28px);display:grid;gap:14px;align-content:start}
+.svc h3{font-size:1.1rem}
+.svc p{color:var(--muted);font-size:.95rem;line-height:1.55}
+@media (max-width:900px){.svc-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.svc-grid{grid-template-columns:1fr}}
+.engage{margin-top:0}
+@media (min-width:821px){
+  .steps-3{grid-template-columns:repeat(3,1fr)}
+  .steps-3::before,.steps-3::after{left:calc(100%/6);right:calc(100%/6)}
+  .steps-3 small{max-width:30ch;margin-inline:auto}
+}
+.faq-grid h2{max-width:12ch}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site" id="top">
+  <div class="wrap nav" id="nav">
+    <a href="index.html" class="logo" aria-label="CoastalOS home">
+      <!-- LOGO: replace this SVG + wordmark with the client's final logo file -->
+      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><path d="M9 21a11 11 0 0 1 22 0" fill="none" stroke="#C9932F" stroke-width="2.6" stroke-linecap="round"/><path d="M5 26c5-3 9 3 15 0s10 3 15 0" fill="none" stroke="#1C8C8A" stroke-width="2.6" stroke-linecap="round"/><path d="M10 31c4-2 6 2 10 0s6 2 10 0" fill="none" stroke="#0E2A47" stroke-width="2.2" stroke-linecap="round"/></svg>
+      <span class="logo-word">Coastal<span>OS</span></span>
+    </a>
+    <ul id="menu">
+      <li><a href="index.html#platform">Platform</a></li>
+      <li><a href="services.html" class="active" aria-current="page">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#proof">Portfolio</a></li>
+      <li><a href="index.html#review">Contact</a></li>
+    </ul>
+    <a href="index.html#review" class="btn btn-primary nav-cta">Request a Property Review</a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="page-hero">
+  <div class="wrap rv">
+    <p class="kicker">Services</p>
+    <h1>Every critical hotel function, on one operating platform.</h1>
+    <p class="lede">CoastalOS brings revenue, reservations, operations, technology and reporting together in one platform, run centrally for your property. Here is what that covers.</p>
+    <nav aria-label="Service groups">
+      <ul class="jump">
+        <li><a href="#revenue">Revenue &amp; Distribution</a></li>
+        <li><a href="#reservations">Reservations &amp; Guest Support</a></li>
+        <li><a href="#operations">Property Operations</a></li>
+        <li><a href="#technology">Technology &amp; Automation</a></li>
+        <li><a href="#reporting">Financial &amp; Owner Reporting</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<section class="sec sec-white" id="revenue" aria-labelledby="revenue-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">01 / 05</p>
+      <h2 id="revenue-h">Revenue &amp; Distribution</h2>
+      <p class="lede">Pricing, marketing and channels managed together, with a steady focus on bookings that come to you direct.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="card svc rv d1"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><h3>Revenue management</h3><p>Data-driven pricing and inventory decisions across every channel your property sells on.</p></article>
+      <article class="card svc rv d2"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l5 4V6L7 10H4zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><h3>Marketing &amp; distribution</h3><p>Search, social, email and channel management that keeps your property visible and brings guests back.</p></article>
+      <article class="card svc rv d3"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></span><h3>Direct booking</h3><p>Reservations through your own branded website, so more guests book with you directly.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="reservations" aria-labelledby="reservations-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">02 / 05</p>
+      <h2 id="reservations-h">Reservations &amp; Guest Support</h2>
+      <p class="lede">A central team that looks after guests before, during and after their stay.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="card svc rv d1"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"/></svg></span><h3>Central reservations</h3><p>Calls, emails and booking requests handled centrally, in line with your property’s policies.</p></article>
+      <article class="card svc rv d2"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg></span><h3>Guest communication</h3><p>Clear, timely messages before arrival and during the stay, so guests know what to expect.</p></article>
+      <article class="card svc rv d3"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01"/></svg></span><h3>Guest support</h3><p>Responsive help when guests need it, with your on-site team kept informed.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-white" id="operations" aria-labelledby="operations-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">03 / 05</p>
+      <h2 id="operations-h">Property Operations</h2>
+      <p class="lede">Your on-site team stays focused on guests, with the structure behind them handled centrally.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="card svc rv d1"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/></svg></span><h3>On-site team management</h3><p>Support and oversight for the people who run your property day to day.</p></article>
+      <article class="card svc rv d2"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 14h3M8 17h6"/></svg></span><h3>Hiring, scheduling &amp; training</h3><p>Help finding the right people, planning schedules and bringing new team members up to speed.</p></article>
+      <article class="card svc rv d3"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Operational controls</h3><p>Consistent standards and checks that keep the property running the way it should.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="technology" aria-labelledby="technology-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">04 / 05</p>
+      <h2 id="technology-h">Technology &amp; Automation</h2>
+      <p class="lede">Modern hotel technology set up and run for you, so routine work happens in the background.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="card svc rv d1"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><h3>Property management technology</h3><p>The core systems a hotel runs on, set up and managed as part of the platform.</p></article>
+      <article class="card svc rv d2"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg></span><h3>Digital &amp; self check-in</h3><p>Convenient, contactless arrival for guests who want it, with help available when they need it.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-white" id="reporting" aria-labelledby="reporting-h">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">05 / 05</p>
+      <h2 id="reporting-h">Financial &amp; Owner Reporting</h2>
+      <p class="lede">Clear numbers and back-office support, so owners always know how the property is performing.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="card svc rv d1"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span><h3>Payroll &amp; HR</h3><p>Payroll and HR administration coordinated centrally, so it is handled consistently.</p></article>
+      <article class="card svc rv d2"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><h3>Financial reporting</h3><p>Accounting and financial statements that give a clear picture of the property.</p></article>
+      <article class="card svc rv d3"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><h3>Owner reporting</h3><p>Reporting on revenue, occupancy, rates, expenses and labor, all in one place.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ENGAGEMENT -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="kicker">How engagement works</p>
+      <h2>From first conversation to day-to-day operation.</h2>
+    </div>
+    <div class="card journey engage rv">
+      <ol class="steps-flow steps-3">
+        <li style="--i:0"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span><b>Property review</b><small>We look at how your hotel runs today: revenue, operations and costs.</small></li>
+        <li style="--i:1"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><b>Tailored plan</b><small>We recommend where the platform can add revenue, lower cost and improve visibility.</small></li>
+        <li class="hub" style="--i:2"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13a5 5 0 0 1 10 0M4 17c3-2 5 2 8 0s5 2 8 0"/></svg></span><b>Ongoing operation</b><small>CoastalOS runs the agreed functions, and you get clear reporting.</small></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec sec-white">
+  <div class="wrap faq-grid">
+    <div class="rv">
+      <p class="kicker">Questions owners ask</p>
+      <h2>About our services.</h2>
+    </div>
+    <div class="rv d2">
+      <details><summary>Is CoastalOS software I install?</summary><p>No. CoastalOS is an operating platform: our team, technology and processes working together to run the core functions of your hotel, centrally.</p></details>
+      <details><summary>Do we keep our own brand?</summary><p>Yes. Your property keeps its name, website and guests. CoastalOS works behind the scenes to grow direct business under your brand.</p></details>
+      <details><summary>What happens in a property review?</summary><p>We look at how your hotel runs today and where centralization and technology could add revenue, lower cost, or improve visibility.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec cta cta-band">
+  <div class="wrap rv">
+    <p class="kicker">Request a property review</p>
+    <h2>Your property. Our operating platform.</h2>
+    <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS can add revenue, reduce cost, and give you clearer visibility.</p>
+    <div class="hero-ctas">
+      <a href="index.html#review" class="btn btn-light">Request a Property Review</a>
+      <a href="index.html#review" class="btn btn-ghost-light">Talk to Our Team</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <span class="logo-word">Coastal<span style="color:#6FD0CC">OS</span></span>
+        <p style="margin-top:10px;max-width:34ch">The Operating System for Independent Hotels.</p>
+      </div>
+      <div><h4>Explore</h4><ul><li><a href="index.html#platform">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="index.html#proof">Portfolio</a></li></ul></div>
+      <div><h4>Get started</h4><ul><li><a href="index.html#review">Request a Property Review</a></li><li><a href="index.html#review">Talk to Our Team</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">© 2026 CoastalOS</div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a href="index.html#review" class="btn btn-primary">Request a Property Review</a></div>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>
