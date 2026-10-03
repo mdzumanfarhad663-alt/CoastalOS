@@ -39,7 +39,7 @@ Then visit http://localhost:8000.
 - Design system: each page has one navy band (`.navy-band` in `site.css`; on the homepage it is the platform section), open layouts instead of boxed cards where cards add nothing, and a light closing CTA (`.cta-band`). The Contact page's navy hero holds the form.
 - Each page keeps its page-specific CSS in a small `<style>` block. Homepage-only scripts (outcome tabs) stay inline in `index.html`.
 - `assets/portfolio/` — property photos from the CHG site, for the homepage hotels section and `portfolio.html`.
-- `assets/site/` — lifestyle images supplied by Zuman (central team, owner reporting, guest check-in, housekeeping). They are used without names or captions and are not presented as the actual CoastalOS team or a CHG property. Replace with real team and property photos when available. `owner-dashboard-demo.webp` is a concept mock-up labelled as sample data (Platform, "What the owner sees"); replace it with a real screenshot once one exists, and note its wave logo differs from the site logo. A supplied group portrait was not used, because it would read as the actual team.
+- Image frames (`.img-frame` in `site.css`): seven labelled placeholders waiting for real photos. Platform: "Team at work" (banner), "Guest check-in", "Housekeeping", "Owner dashboard screenshot". Services: "Front desk welcome" (banner), "Team member at work", "Owner reporting". To fill one, replace its `<div class="img-frame" ...>` with an `<img>` of the same proportions. `assets/site/` now holds only the Contact background.
 - `assets/about/` — Hickory Falls Inn room photo and Jed Tarr's headshot (About page).
 
 ## Awaiting client confirmation
