@@ -54,7 +54,7 @@ Then visit http://localhost:8000.
 
 **Facts still needed from Jed (left out of the About and Services pages)**
 - Team or leadership names, roles and photos.
-- How CoastalOS relates to Coastal Hospitality Group, Coastal Management Company and Coastal Getaway. In particular: can the site say CoastalOS is built by the team behind Coastal Hospitality Group? Until then, the origin copy stays general ("grew out of owning and operating independent hotels") with no names, years or hotel counts.
+- Whether CoastalOS runs CHG's own hotels, and how it relates to Coastal Management Company and Coastal Getaway (the site currently says only that CoastalOS is built by the team behind CHG).
 - Target property size. The "15 to 100 rooms" range was removed from the copy until confirmed; the form still asks for room count.
 - Locations or regions served.
 - Which services are offered on their own and which only as a full package.
