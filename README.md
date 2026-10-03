@@ -39,6 +39,7 @@ Then visit http://localhost:8000.
 - Design system: each page has one navy band (`.navy-band` in `site.css`; on the homepage it is the platform section), open layouts instead of boxed cards where cards add nothing, and a light closing CTA (`.cta-band`). The Contact page's navy hero holds the form.
 - Each page keeps its page-specific CSS in a small `<style>` block. Homepage-only scripts (outcome tabs) stay inline in `index.html`.
 - `assets/portfolio/` — property photos from the CHG site, for the homepage hotels section and `portfolio.html`.
+- `assets/site/` — lifestyle images supplied by Zuman (central team, owner reporting, guest check-in, housekeeping, resort at sunset). They are used without names or captions and are not presented as the actual CoastalOS team or a CHG property. Replace with real team and property photos when available.
 - `assets/about/` — Hickory Falls Inn room photo and Jed Tarr's headshot (About page).
 
 ## Awaiting client confirmation

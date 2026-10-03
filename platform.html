@@ -65,6 +65,11 @@
 .owner-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,80px);align-items:center}
 .owner-list{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .owner-list li{font:500 .9rem var(--display);color:var(--navy);background:var(--paper);border:1px solid var(--line);border-radius:var(--r-pill);padding:6px 14px}
+.pl-banner{margin-top:-8px;margin-bottom:clamp(56px,7vw,96px)}
+.pl-banner img,.owner-photo img,.pl-duo img{width:100%;height:auto;display:block;border-radius:var(--r-lg);box-shadow:var(--shadow-lg)}
+.pl-banner img{aspect-ratio:3/1;object-fit:cover}
+.pl-duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin-top:var(--gap)}
+@media (max-width:640px){.pl-duo{grid-template-columns:1fr}.pl-banner img{aspect-ratio:16/9}}
 .owner-panel{background:var(--navy);border-radius:var(--r-lg);padding:clamp(22px,3vw,32px);box-shadow:var(--shadow-lg)}
 .owner-panel .ptitle{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#fff;font:600 1rem var(--display);margin-bottom:18px}
 .owner-panel .illus{color:#A9BDD0;border-color:rgba(255,255,255,.2)}
@@ -138,6 +143,9 @@
   </div>
 </section>
 
+<!-- CENTRAL TEAM PHOTO -->
+<div class="wrap pl-banner rv"><img src="assets/site/central-team.webp" width="2000" height="667" alt="A team working together at desks in a bright coastal office" loading="lazy" decoding="async"></div>
+
 <!-- OPERATING MODEL + PRINCIPLES -->
 <section class="sec navy-band">
   <div class="wrap">
@@ -182,6 +190,10 @@
       </ol>
       <p class="who-key" aria-hidden="true"><span><i class="who w-central" style="margin:0">Central team</i>handled by the CoastalOS team</span><span><i class="who w-site" style="margin:0">On site</i>your property’s team</span><span><i class="who w-both" style="margin:0">Both</i>shared</span></p>
     </div>
+    <div class="pl-duo">
+      <img class="rv d1" src="assets/site/guest-checkin.webp" width="1400" height="788" alt="A guest checking in on her phone in a hotel lobby" loading="lazy" decoding="async">
+      <img class="rv d2" src="assets/site/housekeeping.webp" width="1400" height="788" alt="A housekeeper preparing a guest room" loading="lazy" decoding="async">
+    </div>
   </div>
 </section>
 
@@ -197,17 +209,7 @@
       </ul>
       <p style="margin-top:24px"><a class="text-link" href="services.html">See the five service groups</a></p>
     </div>
-    <figure class="owner-panel rv d2" role="img" aria-label="Illustrative owner reporting layout with no real data: revenue, occupancy, average daily rate, expenses, labor and property performance" style="margin:0">
-      <div class="ptitle"><span>An owner’s reporting view</span><span class="illus">Illustrative only</span></div>
-      <div class="kpis">
-          <div class="kpi"><small>Revenue</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 22 L20 18 L40 20 L60 12 L80 14 L100 6 L120 8" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div>
-          <div class="kpi"><small>Occupancy</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 20 L20 21 L40 16 L60 15 L80 10 L100 11 L120 5" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div>
-          <div class="kpi"><small>Average daily rate</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 18 L20 16 L40 17 L60 12 L80 10 L100 9 L120 7" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div>
-          <div class="kpi"><small>Expenses</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 8 L20 10 L40 9 L60 13 L80 12 L100 15 L120 14" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div>
-          <div class="kpi"><small>Labor</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 6 L20 9 L40 8 L60 14 L80 15 L100 19 L120 20" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div>
-          <div class="kpi"><small>Property performance</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 21 L20 17 L40 18 L60 13 L80 11 L100 10 L120 6" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div>
-      </div>
-    </figure>
+    <figure class="owner-photo rv d2" style="margin:0"><img src="assets/site/owner-reporting.webp" width="1400" height="788" alt="Reviewing a property’s financial reports at a desk" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
