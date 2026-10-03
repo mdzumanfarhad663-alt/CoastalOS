@@ -25,8 +25,7 @@
 .svc-index a:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:6px}
 @media (min-width:980px){.jump-nav{display:none}}
 @media (max-width:979px){.svc-hero{grid-template-columns:1fr}.svc-index{display:none}}
-.svc-intro{position:sticky;top:100px}
-@media (max-width:900px){.svc-intro{position:static}}
+.svc-intro{max-width:60ch}
 .jump{list-style:none;margin:32px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .jump a{display:inline-block;text-decoration:none;font:500 .95rem var(--display);color:var(--navy);background:var(--paper);border:1.5px solid var(--line);border-radius:var(--r-pill);padding:9px 16px;transition:border-color .2s,background .2s}
 .jump a:hover{border-color:var(--navy)}
@@ -34,17 +33,15 @@
 /* Service groups: even spacing, alternating full-bleed backgrounds without widening the page */
 .svc-sec{padding:clamp(64px,7vw,96px) 0;position:relative}
 .svc-sec.alt{background:var(--paper);box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax)}
-.svc-row{display:grid;grid-template-columns:minmax(0,42fr) minmax(0,58fr);gap:clamp(28px,4vw,56px);align-items:start}
+.svc-row{display:block}
 .svc-intro .lede{margin-top:16px;font-size:1.05rem}
 .tag{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font:500 .88rem var(--display);color:var(--navy);background:var(--sun-soft);border-radius:var(--r-pill);padding:6px 14px}
 .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--sun)}
-.svc-grid{display:grid;grid-template-columns:1fr;grid-auto-rows:1fr;gap:var(--gap)}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:var(--gap);margin-top:clamp(28px,3.5vw,40px)}
 .svc{padding:clamp(24px,2.8vw,32px);display:grid;gap:14px;align-content:start}
 .svc h3{font-size:1.08rem}
 .svc-intro h2{font-size:clamp(1.75rem,2.6vw,2.2rem)}
 .svc p{color:var(--muted);font-size:.97rem;line-height:1.55}
-@media (max-width:900px){.svc-row{grid-template-columns:1fr}}
-@media (max-width:900px){.svc-grid{grid-auto-rows:auto}}
 
 /* Engagement flow */
 .engage{margin-top:0;padding:clamp(24px,3vw,36px)}
@@ -88,7 +85,7 @@
   <div class="wrap svc-hero rv">
    <div>
     <p class="kicker">Services</p>
-    <h1>Every critical hotel function, on one operating platform.</h1>
+    <h1>Five service groups, run by one central team.</h1>
     <p class="lede">These are the services CoastalOS delivers to each property. Each group lists what the central team handles, so you can see exactly what comes off your team’s plate.</p>
     <nav class="jump-nav" aria-label="Service groups">
       <ul class="jump">
@@ -223,8 +220,8 @@
   <div class="wrap cta-band-grid rv">
     <div>
       <p class="kicker">Request a property review</p>
-      <h2>Your property. Our operating platform.</h2>
-      <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS could add revenue, reduce cost, and give you clearer visibility.</p>
+      <h2>Find the services that fit your property.</h2>
+      <p class="lede">Every property is different. A review shows which service groups would make the biggest difference to yours.</p>
     </div>
     <div class="hero-ctas">
       <a href="contact.html" class="btn btn-light">Request a Property Review</a>

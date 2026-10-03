@@ -11,22 +11,18 @@
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
 .page-hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,64px);align-items:center}
-.hero-mark{justify-self:end;width:100%;max-width:400px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 50%,var(--teal-soft) 0,rgba(230,243,242,.45) 55%,transparent 72%);display:grid;place-items:center}
-.hero-mark svg{width:74%;height:auto;opacity:.6}
-@media (max-width:860px){.page-hero-grid{grid-template-columns:1fr}.hero-mark{display:none}}
+.ways{padding:clamp(20px,2.6vw,28px)}
+.ways-title{font:600 .85rem var(--display);color:var(--muted);margin-bottom:6px}
+.ways ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.ways li{display:grid;gap:4px;padding:14px 0;border-top:1px solid var(--line)}
+.ways li:first-child{border-top:0}
+.ways .who-label{font:600 .8rem var(--display);color:var(--muted);letter-spacing:.02em}
+.ways b{font:600 1.08rem var(--display);color:var(--navy)}
+.ways li>span:last-child{font-size:.93rem;color:var(--muted);line-height:1.5}
+.ways li.ours{background:var(--navy);border:0;border-radius:var(--r-md);padding:16px 18px;margin-top:6px}
+.ways li.ours .who-label{color:var(--teal-2)}.ways li.ours b{color:#fff}.ways li.ours>span:last-child{color:#B9CADB}
+@media (max-width:860px){.page-hero-grid{grid-template-columns:1fr}}
 .owners .lede+.lede{margin-top:14px}
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);align-items:stretch}
-.why{padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;gap:12px}
-.why .who-label{font:600 .85rem var(--display);color:var(--muted);letter-spacing:.02em}
-.why h3{font-size:1.25rem}
-.why p{color:var(--muted);font-size:.97rem;line-height:1.55}
-.why.ours{background:var(--navy);border-color:var(--navy);box-shadow:var(--shadow-lg)}
-.why.ours .who-label{color:var(--teal-2)}
-.why.ours h3{color:#fff}
-.why.ours p{color:#B9CADB}
-.why.ours .ic{background:rgba(111,208,204,.14)}
-.why.ours .ic svg{stroke:var(--teal-2)}
-@media (max-width:900px){.why-grid{grid-template-columns:1fr}}
 /* Founder note (section is commented out until Jed supplies text and photo) */
 .founder-card{display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,48px);align-items:center;padding:clamp(24px,4vw,44px)}
 .founder-card img{width:200px;height:200px;object-fit:cover;border-radius:50%}
@@ -38,7 +34,6 @@
 .who .lede{margin-top:18px}
 .types{list-style:none;margin:0;padding:clamp(22px,3vw,32px);display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .types li{display:flex;align-items:center;gap:12px;font:600 1.02rem var(--display);color:var(--navy)}
-.types .note{grid-column:1/-1;border-top:1px solid var(--line);padding-top:16px;margin-top:4px;font:400 .95rem var(--body);color:var(--muted)}
 @media (max-width:860px){.who-grid{grid-template-columns:1fr}}
 @media (max-width:560px){.types{grid-template-columns:1fr}}
 </style>
@@ -76,8 +71,13 @@
       <h1>Built by hotel owners, for hotel owners.</h1>
       <p class="lede">CoastalOS is a technology-enabled hotel management and operating platform for independent and boutique hotels. It takes on the work every hotel repeats, such as pricing, reservations, payroll and reporting, and runs it centrally, so owners keep their independence with the support of a larger operation.</p>
     </div>
-    <div class="hero-mark rv d2" aria-hidden="true">
-      <svg viewBox="3 6 34 28"><path d="M9 21a11 11 0 0 1 22 0" fill="none" stroke="#C9932F" stroke-width="1.6" stroke-linecap="round"/><path d="M5 26c5-3 9 3 15 0s10 3 15 0" fill="none" stroke="#1C8C8A" stroke-width="1.6" stroke-linecap="round"/><path d="M10 31c4-2 6 2 10 0s6 2 10 0" fill="none" stroke="#0E2A47" stroke-width="1.4" stroke-linecap="round"/></svg>
+    <div class="card ways rv d2">
+      <p class="ways-title">Three ways to run an independent hotel</p>
+      <ul>
+        <li><span class="who-label">Software vendor</span><b>Gives you tools.</b><span>Useful technology, but you and your team still run reservations, pricing, staffing and reporting yourselves.</span></li>
+        <li><span class="who-label">Traditional management company</span><b>Runs the hotel its own way.</b><span>The day-to-day is handled for you, on the management company’s own terms and approach.</span></li>
+        <li class="ours"><span class="who-label">CoastalOS</span><b>An operator-built platform.</b><span>Runs the core functions of your hotel centrally, while your brand, your guests and your independence stay yours.</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -129,7 +129,7 @@
     <div class="rv d2">
       <p class="kicker">Our origin</p>
       <h2>Developed inside real hotels, not a software lab.</h2>
-      <p class="lede">CoastalOS grew out of years of owning and operating independent hotels. The platform was shaped by the daily work of running properties: filling rooms, looking after guests, managing teams and answering to owners.</p>
+      <p class="lede">CoastalOS grew out of owning and operating independent hotels. The platform was shaped by the daily work of running properties: filling rooms, looking after guests, managing teams and answering to owners.</p>
       <p class="lede">That experience shapes how the platform is built: the work that repeats at every property is run centrally, and the hospitality itself stays with the people on site. <a class="text-link" href="platform.html">See how the platform works</a>.</p>
     </div>
   </div>
@@ -149,24 +149,7 @@
       <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span>Motels</li>
       <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span>Inns</li>
       <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span>Resorts</li>
-      <li class="note">Typically around 15 to 100 rooms.</li>
     </ul>
-  </div>
-</section>
-
-<!-- WHY -->
-<section class="sec sec-white">
-  <div class="wrap">
-    <div class="sec-head split-head rv">
-      <div><p class="kicker">Our approach</p>
-      <h2>Why an operator-built platform.</h2></div>
-      <p class="lede">Independent owners usually choose between buying software or handing the hotel to a management company. CoastalOS takes a different route.</p>
-    </div>
-    <div class="why-grid">
-      <article class="card why rv d1"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span class="who-label">Software vendor</span><h3>Gives you tools.</h3><p>Useful technology, but you and your team still run reservations, pricing, staffing and reporting yourselves.</p></article>
-      <article class="card why rv d2"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span><span class="who-label">Traditional management company</span><h3>Runs the hotel its own way.</h3><p>The day-to-day is handled for you, on the management company’s own terms and approach.</p></article>
-      <article class="card why ours rv d3"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="who-label">CoastalOS</span><h3>An operator-built platform.</h3><p>Runs the core functions of your hotel centrally, while your brand, your guests and your independence stay yours.</p></article>
-    </div>
   </div>
 </section>
 
@@ -189,8 +172,8 @@
   <div class="wrap cta-band-grid rv">
     <div>
       <p class="kicker">Request a property review</p>
-      <h2>Your property. Our operating platform.</h2>
-      <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS could add revenue, reduce cost, and give you clearer visibility.</p>
+      <h2>Let’s talk about your hotel.</h2>
+      <p class="lede">Tell us about your property and what you want to improve. We’ll start with a review or a conversation, whichever suits you.</p>
     </div>
     <div class="hero-ctas">
       <a href="contact.html" class="btn btn-light">Request a Property Review</a>

@@ -9,11 +9,11 @@ All six agreed pages are built.
 | File | Page |
 |---|---|
 | `index.html` | Home: full sales journey (platform, outcomes, portfolio, FAQ, property review form) |
-| `platform.html` | Platform / How It Works: operating model, central vs on-site work, capability map, principles, guest journey, owner view, FAQ |
-| `about.html` | About CoastalOS: origin, principles, who we work with, focus |
-| `services.html` | Services: five capability groups, engagement steps, FAQ |
+| `platform.html` | Platform / How It Works: central vs on-site split (hero), operating model, principles, guest journey, owner view, links to the five service groups |
+| `about.html` | About CoastalOS: three operating models compared (hero), origin, who we work with |
+| `services.html` | Services: five service groups (the single source for the service list), engagement steps |
 | `contact.html` | Contact: request a property review or a call (form, next steps, FAQ) |
-| `portfolio.html` | Portfolio: properties in the Coastal portfolio (temporary, see below) |
+| `portfolio.html` | Portfolio: independent properties listed on Coastal Getaway (temporary, see below) |
 | `index-1.html` | Redirect to `index.html` (an earlier homepage lived here; it remains in git history) |
 
 Platform, Services, About, Portfolio and Contact in the header and footer go to their own pages on every site page. On the homepage, "See How CoastalOS Works" scrolls to the homepage platform section, which ends with a "See the full platform" link. Every "Request a Property Review" button goes to `contact.html`, and every "Talk to Our Team" button goes to `contact.html?request=call`, which pre-selects "A call with our team" in the form. The homepage keeps its own copy of the form.
@@ -45,12 +45,14 @@ Then visit http://localhost:8000.
 - Every property link opens the Coastal Getaway page in a new tab with `?utm_source=coastalos&utm_medium=portfolio&utm_campaign=property_card` added (merged with any existing query string).
 - Jed needs to approve: using these properties and images on CoastalOS; whether they may be described as running on CoastalOS; Malibu Resort Motel's city (the site lists both St. Pete Beach and North Redington Beach); the Malibu and Geneva image matches; and whether he has front-exterior photos for Island House and The Pineola.
 - No ratings, prices, reviews or metrics are shown. Property results will be added once verified.
+- The pages describe these only as properties listed on Coastal Getaway, a separate guest booking site. Nothing says CoastalOS owns, manages or serves them. Jed should confirm what the relationship can be called, and whether the nav label "Portfolio" is right.
 
 **Facts still needed from Jed (left out of the About and Services pages)**
 - Founding year, and how many years of hotel ownership and operation to cite.
 - Number and names of properties owned or operated.
 - Team or leadership names, roles and photos.
-- How CoastalOS relates to Coastal Hospitality Group, Coastal Management Company and Coastal Getaway.
+- How CoastalOS relates to Coastal Hospitality Group, Coastal Management Company and Coastal Getaway. In particular: can the site say CoastalOS is built by the team behind Coastal Hospitality Group? Until then, the origin copy stays general ("grew out of owning and operating independent hotels") with no names, years or hotel counts.
+- Target property size. The "15 to 100 rooms" range was removed from the copy until confirmed; the form still asks for room count.
 - Locations or regions served.
 - Which services are offered on their own and which only as a full package.
 - Contact details for the Contact page: phone number, email address and office address.
