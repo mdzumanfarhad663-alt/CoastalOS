@@ -11,7 +11,8 @@
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
 .pf-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(24px,4vw,56px);align-items:end}
-.pf-stat{font:500 1.05rem var(--display);color:var(--muted);white-space:nowrap;padding-bottom:6px}
+.pf-stat{font:500 1.05rem var(--display);color:var(--muted);white-space:nowrap;padding:14px 22px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--paper)}
+.pf-list{padding-top:clamp(48px,5vw,72px)}
 .pf-stat b{font:600 clamp(1.8rem,2.6vw,2.3rem) var(--display);color:var(--navy);letter-spacing:-.02em;margin-right:4px}
 .pf-stat span{margin:0 12px;color:#9FB0BF}
 @media (max-width:760px){.pf-hero{grid-template-columns:1fr;align-items:start}.pf-stat{padding-bottom:0}}
@@ -55,7 +56,7 @@
 </section>
 
 <!-- TEMPORARY: Coastal Getaway images/properties pending client approval for CoastalOS. See assets/portfolio/SOURCES.md -->
-<section class="sec sec-white" aria-label="Properties">
+<section class="sec sec-white pf-list" aria-label="Properties">
   <div class="wrap">
     <div class="pcard-grid">
       <a class="card pcard rv d1" href="https://coastalgetaway.com/property/island-house-resort-hotel/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="View Island House Resort Hotel on Coastal Getaway (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/island-house-resort-hotel.webp" width="1000" height="750" alt="Aerial view of the courtyard pool at Island House Resort Hotel, North Redington Beach" loading="lazy" decoding="async"></div><div class="pcard-meta"><h2 class="pcard-name">Island House Resort Hotel</h2><p class="pcard-loc">North Redington Beach, FL</p><span class="pcard-type">Resort hotel</span><span class="pcard-view" aria-hidden="true">View property <i>↗</i></span></div></a>
@@ -70,10 +71,12 @@
 
 <!-- CTA -->
 <section class="sec cta cta-band">
-  <div class="wrap rv">
-    <p class="kicker">Request a property review</p>
-    <h2>Your property. Our operating platform.</h2>
-    <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS could add revenue, reduce cost, and give you clearer visibility.</p>
+  <div class="wrap cta-band-grid rv">
+    <div>
+      <p class="kicker">Request a property review</p>
+      <h2>Your property. Our operating platform.</h2>
+      <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS could add revenue, reduce cost, and give you clearer visibility.</p>
+    </div>
     <div class="hero-ctas">
       <a href="contact.html" class="btn btn-light">Request a Property Review</a>
       <a href="contact.html?request=call" class="btn btn-ghost-light">Talk to Our Team</a>

@@ -11,6 +11,22 @@
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
 .page-hero h1{max-width:30ch}
+.svc-hero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(32px,5vw,64px);align-items:center}
+.svc-hero h1{max-width:18ch}
+.svc-index{padding:clamp(18px,2.4vw,26px)}
+.svc-index-title{font:600 .85rem var(--display);color:var(--muted);margin-bottom:8px}
+.svc-index ol{list-style:none;margin:0;padding:0}
+.svc-index a{display:grid;grid-template-columns:32px 1fr;column-gap:10px;padding:11px 0;border-top:1px solid var(--line);text-decoration:none;color:inherit}
+.svc-index li:first-child a{border-top:0}
+.svc-index .n{font:600 .9rem var(--display);color:var(--sun);grid-row:span 2;padding-top:1px}
+.svc-index .t{font:600 1rem/1.3 var(--display);color:var(--navy)}
+.svc-index .o{font-size:.85rem;color:var(--muted)}
+.svc-index a:hover .t{color:var(--teal-ink)}
+.svc-index a:focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:6px}
+@media (min-width:980px){.jump-nav{display:none}}
+@media (max-width:979px){.svc-hero{grid-template-columns:1fr}.svc-index{display:none}}
+.svc-intro{position:sticky;top:100px}
+@media (max-width:900px){.svc-intro{position:static}}
 .jump{list-style:none;margin:32px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .jump a{display:inline-block;text-decoration:none;font:500 .95rem var(--display);color:var(--navy);background:var(--paper);border:1.5px solid var(--line);border-radius:var(--r-pill);padding:9px 16px;transition:border-color .2s,background .2s}
 .jump a:hover{border-color:var(--navy)}
@@ -33,7 +49,6 @@
 /* Sticky side nav on wide screens; pill row below that */
 .side-nav{display:none}
 @media (min-width:1100px){
-  .jump-nav{display:none}
   .svc-body{display:grid;grid-template-columns:190px minmax(0,1fr);column-gap:48px}
   .side-nav{display:block;position:sticky;top:100px;align-self:start;padding-top:clamp(64px,7vw,96px);z-index:1}
   .side-nav p{font:600 .85rem var(--display);color:var(--muted);margin-bottom:12px}
@@ -82,7 +97,8 @@
 
 <!-- HERO -->
 <section class="page-hero">
-  <div class="wrap rv">
+  <div class="wrap svc-hero rv">
+   <div>
     <p class="kicker">Services</p>
     <h1>Every critical hotel function, on one operating platform.</h1>
     <p class="lede">These are the services CoastalOS delivers to each property. Each group lists what the central team handles, so you can see exactly what comes off your team’s plate.</p>
@@ -94,6 +110,17 @@
         <li><a href="#technology">Technology &amp; Automation</a></li>
         <li><a href="#reporting">Financial &amp; Owner Reporting</a></li>
       </ul>
+    </nav>
+   </div>
+    <nav class="card svc-index" aria-label="Service groups overview">
+      <p class="svc-index-title">Five service groups</p>
+      <ol>
+        <li><a href="#revenue"><span class="n">01</span><span class="t">Revenue &amp; Distribution</span><span class="o">Grow revenue</span></a></li>
+        <li><a href="#reservations"><span class="n">02</span><span class="t">Reservations &amp; Guest Support</span><span class="o">Modernize the guest experience</span></a></li>
+        <li><a href="#operations"><span class="n">03</span><span class="t">Property Operations</span><span class="o">Reduce operating costs</span></a></li>
+        <li><a href="#technology"><span class="n">04</span><span class="t">Technology &amp; Automation</span><span class="o">Reduce operating costs</span></a></li>
+        <li><a href="#reporting"><span class="n">05</span><span class="t">Financial &amp; Owner Reporting</span><span class="o">Give owners visibility</span></a></li>
+      </ol>
     </nav>
   </div>
 </section>
@@ -197,9 +224,10 @@
 <!-- ENGAGEMENT -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="kicker">How engagement works</p>
-      <h2>From first conversation to day-to-day operation.</h2>
+    <div class="sec-head split-head rv">
+      <div><p class="kicker">How engagement works</p>
+      <h2>From first conversation to day-to-day operation.</h2></div>
+      <p class="lede">Every engagement starts with a look at how your property runs today.</p>
     </div>
     <div class="card journey engage rv">
       <ol class="steps-flow steps-3">
@@ -214,10 +242,12 @@
 
 <!-- CTA -->
 <section class="sec cta cta-band">
-  <div class="wrap rv">
-    <p class="kicker">Request a property review</p>
-    <h2>Your property. Our operating platform.</h2>
-    <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS could add revenue, reduce cost, and give you clearer visibility.</p>
+  <div class="wrap cta-band-grid rv">
+    <div>
+      <p class="kicker">Request a property review</p>
+      <h2>Your property. Our operating platform.</h2>
+      <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS could add revenue, reduce cost, and give you clearer visibility.</p>
+    </div>
     <div class="hero-ctas">
       <a href="contact.html" class="btn btn-light">Request a Property Review</a>
       <a href="contact.html?request=call" class="btn btn-ghost-light">Talk to Our Team</a>

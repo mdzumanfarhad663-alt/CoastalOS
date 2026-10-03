@@ -49,7 +49,9 @@
 .cap-title{display:flex;align-items:center;gap:10px;font-size:1.3rem}
 .cap-title::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--sun)}
 .cap-title.run::before{background:var(--teal)}
+.cap-head{position:sticky;top:100px}
 .cap-head p{margin-top:8px;color:var(--muted);font-size:.95rem}
+@media (max-width:900px){.cap-head{position:static}}
 .cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
 .cap-card{display:grid;grid-template-columns:40px 1fr;column-gap:16px;row-gap:12px;padding:clamp(20px,2.4vw,26px);text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s}
 .cap-card:hover{border-color:#C9D6DE;box-shadow:var(--shadow-lg)}
@@ -61,6 +63,10 @@
 @media (max-width:900px){.cap-row{grid-template-columns:1fr}}
 @media (max-width:640px){.cap-grid{grid-template-columns:1fr}}
 
+.pl-phil{counter-reset:rule}
+.pl-phil li{counter-increment:rule;border-top-width:3px}
+.pl-phil li b{font-size:1.25rem}
+.pl-phil li b::before{content:counter(rule,decimal-leading-zero);display:block;font:600 .9rem var(--display);color:var(--sun);margin-bottom:10px}
 .pl-phil li span{font-size:1rem}
 
 .who{display:inline-block;white-space:nowrap;margin-top:8px;font:600 .74rem var(--display);letter-spacing:.02em;border-radius:var(--r-pill);padding:2px 9px}
@@ -237,9 +243,9 @@
 <!-- CAPABILITY MAP -->
 <section class="sec sec-white">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="kicker">The capability map</p>
-      <h2>Ten capabilities, one platform.</h2>
+    <div class="sec-head split-head rv">
+      <div><p class="kicker">The capability map</p>
+      <h2>Ten capabilities, one platform.</h2></div>
       <p class="lede">The ten capabilities below all run on one platform. Each links to the matching service, where you can see what it covers for your property.</p>
     </div>
     <div class="cap-row">
@@ -289,9 +295,10 @@
 <!-- GUEST JOURNEY -->
 <section class="sec sec-white">
   <div class="wrap">
-    <div class="sec-head rv">
-      <p class="kicker">The guest journey</p>
-      <h2>How a stay moves through the platform.</h2>
+    <div class="sec-head split-head rv">
+      <div><p class="kicker">The guest journey</p>
+      <h2>How a stay moves through the platform.</h2></div>
+      <p class="lede">Each step shows who looks after it: the central team, your team on site, or both working together.</p>
     </div>
     <div class="card journey rv" id="journey" style="margin-top:0">
       <div class="journey-top"><b>The guest journey with CoastalOS</b><span class="illus">Illustrative flow</span></div>
@@ -337,10 +344,12 @@
 
 <!-- CTA -->
 <section class="sec cta cta-band">
-  <div class="wrap rv">
-    <p class="kicker">Request a property review</p>
-    <h2>Your property. Our operating platform.</h2>
-    <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS could add revenue, reduce cost, and give you clearer visibility.</p>
+  <div class="wrap cta-band-grid rv">
+    <div>
+      <p class="kicker">Request a property review</p>
+      <h2>Your property. Our operating platform.</h2>
+      <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS could add revenue, reduce cost, and give you clearer visibility.</p>
+    </div>
     <div class="hero-ctas">
       <a href="contact.html" class="btn btn-light">Request a Property Review</a>
       <a href="contact.html?request=call" class="btn btn-ghost-light">Talk to Our Team</a>
