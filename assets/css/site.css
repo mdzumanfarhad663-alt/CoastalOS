@@ -248,3 +248,55 @@ footer a:hover{color:#fff}
 @media (max-width:980px){.pcard-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.pcard-grid{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.pcard:hover,.pcard:hover .pcard-img img,.pcard:hover .pcard-view i{transform:none}}
+
+/* ===== Shared: platform panel (navy hero illustration) ===== */
+.hero-art{background:var(--navy);border-radius:var(--r-lg);padding:clamp(20px,2.6vw,30px);box-shadow:var(--shadow-lg);color:#B9CADB;position:relative;overflow:hidden}
+.hero-art::before{content:"";position:absolute;inset:0;background:radial-gradient(80% 60% at 50% 30%,rgba(28,140,138,.22),transparent 70%);pointer-events:none}
+.ha-grid{position:relative;display:grid;grid-template-columns:1fr 1.05fr 1fr;gap:14px;align-items:center}
+.ha-col p{font:600 .74rem var(--display);color:var(--sun);letter-spacing:.02em;margin-bottom:10px}
+.ha-col ul{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.ha-col li{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:9px 10px;font:500 .8rem/1.25 var(--body);color:#E3ECF4;position:relative}
+.ha-col li svg{width:16px;height:16px;flex:none;stroke:var(--teal-2);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ha-left li::after,.ha-right li::before{content:"";position:absolute;top:50%;width:15px;height:1.5px;background:var(--teal);opacity:.8;transform:scaleX(0);transition:transform .6s var(--ease)}
+.ha-left li::after{right:-15px;transform-origin:0 50%}
+.ha-right li::before{left:-15px;transform-origin:100% 50%}
+.loaded .ha-col li::after,.loaded .ha-col li::before{transform:scaleX(1);transition-delay:.7s}
+.ha-core{border:1.5px solid var(--teal);border-radius:18px;padding:22px 12px;text-align:center;background:rgba(10,32,56,.65);box-shadow:0 0 0 6px rgba(28,140,138,.08)}
+.ha-core svg{width:48px;margin:0 auto 8px}
+.ha-core b{display:block;font:600 1.3rem var(--display);color:#fff;letter-spacing:-.01em}
+.ha-core small{display:block;font-size:.76rem;color:#9FB4C8;margin-top:4px;line-height:1.35}
+.ha-core .sun-arc{stroke-dasharray:60;stroke-dashoffset:60;transition:stroke-dashoffset 1.2s var(--ease) .4s}
+.loaded .ha-core .sun-arc{stroke-dashoffset:0}
+.ha-down{position:relative;height:34px;display:flex;justify-content:center}
+.ha-down::before{content:"";width:1.5px;background:var(--sun);transform:scaleY(0);transform-origin:top;transition:transform .6s var(--ease) .9s}
+.loaded .ha-down::before{transform:scaleY(1)}
+.ha-hotel{position:relative;background:#F4F1EA;border-radius:14px;padding:13px 16px;display:flex;gap:12px;align-items:center;color:var(--muted);font-size:.86rem;line-height:1.4}
+.ha-hotel svg{width:22px;height:22px;flex:none;stroke:var(--navy);fill:none;stroke-width:1.7}
+.ha-hotel b{color:var(--navy);font-family:var(--display)}
+@media (max-width:560px){
+  .ha-grid{grid-template-columns:1fr 1fr}
+  .ha-core{grid-column:1/-1;order:-1}
+  .ha-left li::after,.ha-right li::before{display:none}
+}
+
+/* ===== Shared: "Managed separately / With CoastalOS" comparison ===== */
+.compare{padding:clamp(20px,3vw,30px)}
+.seg{display:inline-flex;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-pill);padding:4px;position:relative;margin-bottom:18px}
+.seg button{font:600 .9rem var(--display);border:0;background:transparent;color:var(--muted);padding:9px 18px;border-radius:var(--r-pill);cursor:pointer;position:relative;z-index:1;transition:color .3s}
+.seg button[aria-pressed="true"]{color:#fff}
+.seg .thumb{position:absolute;top:4px;bottom:4px;left:4px;border-radius:var(--r-pill);background:var(--navy);transition:transform .45s var(--ease),width .45s var(--ease)}
+.cmp-stage{height:280px}
+.cmp-stage svg{width:100%;height:100%}
+.cmp-cap{margin-top:12px;font-size:.95rem;color:var(--muted);min-height:3em}
+.cmp-stage .lnk{stroke:#C7D3DA;stroke-width:1.5;fill:none}
+.cmp-stage .box rect{fill:#fff;stroke:var(--line)}
+.cmp-stage text{font:500 12px var(--body);fill:var(--navy)}
+.cmp-stage .hub{opacity:0;transition:opacity .5s .15s}
+.cmp-stage .scatter{transition:opacity .4s}
+.centralized .cmp-stage .hub{opacity:1}
+.centralized .cmp-stage .scatter{opacity:0}
+@media (max-width:860px){.cmp-stage{height:240px}}
+@media (prefers-reduced-motion:reduce){
+  .ha-core .sun-arc{stroke-dashoffset:0}
+  .ha-col li::after,.ha-col li::before,.ha-down::before{transform:none!important}
+}

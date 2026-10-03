@@ -35,6 +35,19 @@
   }
   addEventListener('beforeprint',revealAll);
 
+  // compare toggle (switches once on first view, then user-controlled)
+  var cmp=document.getElementById('compare');
+  if(cmp){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var seg=cmp.querySelector('.seg'),thumb=seg.querySelector('.thumb'),bs=seg.querySelectorAll('button'),cap=cmp.querySelector('.cmp-cap');
+  var caps={today:'Each function runs on its own tools and people, and the owner is left connecting the pieces.',central:'One platform coordinates every function, and the owner gets one clear view of the property.'};
+  var mode='today',autoCmp=!reduce;
+  function setMode(m){mode=m;bs.forEach(function(b){var on=b.dataset.mode===m;b.setAttribute('aria-pressed',on);if(on){thumb.style.width=b.offsetWidth+'px';thumb.style.transform='translateX('+(b.offsetLeft-4)+'px)'}});cmp.classList.toggle('centralized',m==='central');cap.textContent=caps[m]}
+  bs.forEach(function(b){b.addEventListener('click',function(){autoCmp=false;setMode(b.dataset.mode)})});
+  setMode('today');addEventListener('resize',function(){setMode(mode)});
+  var co=new IntersectionObserver(function(es){if(es[0].isIntersecting){co.disconnect();setTimeout(function(){if(autoCmp)setMode('central')},1600)}},{threshold:.6});co.observe(cmp);
+  }
+
   // Property review form (homepage and contact page): front-end validation only, nothing is sent
   var form=document.getElementById('reviewForm');
   if(form){
