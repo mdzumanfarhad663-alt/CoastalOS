@@ -33,7 +33,7 @@
 .grp-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
 .grp{padding:22px 0 0;scroll-margin-top:96px;background:none;border:0;border-radius:0;box-shadow:none;border-top:2px solid var(--navy)}
 .grp-grid{row-gap:clamp(40px,5vw,64px);column-gap:clamp(32px,5vw,64px)}
-.grp:last-child{grid-column:1/-1}
+.grp:last-of-type{grid-column:1/-1}
 .grp-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .grp-n{font:600 .95rem var(--display);color:var(--sun)}
 .tag{display:inline-flex;align-items:center;gap:8px;font:500 .82rem var(--display);color:var(--navy);background:var(--sun-soft);border-radius:var(--r-pill);padding:5px 12px}
@@ -41,13 +41,18 @@
 .grp h2{margin-top:14px;font-size:clamp(1.4rem,2vw,1.7rem)}
 .grp-lede{margin-top:8px;color:var(--muted)}
 .grp-list{list-style:none;margin:20px 0 0;padding:0;display:grid}
-.grp:last-child .grp-list{grid-template-columns:repeat(3,1fr);column-gap:var(--gap)}
+.grp:last-of-type .grp-list{grid-template-columns:repeat(3,1fr);column-gap:var(--gap)}
 .grp-list li{display:flex;gap:14px;padding:14px 0;border-top:1px solid var(--line)}
 .grp-list b{display:block;font:600 1rem var(--display);color:var(--navy)}
 .grp-list li span:not(.ic){display:block;margin-top:3px;font-size:.93rem;color:var(--muted);line-height:1.5}
 .grp-list .ic{flex:none}
-@media (max-width:900px){.grp-grid{grid-template-columns:1fr}.grp:last-child .grp-list{grid-template-columns:1fr}}
+@media (max-width:900px){.grp-grid{grid-template-columns:1fr}.grp:last-of-type .grp-list{grid-template-columns:1fr}}
 
+.svc-banner{margin-top:-8px;margin-bottom:clamp(8px,2vw,24px)}
+.svc-banner img,.svc-duo img{width:100%;height:auto;display:block;border-radius:var(--r-lg);box-shadow:var(--shadow-lg)}
+.svc-banner img{aspect-ratio:3/1;object-fit:cover;object-position:50% 40%}
+.svc-duo{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+@media (max-width:640px){.svc-duo{grid-template-columns:1fr}.svc-banner img{aspect-ratio:16/9}}
 /* Engagement flow */
 .engage{margin-top:0;padding:clamp(24px,3vw,36px)}
 .steps-3 b{font-size:1.1rem}
@@ -115,6 +120,8 @@
   </div>
 </section>
 
+<div class="wrap svc-banner rv"><img src="assets/site/front-desk.webp" width="1672" height="940" alt="A front desk team member welcoming two guests" loading="lazy" decoding="async"></div>
+
 <!-- SERVICE GROUPS -->
 <section class="sec sec-white">
   <div class="wrap grp-grid">
@@ -148,6 +155,10 @@
       <p class="grp-lede">Clear numbers and back-office support, so owners always know how the property is performing.</p>
       <ul class="grp-list"><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span><div><b>Payroll &amp; HR</b><span>Payroll and HR administration coordinated centrally, so it is handled consistently.</span></div></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><div><b>Financial reporting</b><span>Accounting and financial statements that give a clear picture of the property.</span></div></li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><div><b>Owner reporting</b><span>Reporting on revenue, occupancy, rates, expenses and labor, all in one place.</span></div></li></ul>
     </article>
+    <div class="svc-duo">
+      <img class="rv d1" src="assets/site/central-desk.webp" width="1400" height="788" alt="Working at a laptop in a bright office by the water" loading="lazy" decoding="async">
+      <img class="rv d2" src="assets/site/owner-reporting.webp" width="1400" height="788" alt="Reviewing a property’s financial reports at a desk" loading="lazy" decoding="async">
+    </div>
   </div>
 </section>
 
