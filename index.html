@@ -143,10 +143,90 @@
   .js .hero-fade,.js .hero h1 .ln>span,.bub{opacity:1!important;transform:none!important}
   .draw{stroke-dashoffset:0}.grow{transform:none}
 }
+/* ===== Homepage layer (body.v2): navy platform band, light outcomes and inquiry ===== */
+.v2{--sec:clamp(72px,8vw,112px)}
+.v2 .js .rv,.js .v2 .rv{transform:translateY(10px);transition-duration:.45s}
+/* hero */
+.v2 .hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.v2 .hero h1{font-size:clamp(2.1rem,3.4vw,2.95rem);line-height:1.06;letter-spacing:-.03em}
+.v2 .hero .lede{font-size:clamp(1.05rem,1.3vw,1.2rem);max-width:40ch}
+.v2 .hero-ctas{align-items:center;gap:12px}
+.v2 .hero-ctas .btn-primary{padding:18px 32px;font-size:1.05rem;box-shadow:0 14px 30px -14px rgba(14,42,71,.6)}
+.v2 .hero-points{margin-top:30px}
+.v2 .hero-art{max-width:520px;justify-self:end;width:100%}
+.v2-textlink{font:600 1rem var(--display);color:var(--navy);text-decoration:none;border-bottom:2px solid var(--teal-2);padding-bottom:2px;transition:color .2s,border-color .2s}
+.v2-textlink:hover{color:var(--teal-ink);border-color:var(--teal)}
+.v2-textlink:focus-visible{outline:3px solid var(--sun);outline-offset:4px;border-radius:4px}
+.v2-on-navy{color:#fff;border-color:var(--teal-2)}
+.v2-on-navy:hover{color:var(--teal-2)}
+@media (max-width:980px){.v2 .hero-grid{grid-template-columns:1fr}.v2 .hero-art{justify-self:stretch;max-width:none}}
+@media (max-width:480px){.v2 .hero-ctas{flex-direction:column;align-items:stretch}}
+/* opportunity: open layout, compare stays a card */
+.v2 .opp h2{font-size:clamp(1.9rem,3.2vw,2.6rem);max-width:18ch}
+/* platform: the one strong navy section */
+.v2 #platform{background:var(--navy);color:#C9D7E4}
+.v2 #platform h2{color:#fff}
+.v2 #platform .kicker{color:var(--teal-2)}
+.v2 #platform .lede{color:#A9BDD0}
+.v2 .cap-groups{gap:clamp(32px,5vw,72px)}
+.v2 .cap-group{background:none;border:0;border-radius:0;box-shadow:none;padding:0;border-top:2px solid var(--sun)}
+.v2 .cap-group.run{border-top-color:var(--teal-2)}
+.v2 .cap-group h3{color:#fff;padding-top:22px;font-size:1.25rem}
+.v2 .cap-group h3::before{display:none}
+.v2 .cap-group li{border-top-color:rgba(255,255,255,.12);padding:18px 0}
+.v2 .cap-group b{color:#fff}
+.v2 .cap-group span{color:#A9BDD0}
+.v2 .cap-group .ic{background:rgba(111,208,204,.12)}
+.v2 .cap-group .ic svg{stroke:var(--teal-2)}
+.v2 #platform .more-link{text-align:left;margin-top:clamp(32px,4vw,48px)}
+/* outcomes: light background, chart panel stays navy */
+.v2 .outcomes{background:var(--bg);color:var(--ink)}
+.v2 .outcomes h2{color:var(--navy)}
+.v2 .outcomes .kicker{color:var(--teal-ink)}
+.v2 .outcomes .lede{color:var(--muted)}
+.v2 .out-list{border-top-color:var(--line)}
+.v2 .out-list button{border-bottom-color:var(--line)}
+.v2 .out-list h3{color:#6A7D90}
+.v2 .out-list button:hover h3{color:var(--navy)}
+.v2 .out-list button[aria-selected="true"] h3{color:var(--navy)}
+.v2 .out-list p{color:var(--muted)}
+.v2 .out-list button::after{background:var(--teal)}
+.v2 .out-list button:focus-visible{outline-color:var(--teal)}
+.v2 .out-panel{background:var(--navy);border:0;box-shadow:var(--shadow-lg)}
+.v2 .tagline{color:var(--navy);border-top-color:var(--line)}
+.v2 .tagline em{color:var(--teal-ink)}
+/* operator story: text + photo */
+.v2-story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.v2-story h2{font-size:clamp(2rem,3.4vw,2.8rem);max-width:16ch}
+.v2-story .lede{margin-top:14px;max-width:44ch}
+.v2-story .lede+.lede{margin-top:8px}
+.v2 .proof-stats{margin:30px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.v2 .proof-stats>div{display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:8px;padding:14px 0 0;background:none;border:0;border-radius:0;border-top:2px solid var(--navy)}
+.v2 .proof-stats dd{margin:0;font:600 clamp(1.5rem,2.3vw,2rem)/1 var(--display);color:var(--navy);letter-spacing:-.02em;white-space:nowrap}
+.v2 .proof-stats dt{font-size:.85rem;color:var(--muted);line-height:1.45}
+.v2 .stats-src{margin-top:14px;font-size:.82rem;color:var(--muted)}
+.v2 .owners-link{margin-top:18px}
+.v2-photo{margin:0}
+.v2-photo img{width:100%;height:auto;display:block;border-radius:var(--r-lg);box-shadow:var(--shadow-lg)}
+.v2-photo figcaption{margin-top:10px;font-size:.85rem;color:var(--muted)}
+@media (max-width:900px){.v2-story{grid-template-columns:1fr}.v2-photo{order:-1}}
+@media (max-width:560px){.v2 .proof-stats{grid-template-columns:1fr}}
+/* inquiry: light composition, distinct from the navy platform band */
+.v2 .cta{background:linear-gradient(180deg,var(--teal-soft),var(--bg));color:var(--muted)}
+.v2 .cta::after{display:none}
+.v2 .cta h2{color:var(--navy);font-size:clamp(2.2rem,4vw,3.2rem)}
+.v2 .cta .kicker{color:var(--teal-ink)}
+.v2 .cta .lede{color:var(--muted)}
+.v2 .next b{color:var(--navy)}
+.v2 .next li span{border-color:var(--teal);color:var(--teal-ink)}
+.v2 .alt-contact{border-top-color:var(--line)}
+.v2 .alt-contact b{color:var(--navy)}
+.v2 #reviewForm{border:1px solid var(--line);border-top:4px solid var(--navy)}
+@media (prefers-reduced-motion:reduce){.js .v2 .rv{transition:none;transform:none}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
-<body>
+<body class="v2">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site" id="top">
@@ -174,9 +254,9 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <h1><span class="ln"><span>The Operating</span></span><span class="ln"><span>System for</span></span><span class="ln"><span>Independent Hotels.</span></span></h1>
+      <h1><span class="ln"><span>The operating system</span></span><span class="ln"><span>for independent</span></span><span class="ln"><span>hotels.</span></span></h1>
       <div class="hero-fade">
-        <p class="lede">CoastalOS is a technology-enabled hotel management platform for independent and boutique hotels. It runs the work every property repeats, centrally, so owners can focus on revenue, costs and a clearer view of performance.</p>
+        <p class="lede">A technology-enabled hotel management platform that runs the work every property repeats, centrally, so owners can focus on revenue, costs and performance.</p>
         <div class="hero-ctas">
           <a href="#platform" class="btn btn-primary">See How CoastalOS Works</a>
           <a href="contact.html?request=call" class="btn btn-ghost">Talk to Our Team</a>
@@ -289,7 +369,7 @@
       </div>
     </div>
 
-    <p class="more-link rv"><a href="platform.html" class="btn btn-ghost">See the full platform <span aria-hidden="true">→</span></a></p>
+    <p class="more-link rv"><a href="platform.html" class="v2-textlink v2-on-navy">See the full platform <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
@@ -354,17 +434,21 @@
 
 <!-- OWNERS -->
 <section class="sec sec-white owners">
-  <div class="wrap owners-band rv">
-    <p class="kicker">Built by hotel owners</p>
-    <h2>Built by the team behind Coastal Hospitality Group.</h2>
-    <p class="lede">Coastal Hospitality Group has acquired, developed and operated independent hotels since 2012. CoastalOS is built from that day-to-day operating experience.</p>
-    <dl class="proof-stats">
-      <div><dt>Operating hotels since</dt><dd>2012</dd></div>
-      <div><dt>Hotels owned and operated, as of 2026</dt><dd>14</dd></div>
-      <div><dt>Bottom-line gain Coastal Management Company reports it often achieves in a hotel’s first year</dt><dd>+10–30%</dd></div>
-    </dl>
-    <p class="stats-src">Figures from Coastal Hospitality Group and its operating company, Coastal Management Company.</p>
-    <p class="owners-link"><a class="text-link" href="about.html">Read how CoastalOS started</a></p>
+  <div class="wrap v2-story">
+    <div class="rv">
+      <p class="kicker">Built by hotel owners</p>
+      <h2>Built by the team behind Coastal Hospitality Group.</h2>
+      <p class="lede">Coastal Hospitality Group has acquired, developed and operated independent hotels since 2012.</p>
+      <p class="lede">CoastalOS is built from that day-to-day operating experience.</p>
+      <dl class="proof-stats">
+        <div><dt>Operating hotels since</dt><dd>2012</dd></div>
+        <div><dt>Hotels owned and operated, as of 2026</dt><dd>14</dd></div>
+        <div><dt>Bottom-line gain Coastal Management Company reports it often achieves in a hotel’s first year</dt><dd>+10–30%</dd></div>
+      </dl>
+      <p class="stats-src">Figures from Coastal Hospitality Group and its operating company, Coastal Management Company.</p>
+      <p class="owners-link"><a class="text-link" href="about.html">Read how CoastalOS started</a></p>
+    </div>
+    <figure class="v2-photo rv d2"><img src="assets/portfolio/chg-hickory-falls.webp" width="1000" height="750" alt="Hickory Falls Inn, Lake Lure, NC" loading="lazy" decoding="async"><figcaption>Hickory Falls Inn, Lake Lure, NC: a Coastal Hospitality Group hotel</figcaption></figure>
   </div>
 </section>
 
