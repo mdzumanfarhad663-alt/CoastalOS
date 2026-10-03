@@ -9,9 +9,9 @@ All six agreed pages are built.
 | File | Page |
 |---|---|
 | `index.html` | Home: full sales journey (opportunity, platform, outcomes, CHG track record, properties, property review form) |
-| `platform.html` | Platform / How It Works: central vs on-site split (hero), operating model, principles, guest journey, owner view, links to the five service groups. The comparison toggle lives only on Home and the guest journey only here. |
-| `about.html` | About CoastalOS: three operating models compared (hero), origin, who we work with |
-| `services.html` | Services: five service groups (the single source for the service list), engagement steps |
+| `platform.html` | Platform / How It Works: central vs on-site split (hero), operating model with the three principles, guest journey, owner view (links to Services). The comparison toggle lives only on Home and the guest journey only here. |
+| `about.html` | About CoastalOS: three operating models compared (hero), origin with who we work with |
+| `services.html` | Services: five service groups as cards in one section (the single source for the service list), engagement steps |
 | `contact.html` | Contact: request a property review or a call (form, next steps, FAQ) |
 | `portfolio.html` | Portfolio: independent properties listed on Coastal Getaway (temporary, see below) |
 | `index-1.html` | Redirect to `index.html` (an earlier homepage lived here; it remains in git history) |
