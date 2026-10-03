@@ -315,3 +315,45 @@ footer a:hover{color:#fff}
 /* Inline text links in body copy */
 .text-link{color:var(--teal-ink);font-weight:600;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
 .text-link:hover{color:var(--navy)}
+
+/* ===== Site-wide refresh: one navy band per page, open layouts, light closing CTA ===== */
+.js .rv{transform:translateY(10px);transition-duration:.45s}
+
+/* Navy band: the single high-contrast section on a page */
+.navy-band{background:var(--navy);color:#C9D7E4}
+.navy-band h2,.navy-band h3{color:#fff}
+.navy-band .kicker{color:var(--teal-2)}
+.navy-band .lede,.navy-band p{color:#A9BDD0}
+.navy-band .text-link{color:#fff;text-decoration-color:var(--teal-2)}
+.navy-band .text-link:hover{color:var(--teal-2)}
+.navy-band a:focus-visible,.navy-band button:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.navy-band .phil li{border-top-color:var(--teal-2)}
+.navy-band .phil b{color:#fff}
+.navy-band .phil span{color:#A9BDD0}
+.navy-band .card{background:transparent;border-color:rgba(255,255,255,.14);box-shadow:none}
+.navy-band .journey-top b{color:#fff}
+.navy-band .steps-flow::before{background:rgba(255,255,255,.18)}
+.navy-band .steps-flow b{color:#fff}
+.navy-band .steps-flow small{color:#A9BDD0}
+.navy-band .dot{background:var(--navy-2);border-color:rgba(255,255,255,.25);color:var(--teal-2)}
+.navy-band .journey.in .dot{background:rgba(111,208,204,.14);border-color:var(--teal-2)}
+.navy-band .steps-flow li.hub .dot{background:var(--teal)!important;border-color:var(--teal)!important;color:#fff}
+
+/* Closing CTA band: light, so it never competes with the navy band */
+.cta-band{background:linear-gradient(180deg,var(--teal-soft),var(--bg));color:var(--muted)}
+.cta-band::after{display:none}
+.cta-band h2{color:var(--navy)}
+.cta-band .kicker{color:var(--teal-ink)}
+.cta-band .lede{color:var(--muted)}
+.cta-band .btn-light{background:var(--navy);color:#fff}
+.cta-band .btn-light:hover{background:var(--teal)}
+.cta-band .btn-ghost-light{border-color:rgba(14,42,71,.22);color:var(--navy);background:var(--paper)}
+.cta-band .btn-ghost-light:hover{border-color:var(--navy)}
+
+/* Property cards: open layout, the photo carries the card */
+.card.pcard{background:none;border:0;box-shadow:none;padding:0}
+.card.pcard:hover{transform:none;box-shadow:none}
+.pcard-img{border-radius:var(--r-md);box-shadow:var(--shadow)}
+.pcard-meta{padding:16px 2px 0}
+.pcard:hover .pcard-name{color:var(--teal-ink)}
+@media (prefers-reduced-motion:reduce){.js .rv{transform:none}}

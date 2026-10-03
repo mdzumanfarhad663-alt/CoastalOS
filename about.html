@@ -29,9 +29,12 @@
 .who-chips li{font:500 .9rem var(--display);color:var(--navy);background:var(--paper);border:1px solid var(--line);border-radius:var(--r-pill);padding:6px 14px}
 .origin-photo img{width:100%;height:auto;border-radius:var(--r-lg);box-shadow:var(--shadow-lg);display:block}
 .origin-photo figcaption{margin-top:10px;font-size:.85rem;color:var(--muted)}
-.founder-bio{font:500 clamp(1.05rem,1.5vw,1.2rem)/1.6 var(--display);color:var(--navy)}
+.founder-bio{font:500 clamp(1.1rem,1.6vw,1.3rem)/1.6 var(--display);color:#fff!important}
+.navy-band .founder-card figcaption{color:#A9BDD0}
+.navy-band .founder-card figcaption b{color:#fff}
+.founder-card img{box-shadow:0 0 0 4px rgba(111,208,204,.35)}
 /* Founder note (section is commented out until Jed supplies text and photo) */
-.founder-card{display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,48px);align-items:center;padding:clamp(24px,4vw,44px)}
+.founder-card{display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,56px);align-items:center;max-width:960px}
 .founder-card img{width:200px;height:200px;object-fit:cover;border-radius:50%}
 .founder-card blockquote{margin:0;font:500 clamp(1.15rem,1.8vw,1.4rem)/1.5 var(--display);color:var(--navy)}
 .founder-card figcaption{margin-top:18px;color:var(--muted)}
@@ -108,9 +111,9 @@
 </section>
 
 <!-- FOUNDER -->
-<section class="sec">
+<section class="sec navy-band">
   <div class="wrap">
-    <figure class="card founder-card rv" style="margin:0">
+    <figure class="founder-card rv" style="margin:0">
       <img src="assets/about/jed-tarr.webp" width="480" height="480" alt="Portrait of Jed Tarr" loading="lazy" decoding="async">
       <div>
         <p class="kicker">The founder</p>

@@ -31,7 +31,8 @@
 
 /* Service groups */
 .grp-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
-.grp{padding:clamp(24px,3vw,34px);scroll-margin-top:96px}
+.grp{padding:22px 0 0;scroll-margin-top:96px;background:none;border:0;border-radius:0;box-shadow:none;border-top:2px solid var(--navy)}
+.grp-grid{row-gap:clamp(40px,5vw,64px);column-gap:clamp(32px,5vw,64px)}
 .grp:last-child{grid-column:1/-1}
 .grp-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .grp-n{font:600 .95rem var(--display);color:var(--sun)}
@@ -151,7 +152,7 @@
 </section>
 
 <!-- ENGAGEMENT -->
-<section class="sec">
+<section class="sec navy-band">
   <div class="wrap">
     <div class="sec-head split-head rv">
       <div><p class="kicker">How engagement works</p>

@@ -35,6 +35,7 @@ Then visit http://localhost:8000.
 
 - `assets/css/site.css` — shared styles: design tokens, base typography, header and mobile menu, buttons, cards, icon tiles, reveal animation, FAQ, CTA band, form, footer, mobile sticky CTA, and reused components (principles list, step flow, hotel illustration layout, navy platform panel, "Managed separately / With CoastalOS" comparison, linked property cards).
 - `assets/js/site.js` — shared behavior: header scroll state, mobile menu (Escape closes it), one-time scroll reveals, mobile sticky CTA, in-page nav highlighting on the homepage, the comparison toggle (switches once on first view, then user-controlled), and the property review form (validation and `?request=call`).
+- Design system: each page has one navy band (`.navy-band` in `site.css`; on the homepage it is the platform section), open layouts instead of boxed cards where cards add nothing, and a light closing CTA (`.cta-band`). The Contact page's navy hero holds the form.
 - Each page keeps its page-specific CSS in a small `<style>` block. Homepage-only scripts (outcome tabs) stay inline in `index.html`.
 - `assets/portfolio/` — property photos from the CHG site, for the homepage hotels section and `portfolio.html`.
 - `assets/about/` — Hickory Falls Inn room photo and Jed Tarr's headshot (About page).
