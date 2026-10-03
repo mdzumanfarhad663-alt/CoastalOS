@@ -149,9 +149,9 @@
 .v2 .js .rv,.js .v2 .rv{transform:translateY(10px);transition-duration:.45s}
 /* hero */
 .v2 .hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
-.v2 .hero h1{font-size:clamp(2.2rem,3.9vw,3.3rem);line-height:1.05;letter-spacing:-.035em}
+.v2 .hero h1{font-size:clamp(2.1rem,3.4vw,2.95rem);line-height:1.06;letter-spacing:-.03em}
 .v2 .hero .lede{font-size:clamp(1.05rem,1.3vw,1.2rem);max-width:40ch}
-.v2 .hero-ctas{align-items:center;gap:22px}
+.v2 .hero-ctas{align-items:center;gap:12px}
 .v2 .hero-ctas .btn-primary{padding:18px 32px;font-size:1.05rem;box-shadow:0 14px 30px -14px rgba(14,42,71,.6)}
 .v2 .hero-points{margin-top:30px}
 .v2 .hero-art{max-width:520px;justify-self:end;width:100%}
@@ -161,7 +161,7 @@
 .v2-on-navy{color:#fff;border-color:var(--teal-2)}
 .v2-on-navy:hover{color:var(--teal-2)}
 @media (max-width:980px){.v2 .hero-grid{grid-template-columns:1fr}.v2 .hero-art{justify-self:stretch;max-width:none}}
-@media (max-width:480px){.v2 .hero-ctas{flex-direction:column;align-items:stretch}.v2 .hero-ctas .v2-textlink{align-self:center}}
+@media (max-width:480px){.v2 .hero-ctas{flex-direction:column;align-items:stretch}}
 /* opportunity: open layout, compare stays a card */
 .v2 .opp h2{font-size:clamp(1.9rem,3.2vw,2.6rem);max-width:18ch}
 /* platform: the one strong navy section */
@@ -260,7 +260,7 @@
         <p class="lede">A technology-enabled hotel management platform that runs the work every property repeats, centrally, so owners can focus on revenue, costs and performance.</p>
         <div class="hero-ctas">
           <a href="#platform" class="btn btn-primary">See How CoastalOS Works</a>
-          <a href="contact.html?request=call" class="v2-textlink">Talk to Our Team <span aria-hidden="true">→</span></a>
+          <a href="contact.html?request=call" class="btn btn-ghost">Talk to Our Team</a>
         </div>
         <ul class="hero-points">
           <li>Increase revenue</li><li>Reduce operating costs</li><li>Owner visibility</li>
