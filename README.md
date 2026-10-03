@@ -79,6 +79,15 @@ Then visit http://localhost:8000.
 - Which existing hotel systems CoastalOS works with or replaces (integrations).
 - Hours of central team coverage.
 
+**Sample content (generated for the prototype; replace before launch)**
+
+Every item below shows a gold "Sample" tag on the page. Search the HTML for `class="sample"` to find them all.
+- Home, "In their words": three testimonials. Need approved quotes with names, roles and properties.
+- Services, "Is CoastalOS right for your property?": property size (15-100 rooms), locations and ways to work together.
+- Contact FAQ: onboarding time, existing systems, agreements, choosing individual services.
+- Portfolio, case study: a 40-room coastal motel with sample figures (+18%, -9%, 4 → 1). Need an approved case study with real numbers.
+- Image frames on Platform and Services (see Structure).
+
 **Before launch**
 - `privacy.html` is starter text, linked from every footer and below both forms. Have it reviewed before real data is collected, and update it to name the form service once one is chosen.
 - Connect the forms to a real destination (email, CRM or form service).

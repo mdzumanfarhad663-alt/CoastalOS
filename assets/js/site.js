@@ -30,7 +30,7 @@
   function revealAll(){rvs.forEach(function(el){el.classList.add('in')})}
   if(!('IntersectionObserver' in window)){revealAll()}
   else{
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.01,rootMargin:'0px 0px 12% 0px'});
     rvs.forEach(function(el){if(el.getBoundingClientRect().top<innerHeight){el.classList.add('in','rv-now')}else{io.observe(el)}});
   }
   addEventListener('beforeprint',revealAll);
@@ -55,6 +55,13 @@
   if(/[?&]request=call(&|$)/.test(location.search))document.getElementById('q2').checked=true;
   // "A call with our team" shortcut buttons (contact page)
   document.querySelectorAll('[data-pick-call]').forEach(function(b){b.addEventListener('click',function(){document.getElementById('q2').checked=true;document.getElementById('name').focus()})});
+  // Choosing a call changes the submit label and the next-steps list
+  var sub=form.querySelector('button[type=submit]');
+  function syncReq(){var call=document.getElementById('q2').checked;sub.textContent=call?'Request a Call':'Request a Property Review';
+    document.querySelectorAll('[data-steps="review"]').forEach(function(e){e.hidden=call});document.querySelectorAll('[data-steps="call"]').forEach(function(e){e.hidden=!call})}
+  form.querySelectorAll('input[name=request]').forEach(function(r){r.addEventListener('change',syncReq)});
+  document.querySelectorAll('[data-pick-call]').forEach(function(b){b.addEventListener('click',syncReq)});
+  syncReq();
   form.addEventListener('submit',function(e){
     e.preventDefault();var ok=true;
     form.querySelectorAll('[required]').forEach(function(el){
