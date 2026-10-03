@@ -46,18 +46,6 @@
 @media (max-width:900px){.svc-row{grid-template-columns:1fr}}
 @media (max-width:900px){.svc-grid{grid-auto-rows:auto}}
 
-/* Sticky side nav on wide screens; pill row below that */
-.side-nav{display:none}
-@media (min-width:1100px){
-  .svc-body{display:grid;grid-template-columns:190px minmax(0,1fr);column-gap:48px}
-  .side-nav{display:block;position:sticky;top:100px;align-self:start;padding-top:clamp(64px,7vw,96px);z-index:1}
-  .side-nav p{font:600 .85rem var(--display);color:var(--muted);margin-bottom:12px}
-  .side-nav ul{list-style:none;margin:0;padding:0;display:grid;gap:2px;border-left:2px solid var(--line)}
-  .side-nav a{display:block;text-decoration:none;color:var(--muted);font:500 .95rem/1.35 var(--display);padding:8px 0 8px 16px;margin-left:-2px;border-left:2px solid transparent;transition:color .2s,border-color .2s}
-  .side-nav a:hover{color:var(--navy)}
-  .side-nav a.active{color:var(--navy);border-left-color:var(--teal)}
-}
-
 /* Engagement flow */
 .engage{margin-top:0;padding:clamp(24px,3vw,36px)}
 .steps-3 b{font-size:1.1rem}
@@ -127,16 +115,6 @@
 
 <!-- SERVICE GROUPS -->
 <div class="wrap svc-body">
-  <nav class="side-nav" aria-label="Service groups (side)">
-    <p>On this page</p>
-    <ul>
-      <li><a href="#revenue">Revenue &amp; Distribution</a></li>
-      <li><a href="#reservations">Reservations &amp; Guest Support</a></li>
-      <li><a href="#operations">Property Operations</a></li>
-      <li><a href="#technology">Technology &amp; Automation</a></li>
-      <li><a href="#reporting">Financial &amp; Owner Reporting</a></li>
-    </ul>
-  </nav>
   <div class="svc-main">
 
   <section class="svc-sec alt" id="revenue" aria-labelledby="revenue-h">
@@ -273,17 +251,5 @@
 <div class="mcta" id="mcta"><a href="contact.html" class="btn btn-primary">Request a Property Review</a></div>
 
 <script src="assets/js/site.js"></script>
-<script>
-// Highlight the service group currently in view in the side nav
-(function(){
-  var links=[].slice.call(document.querySelectorAll('.side-nav a'));
-  function update(){
-    var cur=links[0];
-    links.forEach(function(a){var s=document.getElementById(a.hash.slice(1));if(s&&s.getBoundingClientRect().top<innerHeight*.4)cur=a});
-    links.forEach(function(a){var on=a===cur;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current')});
-  }
-  addEventListener('scroll',update,{passive:true});update();
-})();
-</script>
 </body>
 </html>

@@ -254,7 +254,8 @@ footer a:hover{color:#fff}
 .results-strip{margin-top:clamp(24px,3vw,32px);padding:14px 20px;border:1px solid var(--line);border-radius:var(--r-md);background:rgba(255,255,255,.6);color:var(--muted);font-size:.95rem;display:flex;align-items:center;gap:12px}
 .results-strip::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--teal)}
 @media (max-width:980px){.pcard-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:640px){.pcard-grid{grid-template-columns:1fr}}
+@media (max-width:980px){.pcard-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}.pcard-grid-3 .pcard-name{font-size:1.05rem}}
+@media (max-width:640px){.pcard-grid,.pcard-grid-3{grid-template-columns:1fr}}
 @media (prefers-reduced-motion:reduce){.pcard:hover,.pcard:hover .pcard-img img,.pcard:hover .pcard-view i{transform:none}}
 
 /* ===== Shared: platform panel (navy hero illustration) ===== */

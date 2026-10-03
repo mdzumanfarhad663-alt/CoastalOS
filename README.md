@@ -14,7 +14,7 @@ All six agreed pages are built.
 | `services.html` | Services: five capability groups, engagement steps, FAQ |
 | `contact.html` | Contact: request a property review or a call (form, next steps, FAQ) |
 | `portfolio.html` | Portfolio: properties in the Coastal portfolio (temporary, see below) |
-| `index-1.html` | Earlier homepage version, kept for reference |
+| `index-1.html` | Redirect to `index.html` (an earlier homepage lived here; it remains in git history) |
 
 Platform, Services, About, Portfolio and Contact in the header and footer go to their own pages on every site page. On the homepage, "See How CoastalOS Works" scrolls to the homepage platform section, which ends with a "See the full platform" link. Every "Request a Property Review" button goes to `contact.html`, and every "Talk to Our Team" button goes to `contact.html?request=call`, which pre-selects "A call with our team" in the form. The homepage keeps its own copy of the form.
 
