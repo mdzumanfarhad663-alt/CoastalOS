@@ -107,11 +107,17 @@
 @media (max-width:900px){.out-tabs{grid-template-columns:1fr}.out-panel{min-height:320px}}
 
 /* ===== OWNERS ===== */
-.owners-band{max-width:760px;text-align:center}
+.owners-band{max-width:900px;text-align:center}
 .owners-band .kicker{justify-content:center}
 .owners-band h2{margin-inline:auto;max-width:26ch}
 .owners-band .lede{margin:18px auto 0;max-width:52ch}
 .owners-link{margin-top:22px}
+.proof-stats{margin:36px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);text-align:left}
+.proof-stats>div{display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:8px;padding:22px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--paper)}
+.proof-stats dd{margin:0;font:600 clamp(1.9rem,3vw,2.4rem)/1 var(--display);color:var(--navy);letter-spacing:-.02em}
+.proof-stats dt{font-size:.9rem;color:var(--muted);line-height:1.45}
+.stats-src{margin-top:14px;font-size:.85rem;color:var(--muted)}
+@media (max-width:760px){.proof-stats{grid-template-columns:1fr}}
 
 /* ===== PROOF ===== */
 .proof-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:var(--gap)}
@@ -283,18 +289,6 @@
       </div>
     </div>
 
-    <div class="card journey rv" id="journey">
-      <div class="journey-top"><b>The guest journey with CoastalOS</b><span class="illus">Illustrative flow</span></div>
-      <ol class="steps-flow">
-        <li style="--i:0"><span class="dot"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18"/></svg></span><b>Booking</b><small>Direct or any channel</small></li>
-        <li class="hub" style="--i:1"><span class="dot"><svg viewBox="0 0 24 24"><path d="M7 13a5 5 0 0 1 10 0M4 17c3-2 5 2 8 0s5 2 8 0"/></svg></span><b>CoastalOS</b><small>Managed centrally</small></li>
-        <li style="--i:2"><span class="dot"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4z"/></svg></span><b>Guest communication</b><small>Before arrival</small></li>
-        <li style="--i:3"><span class="dot"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9"/></svg></span><b>Digital check-in</b><small>Contactless arrival</small></li>
-        <li style="--i:4"><span class="dot"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg></span><b>Property operations</b><small>On-site team</small></li>
-        <li style="--i:5"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span><b>Review</b><small>Feedback captured</small></li>
-        <li style="--i:6"><span class="dot"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></span><b>Repeat guest</b><small>Back direct</small></li>
-      </ol>
-    </div>
     <p class="more-link rv"><a href="platform.html" class="btn btn-ghost">See the full platform <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
@@ -362,8 +356,14 @@
 <section class="sec sec-white owners">
   <div class="wrap owners-band rv">
     <p class="kicker">Built by hotel owners</p>
-    <h2>Shaped by running hotels, not by a software lab.</h2>
-    <p class="lede">CoastalOS grew out of owning and operating independent hotels. The platform reflects the daily work of running properties and answering to owners.</p>
+    <h2>Built by the team behind Coastal Hospitality Group.</h2>
+    <p class="lede">Coastal Hospitality Group has acquired, developed and operated independent hotels since 2012. CoastalOS is built from that day-to-day operating experience.</p>
+    <dl class="proof-stats">
+      <div><dt>Operating hotels since</dt><dd>2012</dd></div>
+      <div><dt>Hotels owned and operated, as of 2026</dt><dd>14</dd></div>
+      <div><dt>Bottom-line gain Coastal Management Company reports it often achieves in a hotel’s first year</dt><dd>+10–30%</dd></div>
+    </dl>
+    <p class="stats-src">Figures from Coastal Hospitality Group and its operating company, Coastal Management Company.</p>
     <p class="owners-link"><a class="text-link" href="about.html">Read how CoastalOS started</a></p>
   </div>
 </section>
@@ -384,22 +384,6 @@
       <a class="card pcard rv d1" href="https://coastalgetaway.com/property/island-house-resort-hotel/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="View Island House Resort Hotel on Coastal Getaway (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/island-house-resort-hotel.webp" width="1000" height="750" alt="Aerial view of the courtyard pool at Island House Resort Hotel, North Redington Beach" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Island House Resort Hotel</h3><p class="pcard-loc">North Redington Beach, FL</p><span class="pcard-type">Resort hotel</span><span class="pcard-view" aria-hidden="true">View property <i>↗</i></span></div></a>
       <a class="card pcard rv d2" href="https://coastalgetaway.com/property/malibu-resort/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="View Malibu Resort Motel on Coastal Getaway (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/malibu-resort-motel.webp" width="1000" height="750" alt="Street-front exterior of Malibu Resort Motel" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Malibu Resort Motel</h3><p class="pcard-loc">St. Pete Beach, FL</p><span class="pcard-type">Motel</span><span class="pcard-view" aria-hidden="true">View property <i>↗</i></span></div></a>
       <a class="card pcard rv d3" href="https://coastalgetaway.com/property/patriots-boutique-motel/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="View Patriots’ Boutique Motel on Coastal Getaway (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/patriots-boutique-motel.webp" width="1000" height="750" alt="Exterior of Patriots’ Boutique Motel, San Clemente" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Patriots’ Boutique Motel</h3><p class="pcard-loc">San Clemente, CA</p><span class="pcard-type">Motel</span><span class="pcard-view" aria-hidden="true">View property <i>↗</i></span></div></a>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="sec sec-white">
-  <div class="wrap faq-grid">
-    <div class="rv">
-      <p class="kicker">Questions owners ask</p>
-      <h2 style="max-width:12ch">Before you get in touch.</h2>
-    </div>
-    <div class="rv d2">
-      <details><summary>Is CoastalOS software I install?</summary><p>No. CoastalOS is an operating platform: our team, technology and processes working together to run the core functions of your hotel, centrally.</p></details>
-      <details><summary>What size of property is it built for?</summary><p>Independent and boutique hotels, motels, inns and resorts that want to keep their own brand and guests.</p></details>
-      <details><summary>Do we keep our own brand?</summary><p>Yes. Your property keeps its name, website and guests. CoastalOS works behind the scenes to grow direct business under your brand.</p></details>
-      <details><summary>What happens in a property review?</summary><p>We look at how your hotel runs today and where centralization and technology could add revenue, lower cost, or improve visibility.</p></details>
     </div>
   </div>
 </section>
@@ -454,6 +438,7 @@
       </div>
       <div><h4>Explore</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div><h4>Get started</h4><ul><li><a href="contact.html">Request a Property Review</a></li><li><a href="contact.html?request=call">Talk to Our Team</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+18773500053">(877) 350-0053</a></li><li><a href="mailto:info@coastalhospitalitygroup.com">info@coastalhospitalitygroup.com</a></li><li>711 S El Camino Real, San Clemente, CA 92672</li></ul></div>
     </div>
     <div class="foot-bottom">© 2026 CoastalOS</div>
   </div>

@@ -8,8 +8,8 @@ All six agreed pages are built.
 
 | File | Page |
 |---|---|
-| `index.html` | Home: full sales journey (platform, outcomes, portfolio, FAQ, property review form) |
-| `platform.html` | Platform / How It Works: central vs on-site split (hero), operating model, principles, guest journey, owner view, links to the five service groups |
+| `index.html` | Home: full sales journey (opportunity, platform, outcomes, CHG track record, properties, property review form) |
+| `platform.html` | Platform / How It Works: central vs on-site split (hero), operating model, principles, guest journey, owner view, links to the five service groups. The comparison toggle lives only on Home and the guest journey only here. |
 | `about.html` | About CoastalOS: three operating models compared (hero), origin, who we work with |
 | `services.html` | Services: five service groups (the single source for the service list), engagement steps |
 | `contact.html` | Contact: request a property review or a call (form, next steps, FAQ) |
@@ -47,18 +47,20 @@ Then visit http://localhost:8000.
 - No ratings, prices, reviews or metrics are shown. Property results will be added once verified.
 - The pages describe these only as properties listed on Coastal Getaway, a separate guest booking site. Nothing says CoastalOS owns, manages or serves them. Jed should confirm what the relationship can be called, and whether the nav label "Portfolio" is right.
 
+**Confirmed by the client (via Zuman), sourced from Jed's other sites**
+- The site may say CoastalOS is built by the team behind Coastal Hospitality Group (Home owners band, About origin).
+- Facts used, taken from search results for coastalhospitalitygroup.com and coastalmanagementco.com (the sites themselves could not be opened from the build environment; re-check wording on the live sites): CHG founded 2012 by founder and CEO Jed Tarr with a small beach motel in San Clemente, CA; 14 hotels owned and operated as of 2026; currently in North Carolina, Florida and California; Coastal Management Company reports it often lifts a hotel's bottom line 10-30% within its first year of operating it.
+- Contact details (temporary, from CHG): (877) 350-0053, info@coastalhospitalitygroup.com, 711 S El Camino Real, San Clemente, CA 92672. Shown in every footer and on the Contact page. Replace if CoastalOS gets its own.
+- The current logo stays unless Jed sends a new one.
+
 **Facts still needed from Jed (left out of the About and Services pages)**
-- Founding year, and how many years of hotel ownership and operation to cite.
-- Number and names of properties owned or operated.
 - Team or leadership names, roles and photos.
 - How CoastalOS relates to Coastal Hospitality Group, Coastal Management Company and Coastal Getaway. In particular: can the site say CoastalOS is built by the team behind Coastal Hospitality Group? Until then, the origin copy stays general ("grew out of owning and operating independent hotels") with no names, years or hotel counts.
 - Target property size. The "15 to 100 rooms" range was removed from the copy until confirmed; the form still asks for room count.
 - Locations or regions served.
 - Which services are offered on their own and which only as a full package.
-- Contact details for the Contact page: phone number, email address and office address.
 - Expected response time after a form request, if he wants one stated.
 - Privacy notice or consent wording for the form, and where form requests should be delivered (email, CRM or form service).
-- Final logo files (SVG or transparent PNG).
 - **Founder note (About page):** a finished founder-note section is commented out in `about.html` (search for `FOUNDER NOTE`). It needs Jed's own text, his name and title, and a portrait photo saved as `assets/about/founder.jpg`. Uncomment it once those arrive.
 
 **Platform page (to confirm)**

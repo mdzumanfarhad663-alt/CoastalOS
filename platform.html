@@ -20,11 +20,11 @@
 @media (max-width:980px){.pl-hero-grid{grid-template-columns:1fr}}
 @media (max-width:480px){.pl-hero .hero-ctas .btn{width:100%}}
 
-.model-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,6vw,80px);align-items:center}
+.model-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,6vw,80px);align-items:start}
+.model-body p{font-size:1.08rem}
 .model-body p{color:var(--muted)}
 .model-body p+p{margin-top:16px}
-.compare-lg .cmp-stage{height:340px}
-@media (max-width:860px){.model-grid{grid-template-columns:1fr}.compare-lg .cmp-stage{height:260px}}
+@media (max-width:860px){.model-grid{grid-template-columns:1fr}}
 
 .who-card{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);border:1px solid var(--line);background:#fff}
 .wc-h{display:flex;align-items:center;gap:12px;font:600 1.1rem var(--display);color:var(--navy)}
@@ -151,36 +151,12 @@
     <div class="rv">
       <p class="kicker">The operating model</p>
       <h2>Run once. Delivered to every property.</h2>
-      <div class="model-body" style="margin-top:24px">
+    </div>
+    <div class="rv d2">
+      <div class="model-body">
         <p>Every hotel repeats the same work: setting rates, answering booking questions, running payroll, closing the books, reporting to the owner. When each property does all of it alone, the effort and the cost are repeated too.</p>
         <p>CoastalOS handles that shared work once, centrally, with one team and one set of tools, and delivers it to each property. Your on-site team keeps the parts of the job that only they can do.</p>
       </div>
-    </div>
-    <div class="card compare compare-lg rv d2" id="compare">
-      <div class="seg" role="group" aria-label="Compare operating models">
-        <span class="thumb"></span>
-        <button type="button" aria-pressed="true" data-mode="today">Managed separately</button>
-        <button type="button" aria-pressed="false" data-mode="central">With CoastalOS</button>
-      </div>
-      <div class="cmp-stage" aria-hidden="true">
-        <svg viewBox="0 0 460 300" preserveAspectRatio="xMidYMid meet">
-          <g class="scatter">
-            <path class="lnk" d="M95 60 L230 150 M365 60 L230 150 M60 150 L230 150 M400 150 L230 150 M95 240 L230 150 M365 240 L230 150 M95 60 L60 150 M365 60 L400 150 M95 240 L365 240" stroke-dasharray="3 6"/>
-            <rect x="198" y="132" width="64" height="36" rx="10" fill="#F6EBD5" stroke="#C9932F"/><text x="230" y="155" text-anchor="middle">Owner</text>
-          </g>
-          <g class="hub">
-            <path d="M95 60 L230 150 M365 60 L230 150 M60 150 L230 150 M400 150 L230 150 M95 240 L230 150 M365 240 L230 150" stroke="#1C8C8A" stroke-width="1.6" fill="none"/>
-            <rect x="178" y="122" width="104" height="56" rx="14" fill="#0E2A47"/><text x="230" y="155" text-anchor="middle" style="fill:#fff;font-weight:600;font-family:Outfit,sans-serif;font-size:14px">CoastalOS</text>
-          </g>
-          <g class="box"><rect x="45" y="42" width="100" height="36" rx="18"/><text x="95" y="65" text-anchor="middle">Pricing</text></g>
-          <g class="box"><rect x="315" y="42" width="100" height="36" rx="18"/><text x="365" y="65" text-anchor="middle">Reservations</text></g>
-          <g class="box"><rect x="5" y="132" width="110" height="36" rx="18"/><text x="60" y="155" text-anchor="middle">Guest messages</text></g>
-          <g class="box"><rect x="345" y="132" width="110" height="36" rx="18"/><text x="400" y="155" text-anchor="middle">Scheduling</text></g>
-          <g class="box"><rect x="45" y="222" width="100" height="36" rx="18"/><text x="95" y="245" text-anchor="middle">Payroll &amp; HR</text></g>
-          <g class="box"><rect x="315" y="222" width="100" height="36" rx="18"/><text x="365" y="245" text-anchor="middle">Reporting</text></g>
-        </svg>
-      </div>
-      <p class="cmp-cap" aria-live="polite">Each function runs on its own tools and people, and the owner is left connecting the pieces.</p>
     </div>
   </div>
 </section>
@@ -288,6 +264,7 @@
       </div>
       <div><h4>Explore</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div><h4>Get started</h4><ul><li><a href="contact.html">Request a Property Review</a></li><li><a href="contact.html?request=call">Talk to Our Team</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li><a href="tel:+18773500053">(877) 350-0053</a></li><li><a href="mailto:info@coastalhospitalitygroup.com">info@coastalhospitalitygroup.com</a></li><li>711 S El Camino Real, San Clemente, CA 92672</li></ul></div>
     </div>
     <div class="foot-bottom">© 2026 CoastalOS</div>
   </div>

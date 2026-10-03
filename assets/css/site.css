@@ -164,6 +164,7 @@ details p{color:var(--muted);padding:0 40px 22px 0;max-width:62ch}
 .next small{font-size:.92rem}
 .alt-contact{margin-top:32px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);display:grid;gap:10px}
 .alt-contact p{font-size:.95rem}
+.alt-contact .direct a{color:#fff;font-weight:600;overflow-wrap:anywhere}
 .alt-contact b{font-family:var(--display);color:#fff;font-size:1.05rem}
 form{background:#fff;border-radius:var(--r-lg);padding:clamp(24px,4vw,36px);display:grid;grid-template-columns:1fr 1fr;gap:16px;box-shadow:var(--shadow-lg);color:var(--ink)}
 .form-head{grid-column:1/-1;margin-bottom:4px}
@@ -193,7 +194,8 @@ legend{margin-bottom:8px;padding:0}
 
 /* Footer */
 footer{background:var(--navy-3);color:#A9BDD0;padding:64px 0 40px;font-size:.95rem}
-.foot{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.foot{display:grid;grid-template-columns:1.3fr .8fr 1fr 1.3fr;gap:32px}
+.foot li{overflow-wrap:anywhere}
 footer .logo-word{color:#fff}
 footer h4{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}
 footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
