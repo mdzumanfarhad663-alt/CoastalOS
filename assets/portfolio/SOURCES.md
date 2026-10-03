@@ -22,3 +22,5 @@ About page (`assets/about/`):
 - `jed-tarr.webp`: Jed Tarr headshot (CHG About page), cropped square 480×480.
 
 Past properties (Little Cat Lodge, Gaslamp Quarter Hotel, Sunny Palms Inn, Mediterraneo Resort) are not shown.
+
+Contact page background (`assets/site/contact-sea-shells-sunset.webp`): "Seashells_Sunset.jpg" from https://coastalgetaway.com/ (wp-content/uploads/2020/12/), the sunset at Sea Shells Beach Club, Daytona Beach, FL, a Coastal Hospitality Group hotel. Cropped to 16:9 around the sun and resized to 1600×900 WebP. Downloaded 2026-10-03.
