@@ -82,4 +82,4 @@ Then visit http://localhost:8000.
 **Before launch**
 - `privacy.html` is starter text, linked from every footer and below both forms. Have it reviewed before real data is collected, and update it to name the form service once one is chosen.
 - Connect the forms to a real destination (email, CRM or form service).
-- A testimonial from an owner, investor or partner would strengthen Home and About; none is shown until a real one is supplied.
+- Testimonials (Home, "In their words"): three quotes supplied by the client, attributed only as Hotel owner, Investor and Partner. Adding names, roles and property (with permission) would make them stronger.

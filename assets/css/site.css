@@ -371,3 +371,13 @@ footer a:hover{color:#fff}
 .legal ul{margin:12px 0 0;padding-left:20px}
 .legal li+li{margin-top:6px}
 .legal a{color:var(--teal-ink);font-weight:600}
+
+/* Testimonials */
+.quote-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,48px)}
+.quote{margin:0;padding-top:22px;border-top:2px solid var(--navy);display:flex;flex-direction:column;gap:18px}
+.quote:nth-child(2){border-top-color:var(--teal)}
+.quote:nth-child(3){border-top-color:var(--sun)}
+.quote blockquote{margin:0}
+.quote p{font:500 clamp(1.05rem,1.4vw,1.2rem)/1.55 var(--display);color:var(--navy);letter-spacing:-.005em}
+.quote figcaption{margin-top:auto;font:600 .9rem var(--display);color:var(--teal-ink)}
+@media (max-width:860px){.quote-grid{grid-template-columns:1fr}}
