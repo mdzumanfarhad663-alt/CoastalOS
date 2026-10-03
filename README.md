@@ -15,6 +15,7 @@ All six agreed pages are built.
 | `contact.html` | Contact: request a property review or a call (form, next steps, FAQ) |
 | `portfolio.html` | Portfolio: the ten current Coastal Hospitality Group hotels (see below) |
 | `index-1.html` | Redirect to `index.html` (an earlier homepage lived here; it remains in git history) |
+| `privacy.html` | Privacy Policy (starter text written for this prototype; the client will replace it with reviewed wording) |
 | `home-v2.html` | Redirect to `index.html` (the v2 homepage preview, now the main homepage) |
 
 Platform, Services, About, Portfolio and Contact in the header and footer go to their own pages on every site page. On the homepage, "See How CoastalOS Works" scrolls to the homepage platform section, which ends with a "See the full platform" link. Every "Request a Property Review" button goes to `contact.html`, and every "Talk to Our Team" button goes to `contact.html?request=call`, which pre-selects "A call with our team" in the form. The homepage keeps its own copy of the form.
@@ -50,7 +51,7 @@ Then visit http://localhost:8000.
 
 **Confirmed by the client (via Zuman), sourced from Jed's other sites**
 - The site may say CoastalOS is built by the team behind Coastal Hospitality Group (Home owners band, About origin).
-- Facts used, taken from search results for coastalhospitalitygroup.com and coastalmanagementco.com (verified against coastalhospitalitygroup.com on 2026-10-03; the Coastal Management Company figure was not re-checked on its own site): CHG founded 2012 by founder and CEO Jed Tarr with a small beach motel in San Clemente, CA; 14 hotels owned and operated as of 2026; currently in North Carolina, Florida and California; Coastal Management Company reports it often lifts a hotel's bottom line 10-30% within its first year of operating it.
+- Facts used, taken from search results for coastalhospitalitygroup.com and coastalmanagementco.com (verified against coastalhospitalitygroup.com on 2026-10-03; the Coastal Management Company figure was not re-checked on its own site): CHG founded 2012 by founder and CEO Jed Tarr with a small beach motel in San Clemente, CA; 14 hotels owned and operated as of 2026; currently in North Carolina, Florida and California; Coastal Management Company reports it often lifts a hotel's bottom line 10-30% within its first year of operating it (wording confirmed by the client).
 - Contact details (temporary, from CHG): (877) 350-0053, info@coastalhospitalitygroup.com, 711 S El Camino Real, San Clemente, CA 92672. Shown in every footer and on the Contact page. Replace if CoastalOS gets its own.
 - The current logo stays unless Jed sends a new one.
 
@@ -62,7 +63,7 @@ Then visit http://localhost:8000.
 - Which services are offered on their own and which only as a full package.
 - Expected response time after a form request, if he wants one stated.
 - Privacy notice or consent wording for the form, and where form requests should be delivered (email, CRM or form service).
-- **Founder (About page):** shows Jed's photo and a short factual bio taken from the CHG About page. A quote in his own words would make it stronger.
+- **Founder (About page):** Jed's quote (supplied by the client), photo, and a short factual bio taken from the CHG About page.
 
 **Platform page (to confirm)**
 - Guest journey step owners. Shown as: Booking, CoastalOS and Guest communication = Central team; Property operations = On site. Digital check-in, Review and Repeat guest are marked "Both" because the brief does not say who handles them. Jed should confirm all seven.
@@ -78,5 +79,6 @@ Then visit http://localhost:8000.
 - Hours of central team coverage.
 
 **Before launch**
-- There is no privacy page yet. The contact forms need an approved privacy notice (or a link to one) before they collect real data.
-- Connect the forms to a real destination (email, CRM or form service) once chosen.
+- `privacy.html` is starter text, linked from every footer and below both forms. Have it reviewed before real data is collected, and update it to name the form service once one is chosen.
+- Connect the forms to a real destination (email, CRM or form service).
+- A testimonial from an owner, investor or partner would strengthen Home and About; none is shown until a real one is supplied.

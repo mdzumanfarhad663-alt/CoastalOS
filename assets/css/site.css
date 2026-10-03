@@ -357,3 +357,17 @@ footer a:hover{color:#fff}
 .pcard-meta{padding:16px 2px 0}
 .pcard:hover .pcard-name{color:var(--teal-ink)}
 @media (prefers-reduced-motion:reduce){.js .rv{transform:none}}
+
+.foot-bottom a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.foot-bottom a:hover{color:#fff}
+.form-privacy{grid-column:1/-1;font-size:.85rem;color:var(--muted);margin:-4px 0 0}
+.form-privacy a{display:inline;color:var(--teal-ink);font-weight:600}
+/* Legal page */
+.legal{max-width:760px}
+.legal h2{font-size:clamp(1.3rem,2vw,1.6rem);margin-top:44px}
+.legal h2:first-child{margin-top:0}
+.legal p,.legal li{color:var(--muted);line-height:1.7}
+.legal p{margin-top:12px}
+.legal ul{margin:12px 0 0;padding-left:20px}
+.legal li+li{margin-top:6px}
+.legal a{color:var(--teal-ink);font-weight:600}
