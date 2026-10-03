@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Request a Property Review — CoastalOS</title>
+<title>Contact — CoastalOS</title>
 <meta name="description" content="Request a property review or a call with the CoastalOS team.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +16,7 @@
 .pick-call:hover{color:var(--teal-2)}
 .pick-call:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
 .faq-grid h2{max-width:12ch}
+.choice-hint{font-size:.9rem;color:var(--muted);margin:-2px 0 10px}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -49,7 +50,7 @@
     <div class="rv">
       <p class="kicker">Request a property review</p>
       <h1>Your property. Our operating platform.</h1>
-      <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS can add revenue, reduce cost, and give you clearer visibility.</p>
+      <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS could add revenue, reduce cost, and give you clearer visibility.</p>
       <ol class="next">
         <li><span>1</span><div><b>Share a few details</b><small>About your property and goals.</small></div></li>
         <li><span>2</span><div><b>We review your property</b><small>Revenue, operations and costs.</small></div></li>
@@ -60,6 +61,7 @@
     <form id="reviewForm" class="rv d2" novalidate>
       <div class="form-head"><b>Tell us about your property</b></div>
       <fieldset class="f full"><legend>I’d like</legend>
+        <p class="choice-hint" id="choiceHint">A property review looks at how your hotel runs today. A call is a conversation with our team first.</p>
         <div class="chips">
           <input type="radio" name="request" id="q1" value="Property review" checked><label for="q1">A property review</label>
           <input type="radio" name="request" id="q2" value="Call with the team"><label for="q2">A call with our team</label>

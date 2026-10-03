@@ -71,3 +71,7 @@ Then visit http://localhost:8000.
 - Onboarding: how long it takes to bring a property onto the platform, and what it involves.
 - Which existing hotel systems CoastalOS works with or replaces (integrations).
 - Hours of central team coverage.
+
+**Before launch**
+- There is no privacy page yet. The contact forms need an approved privacy notice (or a link to one) before they collect real data.
+- Connect the forms to a real destination (email, CRM or form service) once chosen.

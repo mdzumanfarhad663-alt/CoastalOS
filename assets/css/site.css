@@ -1,7 +1,7 @@
 /* CoastalOS shared site styles. Page-specific CSS lives in each page's <style> block. */
 /* ===== Design tokens ===== */
 :root{
-  --navy:#0E2A47; --navy-2:#163A5E; --navy-3:#0A2038; --teal:#1C8C8A; --teal-2:#6FD0CC; --teal-soft:#E6F3F2;
+  --navy:#0E2A47; --navy-2:#163A5E; --navy-3:#0A2038; --teal:#1C8C8A; --teal-ink:#167573; --teal-2:#6FD0CC; --teal-soft:#E6F3F2;
   --sun:#C9932F; --sun-soft:#F6EBD5; --bg:#F6F9FA; --paper:#FFFFFF; --ink:#132235; --muted:#4F6175; --line:#DCE5EA; --skel:#E9EFF2;
   --display:"Outfit",system-ui,-apple-system,"Segoe UI",sans-serif;
   --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -30,7 +30,7 @@ a{color:inherit}
 .sec{padding:var(--sec) 0;position:relative}
 .sec-white{background:var(--paper);border-block:1px solid var(--line)}
 .lede{font-size:clamp(1.08rem,1.4vw,1.2rem);color:var(--muted);max-width:56ch;text-wrap:pretty}
-.kicker{font-family:var(--display);font-weight:500;color:var(--teal);font-size:1rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.kicker{font-family:var(--display);font-weight:500;color:var(--teal-ink);font-size:1rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .kicker::before{content:"";width:18px;height:2px;background:currentColor;border-radius:2px}
 .sec-head{max-width:720px;margin-bottom:clamp(40px,5vw,56px)}
 .sec-head .lede{margin-top:18px}
@@ -240,7 +240,7 @@ footer a:hover{color:#fff}
 .pcard-name{font:600 1.15rem/1.25 var(--display);color:var(--navy);letter-spacing:-.01em}
 .pcard-loc{font-size:.95rem;color:var(--muted)}
 .pcard-type{align-self:flex-start;font:500 .82rem var(--display);color:var(--navy);background:var(--teal-soft);border-radius:var(--r-pill);padding:3px 11px;margin-top:2px}
-.pcard-view{margin-top:auto;padding-top:16px;font:600 .95rem var(--display);color:var(--teal);display:inline-flex;align-items:center;gap:6px}
+.pcard-view{margin-top:auto;padding-top:16px;font:600 .95rem var(--display);color:var(--teal-ink);display:inline-flex;align-items:center;gap:6px}
 .pcard-view i{font-style:normal;display:inline-block;transition:transform .25s var(--ease)}
 .pcard:hover .pcard-view i{transform:translate(2px,-2px)}
 .results-strip{margin-top:clamp(24px,3vw,32px);padding:14px 20px;border:1px solid var(--line);border-radius:var(--r-md);background:rgba(255,255,255,.6);color:var(--muted);font-size:.95rem;display:flex;align-items:center;gap:12px}
@@ -300,3 +300,7 @@ footer a:hover{color:#fff}
   .ha-core .sun-arc{stroke-dashoffset:0}
   .ha-col li::after,.ha-col li::before,.ha-down::before{transform:none!important}
 }
+
+/* Inline text links in body copy */
+.text-link{color:var(--teal-ink);font-weight:600;text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+.text-link:hover{color:var(--navy)}
