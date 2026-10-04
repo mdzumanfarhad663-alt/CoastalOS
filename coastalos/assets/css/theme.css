@@ -347,7 +347,7 @@ a {
 	color: #fff;
 }
 
-.coastalos-mobile-cta {
+.wp-block-buttons.coastalos-mobile-cta {
 	position: fixed;
 	left: 12px;
 	right: 12px;
@@ -464,7 +464,7 @@ a {
 }
 
 @media (max-width: 760px) {
-	.coastalos-mobile-cta {
+	.wp-block-buttons.coastalos-mobile-cta {
 		display: block;
 	}
 
