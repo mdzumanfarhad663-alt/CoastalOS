@@ -30,6 +30,18 @@ function coastalos_blocks_categories( $categories ) {
 }
 add_filter( 'block_categories_all', 'coastalos_blocks_categories' );
 
+/** Keep the core Custom HTML block available to administrators only. */
+function coastalos_blocks_restrict_custom_html( $allowed_blocks ) {
+	if ( current_user_can( 'manage_options' ) || false === $allowed_blocks ) {
+		return $allowed_blocks;
+	}
+	if ( true === $allowed_blocks ) {
+		$allowed_blocks = array_keys( WP_Block_Type_Registry::get_instance()->get_all_registered() );
+	}
+	return array_values( array_diff( $allowed_blocks, array( 'core/html' ) ) );
+}
+add_filter( 'allowed_block_types_all', 'coastalos_blocks_restrict_custom_html' );
+
 /** Sanitize the optional CoastalOS site-wide values. */
 function coastalos_blocks_sanitize_settings( $settings ) {
 	$settings = is_array( $settings ) ? $settings : array();
