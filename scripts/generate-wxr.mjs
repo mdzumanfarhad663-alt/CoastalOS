@@ -221,6 +221,6 @@ const propertyItems = properties.map((property, index) => {
 const wxr = `<?xml version="1.0" encoding="UTF-8" ?>\n<rss version="2.0" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">\n<channel><title>CoastalOS local content</title><link>https://example.com</link><description>Content migrated from the CoastalOS prototype for local WordPress testing.</description><pubDate>Sun, 04 Oct 2026 00:00:00 +0000</pubDate><language>en-US</language><wp:wxr_version>1.2</wp:wxr_version><wp:base_site_url>https://example.com</wp:base_site_url><wp:base_blog_url>https://example.com</wp:base_blog_url>\n${[ ...attachments, ...pageItems, ...propertyItems ].join('\n')}\n</channel></rss>\n`;
 
 await mkdir(dirname(output), { recursive: true });
-await writeFile(output, wxr, 'utf8');
+await writeFile(output, wxr.replace(/[ \t]+(?=\r?$)/gm, ''), 'utf8');
 await writeFile(patternOutput, JSON.stringify({ pages: generatedPagePatterns, sections: sectionPatterns }, null, 2), 'utf8');
 console.log(`Wrote ${output}, ${patternOutput}, and ${generatedPagePatterns.length} page-specific stylesheets.`);
