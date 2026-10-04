@@ -1,6 +1,19 @@
-# CoastalOS — Website Prototype
+# CoastalOS — Website Prototype and WordPress Build
 
-Static, responsive prototype of the CoastalOS marketing site, built for client review. It is not deployed and does not touch the live domain.
+The root HTML files are the original static, responsive prototype. The WordPress conversion is being built in `coastalos/` as a block theme and `coastalos-blocks/` as its companion plugin. The prototype is deployed at https://coastalos.onrender.com/; this repository work does not deploy to that domain.
+
+## WordPress development with LocalWP
+
+The project uses LocalWP for the local WordPress site. Create a LocalWP site with WordPress 6.9 or newer and PHP 8.1 or newer. The theme uses `theme.json` version 3 and border-radius presets introduced in WordPress 6.9.
+
+1. Create and start the site in LocalWP. Open its site folder from LocalWP’s **Go to site folder** action.
+2. Copy this repository’s `coastalos` folder to `<Local site>/app/public/wp-content/themes/coastalos`.
+3. In the WordPress dashboard, open **Appearance → Themes** and activate **CoastalOS**.
+4. Open **Appearance → Editor** to edit the header, footer, navigation and global styles. Set the site title to **CoastalOS**.
+
+Phase 1 provides the theme shell and design tokens. The page sections and content migration are not included yet, so activating the theme before those phases are complete will show the editable site header and footer around empty page content. The companion blocks plugin and the LocalWP page import steps will be added in later phases.
+
+The theme self-hosts Outfit and Instrument Sans variable WOFF2 files. Font files and their SIL Open Font License notices are in `coastalos/assets/fonts/`.
 
 ## Pages
 
