@@ -21,6 +21,21 @@ function coastalos_theme_setup() {
 }
 add_action( 'after_setup_theme', 'coastalos_theme_setup' );
 
+/** Keep the prototype's home-page-only v2 presentation selector. */
+function coastalos_body_classes( $classes ) {
+	if ( is_front_page() ) {
+		$classes[] = 'v2';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'coastalos_body_classes' );
+
+/** Set the prototype's animation hook before the first paint. */
+function coastalos_add_js_class() {
+	echo '<script>document.documentElement.classList.add("js");</script>' . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Fixed inline script.
+}
+add_action( 'wp_head', 'coastalos_add_js_class', 0 );
+
 /** Load the small global stylesheet on the front end. */
 function coastalos_enqueue_theme_styles() {
 	$stylesheet_path = get_theme_file_path( '/assets/css/theme.css' );

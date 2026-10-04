@@ -1,21 +1,40 @@
 # CoastalOS — Website Prototype and WordPress Build
 
-The root HTML files are the original static, responsive prototype. The WordPress conversion is being built in `coastalos/` as a block theme and `coastalos-blocks/` as its companion plugin. The prototype is deployed at https://coastalos.onrender.com/; this repository work does not deploy to that domain.
+The root HTML files are the original static, responsive prototype. The WordPress conversion lives in `coastalos/` as a block theme and `coastalos-blocks/` as its companion plugin. The prototype is deployed at https://coastalos.onrender.com/; this repository work does not deploy to that domain.
 
 ## WordPress development with LocalWP
 
 The project uses LocalWP for the local WordPress site. Create a LocalWP site with WordPress 6.9 or newer and PHP 8.1 or newer. The theme uses `theme.json` version 3 and border-radius presets introduced in WordPress 6.9.
 
 1. Create and start the site in LocalWP. Open its site folder from LocalWP’s **Go to site folder** action.
-2. Copy this repository’s `coastalos` folder to `<Local site>/app/public/wp-content/themes/coastalos`.
-3. In the WordPress dashboard, open **Appearance → Themes** and activate **CoastalOS**.
+2. Copy `coastalos` to `<Local site>/app/public/wp-content/themes/coastalos` and `coastalos-blocks` to `<Local site>/app/public/wp-content/plugins/coastalos-blocks`. Do not copy the plugin’s `node_modules` folder.
+3. In the WordPress dashboard, activate **CoastalOS Blocks** under **Plugins**, then activate **CoastalOS** under **Appearance → Themes**.
 4. Open **Appearance → Editor** to edit the header, footer, navigation and global styles. Set the site title to **CoastalOS**.
 
-Phase 1 provides the theme shell and design tokens. The page sections and content migration are not included yet, so activating the theme before those phases are complete will show the editable site header and footer around empty page content. The companion blocks plugin and the LocalWP page import steps will be added in later phases.
+Install the companion plugin before the theme parts that use its logo, CTA, and contact blocks. If WordPress asks, install the **WordPress Importer** from **Tools → Import**. Import `content/coastalos-demo.xml` from **Tools → Import → WordPress** after activating the plugin. The file creates six main site pages plus the Privacy Policy, ten Property entries, and imports the prototype images from the `wordpress-build` GitHub branch. Set **Settings → Reading → Your homepage displays → A static page → Home** after import, then save **Settings → Permalinks** once.
+
+The editor uses standard Gutenberg blocks inside CoastalOS section blocks. Insert a section from **Patterns → CoastalOS Sections** or choose a full-page starter from **Patterns → CoastalOS Pages**. You can duplicate a section from its block toolbar, reorder it, change the safe background and spacing options, hide it on a page, or add core headings, text, images, lists, buttons, and other blocks inside it. The generic CoastalOS Section block is the blank container for custom layouts. The header and footer remain editable under **Appearance → Editor**.
+
+Edit the shared logo URL, CTA labels and links, and contact details under **Settings → CoastalOS**. Clear a setting to hide its matching item. Use the **CoastalOS Global Logo**, **Global Button**, and **Contact Details** blocks in a template part or page to display those values.
+
+The included contact form matches the prototype and only validates in the browser; it does not send or store submissions. To connect a real form, choose Fluent Forms or Contact Form 7 and replace the demo form before launch. The property cards read from **Properties**; edit each property’s title, featured image, location, type, and external website there.
+
+To rebuild the block-editor bundle after editing the plugin, use Node.js 20.19 or newer:
+
+```powershell
+cd coastalos-blocks
+npm install
+npm run build
+npm run lint:js
+```
+
+Regenerate the WordPress import file with `node scripts/generate-wxr.mjs` from the repository root. The XML references photos on the public `wordpress-build` branch, so those image downloads work after that branch is pushed.
+
+Visual comparison and plugin compatibility checks still need to be run in the client’s LocalWP site. No LocalWP runtime, PHP CLI, or WordPress installation is present in the build environment, so Lighthouse scores, screenshots, and tests with SEO, caching, form, and security plugins have not been verified here. Review the sample prototype facts, testimonials, case study, contact details, and privacy wording before launch.
 
 The theme self-hosts Outfit and Instrument Sans variable WOFF2 files. Font files and their SIL Open Font License notices are in `coastalos/assets/fonts/`.
 
-## Pages
+## Prototype pages
 
 All six agreed pages are built.
 
