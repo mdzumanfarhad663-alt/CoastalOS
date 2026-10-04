@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.9/block.json",
+	"apiVersion": 3,
+	"name": "coastalos/global-cta",
+	"version": "1.0.0",
+	"title": "CoastalOS Global Button",
+	"category": "coastalos-sections",
+	"icon": "button",
+	"description": "Displays a button using the text and link saved in CoastalOS Settings.",
+	"textdomain": "coastalos-blocks",
+	"attributes": {
+		"variant": { "type": "string", "enum": [ "primary", "team" ], "default": "primary" }
+	},
+	"supports": { "html": false, "customClassName": false, "spacing": { "margin": false, "padding": false } },
+	"editorScript": "file:../../build/index.js",
+	"style": "file:./style.css"
+}

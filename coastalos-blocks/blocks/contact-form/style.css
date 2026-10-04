@@ -1,0 +1,47 @@
+.wp-block-coastalos-contact-form.coastalos-form-block { padding: 0; background: transparent; }
+.wp-block-coastalos-contact-form .coastalos-demo-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: clamp(24px, 4vw, 36px);
+  border: 1px solid var(--wp--preset--color--line);
+  border-radius: var(--wp--preset--border-radius--large);
+  border-top: 4px solid var(--wp--preset--color--navy);
+  background: #fff;
+  box-shadow: var(--wp--preset--shadow--coastal-large);
+  color: var(--wp--preset--color--ink);
+}
+.wp-block-coastalos-contact-form .form-head,
+.wp-block-coastalos-contact-form .f.full,
+.wp-block-coastalos-contact-form .form-privacy,
+.wp-block-coastalos-contact-form .coastalos-form-success { grid-column: 1 / -1; }
+.wp-block-coastalos-contact-form .form-head { margin-bottom: 4px; }
+.wp-block-coastalos-contact-form .form-head b { color: var(--wp--preset--color--navy); font: 600 1.3rem var(--wp--preset--font-family--display); }
+.wp-block-coastalos-contact-form .f { display: flex; min-width: 0; flex-direction: column; gap: 6px; }
+.wp-block-coastalos-contact-form .f label,
+.wp-block-coastalos-contact-form .f legend { color: var(--wp--preset--color--navy); font-size: .92rem; font-weight: 600; }
+.wp-block-coastalos-contact-form .f label i { color: var(--wp--preset--color--muted); font-style: normal; font-weight: 400; }
+.wp-block-coastalos-contact-form input,
+.wp-block-coastalos-contact-form textarea { box-sizing: border-box; width: 100%; padding: 13px 14px; border: 1.5px solid var(--wp--preset--color--line); border-radius: var(--wp--preset--border-radius--small); background: #FBFCFD; color: var(--wp--preset--color--ink); font: 400 1rem/1.5 var(--wp--preset--font-family--body); }
+.wp-block-coastalos-contact-form textarea { min-height: 104px; resize: vertical; }
+.wp-block-coastalos-contact-form input:focus,
+.wp-block-coastalos-contact-form textarea:focus { outline: 0; border-color: var(--wp--preset--color--teal); background: #fff; box-shadow: 0 0 0 4px rgb(28 140 138 / 15%); }
+.wp-block-coastalos-contact-form input[aria-invalid="true"] { border-color: #B3261E; }
+.wp-block-coastalos-contact-form fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+.wp-block-coastalos-contact-form .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.wp-block-coastalos-contact-form .chips input { position: absolute; width: 1px; height: 1px; padding: 0; opacity: 0; }
+.wp-block-coastalos-contact-form .chips label { padding: 8px 14px; border: 1.5px solid var(--wp--preset--color--line); border-radius: var(--wp--preset--border-radius--pill); color: var(--wp--preset--color--muted); cursor: pointer; font-weight: 500; }
+.wp-block-coastalos-contact-form .chips input:checked + label { border-color: var(--wp--preset--color--navy); background: var(--wp--preset--color--navy); color: #fff; }
+.wp-block-coastalos-contact-form .chips input:focus-visible + label { outline: 3px solid var(--wp--preset--color--sun); outline-offset: 2px; }
+.wp-block-coastalos-contact-form .err { min-height: 1em; color: #B3261E; font-size: .85rem; }
+.wp-block-coastalos-contact-form .form-privacy { margin: -4px 0 0; color: var(--wp--preset--color--muted); font-size: .85rem; }
+.wp-block-coastalos-contact-form .form-privacy a { color: var(--wp--preset--color--teal-ink); font-weight: 600; }
+.wp-block-coastalos-contact-form .coastalos-form-success { padding: 16px; border-radius: var(--wp--preset--border-radius--medium); background: var(--wp--preset--color--teal-soft); color: var(--wp--preset--color--navy); font-weight: 500; }
+.wp-block-coastalos-contact-form button.btn { min-height: 48px; padding: 13px 24px; border: 0; border-radius: var(--wp--preset--border-radius--pill); background: var(--wp--preset--color--navy); color: #fff; cursor: pointer; font: 600 1rem var(--wp--preset--font-family--display); }
+.wp-block-coastalos-contact-form button.btn:hover { background: var(--wp--preset--color--teal); }
+.wp-block-coastalos-contact-form button.btn:disabled { cursor: default; opacity: .65; }
+.wp-block-coastalos-contact-form .coastalos-form-preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+.wp-block-coastalos-contact-form .coastalos-form-preview-field { display: grid; gap: 6px; color: var(--wp--preset--color--muted); font-size: .85rem; }
+.wp-block-coastalos-contact-form .coastalos-form-preview-field span { display: block; height: 44px; border: 1px solid var(--wp--preset--color--line); border-radius: var(--wp--preset--border-radius--small); background: #FBFCFD; }
+.wp-block-coastalos-contact-form .coastalos-form-preview-note { margin-top: 12px; color: var(--wp--preset--color--muted); font-size: .9rem; }
+@media (max-width: 540px) { .wp-block-coastalos-contact-form .coastalos-demo-form { grid-template-columns: 1fr; } }

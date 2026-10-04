@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.9/block.json",
+	"apiVersion": 3,
+	"name": "coastalos/global-logo",
+	"version": "1.0.0",
+	"title": "CoastalOS Global Logo",
+	"category": "coastalos-sections",
+	"icon": "format-image",
+	"description": "Displays the logo URL saved in CoastalOS Settings or the site title when no logo is set.",
+	"textdomain": "coastalos-blocks",
+	"supports": { "html": false, "customClassName": false, "spacing": { "margin": false, "padding": false } },
+	"editorScript": "file:../../build/index.js",
+	"style": "file:./style.css"
+}

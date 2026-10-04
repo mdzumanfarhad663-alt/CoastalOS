@@ -1,0 +1,4 @@
+.coastalos-global-contact { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.coastalos-global-contact a { color: inherit; text-decoration: none; }
+.coastalos-global-contact a:hover,
+.coastalos-global-contact a:focus-visible { color: var(--wp--preset--color--teal-light); }

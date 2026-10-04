@@ -1,0 +1,19 @@
+.wp-block-coastalos-operator-comparison.coastalos-section {
+  position: relative;
+  padding-block: var(--wp--custom--section-space);
+}
+.wp-block-coastalos-operator-comparison.is-spacing-compact {
+  padding-block: clamp(48px, 6vw, 80px);
+}
+.wp-block-coastalos-operator-comparison.is-bg-light { background: var(--wp--preset--color--page); color: var(--wp--preset--color--ink); }
+.wp-block-coastalos-operator-comparison.is-bg-white { background: var(--wp--preset--color--paper); color: var(--wp--preset--color--ink); }
+.wp-block-coastalos-operator-comparison.is-bg-navy { background: var(--wp--preset--color--navy); color: #C9D7E4; }
+.wp-block-coastalos-operator-comparison.is-bg-navy h1,
+.wp-block-coastalos-operator-comparison.is-bg-navy h2,
+.wp-block-coastalos-operator-comparison.is-bg-navy h3 { color: #fff; }
+.wp-block-coastalos-operator-comparison > .coastalos-section__inner {
+  width: min(100%, var(--wp--custom--content-width));
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 40px);
+}
+.is-hidden-on-page { opacity: .48; outline: 2px dashed #C9932F; outline-offset: -4px; }

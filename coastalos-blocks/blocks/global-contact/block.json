@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.9/block.json",
+	"apiVersion": 3,
+	"name": "coastalos/global-contact",
+	"version": "1.0.0",
+	"title": "CoastalOS Contact Details",
+	"category": "coastalos-sections",
+	"icon": "id-alt",
+	"description": "Shows configured phone, email, and address values from CoastalOS Settings.",
+	"textdomain": "coastalos-blocks",
+	"supports": { "html": false, "customClassName": false, "spacing": { "margin": false, "padding": false } },
+	"editorScript": "file:../../build/index.js",
+	"style": "file:./style.css"
+}

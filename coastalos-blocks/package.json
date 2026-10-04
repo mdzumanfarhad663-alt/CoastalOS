@@ -1,0 +1,22 @@
+{
+	"name": "coastalos-blocks",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Build tools for the CoastalOS Gutenberg blocks plugin.",
+	"scripts": {
+		"build": "wp-scripts build --webpack-src-dir=src --output-path=build",
+		"start": "wp-scripts start --webpack-src-dir=src --output-path=build",
+		"lint:js": "wp-scripts lint-js src"
+	},
+	"devDependencies": {
+		"@wordpress/block-editor": "^18.0.0",
+		"@wordpress/blocks": "^16.1.0",
+		"@wordpress/components": "^41.0.0",
+		"@wordpress/element": "^8.8.0",
+		"@wordpress/i18n": "^6.29.0",
+		"@wordpress/scripts": "^35.0.0"
+	},
+	"engines": {
+		"node": ">=20.19.0"
+	}
+}

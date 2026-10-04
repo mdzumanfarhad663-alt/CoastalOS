@@ -1,0 +1,61 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.9/block.json",
+	"apiVersion": 3,
+	"name": "coastalos/contact-form",
+	"version": "1.0.0",
+	"title": "CoastalOS Contact Form",
+	"category": "coastalos-sections",
+	"icon": "feedback",
+	"description": "A front-end-only inquiry form that can be replaced with a supported form plugin.",
+	"textdomain": "coastalos-blocks",
+	"attributes": {
+		"heading": {
+			"type": "string",
+			"default": "Tell us about your property"
+		},
+		"requestLegend": { "type": "string", "default": "I’d like" },
+		"requestReview": { "type": "string", "default": "A property review" },
+		"requestCall": { "type": "string", "default": "A call with our team" },
+		"nameLabel": { "type": "string", "default": "Your name" },
+		"emailLabel": { "type": "string", "default": "Work email" },
+		"propertyLabel": { "type": "string", "default": "Property name" },
+		"locationLabel": { "type": "string", "default": "Location" },
+		"locationPlaceholder": { "type": "string", "default": "City, state" },
+		"roomsLegend": { "type": "string", "default": "Number of rooms" },
+		"roomOptions": {
+			"type": "string",
+			"default": "Under 15\n15–40\n41–100\n100+"
+		},
+		"messageLabel": {
+			"type": "string",
+			"default": "What would you like to improve?"
+		},
+		"submitLabel": {
+			"type": "string",
+			"default": "Request a Property Review"
+		},
+		"privacyText": {
+			"type": "string",
+			"default": "We use these details only to respond to your request. See our"
+		},
+		"privacyLinkText": { "type": "string", "default": "Privacy Policy" },
+		"privacyUrl": { "type": "string", "default": "/privacy/" },
+		"successMessage": {
+			"type": "string",
+			"default": "Thanks. Your request has been noted in this preview."
+		},
+		"showLocation": { "type": "boolean", "default": true },
+		"showRooms": { "type": "boolean", "default": true },
+		"showMessage": { "type": "boolean", "default": true }
+	},
+	"supports": {
+		"customClassName": false,
+		"html": false,
+		"anchor": false,
+		"color": { "background": false, "text": false },
+		"spacing": { "padding": false, "margin": false }
+	},
+	"editorScript": "file:../../build/index.js",
+	"style": "file:./style.css",
+	"viewScript": "file:./view.js"
+}

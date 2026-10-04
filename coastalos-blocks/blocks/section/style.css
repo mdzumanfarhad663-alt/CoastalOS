@@ -1,0 +1,101 @@
+.wp-block-coastalos-section.coastalos-section {
+  position: relative;
+  padding-block: var(--wp--custom--section-space);
+}
+.wp-block-coastalos-section.is-spacing-compact {
+  padding-block: clamp(48px, 6vw, 80px);
+}
+.wp-block-coastalos-section.is-bg-light { background: var(--wp--preset--color--page); color: var(--wp--preset--color--ink); }
+.wp-block-coastalos-section.is-bg-white { background: var(--wp--preset--color--paper); color: var(--wp--preset--color--ink); }
+.wp-block-coastalos-section.is-bg-navy { background: var(--wp--preset--color--navy); color: #C9D7E4; }
+.wp-block-coastalos-section.is-bg-navy h1,
+.wp-block-coastalos-section.is-bg-navy h2,
+.wp-block-coastalos-section.is-bg-navy h3 { color: #fff; }
+.wp-block-coastalos-section > .coastalos-section__inner {
+  width: min(100%, var(--wp--custom--content-width));
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 40px);
+}
+.is-hidden-on-page { opacity: .48; outline: 2px dashed #C9932F; outline-offset: -4px; }
+
+/* Form-plugin blocks can be placed inside a CoastalOS Section. */
+.wp-block-coastalos-section .coastalos-section__inner form {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 16px;
+	padding: clamp(24px, 4vw, 36px);
+	border: 1px solid var(--wp--preset--color--line);
+	border-top: 4px solid var(--wp--preset--color--navy);
+	border-radius: var(--wp--preset--border-radius--large);
+	background: #fff;
+	box-shadow: var(--wp--preset--shadow--coastal-large);
+	color: var(--wp--preset--color--ink);
+}
+
+.wp-block-coastalos-section .coastalos-section__inner form p,
+.wp-block-coastalos-section .coastalos-section__inner form fieldset,
+.wp-block-coastalos-section .coastalos-section__inner form .wpcf7-submit,
+.wp-block-coastalos-section .coastalos-section__inner form .ff-btn-submit {
+	grid-column: 1 / -1;
+}
+
+.wp-block-coastalos-section .coastalos-section__inner form label {
+	display: flex;
+	min-width: 0;
+	flex-direction: column;
+	gap: 6px;
+	color: var(--wp--preset--color--navy);
+	font-size: 0.92rem;
+	font-weight: 600;
+}
+
+.wp-block-coastalos-section .coastalos-section__inner form input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+.wp-block-coastalos-section .coastalos-section__inner form textarea,
+.wp-block-coastalos-section .coastalos-section__inner form select {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 13px 14px;
+	border: 1.5px solid var(--wp--preset--color--line);
+	border-radius: var(--wp--preset--border-radius--small);
+	background: #fbfcfd;
+	color: var(--wp--preset--color--ink);
+	font: 400 1rem/1.5 var(--wp--preset--font-family--body);
+}
+
+.wp-block-coastalos-section .coastalos-section__inner form textarea {
+	min-height: 104px;
+	resize: vertical;
+}
+
+.wp-block-coastalos-section .coastalos-section__inner form :is(input, textarea, select):focus-visible {
+	border-color: var(--wp--preset--color--teal);
+	outline: 0;
+	background: #fff;
+	box-shadow: 0 0 0 4px rgb(28 140 138 / 15%);
+}
+
+.wp-block-coastalos-section .coastalos-section__inner form :is(button, input[type="submit"], .ff-btn-submit) {
+	min-height: 48px;
+	padding: 13px 22px;
+	border: 0;
+	border-radius: var(--wp--preset--border-radius--pill);
+	background: var(--wp--preset--color--teal);
+	color: #fff;
+	font: 600 1rem var(--wp--preset--font-family--display);
+	cursor: pointer;
+}
+
+.wp-block-coastalos-section .coastalos-section__inner form :is(button, input[type="submit"], .ff-btn-submit):hover {
+	background: var(--wp--preset--color--teal-ink);
+}
+
+.wp-block-coastalos-section .coastalos-section__inner form :is(.wpcf7-not-valid-tip, .ff-el-is-error .text-danger) {
+	color: #b3261e;
+	font-size: 0.88rem;
+}
+
+@media (max-width: 540px) {
+	.wp-block-coastalos-section .coastalos-section__inner form {
+		grid-template-columns: minmax(0, 1fr);
+	}
+}

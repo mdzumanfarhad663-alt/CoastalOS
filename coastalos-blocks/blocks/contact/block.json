@@ -1,0 +1,62 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.9/block.json",
+	"apiVersion": 3,
+	"name": "coastalos/contact",
+	"version": "1.0.0",
+	"title": "Contact section",
+	"category": "coastalos-sections",
+	"icon": "email",
+	"description": "An editable CoastalOS contact section section.",
+	"textdomain": "coastalos-blocks",
+	"attributes": {
+		"background": {
+			"enum": [
+				"light",
+				"white",
+				"navy"
+			],
+			"default": "light",
+			"type": "string"
+		},
+		"spacing": {
+			"enum": [
+				"normal",
+				"compact"
+			],
+			"default": "normal",
+			"type": "string"
+		},
+		"hideOnPage": {
+			"default": false,
+			"type": "boolean"
+		},
+		"prototypePage": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"spacing": {
+			"padding": false,
+			"blockGap": false,
+			"margin": false
+		},
+		"typography": {
+			"fontSize": false,
+			"lineHeight": false
+		},
+		"customClassName": false,
+		"color": {
+			"text": false,
+			"background": false
+		},
+		"align": [
+			"wide",
+			"full"
+		],
+		"anchor": true,
+		"html": false
+	},
+	"editorScript": "file:../../build/index.js",
+	"style": "file:./style.css"
+}

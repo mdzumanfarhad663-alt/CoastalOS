@@ -1,0 +1,74 @@
+{
+	"$schema": "https://schemas.wp.org/wp/6.9/block.json",
+	"apiVersion": 3,
+	"name": "coastalos/property-cards",
+	"version": "1.0.0",
+	"title": "Property cards",
+	"category": "coastalos-sections",
+	"icon": "building",
+	"description": "An editable CoastalOS property cards section.",
+	"textdomain": "coastalos-blocks",
+	"attributes": {
+		"layout": {
+			"enum": [
+				"home",
+				"portfolio"
+			],
+			"default": "portfolio",
+			"type": "string"
+		},
+		"background": {
+			"enum": [
+				"light",
+				"white",
+				"navy"
+			],
+			"default": "light",
+			"type": "string"
+		},
+		"spacing": {
+			"enum": [
+				"normal",
+				"compact"
+			],
+			"default": "normal",
+			"type": "string"
+		},
+		"hideOnPage": {
+			"default": false,
+			"type": "boolean"
+		},
+		"postsToShow": {
+			"default": 3,
+			"type": "number"
+		},
+		"prototypePage": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"spacing": {
+			"padding": false,
+			"blockGap": false,
+			"margin": false
+		},
+		"typography": {
+			"fontSize": false,
+			"lineHeight": false
+		},
+		"customClassName": false,
+		"color": {
+			"text": false,
+			"background": false
+		},
+		"align": [
+			"wide",
+			"full"
+		],
+		"anchor": true,
+		"html": false
+	},
+	"editorScript": "file:../../build/index.js",
+	"style": "file:./style.css"
+}

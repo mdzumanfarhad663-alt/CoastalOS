@@ -1,0 +1,14 @@
+.coastalos-global-cta {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 48px;
+	padding: 12px 22px;
+	border-radius: var(--wp--preset--border-radius--pill);
+	background: var(--wp--preset--color--teal);
+	color: #fff;
+	font-weight: 600;
+	text-decoration: none;
+}
+.coastalos-global-cta:hover,
+.coastalos-global-cta:focus-visible { background: var(--wp--preset--color--teal-ink); color: #fff; }
