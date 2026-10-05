@@ -199,15 +199,25 @@ legend{margin-bottom:8px;padding:0}
 @media (max-width:540px){form{grid-template-columns:1fr}}
 
 /* Footer */
-footer{background:var(--navy-3);color:#A9BDD0;padding:64px 0 40px;font-size:.95rem}
-.foot{display:grid;grid-template-columns:1.3fr .8fr 1fr 1.3fr;gap:32px}
-.foot li{overflow-wrap:anywhere}
-footer h4{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}
-footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
-footer a{text-decoration:none;transition:color .2s}
-footer a:hover{color:#fff}
-.foot-bottom{margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);font-size:.85rem}
-@media (max-width:760px){.foot{grid-template-columns:1fr 1fr}.foot>div:first-child{grid-column:1/-1}}
+/* ===== Footer (all pages): brand + CTA, link columns, bottom bar ===== */
+footer.ft{background:var(--navy-3);color:#B9CADB;font-size:.95rem;position:relative;overflow:hidden}
+.ft-wave{position:absolute;right:-60px;bottom:-30px;width:520px;max-width:80%;height:auto;opacity:.06;pointer-events:none}
+.ft .wrap{position:relative}
+.ft-top{display:flex;justify-content:space-between;align-items:center;gap:32px;padding:clamp(48px,6vw,72px) 0 clamp(32px,4vw,44px)}
+.ft-brand p{margin-top:12px;color:#C6D4E1;text-wrap:balance}
+.ft-cta{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.ft-cta .btn{white-space:nowrap}
+.ft-cta p{font:600 1.15rem var(--display);color:#fff;margin:0}
+.ft-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,56px);padding:clamp(32px,4vw,44px) 0;border-top:1px solid rgba(255,255,255,.12)}
+.ft-h{font:600 .82rem var(--display);letter-spacing:.06em;text-transform:uppercase;color:#fff;margin:0 0 14px}
+footer.ft ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+footer.ft ul a{color:#C6D4E1;text-decoration:none;transition:color .2s}
+footer.ft ul a:hover{color:#fff}
+.ft-bottom{border-top:1px solid rgba(255,255,255,.12);padding:20px 0 28px;font-size:.85rem;color:#9DB2C6}
+.ft-bottom a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.ft-bottom a:hover{color:#fff}
+@media (max-width:980px){.ft-cols{grid-template-columns:1fr 1fr}.ft-contact{grid-column:1/-1}}
+@media (max-width:760px){.ft-top{flex-direction:column;align-items:flex-start}.ft-cta{flex-direction:column;align-items:flex-start;gap:12px;width:100%}.ft-cta .btn{width:100%}}
 
 /* Mobile sticky CTA */
 .mcta{position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:60;display:none;transform:translateY(140%);transition:transform .35s var(--ease)}
@@ -363,8 +373,6 @@ footer a:hover{color:#fff}
 .pcard:hover .pcard-name{color:var(--teal-ink)}
 @media (prefers-reduced-motion:reduce){.js .rv{transform:none}}
 
-.foot-bottom a{color:inherit;text-decoration:underline;text-underline-offset:3px}
-.foot-bottom a:hover{color:#fff}
 .form-privacy{grid-column:1/-1;font-size:.85rem;color:var(--muted);margin:-4px 0 0}
 .form-privacy a{display:inline;color:var(--teal-ink);font-weight:600}
 /* Legal page */
@@ -469,7 +477,6 @@ footer a:hover{color:#fff}
 /* ===== Calm inner pages (About, Portfolio, Contact): homepage motion values and mobile CTA space ===== */
 .page-calm{--rise:14px;--dur-base:450ms;--sec:clamp(64px,7vw,96px)}
 .page-calm .sec-head{margin-bottom:clamp(32px,4vw,48px)}
-@media (max-width:760px){.page-calm footer{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}}
 /* property cards without image zoom: subtle lift only */
 .pcard-calm .pcard-img img,.pcard-calm:hover .pcard-img img,.pcard-calm .pcard-view i,.pcard-calm:hover .pcard-view i{transform:none}
 .card.pcard-calm{transition:transform var(--dur-fast) var(--ease-out),opacity var(--dur-base) var(--ease-out)}
@@ -478,5 +485,3 @@ footer a:hover{color:#fff}
 .fcta .fcta-inner{max-width:760px;margin:0 auto}
 .fcta .hx-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 
-/* accessibility (same as the homepage): brand "OS" contrast and footer headings */
-.page-calm footer .foot-h{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}

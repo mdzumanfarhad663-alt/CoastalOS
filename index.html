@@ -112,8 +112,6 @@
 .home-v2 .card.pcard{transition:transform var(--dur-fast) var(--ease-out),opacity var(--dur-base) var(--ease-out)}
 .home-v2 .card.pcard.anim-done:hover,.home-v2 .card.pcard.anim-done:focus-visible,html:not(.js) .home-v2 .card.pcard:hover{transform:translateY(-4px)}
 .home-v2 .pcard:focus-visible{outline:3px solid var(--sun);outline-offset:4px;border-radius:var(--r-md)}
-/* accessibility: brand "OS" and footer headings */
-.home-v2 footer .foot-h{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}
 /* ===== Transparent header over the hero (homepage only; scrolls away with the page) ===== */
 .home-v2 header.site{position:absolute;top:0;left:0;right:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:transparent}
 .home-v2 header.site.scrolled{background:transparent;border-bottom-color:transparent}
@@ -246,12 +244,9 @@ html:not(.js) .tl .tl-line i{transform:none}
 /* Section spacing: consistent and tighter */
 .home-v2{--sec:clamp(64px,7vw,96px)}
 .home-v2 .sec-head{margin-bottom:clamp(32px,4vw,48px)}
-/* Mobile: no back-to-top; fixed bar never covers content; footer contact full width */
+/* Mobile: no back-to-top (the fixed bar hides at the final CTA and the footer) */
 @media (max-width:760px){
   .home-v2 .to-top{display:none!important}
-  .home-v2{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
-  .home-v2 .foot>div:last-child{grid-column:1/-1}
-  .home-v2 .foot>div:last-child li{overflow-wrap:normal}
 }
 /* About teaser: founder photo + origin story */
 .at-photo{margin:0;max-width:440px;justify-self:center;width:100%}
@@ -525,18 +520,19 @@ html:not(.js) .tl .tl-line i{transform:none}
 
 </main>
 
-<footer>
+<footer class="ft">
+  <svg class="ft-wave" viewBox="0 0 400 120" aria-hidden="true" focusable="false"><path d="M10 80 C120 10 220 10 390 60" stroke="#fff" stroke-width="18" fill="none" stroke-linecap="round"/><path d="M10 110 C120 40 220 40 360 90" stroke="#fff" stroke-width="14" fill="none" stroke-linecap="round"/></svg>
   <div class="wrap">
-    <div class="foot">
-      <div>
-        <img class="logo-img logo-foot" src="assets/brand/coastalos-logo-light.webp" width="373" height="112" alt="CoastalOS" loading="lazy" decoding="async">
-        <p style="margin-top:10px;max-width:34ch">The Operating System for Independent Hotels.</p>
-      </div>
-      <div><h3 class="foot-h">Explore</h3><ul><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div><h3 class="foot-h">Get started</h3><ul><li><a href="#request-call">Request a Call</a></li><li><a href="platform.html">Explore the Platform</a></li></ul></div>
-      <div><h3 class="foot-h">Contact</h3><ul><li><a href="tel:+18773500053">(877) 350-0053</a></li><li><a href="mailto:info@coastalhospitalitygroup.com">info@coastalhospitalitygroup.com</a></li><li>711 S El Camino Real, San Clemente, CA 92672</li></ul></div>
+    <div class="ft-top">
+      <div class="ft-brand"><img class="logo-img logo-foot" src="assets/brand/coastalos-logo-light.webp" width="373" height="112" alt="CoastalOS" loading="lazy" decoding="async"><p>The Operating System for Independent Hotels</p></div>
+      <div class="ft-cta"><p>Ready to talk about your property?</p><a class="btn btn-light" href="#request-call">Request a Call</a></div>
     </div>
-    <div class="foot-bottom">© 2026 CoastalOS · <a href="privacy.html">Privacy Policy</a></div>
+    <div class="ft-cols">
+      <nav aria-labelledby="ft-platform"><h2 class="ft-h" id="ft-platform">Platform</h2><ul><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="#how-it-works">How it works</a></li></ul></nav>
+      <nav aria-labelledby="ft-company"><h2 class="ft-h" id="ft-company">Company</h2><ul><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+      <div class="ft-contact"><h2 class="ft-h">Contact</h2><ul><li><a href="tel:+18773500053">(877) 350-0053</a></li><li><a href="mailto:info@coastalhospitalitygroup.com">info@coastalhospitalitygroup.com</a></li><li>711 S El Camino Real<br>San Clemente, CA 92672</li></ul></div>
+    </div>
+    <div class="ft-bottom">© 2026 CoastalOS · <a href="privacy.html">Privacy Policy</a></div>
   </div>
 </footer>
 
