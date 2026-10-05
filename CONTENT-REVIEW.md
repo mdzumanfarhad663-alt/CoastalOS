@@ -249,3 +249,20 @@ Status for every item: **Draft — needs Jed's confirmation**.
 
 **Removed from Services:** the platform hub, the guest journey timeline, the engagement timeline (now a link to the homepage), the jump nav and the group photos.
 
+## 17. About page update (`about.html`, replaces parts of section 9)
+
+Status for every item: **Draft — needs Jed's confirmation**.
+
+| Copy | Question for Jed |
+|---|---|
+| Hero heading: "About CoastalOS" (intro unchanged) | — |
+| "About us": "CoastalOS gives independent and boutique hotels the kind of operating backbone usually found only inside larger hotel companies. A central hospitality team works with modern technology and proven operating systems to run each property’s core functions, while the owner keeps the hotel, the brand and the guests." / "The platform grew out of owning and operating hotels. It was built by the team behind Coastal Hospitality Group, so every part of it starts from what owners actually need day to day." | Accurate? |
+| "Who we work with": "We partner with owners of independent and boutique properties who want to keep their brand and their independence, but would like the support of a larger operation behind them." + pills: Independent hotels · Boutique hotels · Motels · Inns · Resorts | — |
+| **Hidden** "Our team" slider (preview: about.html?preview=team) with **placeholder** names and roles: Alex Morgan — Director of Revenue · Jordan Ellis — Reservations Lead · Sam Rivera — Operations Manager · Taylor Brooks — Accounting Lead · Casey Nguyen — Marketing Manager · Riley Carter — Guest Experience Lead | **These people are invented placeholders.** Replace before launch. |
+
+**Request to Jed: team details.** For each team member to show: full name, role, a one-line bio (optional), a portrait photo (at least 800×1000px, consent to publish), and confirmation they agree to appear. Edit the `team-data` block in `about.html`; the section appears on the live page only when every member's status is "approved".
+
+**Removed from About:** "Developed inside real hotels, not a software lab" (including the 2012 San Clemente motel and 14-hotel lines; the 2012 fact stays in the hero intro and founder bio), "Part of the Coastal family", and the separate centred "Who we work with" section.
+
+Images: "About us" uses the Blind Pass Resort photo and "Who we work with" the Patriots’ Boutique Motel photo, both already listed under Our Work in `assets/portfolio/SOURCES.md`.
+

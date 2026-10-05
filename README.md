@@ -11,7 +11,7 @@ All six agreed pages are built.
 | `index.html` | Home (the former home-v2 concept): hero, challenge, solution, platform hub, how it works, owner visibility, who it's for, hotels, FAQ, final CTA |
 | `index-v1-backup.html` | Previous homepage, kept for reference only (`noindex`, not linked) |
 | `platform.html` | Redirect to `services.html` (the Platform page was merged into Services) |
-| `about.html` | About CoastalOS: centred story hero, origin, what we believe, who we work with (pills), the Coastal family, founder note, final CTA |
+| `about.html` | About: "About CoastalOS" hero, "About us" (photo left), what we believe, founder note, hidden "Our team" slider (data in the `team-data` block; preview with `?preview=team`), "Who we work with" with property-type pills (photo right), final CTA |
 | `services.html` | Services: short photo hero, "What we run for your property" overview cards (scroll to each group), the five service groups (identical layout; each task in one group), "What we handle and what stays with your team", hidden "Ways to work with us" (preview with `?preview=engagement`), FAQ/onboarding links, final CTA |
 | `contact.html` | Contact: a single Request a Call form (same fields as the homepage form plus an optional message), next steps, the site's only FAQ (6 questions) |
 | `portfolio.html` | Redirect to `our-work.html` |
@@ -171,4 +171,4 @@ The property rows on `our-work.html` and the stat line ("10 properties · 3 stat
 
 Why a script and not hand-written rows: the JSON stays the single source, the rows and stat line can't drift from it, and the output is plain static HTML (good for SEO; Render serves it without a build step). The homepage shows three properties as cards that link to their rows on Our Work; update those by hand if the featured properties change.
 
-Navigation (all pages): Services · Our Work · About · Contact, plus Request a Call.
+Navigation (all pages): Home · Services · Our Work · About · Contact, plus Request a Call.
