@@ -196,7 +196,10 @@ html:not(.js) .tl .tl-line i{transform:none}
 /* Challenge photo: no taller than the text column */
 .ch-grid{align-items:stretch}
 .ch-grid .side-photo{position:relative;min-height:0}
-.ch-grid .side-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ch-grid .side-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+@media (min-width:981px){.ch-grid{grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr)}}
+.ch-grid .ch-list{margin-top:28px}
+@media (max-width:980px){.ch-grid .side-photo{display:block}.ch-grid .side-photo img{position:static;aspect-ratio:4/3;height:auto}}
 /* Final CTA with inline form */
 .fcta{text-align:left}
 .rc-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:clamp(32px,5vw,72px);align-items:center}
@@ -334,13 +337,14 @@ html:not(.js) .tl .tl-line i{transform:none}
         <h2 class="big-h">Running a hotel shouldn’t run your life</h2>
         <p class="lede" style="margin-top:16px">Independent owners are asked to do it all: reservations, pricing, marketing, staff, guest issues and accounting, often with outdated systems and limited support.</p>
         <p class="ch-strong">It doesn’t have to be that way.</p>
+        <ul class="ch-list" data-stagger="fade-up" data-delay="100">
+      <li>Manual rate management</li><li>Too much time on daily operations</li><li>High labor costs</li><li>Reliance on OTAs</li><li>Inconsistent guest experience</li><li>Complex technology</li><li>Hiring and staffing challenges</li><li>Limited reporting and visibility</li>
+    </ul>
       </div>
       <!-- IMAGE: challenge side photo (swap: assets/home-v2/challenge-hickory-falls.webp) -->
       <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/challenge-hickory-falls.webp" width="548" height="685" alt="Vine-covered exterior of Hickory Falls Inn, Lake Lure, North Carolina" loading="lazy" decoding="async"></figure>
     </div>
-    <ul class="ch-list" data-stagger="fade-up" data-delay="100">
-      <li>Manual rate management</li><li>Too much time on daily operations</li><li>High labor costs</li><li>Reliance on OTAs</li><li>Inconsistent guest experience</li><li>Complex technology</li><li>Hiring and staffing challenges</li><li>Limited reporting and visibility</li>
-    </ul>
+    
   </div>
 </section>
 
