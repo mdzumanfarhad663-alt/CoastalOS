@@ -70,9 +70,6 @@
 .hub svg.lines line{stroke:var(--teal);stroke-opacity:.5;stroke-width:1.9;stroke-linecap:round;transition:stroke-opacity var(--dur-fast) var(--ease-out),stroke var(--dur-fast)}
 .hub-core{position:absolute;left:50%;top:50%;translate:-50% -50%;width:clamp(150px,17vw,168px);aspect-ratio:1;border-radius:50%;background:var(--navy);box-shadow:0 0 0 10px rgba(111,208,204,.22),0 0 0 22px rgba(111,208,204,.08),0 18px 48px -12px rgba(28,140,138,.55);display:grid;place-content:center;justify-items:center;gap:6px;color:#fff;font:600 1.2rem var(--display);z-index:2}
 .hub-core svg{width:56px;height:56px}
-.hub-core::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 14px rgba(111,208,204,.35);opacity:0;pointer-events:none}
-.hub-core.is-in::after{animation:corePulse 1.6s var(--ease-out) .35s 1 both}
-@keyframes corePulse{0%{opacity:0;transform:scale(.9)}35%{opacity:1}100%{opacity:0;transform:scale(1.3)}}
 .hub-list{list-style:none;margin:0;padding:0}
 .hub-item{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:232px;height:66px;z-index:1}
 .hub-card{display:flex;align-items:center;gap:12px;width:100%;height:100%;padding:0 14px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow);font:600 .9rem/1.25 var(--display);color:var(--navy);text-decoration:none;transition:border-color var(--dur-fast),box-shadow var(--dur-fast),opacity var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
@@ -145,50 +142,18 @@
 /* ===== Motion (home-v2) ===== */
 /* slide-ins never create sideways scroll (clip, unlike hidden, keeps sticky/scroll behaviour) */
 .home-v2 main{overflow-x:clip}
-/* hero: one-time photo settle on load (8s), parallax wrapper is taller so it never shows a gap */
-.hx .bg-par{top:-60px}
-.js .hx .bg{transform:scale(1.06);transition:transform 8s var(--ease-out)}
-.js .loaded .hx .bg{transform:none}
 .hx h1 .ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
 .hx h1 .ln>span{display:block;--rise:.55em}
-/* final CTA: one-time photo settle when it enters view */
-.js .fcta .bg{transform:scale(1.06);transition:transform 8s var(--ease-out)}
-.js .fcta .bg-par.is-in .bg{transform:none}
-/* challenge: gold underline draws after the line appears */
-.ch-strong .ul{position:relative;display:inline-block}
-.ch-strong .ul::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;border-radius:2px;background:var(--sun);transform-origin:0 50%}
-.js .ch-strong .ul::after{transform:scaleX(0);transition:transform var(--dur-base) var(--ease-out) calc(var(--d,0ms) + 250ms)}
-.js .ch-strong.is-in .ul::after{transform:scaleX(1)}
-/* how it works: scroll-linked line and step activation */
-.js .scrolly .steps-flow::after{transform:scaleX(var(--prog,0));transition:none}
-.js .scrolly .steps-flow li b,.js .scrolly .steps-flow li small{opacity:0;transform:translateY(var(--rise));transition:opacity var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out)}
-.js .scrolly .steps-flow li.active b,.js .scrolly .steps-flow li.active small{opacity:1;transform:none}
-.scrolly .steps-flow li .dot{transition:border-color var(--dur-fast),background var(--dur-fast),color var(--dur-fast)}
-.scrolly .steps-flow li.active .dot,html:not(.js) .scrolly .steps-flow li .dot{background:rgba(111,208,204,.14);border-color:var(--teal-2)}
-html:not(.js) .scrolly .steps-flow::after{transform:none}
-@media (max-width:820px){.js .scrolly .steps-flow::after{transform:scaleY(var(--prog,0))}}
-/* hover/focus states */
+/* hover/focus: button colour + card lift only */
+.home-v2 .pcard .pcard-img img,.home-v2 .pcard:hover .pcard-img img{transform:none}
+.home-v2 .pcard .pcard-view i,.home-v2 .pcard:hover .pcard-view i{transform:none}
 .home-v2 .btn{transition:background .2s,color .2s,border-color .2s,transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast)}
-.home-v2 .btn:hover{transform:translateY(-1px)}
-.types li .ic{transition:transform var(--dur-fast) var(--ease-out)}
-.types li:hover .ic{transform:translateY(-2px)}
 .home-v2 .card.pcard{transition:transform var(--dur-fast) var(--ease-out),opacity var(--dur-base) var(--ease-out)}
 .home-v2 .card.pcard.anim-done:hover,.home-v2 .card.pcard.anim-done:focus-visible,html:not(.js) .home-v2 .card.pcard:hover{transform:translateY(-4px)}
-.home-v2 .pcard:hover .pcard-img img,.home-v2 .pcard:focus-visible .pcard-img img{transform:scale(1.04)}
-.home-v2 .pcard:focus-visible .pcard-view i{transform:translate(2px,-2px)}
 .home-v2 .pcard:focus-visible{outline:3px solid var(--sun);outline-offset:4px;border-radius:var(--r-md)}
-/* FAQ smooth height (JS animates the details height on user toggle) */
-.faq-list details{overflow:hidden}
 /* accessibility: brand "OS" and footer headings */
 .home-v2 .logo-word span{color:var(--teal-ink)}
 .home-v2 footer .foot-h{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}
-@media (prefers-reduced-motion:reduce){
-  .js .hx .bg,.js .fcta .bg{transform:none!important;transition:none!important}
-  .js .ch-strong .ul::after{transform:scaleX(1)!important}
-  .js .scrolly .steps-flow::after{transform:none!important}
-  .js .scrolly .steps-flow li b,.js .scrolly .steps-flow li small{opacity:1!important;transform:none!important}
-  .hub-core.is-in::after{animation:none}
-}
 /* ===== Transparent header over the hero (homepage only; scrolls away with the page) ===== */
 .home-v2 header.site{position:absolute;top:0;left:0;right:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:transparent}
 .home-v2 header.site.scrolled{background:transparent;border-bottom-color:transparent}
@@ -209,7 +174,7 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 /* darker band at the top of the hero so the header text keeps AA contrast over the photo */
 .hx::after{content:"";position:absolute;inset:0 0 auto 0;height:150px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(10,32,56,.78) 0%,rgba(10,32,56,.45) 55%,rgba(10,32,56,0) 100%)}
 
-/* ===== Centered hero variant: home-v2.html?hero=center ===== */
+/* ===== Hero: centered layout ===== */
 .hx.hx-center .wrap{text-align:center}
 .hx.hx-center .kicker{justify-content:center}
 .hx.hx-center h1{margin-inline:auto;max-width:20ch}
@@ -225,6 +190,34 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 .sec-head.is-centered h2{margin-inline:auto}
 .sec-head.is-centered .lede{max-width:60ch;margin-inline:auto}
 .pf-more{text-align:center;margin-top:clamp(28px,3.5vw,40px)}
+/* ===== How it works: timeline (scroll-linked; segments sit between circles) ===== */
+.tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.tl li{position:relative;text-align:center;padding:0 10px}
+.tl .dot{position:relative;z-index:1;width:48px;height:48px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;background:var(--navy-3);border:1.5px solid rgba(255,255,255,.22);color:#7F97AE;transition:background var(--dur-fast),border-color var(--dur-fast),color var(--dur-fast),box-shadow var(--dur-fast)}
+.tl .dot svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tl li.active .dot{background:var(--teal);border-color:var(--teal-2);color:#fff;box-shadow:0 0 0 6px rgba(111,208,204,.16),0 0 26px rgba(111,208,204,.35)}
+.tl .seg{position:absolute;top:23px;left:calc(50% + 32px);width:calc(100% - 64px);height:2px;border-radius:2px;background:rgba(255,255,255,.16);overflow:hidden}
+.tl .seg i{display:block;width:100%;height:100%;background:var(--teal-2);transform:scaleX(var(--f,0));transform-origin:0 50%}
+.tl b{display:block;font:600 1.12rem/1.3 var(--display);color:#fff}
+.tl small{display:block;margin:6px auto 0;max-width:22ch;font-size:.95rem;line-height:1.5;color:#C6D4E1}
+.js .tl li b,.js .tl li small{opacity:0;transform:translateY(16px);transition:opacity var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out)}
+.js .tl li.active b,.js .tl li.active small{opacity:1;transform:none}
+html:not(.js) .tl li .dot{background:var(--teal);border-color:var(--teal-2);color:#fff}
+html:not(.js) .tl .seg i{transform:none}
+@media (max-width:820px){
+  .tl{grid-template-columns:1fr}
+  .tl li{display:grid;grid-template-columns:48px 1fr;column-gap:18px;text-align:left;padding:0 0 30px}
+  .tl li:last-child{padding-bottom:0}
+  .tl .dot{grid-row:span 2;margin:0}
+  .tl b{align-self:end;padding-top:2px}
+  .tl small{margin:4px 0 0;max-width:none}
+  .tl .seg{top:56px;bottom:8px;left:23px;width:2px;height:auto}
+  .tl .seg i{transform:scaleY(var(--f,0));transform-origin:50% 0}
+}
+@media (prefers-reduced-motion:reduce){.tl .seg i{transform:none!important}.js .tl li b,.js .tl li small{opacity:1!important;transform:none!important}}
+/* heading line control */
+.nw{white-space:nowrap}
+@media (min-width:761px){.fcta h2{max-width:none}.fcta h2 .br{display:block}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -245,7 +238,7 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="contact.html" class="btn btn-primary nav-cta">Request a Property Review</a>
+    <a href="contact.html?request=call" class="btn btn-primary nav-cta">Request a Call</a>
     <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </div>
 </header>
@@ -253,17 +246,15 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 <main id="main">
 
 <!-- 1. HERO -->
-<section class="photo-sec hx" data-mcta-after>
-  <script>if(/[?&]hero=center(&|$)/.test(location.search))document.currentScript.parentNode.classList.add('hx-center')</script>
+<section class="photo-sec hx hx-center" data-mcta-after>
   <!-- IMAGE: hero background (swap: assets/home-v2/hero-sea-shells-exterior-*.webp, 800/1280/1600 widths, 3:2) -->
   <div class="bg-par" aria-hidden="true"><img class="bg" src="assets/home-v2/hero-sea-shells-exterior-1280.webp" srcset="assets/home-v2/hero-sea-shells-exterior-800.webp 800w, assets/home-v2/hero-sea-shells-exterior-1280.webp 1280w, assets/home-v2/hero-sea-shells-exterior-1600.webp 1600w" sizes="100vw" width="1600" height="1065" alt="" fetchpriority="high" decoding="async"></div>
   <div class="wrap">
-    <p class="kicker" data-anim="rise">Technology-enabled hotel management</p>
-    <h1><span class="ln"><span data-anim="rise" data-delay="60">The Operating System</span></span> <span class="ln"><span data-anim="rise" data-delay="140">for Independent Hotels.</span></span></h1>
+    <h1><span class="ln"><span data-anim="fade-up" data-delay="60">The Operating System</span></span> <span class="ln"><span data-anim="fade-up" data-delay="140">for Independent Hotels.</span></span></h1>
     <p class="lede" data-anim="fade-up" data-delay="330">We combine technology, people and proven operating systems to increase revenue, reduce costs and deliver a great guest experience, while you enjoy a more hands-off ownership experience.</p>
     <div class="hx-ctas" data-anim="fade-up" data-delay="430">
-      <a href="#platform" class="btn btn-primary">See How It Works</a>
-      <a href="contact.html?request=call" class="btn btn-on-dark">Talk to Our Team</a>
+      <a href="contact.html?request=call" class="btn btn-primary">Request a Call</a>
+      <a href="#platform" class="btn btn-on-dark">See How It Works</a>
     </div>
     <ul class="benefits" aria-label="Benefits" data-stagger="fade-up" data-delay="560">
       <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span>Higher Revenue</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2.2 0 2.9 6 1.6 6 4.6 0 1.3-1.3 2.2-3 2.2-1.5 0-2.6-.6-3.1-1.6M12 6.5v11"/></svg></span>Lower Operating Costs</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>Better Guest Experience</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span>Hands-Off Ownership</li>
@@ -276,13 +267,12 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
   <div class="wrap">
     <div class="ch-grid">
       <div data-anim="fade-up">
-        <p class="kicker">The challenge</p>
         <h2 class="big-h">Running a hotel shouldn’t run your life.</h2>
         <p class="lede" style="margin-top:16px">Independent owners are asked to do it all: reservations, pricing, marketing, staff, guest issues and accounting, often with outdated systems and limited support.</p>
-        <p class="ch-strong" data-anim="fade-in" data-delay="900"><span class="ul">It doesn’t have to be that way.</span></p>
+        <p class="ch-strong">It doesn’t have to be that way.</p>
       </div>
       <!-- IMAGE: challenge side photo (swap: assets/home-v2/challenge-hickory-falls.webp) -->
-      <figure class="side-photo" data-anim="clip-reveal" data-dir="left"><img src="assets/home-v2/challenge-hickory-falls.webp" width="548" height="685" alt="Vine-covered exterior of Hickory Falls Inn, Lake Lure, North Carolina" loading="lazy" decoding="async"></figure>
+      <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/challenge-hickory-falls.webp" width="548" height="685" alt="Vine-covered exterior of Hickory Falls Inn, Lake Lure, North Carolina" loading="lazy" decoding="async"></figure>
     </div>
     <ul class="ch-cards" data-stagger="fade-up" data-delay="150">
       <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>Manual rate management</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Too much time on daily operations</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/></svg></span>High labor costs</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Reliance on OTAs</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>Inconsistent guest experience</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>Complex technology</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M3 21a7 7 0 0 1 12.6-4.2M19 15v6M16 18h6"/></svg></span>Hiring and staffing challenges</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span>Limited reporting and visibility</li>
@@ -293,14 +283,13 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 <!-- 3. THE SOLUTION -->
 <section class="sec sec-white">
   <div class="wrap split2">
-    <div data-anim="slide-left">
-      <p class="kicker">The CoastalOS solution</p>
+    <div data-anim="fade-up">
       <h2 class="big-h">Centralize. Automate. Elevate.</h2>
       <p class="lede">CoastalOS takes on the day-to-day operating work using proven systems, modern technology and an experienced hospitality team, so you keep the benefits of ownership without the operational burden.</p>
       <a href="services.html" class="btn btn-primary">Explore Our Services</a>
     </div>
     <!-- IMAGE: solution photo (swap: assets/home-v2/solution-island-house.webp) -->
-    <figure class="side-photo" data-anim="clip-reveal" data-dir="right"><img src="assets/home-v2/solution-island-house.webp" width="1200" height="900" alt="Courtyard pool and cabanas at Island House Resort, North Redington Beach, Florida" loading="lazy" decoding="async"></figure>
+    <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/solution-island-house.webp" width="1200" height="900" alt="Courtyard pool and cabanas at Island House Resort, North Redington Beach, Florida" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
@@ -308,7 +297,6 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 <section class="sec hub-sec" id="platform">
   <div class="wrap">
     <div class="sec-head hub-head" data-anim="fade-up">
-      <p class="kicker">The platform</p>
       <h2>A modern operating platform for real hotel owners.</h2>
       <p class="lede">You own the property. We handle the rest.</p>
     </div>
@@ -323,17 +311,18 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 </section>
 
 <!-- 5. HOW IT WORKS -->
-<section class="sec navy-band scrolly" id="how">
+<section class="sec navy-band" id="how">
   <div class="wrap">
     <div class="sec-head is-centered" data-anim="fade-up">
-      <p class="kicker">How it works</p>
-      <h2>A simple path to a higher-performing hotel.</h2>
+      <h2>A simple path to a <span class="nw">higher-performing</span> hotel.</h2>
     </div>
-    <div class="journey" style="margin-top:0;padding:0;background:none;border:0;box-shadow:none">
-      <ol class="steps-flow steps-5">
-        <li style="--i:0"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span><b>Discovery</b><small>Understand your goals and evaluate your property.</small></li><li style="--i:1"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></span><b>Onboarding</b><small>Seamless setup of systems, staff and processes.</small></li><li style="--i:2"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13a5 5 0 0 1 10 0M4 17c3-2 5 2 8 0s5 2 8 0"/></svg></span><b>Management</b><small>We operate and optimize your property with CoastalOS.</small></li><li style="--i:3"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><b>Results</b><small>Stronger revenue, lower costs and happier guests.</small></li><li style="--i:4"><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></span><b>Ongoing Partnership</b><small>Continuous improvement and dedicated support.</small></li>
+    <ol class="tl" id="tl">
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span><span class="seg" aria-hidden="true"><i></i></span><b>Discovery</b><small>Understand your goals and evaluate your property.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></span><span class="seg" aria-hidden="true"><i></i></span><b>Onboarding</b><small>Seamless setup of systems, staff and processes.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13a5 5 0 0 1 10 0M4 17c3-2 5 2 8 0s5 2 8 0"/></svg></span><span class="seg" aria-hidden="true"><i></i></span><b>Management</b><small>We operate and optimize your property with CoastalOS.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><span class="seg" aria-hidden="true"><i></i></span><b>Results</b><small>Stronger revenue, lower costs and happier guests.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></span><b>Ongoing Partnership</b><small>Continuous improvement and dedicated support.</small></li>
       </ol>
-    </div>
   </div>
 </section>
 
@@ -341,16 +330,15 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 <section class="sec">
   <div class="wrap split2">
     <div data-anim="fade-up">
-      <p class="kicker">Owner visibility</p>
       <h2 class="big-h">Complete visibility without the headache.</h2>
       <p class="lede">Regular reporting on revenue, occupancy, expenses, guest satisfaction and labor, gathered in one place instead of pieced together from separate systems.</p>
       <ul class="checks">
-        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" data-anim="draw" data-delay="350"><path d="M5 12l5 5 9-10"/></svg></span>Performance reporting</li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" data-anim="draw" data-delay="510"><path d="M5 12l5 5 9-10"/></svg></span>Monthly financial reports</li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" data-anim="draw" data-delay="670"><path d="M5 12l5 5 9-10"/></svg></span>Guest review tracking</li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24" data-anim="draw" data-delay="830"><path d="M5 12l5 5 9-10"/></svg></span>Labor and expense oversight</li>
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>Performance reporting</li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>Monthly financial reports</li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>Guest review tracking</li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>Labor and expense oversight</li>
       </ul>
     </div>
-    <figure class="owner-panel" data-anim="slide-right" role="img" aria-label="Illustrative owner reporting layout with no real data" style="margin:0">
+    <figure class="owner-panel" data-anim="fade-up" role="img" aria-label="Illustrative owner reporting layout with no real data" style="margin:0">
       <div class="ptitle"><span>An owner’s reporting view</span><span class="illus">Illustrative only</span></div>
-      <div class="kpis"><div class="kpi"><small>Revenue</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true" data-anim="draw" data-delay="300"><path d="M0 22 L20 18 L40 20 L60 12 L80 14 L100 6 L120 8" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div><div class="kpi"><small>Occupancy</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true" data-anim="draw" data-delay="400"><path d="M0 20 L20 21 L40 16 L60 15 L80 10 L100 11 L120 5" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div><div class="kpi"><small>Expenses</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true" data-anim="draw" data-delay="500"><path d="M0 8 L20 10 L40 9 L60 13 L80 12 L100 15 L120 14" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div><div class="kpi"><small>Labor</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true" data-anim="draw" data-delay="600"><path d="M0 6 L20 9 L40 8 L60 14 L80 15 L100 19 L120 20" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div><div class="kpi"><small>Guest satisfaction</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true" data-anim="draw" data-delay="700"><path d="M0 18 L20 16 L40 17 L60 12 L80 10 L100 9 L120 7" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div><div class="kpi"><small>Property performance</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true" data-anim="draw" data-delay="800"><path d="M0 21 L20 17 L40 18 L60 13 L80 11 L100 10 L120 6" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div></div>
+      <div class="kpis"><div class="kpi"><small>Revenue</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 22 L20 18 L40 20 L60 12 L80 14 L100 6 L120 8" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div><div class="kpi"><small>Occupancy</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 20 L20 21 L40 16 L60 15 L80 10 L100 11 L120 5" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div><div class="kpi"><small>Expenses</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 8 L20 10 L40 9 L60 13 L80 12 L100 15 L120 14" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div><div class="kpi"><small>Labor</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 6 L20 9 L40 8 L60 14 L80 15 L100 19 L120 20" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div><div class="kpi"><small>Guest satisfaction</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 18 L20 16 L40 17 L60 12 L80 10 L100 9 L120 7" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div><div class="kpi"><small>Property performance</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 21 L20 17 L40 18 L60 13 L80 11 L100 10 L120 6" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div></div>
     </figure>
   </div>
 </section>
@@ -358,8 +346,7 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 <!-- 7. BUILT FOR INDEPENDENT & BOUTIQUE HOTELS -->
 <section class="sec sec-white">
   <div class="wrap split2 flip">
-    <div data-anim="slide-right">
-      <p class="kicker">Who it’s for</p>
+    <div data-anim="fade-up">
       <h2 class="big-h">Built for independent &amp; boutique hotels.</h2>
       <p class="lede">Whether you own one property or a small portfolio, CoastalOS gives you the operating infrastructure used by larger hotel companies, without losing your independence.</p>
       <ul class="types" aria-label="Property types" data-stagger="fade-up" data-delay="200">
@@ -368,7 +355,7 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
       <a href="contact.html" class="btn btn-primary">Is My Property a Good Fit?</a>
     </div>
     <!-- IMAGE: fit photo (swap: assets/home-v2/fit-the-pineola.webp) -->
-    <figure class="side-photo" data-anim="clip-reveal" data-dir="left"><img src="assets/home-v2/fit-the-pineola.webp" width="1200" height="900" alt="Aerial view of The Pineola inn with the Blue Ridge Mountains behind, Newland, North Carolina" loading="lazy" decoding="async"></figure>
+    <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/fit-the-pineola.webp" width="1200" height="900" alt="Aerial view of The Pineola inn with the Blue Ridge Mountains behind, Newland, North Carolina" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
@@ -376,7 +363,6 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 <section class="sec">
   <div class="wrap">
     <div class="sec-head is-centered" data-anim="fade-up">
-        <p class="kicker">Our hotels</p>
         <h2>Hotels owned and operated by Coastal Hospitality Group.</h2>
     </div>
     <div class="pcard-grid pcard-grid-3" data-stagger="fade-up" data-delay="100">
@@ -393,7 +379,6 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 <section class="sec sec-white" hidden aria-labelledby="results-h">
   <div class="wrap">
     <div class="sec-head is-centered">
-      <p class="kicker">Results that matter</p>
       <h2 id="results-h">Proven results for independent hotels.</h2>
     </div>
     <div class="metrics">
@@ -416,7 +401,6 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 <section class="sec sec-white">
   <div class="wrap faq-grid">
     <div data-anim="fade-up">
-      <p class="kicker">Questions owners ask</p>
       <h2>Before you get in touch.</h2>
     </div>
     <div class="faq-list" data-stagger="fade-up" data-delay="100">
@@ -431,13 +415,13 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 <!-- 11. FINAL CTA -->
 <section class="photo-sec fcta" data-mcta-hide>
   <!-- IMAGE: final CTA background (swap: assets/home-v2/cta-mountain-pool.webp) -->
-  <div class="bg-par" data-anim="zoom" aria-hidden="true"><img class="bg" src="assets/home-v2/cta-mountain-pool.webp" width="1600" height="900" alt="" loading="lazy" decoding="async"></div>
+  <div class="bg-par" aria-hidden="true"><img class="bg" src="assets/home-v2/cta-mountain-pool.webp" width="1600" height="900" alt="" loading="lazy" decoding="async"></div>
   <div class="wrap">
-    <h2 data-anim="fade-up">Your property. Our operating system.</h2>
+    <h2 data-anim="fade-up"><span class="br">Your property.</span> <span class="br">Our operating system.</span></h2>
     <p data-anim="fade-up" data-delay="100">See what your hotel could look like with CoastalOS.</p>
     <div class="hx-ctas" data-anim="fade-up" data-delay="200">
-      <a href="contact.html" class="btn btn-primary">Request a Property Review</a>
-      <a href="contact.html?request=call" class="btn btn-on-dark">Talk to Our Team</a>
+      <a href="contact.html?request=call" class="btn btn-primary">Request a Call</a>
+      <a href="platform.html" class="btn btn-on-dark">Explore the Platform</a>
     </div>
   </div>
 </section>
@@ -452,14 +436,14 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
         <p style="margin-top:10px;max-width:34ch">The Operating System for Independent Hotels.</p>
       </div>
       <div><h3 class="foot-h">Explore</h3><ul><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div><h3 class="foot-h">Get started</h3><ul><li><a href="contact.html">Request a Property Review</a></li><li><a href="contact.html?request=call">Talk to Our Team</a></li></ul></div>
+      <div><h3 class="foot-h">Get started</h3><ul><li><a href="contact.html?request=call">Request a Call</a></li><li><a href="platform.html">Explore the Platform</a></li></ul></div>
       <div><h3 class="foot-h">Contact</h3><ul><li><a href="tel:+18773500053">(877) 350-0053</a></li><li><a href="mailto:info@coastalhospitalitygroup.com">info@coastalhospitalitygroup.com</a></li><li>711 S El Camino Real, San Clemente, CA 92672</li></ul></div>
     </div>
     <div class="foot-bottom">© 2026 CoastalOS · <a href="privacy.html">Privacy Policy</a></div>
   </div>
 </footer>
 
-<div class="mcta" id="mcta"><a href="contact.html" class="btn btn-primary">Request a Property Review</a></div>
+<div class="mcta" id="mcta"><a href="contact.html?request=call" class="btn btn-primary">Request a Call</a></div>
 
 <script src="assets/js/site.js"></script>
 <script>
@@ -472,27 +456,22 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
       function on(){hub.classList.add('focusing');li.classList.add('hot');lines[i]&&lines[i].classList.add('hot')}
       function off(){hub.classList.remove('focusing');li.classList.remove('hot');lines[i]&&lines[i].classList.remove('hot')}
       a.addEventListener('mouseenter',on);a.addEventListener('mouseleave',off);a.addEventListener('focus',on);a.addEventListener('blur',off)});}
-  // Scroll-linked: hero parallax (desktop) and How-it-works progress
-  var par=document.querySelector('.hx .bg-par'),hero=document.querySelector('.hx'),how=document.getElementById('how'),
-      flow=how&&how.querySelector('.steps-flow'),steps=flow?[].slice.call(flow.children):[];
-  var desk=matchMedia('(min-width:1024px)'),ticking=false;
-  function frame(){ticking=false;var vh=innerHeight,y=scrollY;
-    if(par){par.style.transform=(desk.matches&&!reduce&&y<hero.offsetHeight)?'translate3d(0,'+Math.min(y*.15,60).toFixed(1)+'px,0)':''}
-    if(flow){var vertical=getComputedStyle(flow).gridTemplateColumns.split(' ').length===1,p;
-      if(reduce)p=1;
-      else if(vertical){var r=flow.getBoundingClientRect();p=(vh*.62-r.top)/r.height}
-      else{var s=how.getBoundingClientRect();p=(vh*.78-s.top)/(s.height*.55)}
-      p=Math.max(0,Math.min(1,p));flow.style.setProperty('--prog',p.toFixed(3));
-      steps.forEach(function(li,i){var on=reduce||(vertical?li.querySelector('.dot').getBoundingClientRect().top+22<vh*.62:p>=i/(steps.length-1)-.001);li.classList.toggle('active',on)})}
+  // How it works: each segment fills between two circles as you scroll; a circle activates when the fill reaches it
+  var tl=document.getElementById('tl'),lis=tl?[].slice.call(tl.children):[],ticking=false;
+  function clamp(v){return v<0?0:v>1?1:v}
+  function frame(){ticking=false;if(!tl)return;var vh=innerHeight;
+    if(reduce){lis.forEach(function(li){li.classList.add('active');var g=li.querySelector('.seg');g&&g.style.setProperty('--f',1)});return}
+    var vertical=getComputedStyle(tl).gridTemplateColumns.split(' ').length===1;
+    var dots=lis.map(function(li){return li.querySelector('.dot').getBoundingClientRect()});
+    if(vertical){var y=vh*.62;
+      lis.forEach(function(li,i){var g=li.querySelector('.seg');if(g){var a=dots[i].bottom,b=dots[i+1].top;g.style.setProperty('--f',clamp((y-a)/(b-a)).toFixed(3))}
+        li.classList.toggle('active',dots[i].top+dots[i].height/2<y)})}
+    else{var r=tl.getBoundingClientRect(),start=vh*.85,end=vh*.35,p=clamp((start-r.top)/(start-end)),sN=p*(lis.length-1);
+      lis.forEach(function(li,i){var g=li.querySelector('.seg');if(g)g.style.setProperty('--f',clamp(sN-i).toFixed(3));
+        li.classList.toggle('active',p>0&&sN>=i-.0005)})}
   }
   function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
   addEventListener('scroll',req,{passive:true});addEventListener('resize',req);frame();
-  // FAQ: smooth open/close height on user toggle (native instant toggle without JS)
-  if(!reduce&&Element.prototype.animate){[].forEach.call(document.querySelectorAll('.faq-list details'),function(d){var sm=d.querySelector('summary'),busy=false;
-    sm.addEventListener('click',function(e){if(busy)return;e.preventDefault();busy=true;var start=d.offsetHeight;
-      if(!d.open){d.open=true;var end=d.offsetHeight;d.animate({height:[start+'px',end+'px']},{duration:300,easing:'cubic-bezier(.2,.7,.2,1)'}).onfinish=function(){busy=false}}
-      else{var end2=sm.offsetHeight;var an=d.animate({height:[start+'px',end2+'px']},{duration:260,easing:'cubic-bezier(.2,.7,.2,1)'});an.onfinish=function(){d.open=false;busy=false}}
-    })})}
 })();
 </script>
 </body>

@@ -413,22 +413,16 @@ footer a:hover{color:#fff}
 .next[hidden]{display:none}
 
 /* ===== Motion system (shared). Pages opt in with data-anim / data-stagger; .rv above stays for older pages ===== */
-:root{--ease-out:cubic-bezier(.2,.7,.2,1);--dur-fast:300ms;--dur-base:600ms;--dur-slow:900ms;--stagger:80ms;--rise:20px}
-@media (max-width:760px){:root{--rise:12px}}
-.js [data-anim]{transition:opacity var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out),clip-path 700ms var(--ease-out);transition-delay:var(--d,0ms)}
+:root{--ease-out:cubic-bezier(.2,.7,.2,1);--dur-fast:300ms;--dur-base:600ms;--dur-slow:900ms;--stagger:80ms;--rise:24px}
+@media (max-width:760px){:root{--rise:16px}}
+.js [data-anim]{transition:opacity var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out);transition-delay:var(--d,0ms)}
 .js [data-anim="fade-up"]{opacity:0;transform:translateY(var(--rise))}
 .js [data-anim="fade-in"]{opacity:0}
-.js [data-anim="rise"]{transform:translateY(var(--rise))}
-.js [data-anim="slide-left"]{opacity:0;transform:translateX(calc(var(--rise) * -1.4))}
-.js [data-anim="slide-right"]{opacity:0;transform:translateX(calc(var(--rise) * 1.4))}
 .js [data-anim="scale-in"]{opacity:0;transform:scale(.92)}
-.js [data-anim="clip-reveal"]{clip-path:inset(0 100% 0 0 round var(--r-lg))}
-.js [data-anim="clip-reveal"][data-dir="right"]{clip-path:inset(0 0 0 100% round var(--r-lg))}
 .js [data-anim].is-in{opacity:1;transform:none}
-.js [data-anim="clip-reveal"].is-in{clip-path:inset(0 0 0 0 round var(--r-lg))}
 .js [data-anim].anim-done{transition-delay:0ms;transition-duration:var(--dur-fast)}
 @media (prefers-reduced-motion:reduce){
-  .js [data-anim]{opacity:1!important;transform:none!important;clip-path:none!important;transition:none!important}
+  .js [data-anim]{opacity:1!important;transform:none!important;transition:none!important}
 }
 
 /* Back-to-top button (all pages) */

@@ -18,7 +18,7 @@ All six agreed pages are built.
 | `privacy.html` | Privacy Policy (starter text written for this prototype; the client will replace it with reviewed wording) |
 | `home-v2.html` | Merged homepage concept (client layout + our design system), for side-by-side comparison with `index.html`. Not linked from the site; `noindex`. See "Homepage concept (home-v2)" below. |
 
-Platform, Services, About, Portfolio and Contact in the header and footer go to their own pages on every site page. On the homepage, "See How CoastalOS Works" scrolls to the homepage platform section, which ends with a "See the full platform" link. Every "Request a Property Review" button goes to `contact.html`, and every "Talk to Our Team" button goes to `contact.html?request=call`, which pre-selects "A call with our team" in the form. The homepage keeps its own copy of the form.
+Platform, Services, About, Portfolio and Contact in the header and footer go to their own pages on every site page. On the homepage, "See How CoastalOS Works" scrolls to the homepage platform section, which ends with a "See the full platform" link. The primary call to action everywhere is **"Request a Call"**, linking to `contact.html?request=call`, which pre-selects "A call with our team" in the form. The secondary button next to it is "See How It Works" (homepage hero, scrolls to `#platform`) or "Explore the Platform" (`platform.html`) elsewhere. The form's submit label follows the chosen option ("Request a Call" / "Request a Property Review"). The homepage keeps its own copy of the form.
 
 The forms only validate in the browser and show a thank-you message. Nothing is sent: no email, CRM or form service is connected.
 
@@ -44,10 +44,14 @@ Then visit http://localhost:8000.
 
 ## Homepage concept (home-v2)
 
+Design rules: section headings have no eyebrow/kicker label (removed site-wide). Single-column sections center their heading, intro (max ~60ch) and buttons; split sections (text + image) stay left/right.
+
+Motion: only three effects — scroll reveal (fade up 24px, 600ms, 80ms stagger in lists), the How-it-works timeline (scroll-linked: each teal segment fills between two circles, then the next circle activates and its text fades up; vertical on mobile), and the platform hub (core scales in, connector lines draw, cards pop in). No background-image motion. Reduced motion shows everything at once; without JavaScript all content is visible.
+
 `home-v2.html` merges the client's layout concept with our design system (fonts, tokens, buttons, cards, icon tiles, header, footer, mobile menu, sticky mobile CTA, reveal animations). All page-only styles sit in its `<style>` block; `site.css` and `site.js` are shared and unchanged. The current homepage (`index.html`) is untouched.
 
 Sections, in order:
-1. Hero: photo background with navy overlay, H1, two CTAs, four benefit items (2×2 on mobile)
+1. Hero (centered): photo background with an even navy overlay, H1, "Request a Call" + "See How It Works", four benefit items (2×2 on mobile)
 2. The challenge: copy, side photo (desktop), eight challenge cards (4×2 desktop, 2 columns mobile)
 3. The solution: "Centralize. Automate. Elevate." with photo, CTA to Services
 4. The platform (`#platform`): hub diagram, CoastalOS core plus eight functions; connector lines draw once; 2-column list on mobile

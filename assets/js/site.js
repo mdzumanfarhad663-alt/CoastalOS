@@ -47,7 +47,7 @@
   }
   addEventListener('beforeprint',revealAll);
 
-  // Motion system: data-anim="fade-up|fade-in|slide-left|slide-right|scale-in|clip-reveal|draw",
+  // Motion system: data-anim="fade-up|fade-in|scale-in|draw",
   // data-stagger="<anim>" on a parent (children get the anim and an 80ms step), data-delay="ms".
   // Reveals once at ~15% visibility; elements on screen at load start right away; never replays.
   var reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
