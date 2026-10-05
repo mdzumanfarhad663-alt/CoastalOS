@@ -24,21 +24,27 @@
 .glance .go{margin-top:14px;font:600 .9rem var(--display);color:var(--teal-ink)}
 @media (max-width:1100px){.glance{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:700px){.glance{grid-template-columns:1fr}}
-/* Service groups: identical layout, subtle alternating background */
-.grp-sec{scroll-margin-top:-56px;background:#fff}
-.grp-sec.alt{background:var(--paper)}
-.grp-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(32px,5vw,80px);align-items:start}
+/* Service groups: alternating 40/60 columns, top-aligned, left-aligned text.
+   The heading block comes first in the HTML, so mobile always reads number → title → subtitle → label → details. */
+.grp-sec{scroll-margin-top:-40px;background:#fff;padding:clamp(56px,6vw,80px) 0}
+.grp-sec.alt{background:#F1F6F9}
+.grp-layout{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:clamp(32px,5vw,80px);align-items:start}
+.grp-layout.rev{grid-template-columns:minmax(0,3fr) minmax(0,2fr)}
+.grp-layout.rev>.grp-head{order:2}
 .grp-n{font:600 .95rem var(--display);color:var(--teal-ink)}
 .grp-head h2{margin-top:6px;font-size:clamp(1.7rem,2.6vw,2.2rem)}
-.grp-head .lede{margin-top:14px}
-.grp-tag{display:inline-block;margin-top:16px;font:500 .85rem var(--display);color:var(--navy);background:var(--sun-soft);border-radius:var(--r-pill);padding:4px 12px}
-.svc-list{list-style:none;margin:0;padding:0}
-.svc-list li{padding:18px 0;border-top:1px solid var(--line)}
+.grp-sub{margin-top:12px;font-size:1.08rem;line-height:1.5;color:var(--ink)}
+.grp-tag{display:inline-block;margin-top:16px;font:500 .85rem var(--display);color:#6B4E12;background:var(--sun-soft);border-radius:var(--r-pill);padding:4px 12px}
+.grp-lede{color:var(--muted);font-size:1.05rem;line-height:1.6;max-width:62ch}
+.svc-list{list-style:none;margin:20px 0 0;padding:0}
+.svc-list li{padding:16px 0;border-top:1px solid var(--line)}
 .svc-list li:last-child{border-bottom:1px solid var(--line)}
-.svc-list b{display:block;font:600 1.08rem var(--display);color:var(--navy)}
+.svc-list b{display:block;font:600 1.05rem var(--display);color:var(--navy)}
 .svc-list span{display:block;margin-top:4px;color:var(--muted);line-height:1.55}
-.grp-link{margin-top:18px;font-size:.95rem;color:var(--muted)}
-@media (max-width:900px){.grp-layout{grid-template-columns:1fr}}
+.grp-link{margin-top:16px;font-size:.95rem;color:var(--muted)}
+.grp-cta{margin-top:14px;font-weight:600}
+.grp-cta a:focus-visible,.glance a:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:4px}
+@media (max-width:900px){.grp-layout,.grp-layout.rev{grid-template-columns:1fr;gap:20px}.grp-layout.rev>.grp-head{order:0}}
 /* What we handle / what stays with your team (condensed) */
 .split-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);max-width:980px;margin:0 auto}
 .team{padding:clamp(22px,2.6vw,30px)}
@@ -117,10 +123,11 @@
     <div class="grp-head" data-anim="fade-up">
       <p class="grp-n">01</p>
       <h2 id="revenue-h">Revenue, Marketing &amp; Distribution</h2>
-      <p class="lede">Pricing, marketing and channels managed together, with a steady focus on bookings that come to you direct.</p>
+      <p class="grp-sub">More bookings, with more of them coming to you direct</p>
       <p class="grp-tag">Grow revenue</p>
     </div>
-    <div data-anim="fade-up">
+    <div class="grp-body" data-anim="fade-up">
+      <p class="grp-lede">Pricing, marketing and channels managed together, with a steady focus on bookings that come to you direct.</p>
       <ul class="svc-list" aria-label="What CoastalOS handles: Revenue, Marketing &amp; Distribution">
           <li><b>Revenue management</b><span>Pricing and inventory decisions across every channel your property sells on.</span></li>
           <li><b>Distribution &amp; booking channels</b><span>Your rooms listed and kept up to date on the channels where guests book.</span></li>
@@ -132,20 +139,22 @@
   </div>
 </section>
 <section class="sec grp-sec" id="reservations" aria-labelledby="reservations-h">
-  <div class="wrap grp-layout">
+  <div class="wrap grp-layout rev">
     <div class="grp-head" data-anim="fade-up">
       <p class="grp-n">02</p>
       <h2 id="reservations-h">Reservations &amp; Guest Support</h2>
-      <p class="lede">A central team that looks after guests before, during and after their stay.</p>
+      <p class="grp-sub">Every call, email and guest message handled</p>
       <p class="grp-tag">Modernize the guest experience</p>
     </div>
-    <div data-anim="fade-up">
+    <div class="grp-body" data-anim="fade-up">
+      <p class="grp-lede">A central team that looks after guests before, during and after their stay.</p>
       <ul class="svc-list" aria-label="What CoastalOS handles: Reservations &amp; Guest Support">
           <li><b>Central reservations</b><span>Calls, emails and booking requests handled centrally, in line with your property’s policies.</span></li>
           <li><b>Guest communication</b><span>Clear, timely messages before arrival and during the stay, so guests know what to expect.</span></li>
           <li><b>Guest support</b><span>Responsive help when guests need it, with your on-site team kept informed.</span></li>
       </ul>
       <p class="grp-link">Your on-site team is kept informed about arrivals and guest requests.</p>
+      <p class="grp-cta"><a class="text-link" href="contact.html?request=call">Discuss your property <span aria-hidden="true">→</span></a></p>
     </div>
   </div>
 </section>
@@ -154,10 +163,11 @@
     <div class="grp-head" data-anim="fade-up">
       <p class="grp-n">03</p>
       <h2 id="operations-h">Property Operations &amp; Team Support</h2>
-      <p class="lede">Your on-site team stays focused on guests, with the structure behind them handled centrally.</p>
+      <p class="grp-sub">Support and structure for your on-site team</p>
       <p class="grp-tag">Reduce operating costs</p>
     </div>
-    <div data-anim="fade-up">
+    <div class="grp-body" data-anim="fade-up">
+      <p class="grp-lede">Your on-site team stays focused on guests, with the structure behind them handled centrally.</p>
       <ul class="svc-list" aria-label="What CoastalOS handles: Property Operations &amp; Team Support">
           <li><b>On-site team support</b><span>Support and oversight for the people who run your property day to day.</span></li>
           <li><b>Hiring, scheduling &amp; training</b><span>Help finding the right people, planning schedules and bringing new team members up to speed.</span></li>
@@ -168,14 +178,15 @@
   </div>
 </section>
 <section class="sec grp-sec" id="technology" aria-labelledby="technology-h">
-  <div class="wrap grp-layout">
+  <div class="wrap grp-layout rev">
     <div class="grp-head" data-anim="fade-up">
       <p class="grp-n">04</p>
       <h2 id="technology-h">Technology &amp; Digital Check-In</h2>
-      <p class="lede">Modern hotel technology set up and run for you, so routine work happens in the background.</p>
+      <p class="grp-sub">Modern systems set up and run for you</p>
       <p class="grp-tag">Reduce operating costs</p>
     </div>
-    <div data-anim="fade-up">
+    <div class="grp-body" data-anim="fade-up">
+      <p class="grp-lede">Modern hotel technology set up and run for you, so routine work happens in the background.</p>
       <ul class="svc-list" aria-label="What CoastalOS handles: Technology &amp; Digital Check-In">
           <li><b>Property management technology</b><span>The core systems a hotel runs on, set up and managed as part of the platform.</span></li>
           <li><b>Automation</b><span>Confirmations, reminders and routine reports that go out on their own.</span></li>
@@ -190,16 +201,18 @@
     <div class="grp-head" data-anim="fade-up">
       <p class="grp-n">05</p>
       <h2 id="reporting-h">Accounting &amp; Owner Reporting</h2>
-      <p class="lede">Clear numbers and back-office support, so owners always know how the property is performing.</p>
+      <p class="grp-sub">Clear numbers and back-office handled</p>
       <p class="grp-tag">Give owners visibility</p>
     </div>
-    <div data-anim="fade-up">
+    <div class="grp-body" data-anim="fade-up">
+      <p class="grp-lede">Clear numbers and back-office support, so owners always know how the property is performing.</p>
       <ul class="svc-list" aria-label="What CoastalOS handles: Accounting &amp; Owner Reporting">
           <li><b>Accounting &amp; financial reporting</b><span>Accounting and financial statements that give a clear picture of the property.</span></li>
           <li><b>Payroll &amp; HR administration</b><span>Payroll and HR administration coordinated centrally, so it is handled consistently.</span></li>
           <li><b>Owner reporting</b><span>Reporting on revenue, occupancy, rates, expenses and labor, all in one place.</span></li>
       </ul>
       <p class="grp-link">Your team records the day’s activity; we turn it into clear numbers for you.</p>
+      <p class="grp-cta"><a class="text-link" href="contact.html?request=call">Discuss your property <span aria-hidden="true">→</span></a></p>
     </div>
   </div>
 </section>
