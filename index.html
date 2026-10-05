@@ -13,14 +13,6 @@
 <style>
 /* ===== HOMEPAGE V2 (merged concept). Page-only styles; shared system lives in site.css ===== */
 /* photo sections: one <img> per element, navy overlay for AA text contrast */
-.photo-sec{position:relative;isolation:isolate;color:#fff;overflow:hidden}
-.photo-sec>.bg,.photo-sec .bg-par{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.photo-sec .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.photo-sec::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(10,32,56,.94) 0%,rgba(14,42,71,.82) 48%,rgba(14,42,71,.55) 100%)}
-.photo-sec h1,.photo-sec h2{color:#fff}
-.photo-sec .kicker{color:var(--teal-2)}
-.photo-sec p{color:#DCE6EF}
-@media (max-width:760px){.photo-sec::before{background:linear-gradient(180deg,rgba(10,32,56,.9) 0%,rgba(14,42,71,.84) 60%,rgba(14,42,71,.9) 100%)}}
 
 /* 1 hero */
 .hx{min-height:max(88vh,640px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(64px,9vw,110px) 0 0}
@@ -106,14 +98,6 @@
 .tst-card{max-width:560px;background:#fff;color:var(--ink);border-radius:var(--r-lg);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow-lg)}
 
 /* 11 final CTA */
-.fcta{padding:clamp(88px,11vw,150px) 0;text-align:center}
-.fcta .bg{object-position:50% 60%}
-.fcta::before{background:radial-gradient(ellipse 60% 75% at 50% 50%,rgba(10,32,56,.86) 0%,rgba(14,42,71,.78) 45%,rgba(14,42,71,.3) 100%)}
-@media (max-width:760px){.fcta::before{background:radial-gradient(ellipse 95% 70% at 50% 50%,rgba(10,32,56,.86) 0%,rgba(14,42,71,.78) 55%,rgba(14,42,71,.4) 100%)}}
-.fcta h2{font-size:clamp(2.2rem,4.4vw,3.4rem);max-width:18ch;margin:0 auto}
-.fcta p{margin:16px auto 0;max-width:46ch;font-size:1.1rem}
-.fcta .hx-ctas{justify-content:center}
-@media (max-width:480px){.fcta .hx-ctas .btn{flex:1 1 100%}}
 .faq-grid h2{max-width:12ch}
 
 /* ===== Motion (home-v2) ===== */
@@ -162,10 +146,6 @@
 @media (max-width:760px){.hx.hx-center .hx.hx-center::before{background:linear-gradient(180deg,rgba(14,42,71,.25) 0%,rgba(14,42,71,.6) 18%,rgba(10,32,56,.86) 34%,rgba(10,32,56,.9) 100%)}}
 
 /* ===== Section alignment: full-width sections center their heading block ===== */
-.sec-head.is-centered{text-align:center;margin-inline:auto;max-width:760px}
-.sec-head.is-centered .kicker{justify-content:center}
-.sec-head.is-centered h2{margin-inline:auto}
-.sec-head.is-centered .lede{max-width:60ch;margin-inline:auto}
 .pf-more{text-align:center;margin-top:clamp(28px,3.5vw,40px)}
 /* ===== How it works: timeline (scroll-linked; segments sit between circles) ===== */
 .tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0}
@@ -192,8 +172,6 @@ html:not(.js) .tl .tl-line i{transform:none}
 @media (prefers-reduced-motion:reduce){.tl .tl-line i{transform:none!important}.js .tl li b,.js .tl li small{opacity:1!important;transform:none!important}}
 /* heading line control */
 .nw{white-space:nowrap}
-.fcta h2{max-width:none}.fcta h2 .br{display:block}
-@media (max-width:520px){.fcta h2{font-size:clamp(1.6rem,7vw,2.2rem)}.fcta h2 .br{white-space:nowrap}}
 /* Challenge photo: no taller than the text column */
 .ch-grid{align-items:stretch}
 .ch-grid .side-photo{position:relative;min-height:0}
@@ -225,8 +203,6 @@ html:not(.js) .tl .tl-line i{transform:none}
 @media (max-width:760px){.benefits{display:grid;grid-template-columns:auto auto;justify-content:center;column-gap:0;row-gap:8px;font-size:.92rem}
   .benefits li{justify-content:center}.benefits li+li::before{display:none}.benefits li:nth-child(2n)::before{display:block;margin:0 12px}}
 /* Built for: property types as text pills */
-.types{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
-.types li{font:500 .92rem var(--display);color:var(--navy);border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 16px;background:var(--paper)}
 /* ===== Structure upgrade ===== */
 /* Operating relationship */
 .rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);max-width:980px;margin:0 auto}

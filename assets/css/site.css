@@ -446,3 +446,46 @@ footer a:hover{color:#fff}
 .why.ours .ic{background:rgba(111,208,204,.14)}
 .why.ours .ic svg{stroke:var(--teal-2)}
 @media (max-width:900px){.why-grid{grid-template-columns:1fr}.why-grid .why.ours{order:-1}}
+
+/* ===== Shared from the homepage: photo sections, final CTA, centred section heads, property-type pills =====
+   The homepage adds its own overrides (inline form layout) on top of these. */
+.photo-sec{position:relative;isolation:isolate;color:#fff;overflow:hidden}
+.photo-sec>.bg,.photo-sec .bg-par{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.photo-sec .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-sec::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(10,32,56,.94) 0%,rgba(14,42,71,.82) 48%,rgba(14,42,71,.55) 100%)}
+.photo-sec h1,.photo-sec h2{color:#fff}
+.photo-sec .kicker{color:var(--teal-2)}
+.photo-sec p{color:#DCE6EF}
+@media (max-width:760px){.photo-sec::before{background:linear-gradient(180deg,rgba(10,32,56,.9) 0%,rgba(14,42,71,.84) 60%,rgba(14,42,71,.9) 100%)}}
+.fcta{padding:clamp(88px,11vw,150px) 0;text-align:center}
+.fcta .bg{object-position:50% 60%}
+.fcta::before{background:radial-gradient(ellipse 60% 75% at 50% 50%,rgba(10,32,56,.86) 0%,rgba(14,42,71,.78) 45%,rgba(14,42,71,.3) 100%)}
+@media (max-width:760px){.fcta::before{background:radial-gradient(ellipse 95% 70% at 50% 50%,rgba(10,32,56,.86) 0%,rgba(14,42,71,.78) 55%,rgba(14,42,71,.4) 100%)}}
+.fcta h2{font-size:clamp(2.2rem,4.4vw,3.4rem);max-width:18ch;margin:0 auto}
+.fcta p{margin:16px auto 0;max-width:46ch;font-size:1.1rem}
+.fcta .hx-ctas{justify-content:center}
+@media (max-width:480px){.fcta .hx-ctas .btn{flex:1 1 100%}}
+.sec-head.is-centered{text-align:center;margin-inline:auto;max-width:760px}
+.sec-head.is-centered .kicker{justify-content:center}
+.sec-head.is-centered h2{margin-inline:auto}
+.sec-head.is-centered .lede{max-width:60ch;margin-inline:auto}
+.fcta h2{max-width:none}.fcta h2 .br{display:block}
+@media (max-width:520px){.fcta h2{font-size:clamp(1.6rem,7vw,2.2rem)}.fcta h2 .br{white-space:nowrap}}
+.types{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.types li{font:500 .92rem var(--display);color:var(--navy);border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 16px;background:var(--paper)}
+
+/* ===== Calm inner pages (About, Portfolio, Contact): homepage motion values and mobile CTA space ===== */
+.page-calm{--rise:14px;--dur-base:450ms;--sec:clamp(64px,7vw,96px)}
+.page-calm .sec-head{margin-bottom:clamp(32px,4vw,48px)}
+@media (max-width:760px){.page-calm footer{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}}
+/* property cards without image zoom: subtle lift only */
+.pcard-calm .pcard-img img,.pcard-calm:hover .pcard-img img,.pcard-calm .pcard-view i,.pcard-calm:hover .pcard-view i{transform:none}
+.card.pcard-calm{transition:transform var(--dur-fast) var(--ease-out),opacity var(--dur-base) var(--ease-out)}
+.card.pcard-calm.anim-done:hover,.card.pcard-calm.anim-done:focus-visible,html:not(.js) .card.pcard-calm:hover{transform:translateY(-4px)}
+/* final CTA on inner pages: centred heading and one button */
+.fcta .fcta-inner{max-width:760px;margin:0 auto}
+.fcta .hx-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+
+/* accessibility (same as the homepage): brand "OS" contrast and footer headings */
+.page-calm .logo-word span{color:var(--teal-ink)}
+.page-calm footer .foot-h{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}
