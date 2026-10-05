@@ -3,7 +3,8 @@
   requestAnimationFrame(function(){document.body.classList.add('loaded')});
 
   var header=document.querySelector('header.site'),mcta=document.getElementById('mcta');
-  var review=document.getElementById('review')||document.querySelector('.cta');
+  var review=document.querySelector('[data-mcta-hide]')||document.getElementById('review')||document.querySelector('.cta');
+  var mctaAfter=document.querySelector('[data-mcta-after]');
   var page=location.pathname.split('/').pop()||'index.html';
   var links=[].slice.call(document.querySelectorAll('#menu a'));
   // scroll-spy only for links that point to a section on this page
@@ -11,7 +12,7 @@
   function target(a){return document.getElementById(a.getAttribute('href').split('#')[1])}
   function onScroll(){
     var y=scrollY;header.classList.toggle('scrolled',y>8);
-    if(mcta){var r=review?review.getBoundingClientRect().top:Infinity;mcta.classList.toggle('show',y>600&&r>innerHeight*.6)}
+    if(mcta){var r=review?review.getBoundingClientRect().top:Infinity,past=mctaAfter?mctaAfter.getBoundingClientRect().bottom<0:y>600;mcta.classList.toggle('show',past&&r>innerHeight*.6)}
     if(spy.length){var cur=null;spy.forEach(function(a){var s=target(a);if(s&&s.getBoundingClientRect().top<160)cur=a});
       spy.forEach(function(a){a.classList.toggle('active',a===cur)})}
   }
@@ -34,6 +35,45 @@
     rvs.forEach(function(el){if(el.getBoundingClientRect().top<innerHeight){el.classList.add('in','rv-now')}else{io.observe(el)}});
   }
   addEventListener('beforeprint',revealAll);
+
+  // Motion system: data-anim="fade-up|fade-in|slide-left|slide-right|scale-in|clip-reveal|draw",
+  // data-stagger="<anim>" on a parent (children get the anim and an 80ms step), data-delay="ms".
+  // Reveals once at ~15% visibility; elements on screen at load start right away; never replays.
+  var reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var STEP=80;
+  [].forEach.call(document.querySelectorAll('[data-stagger]'),function(p){
+    var kind=p.getAttribute('data-stagger')||'fade-up',base=+(p.getAttribute('data-delay')||0);
+    [].forEach.call(p.children,function(c,i){if(!c.hasAttribute('data-anim'))c.setAttribute('data-anim',kind);c.setAttribute('data-delay',base+i*STEP)});
+  });
+  var anims=[].slice.call(document.querySelectorAll('[data-anim]'));
+  function prepDraw(el){
+    [].forEach.call(el.querySelectorAll('path,line,polyline,circle'),function(sh){
+      if(!sh.getTotalLength)return;var L;try{L=Math.ceil(sh.getTotalLength())}catch(err){return}
+      if(!L)return;
+      sh.style.strokeDasharray=L;sh.style.strokeDashoffset=reduceM?0:L;
+    });
+  }
+  function show(el){
+    var d=+(el.getAttribute('data-delay')||0);el.style.setProperty('--d',d+'ms');
+    if(el.getAttribute('data-anim')==='draw'){
+      [].forEach.call(el.querySelectorAll('path,line,polyline,circle'),function(sh){
+        sh.style.transition='stroke-dashoffset var(--dur-slow) var(--ease-out) '+d+'ms';sh.style.strokeDashoffset=0;
+      });
+    }
+    el.classList.add('is-in');el.dispatchEvent(new CustomEvent('reveal'));
+    setTimeout(function(){el.classList.add('anim-done')},d+1000);
+  }
+  anims.forEach(function(el){if(el.getAttribute('data-anim')==='draw')prepDraw(el)});
+  if(reduceM||!('IntersectionObserver' in window)){anims.forEach(function(el){el.classList.add('is-in')})}
+  else{
+    var aio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);aio.unobserve(e.target)}})},{threshold:.15});
+    // two frames so the hidden start state is painted before on-screen elements animate in
+    requestAnimationFrame(function(){requestAnimationFrame(function(){anims.forEach(function(el){aio.observe(el)})})});
+    // safety net for very fast scrolling: anything already scrolled past is shown at once
+    var sweep=false;addEventListener('scroll',function(){if(sweep)return;sweep=true;requestAnimationFrame(function(){sweep=false;
+      anims.forEach(function(el){if(!el.classList.contains('is-in')&&el.getBoundingClientRect().bottom<0){el.setAttribute('data-delay',0);show(el);aio.unobserve(el)}})})},{passive:true});
+  }
+  addEventListener('beforeprint',function(){anims.forEach(function(el){el.classList.add('is-in')})});
 
   // compare toggle (switches once on first view, then user-controlled)
   var cmp=document.getElementById('compare');
