@@ -192,7 +192,8 @@ html:not(.js) .tl .tl-line i{transform:none}
 @media (prefers-reduced-motion:reduce){.tl .tl-line i{transform:none!important}.js .tl li b,.js .tl li small{opacity:1!important;transform:none!important}}
 /* heading line control */
 .nw{white-space:nowrap}
-@media (min-width:761px){.fcta h2{max-width:none}.fcta h2 .br{display:block}}
+.fcta h2{max-width:none}.fcta h2 .br{display:block}
+@media (max-width:520px){.fcta h2{font-size:clamp(1.6rem,7vw,2.2rem)}.fcta h2 .br{white-space:nowrap}}
 /* Challenge photo: no taller than the text column */
 .ch-grid{align-items:stretch}
 .ch-grid .side-photo{position:relative;min-height:0}
@@ -235,16 +236,16 @@ html:not(.js) .tl .tl-line i{transform:none}
 .rel-list li{display:flex;gap:12px;padding:11px 0;border-top:1px solid var(--line);font-size:1rem;color:var(--ink)}
 .rel-list li:first-child{border-top:0}
 .rel-list li::before{content:"";flex:none;width:12px;height:7px;margin-top:.45em;border-left:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
-.rel-ours{background:var(--navy);border-color:var(--navy);box-shadow:var(--shadow-lg)}
+.rel-ours{background:var(--navy);border-color:var(--navy)}
 .rel-ours h3{color:#fff}.rel-ours .rel-list li{color:#D4E0EB;border-color:rgba(255,255,255,.12)}.rel-ours .rel-list li::before{border-color:var(--teal-2)}
 .rel-more{text-align:center;margin-top:28px}
 @media (max-width:760px){.rel-grid{grid-template-columns:1fr}}
 /* Testimonials slider (section hidden until real quotes) */
 .tst-slider{max-width:820px;margin:0 auto;text-align:center}
+.tst-slide blockquote{margin:0;display:flex;align-items:center;justify-content:center}
 .tst-slide{margin:0}
 .tst-q{font:500 clamp(1.25rem,2.2vw,1.65rem)/1.5 var(--display);color:#fff!important;letter-spacing:-.01em}
 .tst-slide figcaption{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px}
-.tst-photo{width:52px;height:52px;border-radius:50%;object-fit:cover}
 .tst-name{display:block;color:#fff;font-family:var(--display)}
 .tst-meta{display:block;color:#C6D4E1;font-size:.92rem}
 .tst-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px}
@@ -259,15 +260,15 @@ html:not(.js) .tl .tl-line i{transform:none}
 .tst-slide{transition:opacity .3s var(--ease-out),transform .3s var(--ease-out)}
 @media (prefers-reduced-motion:reduce){.tst-slide{transition:none}}
 /* Hub labels: full on desktop, short on mobile (full name stays in aria-label) */
-.lbl-short{display:none}
-@media (max-width:760px){.lbl-full{display:none}.lbl-short{display:inline}.hub-card span:last-child{-webkit-line-clamp:unset;display:block}}
+.lbl-full{display:none}.lbl-short{display:inline}
+.hub-card>span:last-child{-webkit-line-clamp:unset;display:block;overflow:visible}
 /* Hub: softer core glow */
 .hub-core{box-shadow:0 0 0 8px rgba(111,208,204,.16),0 12px 32px -14px rgba(28,140,138,.45)!important}
 /* Motion timing: quick, small reveals */
 .home-v2{--rise:14px;--dur-base:450ms}
 /* Shadows: cards get a border + very light shadow; key elements keep stronger shadows */
 .home-v2 .card{box-shadow:0 1px 2px rgba(14,42,71,.05)}
-.home-v2 .card.rel-ours,.home-v2 .card.why.ours{box-shadow:var(--shadow-lg)}
+.home-v2 .card.rel-ours,.home-v2 .card.why.ours{box-shadow:0 10px 24px -16px rgba(14,42,71,.4)}
 .home-v2 .hub-card{box-shadow:0 1px 3px rgba(14,42,71,.07)}
 .home-v2 .side-photo img{box-shadow:var(--shadow)}
 /* Section spacing: consistent and tighter */
@@ -420,12 +421,12 @@ html:not(.js) .tl .tl-line i{transform:none}
 </section>
 
 <!-- 7. OWNER TESTIMONIALS — SAMPLE quotes shown for prototype review; replace with real, approved quotes before launch.
-     Edit the JSON in #tst-data (quote, name, role, property, location, optional photo path), then remove `hidden` from the section. -->
+     Edit the JSON in #tst-data (quote, name, role, property, location), then remove `hidden` from the section. -->
 <section class="sec navy-band tst-sec" id="testimonials" aria-roledescription="carousel" aria-labelledby="tst-h">
   <div class="wrap">
     <div class="sec-head is-centered"><h2 id="tst-h">What owners say</h2></div>
     <div class="tst-slider" id="tstSlider">
-      <figure class="tst-slide" aria-live="polite"><blockquote><p class="tst-q"></p></blockquote><figcaption><img class="tst-photo" alt="" hidden><span><b class="tst-name"></b><span class="tst-meta"></span></span></figcaption></figure>
+      <figure class="tst-slide" aria-live="polite"><blockquote><p class="tst-q"></p></blockquote><figcaption><span><b class="tst-name"></b><span class="tst-meta"></span></span></figcaption></figure>
       <div class="tst-nav">
         <button type="button" class="tst-btn" data-dir="-1" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
         <div class="tst-dots" role="tablist" aria-label="Choose testimonial"></div>
@@ -439,40 +440,35 @@ html:not(.js) .tl .tl-line i{transform:none}
     "name": "Hotel owner",
     "role": "",
     "property": "Name and property to be confirmed",
-    "location": "",
-    "photo": ""
+    "location": ""
   },
   {
     "quote": "Every month I get a clear report on how the property is doing, and we go through it together. I no longer have to piece the picture together from different systems.",
     "name": "Hotel owner",
     "role": "",
     "property": "Name and property to be confirmed",
-    "location": "",
-    "photo": ""
+    "location": ""
   },
   {
     "quote": "I was worried about the switch, but the onboarding was well organised. Our team knew what was changing and when, and the transition felt calm rather than disruptive.",
     "name": "Hotel owner",
     "role": "",
     "property": "Name and property to be confirmed",
-    "location": "",
-    "photo": ""
+    "location": ""
   },
   {
     "quote": "Guests get quick, consistent answers before they arrive and during their stay. My on-site team can focus on welcoming people instead of chasing messages.",
     "name": "Hotel owner",
     "role": "",
     "property": "Name and property to be confirmed",
-    "location": "",
-    "photo": ""
+    "location": ""
   },
   {
     "quote": "We kept our name, our look and our regulars. It still feels like our hotel, just with a much stronger operation behind it.",
     "name": "Hotel owner",
     "role": "",
     "property": "Name and property to be confirmed",
-    "location": "",
-    "photo": ""
+    "location": ""
   }
 ]
     </script>
@@ -573,18 +569,20 @@ html:not(.js) .tl .tl-line i{transform:none}
 (function(){
   var sec=document.getElementById('testimonials'),dataEl=document.getElementById('tst-data');if(!sec||!dataEl)return;
   var items;try{items=JSON.parse(dataEl.textContent)}catch(e){return}if(!items.length)return;
-  var slide=sec.querySelector('.tst-slide'),q=sec.querySelector('.tst-q'),nm=sec.querySelector('.tst-name'),meta=sec.querySelector('.tst-meta'),ph=sec.querySelector('.tst-photo'),dots=sec.querySelector('.tst-dots'),i=0;
+  var slide=sec.querySelector('.tst-slide'),q=sec.querySelector('.tst-q'),nm=sec.querySelector('.tst-name'),meta=sec.querySelector('.tst-meta'),dots=sec.querySelector('.tst-dots'),i=0;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   items.forEach(function(_,k){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.setAttribute('aria-label','Testimonial '+(k+1)+' of '+items.length);b.addEventListener('click',function(){go(k)});dots.appendChild(b)});
   function paint(){var t=items[i];q.textContent='“'+t.quote+'”';nm.textContent=t.name;meta.textContent=[t.role,t.property,t.location].filter(Boolean).join(', ');
-    if(t.photo){ph.src=t.photo;ph.hidden=false}else{ph.hidden=true}
     [].forEach.call(dots.children,function(d,k){d.setAttribute('aria-selected',k===i)})}
   function go(k){i=(k+items.length)%items.length;if(reduce){paint();return}slide.classList.add('swap');setTimeout(function(){paint();slide.classList.remove('swap')},220)}
   sec.querySelectorAll('.tst-btn').forEach(function(b){b.addEventListener('click',function(){go(i+ +b.dataset.dir)})});
   sec.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(i+1);if(e.key==='ArrowLeft')go(i-1)});
   var x0=null;slide.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
   slide.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(i+(dx<0?1:-1));x0=null});
-  paint();
+  // Reserve the height of the longest quote so the controls and the next section never move
+  var bq=slide.querySelector('blockquote');
+  function fit(){var keep=q.textContent,h=0;bq.style.minHeight='';items.forEach(function(t){q.textContent='“'+t.quote+'”';h=Math.max(h,bq.offsetHeight)});q.textContent=keep;bq.style.minHeight=h+'px'}
+  paint();fit();addEventListener('resize',fit);if(document.fonts)document.fonts.ready.then(fit);
 })();
 </script>
 

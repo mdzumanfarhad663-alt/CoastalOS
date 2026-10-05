@@ -10,9 +10,10 @@
   // scroll-spy only for links that point to a section on this page
   var spy=links.filter(function(a){var u=a.getAttribute('href').split('#');return u[1]&&(u[0]===''||u[0]===page)});
   function target(a){return document.getElementById(a.getAttribute('href').split('#')[1])}
+  var lastY=scrollY,mctaUp=true;
   function onScroll(){
     var y=scrollY;header.classList.toggle('scrolled',y>8);
-    if(mcta){var r=review?review.getBoundingClientRect().top:Infinity,past=mctaAfter?mctaAfter.getBoundingClientRect().bottom<0:y>600;var ft=document.querySelector('footer');var fr=ft?ft.getBoundingClientRect().top:Infinity;mcta.classList.toggle('show',past&&r>innerHeight*.6&&fr>innerHeight)}
+    if(mcta){var r=review?review.getBoundingClientRect().top:Infinity,past=mctaAfter?mctaAfter.getBoundingClientRect().bottom<0:y>600;var ft=document.querySelector('footer');var fr=ft?ft.getBoundingClientRect().top:Infinity;var up=y<lastY-2,down=y>lastY+2;if(down)mctaUp=false;if(up)mctaUp=true;lastY=y;mcta.classList.toggle('show',past&&mctaUp&&r>innerHeight*.6&&fr>innerHeight)}
     if(spy.length){var cur=null;spy.forEach(function(a){var s=target(a);if(s&&s.getBoundingClientRect().top<160)cur=a});
       spy.forEach(function(a){a.classList.toggle('active',a===cur)})}
   }

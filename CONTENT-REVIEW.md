@@ -47,9 +47,9 @@ The line "It doesn't have to be that way." and the list of 8 owner problems were
 | 4. Reporting & review | "You receive regular reporting and review performance with us." | How often are reviews held, and in what format? |
 | 5. Ongoing partnership | "We keep refining operations as your property and goals evolve." | — |
 
-## 5. Owner testimonials — **Shown as Sample**
+## 5. Owner testimonials — **Shown without a Sample tag (example quotes)**
 
-The slider is visible with a "Sample" tag for prototype review. Before launch it must use real, approved quotes, each with the owner's name, role, property and location (and their permission). The quotes below are **examples only**, written to show the format. They must not be published as they are.
+The slider is visible for prototype review. The "Sample" tag and owner photos were removed, so these quotes now look like real reviews. Before launch it must use real, approved quotes, each with the owner's name, role, property and location (and their permission). The quotes below are **examples only**, written to show the format. They must not be published as they are.
 
 | Theme | Example quote |
 |---|---|
@@ -85,11 +85,11 @@ The four existing questions are unchanged.
 
 The form fields and the "Request a Call" button are unchanged.
 
-## 8. Platform hub: shorter labels on mobile only
+## 8. Platform hub: shorter labels
 
-These are shorter visible labels on phones only. The full name is kept for screen readers.
+These shorter labels are now shown at all screen sizes. The full name is kept for screen readers.
 
-| Full label (desktop) | Mobile label |
+| Full label (screen readers) | Visible label |
 |---|---|
 | On-Site Operations & Staff Management | Operations & Staffing |
 | Accounting & Financial Reporting | Accounting & Finance |
