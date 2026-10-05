@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Our Work — CoastalOS</title>
+<meta name="description" content="Hotels owned and operated by Coastal Hospitality Group, the team behind CoastalOS: beach hotels and mountain escapes in Florida, North Carolina and California.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<style>
+.work-hero{text-align:center}
+.work-hero h1{margin:0 auto}
+.work-hero .lede{max-width:60ch;margin:16px auto 0}
+.work-stat{margin-top:16px;font:600 1.05rem var(--display);color:var(--teal-ink)}
+/* One full-width row per property, alternating sides and backgrounds */
+.work-row{padding:clamp(48px,6vw,80px) 0;background:#fff}
+.work-row-tint{background:var(--paper)}
+.work-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(32px,5vw,72px);align-items:center}
+.work-grid.flip{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+.work-grid.flip>.work-photo{order:2}
+.work-photo{margin:0}
+.work-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r-lg);border:1px solid var(--line);box-shadow:var(--shadow)}
+.work-label{font:500 .92rem var(--display);color:var(--teal-ink)}
+.work-text h2{margin-top:8px;font-size:clamp(1.8rem,3vw,2.5rem)}
+.work-text .lede{margin-top:14px;max-width:52ch}
+.work-text .btn{margin-top:24px}
+@media (max-width:900px){.work-grid,.work-grid.flip{grid-template-columns:1fr}.work-grid.flip>.work-photo{order:0}}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="page-calm">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site" id="top">
+  <div class="wrap nav" id="nav">
+    <a href="index.html" class="logo" aria-label="CoastalOS home">
+      <img class="logo-img" src="assets/brand/coastalos-logo-dark.webp" width="373" height="112" alt="CoastalOS">
+    </a>
+    <ul id="menu">
+      <li><a href="platform.html">Platform</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html" class="active" aria-current="page">Portfolio</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html?request=call" class="btn btn-primary nav-cta">Request a Call</a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO (draft copy, see CONTENT-REVIEW.md) -->
+<section class="page-hero work-hero" data-mcta-after>
+  <div class="wrap" data-anim="fade-up">
+    <h1>Our work</h1>
+    <p class="lede">Hotels owned and operated by Coastal Hospitality Group, the team behind CoastalOS.</p>
+<!-- work:stat -->
+    <p class="work-stat">10 properties · 3 states</p>
+<!-- /work:stat -->
+  </div>
+</section>
+
+<!-- PROPERTY ROWS: generated from data/properties.json by `node scripts/build-work.mjs` (do not edit by hand) -->
+<!-- work:rows -->
+<section class="work-row" id="blind-pass-resort" aria-labelledby="blind-pass-resort-h">
+  <div class="wrap work-grid">
+    <figure class="work-photo"><img src="assets/work/blind-pass-resort-1280.webp" srcset="assets/work/blind-pass-resort-800.webp 800w, assets/work/blind-pass-resort-1280.webp 1280w" sizes="(max-width:900px) 100vw, 600px" width="1280" height="960" alt="Pool and loungers at Blind Pass Resort at dusk, with palm trees and pink buildings" loading="lazy" decoding="async"></figure>
+    <div class="work-text" data-anim="fade-up">
+        <p class="work-label">Beach hotel · St Pete Beach, Florida</p>
+        <h2 id="blind-pass-resort-h">Blind Pass Resort</h2>
+        <p class="lede">A 25-room boutique hotel a short walk from the Gulf waters of St. Pete Beach. Guests have a temperature-controlled pool with courtyard fountains, free Wi-Fi and parking, and a free shuttle around the island and its beaches.</p>
+        <a class="btn btn-ghost" href="https://www.blindpassresort.com/?utm_source=coastalos&amp;utm_medium=our-work" target="_blank" rel="noopener">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="work-row work-row-tint" id="bluebird-day-inn" aria-labelledby="bluebird-day-inn-h">
+  <div class="wrap work-grid flip">
+    <figure class="work-photo"><img src="assets/work/bluebird-day-inn-800.webp" srcset="assets/work/bluebird-day-inn-800.webp 800w" sizes="(max-width:900px) 100vw, 600px" width="800" height="600" alt="Lawn with loungers in front of Bluebird Day Inn &amp; Suites, with pine-covered mountains behind" loading="lazy" decoding="async"></figure>
+    <div class="work-text" data-anim="fade-up">
+        <p class="work-label">Mountain escape · South Lake Tahoe, California</p>
+        <h2 id="bluebird-day-inn-h">Bluebird Day Inn &amp; Suites</h2>
+        <p class="lede">Set across the street from Lake Tahoe, within walking distance of the local beaches and five minutes from the base of Heavenly Ski Mountain. Guests get free wireless internet, fresh coffee and views of the trees and mountains.</p>
+        <a class="btn btn-ghost" href="https://www.bluebirddaytahoe.com/?utm_source=coastalos&amp;utm_medium=our-work" target="_blank" rel="noopener">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="work-row" id="coastal-suites" aria-labelledby="coastal-suites-h">
+  <div class="wrap work-grid">
+    <figure class="work-photo"><img src="assets/work/coastal-suites-800.webp" srcset="assets/work/coastal-suites-800.webp 800w" sizes="(max-width:900px) 100vw, 600px" width="800" height="600" alt="Two-storey exterior of Coastal Suites with trees and a parking lot" loading="lazy" decoding="async"></figure>
+    <div class="work-text" data-anim="fade-up">
+        <p class="work-label">Beach hotel · Wilmington, North Carolina</p>
+        <h2 id="coastal-suites-h">Coastal Suites</h2>
+        <p class="lede">A hotel off Highway 17, near Historic Downtown Wilmington and the University of North Carolina Wilmington. Wrightsville Beach, Carolina Beach, Kure Beach and Fort Fisher are all nearby.</p>
+        <a class="btn btn-ghost" href="https://www.coastalsuites.com/?utm_source=coastalos&amp;utm_medium=our-work" target="_blank" rel="noopener">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="work-row work-row-tint" id="geneva-riverside" aria-labelledby="geneva-riverside-h">
+  <div class="wrap work-grid flip">
+    <figure class="work-photo"><img src="assets/work/geneva-riverside-800.webp" srcset="assets/work/geneva-riverside-800.webp 800w" sizes="(max-width:900px) 100vw, 600px" width="800" height="600" alt="Pool deck at Geneva Riverside Hotel with tables, umbrellas and wooded hills behind" loading="lazy" decoding="async"></figure>
+    <div class="work-text" data-anim="fade-up">
+        <p class="work-label">Mountain escape · Lake Lure, North Carolina</p>
+        <h2 id="geneva-riverside-h">Geneva Riverside Hotel &amp; Tiki Bar</h2>
+        <p class="lede">A riverside lodge in Lake Lure with an onsite Tiki Bar &amp; Grill. The lodge is surrounded by flowing creeks and mature trees, a short distance from the lake, and guests can fish for bass and trout on the property.</p>
+        <a class="btn btn-ghost" href="https://www.genevahoteltiki.com/?utm_source=coastalos&amp;utm_medium=our-work" target="_blank" rel="noopener">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="work-row" id="hickory-falls-inn" aria-labelledby="hickory-falls-inn-h">
+  <div class="wrap work-grid">
+    <figure class="work-photo"><img src="assets/work/hickory-falls-inn-800.webp" srcset="assets/work/hickory-falls-inn-800.webp 800w" sizes="(max-width:900px) 100vw, 600px" width="800" height="600" alt="Vine-covered exterior of Hickory Falls Inn" loading="lazy" decoding="async"></figure>
+    <div class="work-text" data-anim="fade-up">
+        <p class="work-label">Mountain escape · Chimney Rock, North Carolina</p>
+        <h2 id="hickory-falls-inn-h">Hickory Falls Inn</h2>
+        <a class="btn btn-ghost" href="https://www.hickoryfallsinn.com/?utm_source=coastalos&amp;utm_medium=our-work" target="_blank" rel="noopener">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="work-row work-row-tint" id="island-house-resort" aria-labelledby="island-house-resort-h">
+  <div class="wrap work-grid flip">
+    <figure class="work-photo"><img src="assets/work/island-house-resort-1280.webp" srcset="assets/work/island-house-resort-800.webp 800w, assets/work/island-house-resort-1280.webp 1280w" sizes="(max-width:900px) 100vw, 600px" width="1280" height="960" alt="Large outdoor pool and courtyard at Island House Resort Hotel" loading="lazy" decoding="async"></figure>
+    <div class="work-text" data-anim="fade-up">
+        <p class="work-label">Beach hotel · North Redington Beach, Florida</p>
+        <h2 id="island-house-resort-h">Island House Resort Hotel</h2>
+        <p class="lede">A relaxed boutique beach hotel just across Gulf Boulevard from the white-sand beach. Guests have spacious accommodations, a large outdoor pool, a furnished sundeck, and easy access to St. Pete Beach and Clearwater.</p>
+        <a class="btn btn-ghost" href="https://www.islandhousebeachhotel.com/?utm_source=coastalos&amp;utm_medium=our-work" target="_blank" rel="noopener">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="work-row" id="malibu-resort-motel" aria-labelledby="malibu-resort-motel-h">
+  <div class="wrap work-grid">
+    <figure class="work-photo"><img src="assets/work/malibu-resort-motel-800.webp" srcset="assets/work/malibu-resort-motel-800.webp 800w" sizes="(max-width:900px) 100vw, 600px" width="800" height="600" alt="Aerial view of Malibu Resort Motel near the beach" loading="lazy" decoding="async"></figure>
+    <div class="work-text" data-anim="fade-up">
+        <p class="work-label">Beach hotel · St Pete Beach, Florida</p>
+        <h2 id="malibu-resort-motel-h">Malibu Resort Motel</h2>
+        <p class="lede">A family-oriented, retro boutique motel with a heated pool, a grassy lawn and a large sun deck. The beach and Gulf waters are right across the street, with local shops within walking distance.</p>
+        <a class="btn btn-ghost" href="https://www.themaliburesortmotel.com/?utm_source=coastalos&amp;utm_medium=our-work" target="_blank" rel="noopener">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="work-row work-row-tint" id="patriots-boutique-motel" aria-labelledby="patriots-boutique-motel-h">
+  <div class="wrap work-grid flip">
+    <figure class="work-photo"><img src="assets/work/patriots-boutique-motel-1280.webp" srcset="assets/work/patriots-boutique-motel-800.webp 800w, assets/work/patriots-boutique-motel-1280.webp 1280w" sizes="(max-width:900px) 100vw, 600px" width="1280" height="960" alt="Courtyard with red umbrellas, palm trees and seating at Patriots’ Boutique Motel" loading="lazy" decoding="async"></figure>
+    <div class="work-text" data-anim="fade-up">
+        <p class="work-label">Beach hotel · San Clemente, California</p>
+        <h2 id="patriots-boutique-motel-h">Patriots’ Boutique Motel</h2>
+        <a class="btn btn-ghost" href="https://www.thepatriotsmotel.com/?utm_source=coastalos&amp;utm_medium=our-work" target="_blank" rel="noopener">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="work-row" id="sea-shells-beach-club" aria-labelledby="sea-shells-beach-club-h">
+  <div class="wrap work-grid">
+    <figure class="work-photo"><img src="assets/work/sea-shells-beach-club-800.webp" srcset="assets/work/sea-shells-beach-club-800.webp 800w" sizes="(max-width:900px) 100vw, 600px" width="800" height="600" alt="Sea Shells Beach Club building at sunset" loading="lazy" decoding="async"></figure>
+    <div class="work-text" data-anim="fade-up">
+        <p class="work-label">Beach hotel · Daytona Beach, Florida</p>
+        <h2 id="sea-shells-beach-club-h">Sea Shells Beach Club</h2>
+        <p class="lede">An oceanfront resort on Daytona Beach, with stays by the night, by the week or longer. The pier, Ocean Walk and beach activities are within walking distance, and rooms range from studios and efficiencies to one- and two-bedroom suites.</p>
+        <a class="btn btn-ghost" href="https://www.seashellsbeachclub.com/?utm_source=coastalos&amp;utm_medium=our-work" target="_blank" rel="noopener">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="work-row work-row-tint" id="the-pineola" aria-labelledby="the-pineola-h">
+  <div class="wrap work-grid flip">
+    <figure class="work-photo"><img src="assets/work/the-pineola-1280.webp" srcset="assets/work/the-pineola-800.webp 800w, assets/work/the-pineola-1280.webp 1280w" sizes="(max-width:900px) 100vw, 600px" width="1280" height="960" alt="Aerial view of The Pineola with mountains behind" loading="lazy" decoding="async"></figure>
+    <div class="work-text" data-anim="fade-up">
+        <p class="work-label">Mountain escape · Newland, North Carolina</p>
+        <h2 id="the-pineola-h">The Pineola</h2>
+        <a class="btn btn-ghost" href="https://www.thepineola.com/?utm_source=coastalos&amp;utm_medium=our-work" target="_blank" rel="noopener">Visit website <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+    </div>
+  </div>
+</section>
+<!-- /work:rows -->
+</main>
+
+<footer class="ft">
+  <svg class="ft-wave" viewBox="0 0 400 120" aria-hidden="true" focusable="false"><path d="M10 80 C120 10 220 10 390 60" stroke="#fff" stroke-width="18" fill="none" stroke-linecap="round"/><path d="M10 110 C120 40 220 40 360 90" stroke="#fff" stroke-width="14" fill="none" stroke-linecap="round"/></svg>
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand"><img class="logo-img logo-foot" src="assets/brand/coastalos-logo-light.webp" width="373" height="112" alt="CoastalOS" loading="lazy" decoding="async"><p>The Operating System for Independent Hotels</p></div>
+      <div class="ft-cta"><p>Ready to talk about your property?</p><a class="btn btn-light" href="contact.html?request=call">Request a Call</a></div>
+    </div>
+    <div class="ft-cols">
+      <nav aria-labelledby="ft-platform"><h2 class="ft-h" id="ft-platform">Platform</h2><ul><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="index.html#how-it-works">How it works</a></li></ul></nav>
+      <nav aria-labelledby="ft-company"><h2 class="ft-h" id="ft-company">Company</h2><ul><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+      <div class="ft-contact"><h2 class="ft-h">Contact</h2><ul><li><a href="tel:+18773500053">(877) 350-0053</a></li><li><a href="mailto:info@coastalhospitalitygroup.com">info@coastalhospitalitygroup.com</a></li><li>711 S El Camino Real<br>San Clemente, CA 92672</li></ul></div>
+    </div>
+    <div class="ft-bottom">© 2026 CoastalOS · <a href="privacy.html">Privacy Policy</a></div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a href="contact.html?request=call" class="btn btn-primary">Request a Call</a></div>
+
+<script src="assets/js/site.js"></script>
+</body>
+</html>

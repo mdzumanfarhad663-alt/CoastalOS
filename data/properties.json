@@ -1,0 +1,122 @@
+[
+  {
+    "slug": "blind-pass-resort",
+    "name": "Blind Pass Resort",
+    "city": "St Pete Beach",
+    "state": "FL",
+    "type": "Beach hotel",
+    "website": "https://www.blindpassresort.com/",
+    "sourceUrl": "https://coastalgetaway.com/property/blind-pass-resort/",
+    "description": "A 25-room boutique hotel a short walk from the Gulf waters of St. Pete Beach. Guests have a temperature-controlled pool with courtyard fountains, free Wi-Fi and parking, and a free shuttle around the island and its beaches.",
+    "image": { "base": "assets/work/blind-pass-resort", "widths": [800, 1280] },
+    "alt": "Pool and loungers at Blind Pass Resort at dusk, with palm trees and pink buildings"
+  },
+  {
+    "slug": "bluebird-day-inn",
+    "name": "Bluebird Day Inn & Suites",
+    "city": "South Lake Tahoe",
+    "state": "CA",
+    "type": "Mountain escape",
+    "website": "https://www.bluebirddaytahoe.com/",
+    "sourceUrl": "https://coastalgetaway.com/property/bluebird-day-inn/",
+    "description": "Set across the street from Lake Tahoe, within walking distance of the local beaches and five minutes from the base of Heavenly Ski Mountain. Guests get free wireless internet, fresh coffee and views of the trees and mountains.",
+    "image": { "base": "assets/work/bluebird-day-inn", "widths": [800] },
+    "alt": "Lawn with loungers in front of Bluebird Day Inn & Suites, with pine-covered mountains behind"
+  },
+  {
+    "slug": "coastal-suites",
+    "name": "Coastal Suites",
+    "city": "Wilmington",
+    "state": "NC",
+    "type": "Beach hotel",
+    "website": "https://www.coastalsuites.com/",
+    "sourceUrl": "https://coastalgetaway.com/property/coastal-suites/",
+    "description": "A hotel off Highway 17, near Historic Downtown Wilmington and the University of North Carolina Wilmington. Wrightsville Beach, Carolina Beach, Kure Beach and Fort Fisher are all nearby.",
+    "image": { "base": "assets/work/coastal-suites", "widths": [800] },
+    "alt": "Two-storey exterior of Coastal Suites with trees and a parking lot"
+  },
+  {
+    "slug": "geneva-riverside",
+    "name": "Geneva Riverside Hotel & Tiki Bar",
+    "city": "Lake Lure",
+    "state": "NC",
+    "type": "Mountain escape",
+    "website": "https://www.genevahoteltiki.com/",
+    "sourceUrl": "https://coastalgetaway.com/property/geneva-riverside-hotel-tiki/",
+    "description": "A riverside lodge in Lake Lure with an onsite Tiki Bar & Grill. The lodge is surrounded by flowing creeks and mature trees, a short distance from the lake, and guests can fish for bass and trout on the property.",
+    "image": { "base": "assets/work/geneva-riverside", "widths": [800] },
+    "alt": "Pool deck at Geneva Riverside Hotel with tables, umbrellas and wooded hills behind"
+  },
+  {
+    "slug": "hickory-falls-inn",
+    "name": "Hickory Falls Inn",
+    "city": "Chimney Rock",
+    "state": "NC",
+    "type": "Mountain escape",
+    "website": "https://www.hickoryfallsinn.com/",
+    "sourceUrl": "https://coastalgetaway.com/property/hickory-falls-inn/",
+    "description": "",
+    "image": { "base": "assets/work/hickory-falls-inn", "widths": [800] },
+    "alt": "Vine-covered exterior of Hickory Falls Inn"
+  },
+  {
+    "slug": "island-house-resort",
+    "name": "Island House Resort Hotel",
+    "city": "North Redington Beach",
+    "state": "FL",
+    "type": "Beach hotel",
+    "website": "https://www.islandhousebeachhotel.com/",
+    "sourceUrl": "https://coastalgetaway.com/property/island-house-resort-hotel/",
+    "description": "A relaxed boutique beach hotel just across Gulf Boulevard from the white-sand beach. Guests have spacious accommodations, a large outdoor pool, a furnished sundeck, and easy access to St. Pete Beach and Clearwater.",
+    "image": { "base": "assets/work/island-house-resort", "widths": [800, 1280] },
+    "alt": "Large outdoor pool and courtyard at Island House Resort Hotel"
+  },
+  {
+    "slug": "malibu-resort-motel",
+    "name": "Malibu Resort Motel",
+    "city": "St Pete Beach",
+    "state": "FL",
+    "type": "Beach hotel",
+    "website": "https://www.themaliburesortmotel.com/",
+    "sourceUrl": "https://coastalgetaway.com/property/malibu-resort/",
+    "description": "A family-oriented, retro boutique motel with a heated pool, a grassy lawn and a large sun deck. The beach and Gulf waters are right across the street, with local shops within walking distance.",
+    "image": { "base": "assets/work/malibu-resort-motel", "widths": [800] },
+    "alt": "Aerial view of Malibu Resort Motel near the beach"
+  },
+  {
+    "slug": "patriots-boutique-motel",
+    "name": "Patriots’ Boutique Motel",
+    "city": "San Clemente",
+    "state": "CA",
+    "type": "Beach hotel",
+    "website": "https://www.thepatriotsmotel.com/",
+    "sourceUrl": "https://coastalgetaway.com/property/patriots-boutique-motel/",
+    "description": "",
+    "image": { "base": "assets/work/patriots-boutique-motel", "widths": [800, 1280] },
+    "alt": "Courtyard with red umbrellas, palm trees and seating at Patriots’ Boutique Motel"
+  },
+  {
+    "slug": "sea-shells-beach-club",
+    "name": "Sea Shells Beach Club",
+    "city": "Daytona Beach",
+    "state": "FL",
+    "type": "Beach hotel",
+    "website": "https://www.seashellsbeachclub.com/",
+    "sourceUrl": "https://coastalgetaway.com/property/sea-shells-beach-club/",
+    "description": "An oceanfront resort on Daytona Beach, with stays by the night, by the week or longer. The pier, Ocean Walk and beach activities are within walking distance, and rooms range from studios and efficiencies to one- and two-bedroom suites.",
+    "image": { "base": "assets/work/sea-shells-beach-club", "widths": [800] },
+    "alt": "Sea Shells Beach Club building at sunset"
+  },
+  {
+    "slug": "the-pineola",
+    "name": "The Pineola",
+    "city": "Newland",
+    "state": "NC",
+    "type": "Mountain escape",
+    "website": "https://www.thepineola.com/",
+    "sourceUrl": "https://coastalgetaway.com/property/the-pineola-newland-nc/",
+    "description": "",
+    "image": { "base": "assets/work/the-pineola", "widths": [800, 1280] },
+    "alt": "Aerial view of The Pineola with mountains behind"
+  }
+]
