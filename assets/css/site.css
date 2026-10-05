@@ -75,9 +75,13 @@ header.site.scrolled{border-color:var(--line);background:rgba(255,255,255,.92)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 /* Client-approved logo (assets/brand): navy wordmark on light headers, white wordmark on dark backgrounds */
-.logo-img{display:block;height:44px;width:auto}
+.logo-img{display:block;height:36px;width:auto}
+/* The waves fill the top ~40% of the logo, so the wordmark sits below the image's centre.
+   The file has no spare whitespace to trim, so the header logo is nudged up by 20% of its own height:
+   that puts the wordmark on the same centre line as the menu links and the button. */
+header.site .logo-img{transform:translateY(-20%)}
 .logo-foot{height:48px}
-@media (max-width:760px){.logo-img{height:38px}}
+@media (max-width:760px){.logo-img{height:30px}.logo-foot{height:40px}}
 .nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
 .nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.97rem;padding:8px 14px;border-radius:var(--r-pill);transition:color .2s,background .2s}
 .nav ul a:hover,.nav ul a.active{color:var(--navy);background:rgba(14,42,71,.06)}
