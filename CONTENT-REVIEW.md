@@ -307,4 +307,4 @@ Removed: the hero paragraph ("Our central hospitality team runs your hotel’s c
 | Page title: "CoastalOS — Third-Party Hotel Management for Independent & Boutique Hotels" | Matches the approved copy |
 | Meta description: "CoastalOS provides third-party hotel management services designed for independent hotel owners and boutique hotels, with revenue, reservations, operations and reporting run by one central team." | Matches the approved copy |
 
-**Suggested (not applied):** the homepage About section starts "CoastalOS is an operating platform for independent and boutique hotels." To match the hero, it could read: "CoastalOS is a third-party hotel management operator for independent and boutique hotels." Waiting for approval.
+**Applied (approved):** the homepage About section now starts "CoastalOS is a third-party hotel management operator for independent and boutique hotels." (was "CoastalOS is an operating platform for independent and boutique hotels.")
