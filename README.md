@@ -57,12 +57,12 @@ Sections, in order:
 3. The solution: "Centralize. Automate. Elevate." with photo, CTA to Services
 4. The platform (`#platform`): hub diagram, CoastalOS core plus eight functions; connector lines draw once; 2-column list on mobile
 5. How it works (navy): five steps, horizontal on desktop, vertical on mobile
-6. Owner visibility: checklist and the illustrative KPI panel (no numbers)
+6. Why CoastalOS is different: three comparison cards (software vendor / management company / CoastalOS in navy); shared `.why-grid` component in `site.css`
 7. Built for independent & boutique hotels: property types, "Is My Property a Good Fit?" CTA, photo
 8. Portfolio: the three property cards and "View full portfolio"
 9. Results and testimonial: built but HIDDEN (see below)
 10. FAQ: the four standard questions
-11. Final CTA: photo background with navy overlay, two CTAs
+11. Final CTA: photo background with navy overlay, heading, next steps and the inline request-a-call form
 
 Images (all in `assets/home-v2/`, WebP; temporary, pending the client's own photos). Each is marked in the HTML with an `<!-- IMAGE: ... -->` comment; to swap one, replace the file with the same name and proportions:
 
@@ -131,6 +131,16 @@ Every item below shows a gold "Sample" tag on the page. Search the HTML for `cla
 - Contact FAQ: onboarding time, existing systems, agreements, choosing individual services.
 - Portfolio, case study: a 40-room coastal motel with sample figures (+18%, -9%, 4 → 1). Need an approved case study with real numbers.
 - Image frames on Platform and Services (see Structure).
+
+**Questions for Jed (homepage FAQ, not published until answered)**
+- How is CoastalOS priced?
+- What is the contract length, and how do owners exit?
+- What happens to the current on-site staff?
+- How much control does the owner keep over decisions, budgets and standards?
+- How long does onboarding take, and what is involved?
+To publish one, copy a `<details>` block in the homepage FAQ (`.faq-list`) and replace the question and answer text.
+
+**Homepage request-a-call form** (`#request-call`, final section of `index.html`): prototype only, front-end validation in `site.js`, nothing is sent. Fields: name*, work email*, phone, property*, rooms. Replace with the WordPress form plugin keeping these fields. Homepage "Request a Call" buttons (header, hero, sticky mobile button, footer) scroll to this form; other pages link to `contact.html?request=call`.
 
 **Before launch**
 - `privacy.html` is starter text, linked from every footer and below both forms. Have it reviewed before real data is collected, and update it to name the form service once one is chosen.

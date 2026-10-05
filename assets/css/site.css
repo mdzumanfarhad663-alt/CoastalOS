@@ -432,3 +432,17 @@ footer a:hover{color:#fff}
 .to-top:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
 .to-top svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:760px){.to-top{bottom:calc(84px + env(safe-area-inset-bottom,0px))}}
+
+/* Comparison cards (software vendor / management company / CoastalOS) */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);align-items:stretch}
+.why{padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;gap:10px}
+.why .who-label{font:600 .85rem var(--display);color:var(--muted);letter-spacing:.02em}
+.why h3{font-size:1.25rem}
+.why p{color:var(--muted);font-size:.97rem;line-height:1.55}
+.why.ours{background:var(--navy);border-color:var(--navy);box-shadow:var(--shadow-lg)}
+.why.ours .who-label{color:var(--teal-2)}
+.why.ours h3{color:#fff}
+.why.ours p{color:#C6D4E1}
+.why.ours .ic{background:rgba(111,208,204,.14)}
+.why.ours .ic svg{stroke:var(--teal-2)}
+@media (max-width:900px){.why-grid{grid-template-columns:1fr}.why-grid .why.ours{order:-1}}

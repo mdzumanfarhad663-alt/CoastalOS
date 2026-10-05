@@ -103,12 +103,13 @@
   var form=document.getElementById('reviewForm');
   if(form){
   // ?request=call (from "Talk to Our Team" links) pre-selects a call instead of a review
-  if(/[?&]request=call(&|$)/.test(location.search))document.getElementById('q2').checked=true;
+  var q2=document.getElementById('q2');
+  if(q2&&/[?&]request=call(&|$)/.test(location.search))q2.checked=true;
   // "A call with our team" shortcut buttons (contact page)
-  document.querySelectorAll('[data-pick-call]').forEach(function(b){b.addEventListener('click',function(){document.getElementById('q2').checked=true;document.getElementById('name').focus()})});
+  document.querySelectorAll('[data-pick-call]').forEach(function(b){b.addEventListener('click',function(){if(q2)q2.checked=true;document.getElementById('name').focus()})});
   // Choosing a call changes the submit label and the next-steps list
   var sub=form.querySelector('button[type=submit]');
-  function syncReq(){var call=document.getElementById('q2').checked;sub.textContent=call?'Request a Call':'Request a Property Review';
+  function syncReq(){if(!q2)return;var call=q2.checked;sub.textContent=call?'Request a Call':'Request a Property Review';
     document.querySelectorAll('[data-steps="review"]').forEach(function(e){e.hidden=call});document.querySelectorAll('[data-steps="call"]').forEach(function(e){e.hidden=!call})}
   form.querySelectorAll('input[name=request]').forEach(function(r){r.addEventListener('change',syncReq)});
   document.querySelectorAll('[data-pick-call]').forEach(function(b){b.addEventListener('click',syncReq)});
@@ -116,7 +117,7 @@
   form.addEventListener('submit',function(e){
     e.preventDefault();var ok=true;
     form.querySelectorAll('[required]').forEach(function(el){
-      var err=el.parentNode.querySelector('.err'),msg='',lab=el.parentNode.querySelector('label').textContent.toLowerCase();
+      var err=el.parentNode.querySelector('.err'),msg='',lab=el.parentNode.querySelector('label').textContent.toLowerCase().replace(/^your /,'');
       if(!el.value.trim())msg='Enter your '+lab+'.';
       else if(el.type==='email'&&!/^\S+@\S+\.\S+$/.test(el.value))msg='Enter a valid email, like name@hotel.com.';
       err.textContent=msg;el.setAttribute('aria-invalid',msg?'true':'false');if(msg&&ok){el.focus();ok=false}
