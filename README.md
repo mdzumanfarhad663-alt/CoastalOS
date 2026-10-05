@@ -16,7 +16,7 @@ All six agreed pages are built.
 | `portfolio.html` | Portfolio: the ten current Coastal Hospitality Group hotels (see below) |
 | `index-1.html` | Redirect to `index.html` (an earlier homepage lived here; it remains in git history) |
 | `privacy.html` | Privacy Policy (starter text written for this prototype; the client will replace it with reviewed wording) |
-| `home-v2.html` | Redirect to `index.html` (the v2 homepage preview, now the main homepage) |
+| `home-v2.html` | Merged homepage concept (client layout + our design system), for side-by-side comparison with `index.html`. Not linked from the site; `noindex`. See "Homepage concept (home-v2)" below. |
 
 Platform, Services, About, Portfolio and Contact in the header and footer go to their own pages on every site page. On the homepage, "See How CoastalOS Works" scrolls to the homepage platform section, which ends with a "See the full platform" link. Every "Request a Property Review" button goes to `contact.html`, and every "Talk to Our Team" button goes to `contact.html?request=call`, which pre-selects "A call with our team" in the form. The homepage keeps its own copy of the form.
 
@@ -41,6 +41,45 @@ Then visit http://localhost:8000.
 - `assets/portfolio/` — property photos from the CHG site, for the homepage hotels section and `portfolio.html`.
 - Image frames (`.img-frame` in `site.css`): seven labelled placeholders waiting for real photos. Platform: "Team at work" (banner), "Guest check-in", "Housekeeping", "Owner dashboard screenshot". Services: "Front desk welcome" (banner), "Team member at work", "Owner reporting". To fill one, replace its `<div class="img-frame" ...>` with an `<img>` of the same proportions. `assets/site/` now holds only the Contact background.
 - `assets/about/` — Hickory Falls Inn room photo and Jed Tarr's headshot (About page).
+
+## Homepage concept (home-v2)
+
+`home-v2.html` merges the client's layout concept with our design system (fonts, tokens, buttons, cards, icon tiles, header, footer, mobile menu, sticky mobile CTA, reveal animations). All page-only styles sit in its `<style>` block; `site.css` and `site.js` are shared and unchanged. The current homepage (`index.html`) is untouched.
+
+Sections, in order:
+1. Hero: photo background with navy overlay, H1, two CTAs, four benefit items (2×2 on mobile)
+2. The challenge: copy, side photo (desktop), eight challenge cards (4×2 desktop, 2 columns mobile)
+3. The solution: "Centralize. Automate. Elevate." with photo, CTA to Services
+4. The platform (`#platform`): hub diagram, CoastalOS core plus eight functions; connector lines draw once; 2-column list on mobile
+5. How it works (navy): five steps, horizontal on desktop, vertical on mobile
+6. Owner visibility: checklist and the illustrative KPI panel (no numbers)
+7. Built for independent & boutique hotels: property types, "Is My Property a Good Fit?" CTA, photo
+8. Portfolio: the three property cards and "View full portfolio"
+9. Results and testimonial: built but HIDDEN (see below)
+10. FAQ: the four standard questions
+11. Final CTA: photo background with navy overlay, two CTAs
+
+Images (all in `assets/home-v2/`, WebP; temporary, pending the client's own photos). Each is marked in the HTML with an `<!-- IMAGE: ... -->` comment; to swap one, replace the file with the same name and proportions:
+
+| File | Where | Source |
+|---|---|---|
+| `hero-sea-shells-sunset-800/1280/1879.webp` | Hero background (preloaded, `srcset`) | Sea Shells Beach Club sunset, coastalgetaway.com |
+| `challenge-hickory-falls.webp` (4:5) | Challenge side photo | Hickory Falls Inn, CHG site |
+| `solution-island-house.webp` (4:3) | Solution photo | Island House Resort, CHG site |
+| `fit-the-pineola.webp` (4:3) | "Built for" photo | The Pineola, CHG site |
+| `cta-mountain-pool.webp` (16:9) | Final CTA background | "Mountain escapes" photo, coastalgetaway.com |
+| `testimonial-bluebird.webp` (16:9) | Hidden testimonial background | Bluebird Day Inn & Suites, CHG site |
+
+Hidden sections: "Proven results for independent hotels" (four metric cards) and the testimonial card are in the markup with empty values and the `hidden` attribute. Enable them only when the client supplies verified figures and a real, approved quote: fill the values and remove `hidden`.
+
+Text over photos uses a navy gradient overlay. Worst-case contrast (brightest image pixel under the overlay): hero 8.3:1 white / 6.6:1 body text; final CTA 7.2:1 / 5.7:1. All pass WCAG AA.
+
+Open questions for the client (home-v2):
+- Verified numbers for the results cards (revenue, cost, guest rating, direct bookings), and their source.
+- A real, approved testimonial with name, role and property.
+- Whether any AI-powered features, live dashboards or 24/7 coverage can be claimed (none are claimed now).
+- The final logo as SVG (the concept's CoastalOS wordmark with the wave above). Until then the current mark is used; the logo spots are marked `<!-- LOGO: ... -->`.
+- The client's own photography to replace the images above.
 
 ## Awaiting client confirmation
 
