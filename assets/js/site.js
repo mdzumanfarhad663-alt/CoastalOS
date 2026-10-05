@@ -13,7 +13,7 @@
   var lastY=scrollY,mctaUp=true;
   function onScroll(){
     var y=scrollY;header.classList.toggle('scrolled',y>8);
-    if(mcta){var r=review?review.getBoundingClientRect().top:Infinity,past=mctaAfter?mctaAfter.getBoundingClientRect().bottom<0:y>600;var ft=document.querySelector('footer');var fr=ft?ft.getBoundingClientRect().top:Infinity;var up=y<lastY-2,down=y>lastY+2;if(down)mctaUp=false;if(up)mctaUp=true;lastY=y;mcta.classList.toggle('show',past&&mctaUp&&r>innerHeight*.6&&fr>innerHeight)}
+    if(mcta){var r=review?review.getBoundingClientRect().top:Infinity,past=mctaAfter?mctaAfter.getBoundingClientRect().bottom<0:y>600;var ft=document.querySelector('footer');var fr=ft?ft.getBoundingClientRect().top:Infinity;var up=y<lastY-2,down=y>lastY+2;if(down)mctaUp=false;if(up)mctaUp=true;lastY=y;mcta.classList.toggle('show',past&&mctaUp&&r>innerHeight&&fr>innerHeight)}
     if(spy.length){var cur=null;spy.forEach(function(a){var s=target(a);if(s&&s.getBoundingClientRect().top<160)cur=a});
       spy.forEach(function(a){a.classList.toggle('active',a===cur)})}
   }
@@ -116,4 +116,32 @@
     if(ok&&!form.querySelector('.form-done')){var d=document.createElement('p');d.className='form-done';d.setAttribute('role','status');d.innerHTML='<svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg>Thanks. Your request has been noted in this preview.';form.appendChild(d);form.querySelector('button[type=submit]').disabled=true}
   });
   }
+})();
+
+/* Platform hub highlight and scroll-linked timeline (Home, Platform, Services) */
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Hub: hovering or focusing a card highlights its line and dims the others
+  var hub=document.getElementById('hub');
+  if(hub){var lines=hub.querySelectorAll('svg.lines line'),items=[].slice.call(hub.querySelectorAll('.hub-item'));
+    items.forEach(function(li,i){var a=li.querySelector('a');
+      function on(){hub.classList.add('focusing');li.classList.add('hot');lines[i]&&lines[i].classList.add('hot')}
+      function off(){hub.classList.remove('focusing');li.classList.remove('hot');lines[i]&&lines[i].classList.remove('hot')}
+      a.addEventListener('mouseenter',on);a.addEventListener('mouseleave',off);a.addEventListener('focus',on);a.addEventListener('blur',off)});}
+  // How it works: each segment fills between two circles as you scroll; a circle activates when the fill reaches it
+  var tl=document.querySelector('.tl'),lis=tl?[].slice.call(tl.children):[],ticking=false;
+  function clamp(v){return v<0?0:v>1?1:v}
+  function frame(){ticking=false;if(!tl)return;var vh=innerHeight;
+    if(reduce){lis.forEach(function(li){li.classList.add('active');var g=li.querySelector('.tl-line');g&&g.style.setProperty('--f',1)});return}
+    var vertical=getComputedStyle(tl).gridTemplateColumns.split(' ').length===1;
+    var dots=lis.map(function(li){return li.querySelector('.dot').getBoundingClientRect()});
+    if(vertical){var y=vh*.62;
+      lis.forEach(function(li,i){var g=li.querySelector('.tl-line');if(g){var a=dots[i].bottom,b=dots[i+1].top;g.style.setProperty('--f',clamp((y-a)/(b-a)).toFixed(3))}
+        li.classList.toggle('active',dots[i].top+dots[i].height/2<y)})}
+    else{var r=tl.getBoundingClientRect(),start=vh*.85,end=vh*.25,p=clamp((start-r.top)/(start-end)),sN=p*(lis.length-1);
+      lis.forEach(function(li,i){var g=li.querySelector('.tl-line');if(g)g.style.setProperty('--f',clamp(sN-i).toFixed(3));
+        li.classList.toggle('active',p>0&&sN>=i-.0005)})}
+  }
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  addEventListener('scroll',req,{passive:true});addEventListener('resize',req);frame();
 })();

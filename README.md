@@ -57,7 +57,6 @@ Sections, in order:
 3. Operating relationship: "What CoastalOS handles" (navy) and "What you keep" cards, link to Services
 4. The platform (`#platform`): hub diagram, CoastalOS core plus eight functions; connector lines draw once; 2-column list on mobile
 5. How it works (navy): five steps, horizontal on desktop, vertical on mobile
-6. About teaser: Jed Tarr's photo (same file as the About page), the origin story using only facts from `about.html`, a draft line carrying the comparison idea, Jed's approved quote, and a "Read More" link to About. Replaced the comparison cards (`.why-grid`, removed).
 7. Built for independent & boutique hotels: property types, "Is My Property a Good Fit?" CTA, photo
 8. Portfolio: the three property cards and "View full portfolio"
 9. Owner testimonials: data-driven slider (JSON in `#tst-data`), HIDDEN until real quotes are approved; the results cards are also hidden
