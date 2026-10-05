@@ -65,3 +65,7 @@ Supplied by the client (Zuman), 2026-10-05. Transparent artwork, 1536×1024. Eac
 | `03-property-operations-team-support` | 03 Property Operations & Team Support |
 | `04-technology-digital-check-in` | 04 Technology & Digital Check-In |
 | `05-accounting-owner-reporting` | 05 Accounting & Owner Reporting |
+
+## Homepage hero (swapped 2026-10-05, temporary, pending Jed's approval)
+
+`assets/home-v2/hero-blind-pass-pool-800/1280/1920/2560.webp` (3:2): Blind Pass Resort pool with the stone waterfall, St Pete Beach, FL. Source: Coastal Getaway gallery, https://coastalgetaway.com/property/blind-pass-resort/ (original 3000×2000), downloaded 2026-10-05. Replaces the Sea Shells exterior, whose source was only 921px wide and looked soft on large screens. The Sea Shells files (`hero-sea-shells-exterior-*.webp`) are kept in `assets/home-v2/` in case Jed supplies a high-res original of that shot.

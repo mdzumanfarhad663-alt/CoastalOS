@@ -68,7 +68,7 @@ Images (all in `assets/home-v2/`, WebP; temporary, pending the client's own phot
 
 | File | Where | Source |
 |---|---|---|
-| `hero-sea-shells-exterior-800/1280/1600.webp` (3:2) | Hero background (preloaded, `srcset`) | Sea Shells Beach Club exterior at dusk, CHG site. The source is only 921px wide, so the 1280/1600 versions are upscaled; replace with a 2400px+ original when the client supplies one. |
+| `hero-blind-pass-pool-800/1280/1920/2560.webp` (3:2) | Hero background (preloaded, `srcset`) | Blind Pass Resort pool, Coastal Getaway gallery (3000px original). Temporary; a 2400px+ property photo from Jed should replace it. The previous Sea Shells files (`hero-sea-shells-exterior-*`, from a 921px source) are kept but unused. |
 | `challenge-hickory-falls.webp` (4:5) | Challenge side photo | Hickory Falls Inn, CHG site |
 | `solution-island-house.webp` (4:3) | Solution photo | Island House Resort, CHG site |
 | `fit-the-pineola.webp` (4:3) | "Built for" photo | The Pineola, CHG site |

@@ -290,3 +290,9 @@ The footer's "Ready to talk about your property?" strip was removed from every p
 | Subheading: "Operating Platform for Independent & Boutique Hotels" | — |
 
 Removed: the hero paragraph ("Our central hospitality team runs your hotel’s core functions…"). Buttons and the benefits strip are unchanged. The tagline "The Operating System for Independent Hotels" still appears in the footer.
+
+## 21. Homepage hero update
+
+- Title is now "CoastalOS" in normal mixed case (replaces "CoastalOS Operations"). Subtitle unchanged: "Operating Platform for Independent & Boutique Hotels".
+- Hero photo: Blind Pass Resort pool (temporary, from Coastal Getaway).
+- **Hero photo: need high-res property photo from Jed (min 2400px wide).**

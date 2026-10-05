@@ -7,7 +7,7 @@
 <meta name="description" content="CoastalOS is a technology-enabled hotel management platform for independent and boutique hotels.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/home-v2/hero-sea-shells-exterior-1280.webp" imagesrcset="assets/home-v2/hero-sea-shells-exterior-800.webp 800w, assets/home-v2/hero-sea-shells-exterior-1280.webp 1280w, assets/home-v2/hero-sea-shells-exterior-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/home-v2/hero-blind-pass-pool-1920.webp" imagesrcset="assets/home-v2/hero-blind-pass-pool-800.webp 800w, assets/home-v2/hero-blind-pass-pool-1280.webp 1280w, assets/home-v2/hero-blind-pass-pool-1920.webp 1920w, assets/home-v2/hero-blind-pass-pool-2560.webp 2560w" imagesizes="100vw" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
@@ -22,8 +22,13 @@
 .photo-sec .kicker{color:#fff}
 .photo-sec .kicker::before{background:var(--teal-2)}
 .hx h1{font-size:clamp(2.3rem,4.6vw,3.9rem);line-height:1.05;letter-spacing:-.03em;max-width:17ch}
-.hx.hx-center h1.hx-title,.hx h1.hx-title{font-size:clamp(2.1rem,1.2rem + 3.6vw,3.75rem);line-height:1.05;max-width:none;text-transform:uppercase;letter-spacing:-.01em}
+.hx.hx-center h1.hx-title,.hx h1.hx-title{font-size:clamp(3rem,2rem + 4vw,5rem);line-height:1.05;max-width:none;letter-spacing:-.02em}
 @media (min-width:761px){.hx h1.hx-title .ln{display:inline-block}}
+/* Extra shade only behind the hero text block (keeps the rest of the photo unchanged) */
+.hx .wrap{position:relative}
+.hx .wrap::before{content:"";position:absolute;left:50%;top:50%;width:min(980px,100%);height:120%;transform:translate(-50%,-55%);background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(10,32,56,.55) 0%,rgba(10,32,56,.35) 55%,rgba(10,32,56,0) 100%);z-index:-1;pointer-events:none}
+@media (max-width:1100px){.hx .wrap::before{background:radial-gradient(ellipse 55% 50% at 50% 50%,rgba(10,32,56,.72) 0%,rgba(10,32,56,.52) 60%,rgba(10,32,56,0) 100%)}}
+.hx .hx-title,.hx .hx-sub{text-shadow:0 1px 2px rgba(10,32,56,.55),0 2px 14px rgba(10,32,56,.45)}
 .hx-sub{margin:18px auto 0;max-width:none;font:500 clamp(1.15rem,1rem + .6vw,1.4rem)/1.4 var(--display);color:#DCE6EF;text-wrap:balance}
 @media (min-width:761px){.hx-sub{white-space:nowrap}}
 .hx .lede{margin-top:20px;max-width:52ch;font-size:clamp(1.02rem,1.3vw,1.15rem);color:#DCE6EF}
@@ -215,10 +220,10 @@
 
 <!-- 1. HERO -->
 <section class="photo-sec hx hx-center" data-mcta-after>
-  <!-- IMAGE: hero background (swap: assets/home-v2/hero-sea-shells-exterior-*.webp, 800/1280/1600 widths, 3:2) -->
-  <div class="bg-par" aria-hidden="true"><img class="bg" src="assets/home-v2/hero-sea-shells-exterior-1280.webp" srcset="assets/home-v2/hero-sea-shells-exterior-800.webp 800w, assets/home-v2/hero-sea-shells-exterior-1280.webp 1280w, assets/home-v2/hero-sea-shells-exterior-1600.webp 1600w" sizes="100vw" width="1600" height="1065" alt="" fetchpriority="high" decoding="async"></div>
+  <!-- IMAGE: hero background, Blind Pass Resort pool (temporary, pending Jed's approval). 800/1280/1920/2560 widths, 3:2. Previous Sea Shells files kept in assets/home-v2/ -->
+  <div class="bg-par" aria-hidden="true"><img class="bg" src="assets/home-v2/hero-blind-pass-pool-1920.webp" srcset="assets/home-v2/hero-blind-pass-pool-800.webp 800w, assets/home-v2/hero-blind-pass-pool-1280.webp 1280w, assets/home-v2/hero-blind-pass-pool-1920.webp 1920w, assets/home-v2/hero-blind-pass-pool-2560.webp 2560w" sizes="100vw" width="2560" height="1707" alt="" fetchpriority="high" decoding="async"></div>
   <div class="wrap">
-    <h1 class="hx-title"><span class="ln"><span data-anim="fade-up">CoastalOS</span></span> <span class="ln"><span data-anim="fade-up" data-delay="50">Operations</span></span></h1>
+    <h1 class="hx-title"><span class="ln"><span data-anim="fade-up">CoastalOS</span></span></h1>
     <p class="hx-sub" data-anim="fade-up" data-delay="100">Operating Platform for Independent &amp; Boutique Hotels</p>    <div class="hx-ctas" data-anim="fade-up" data-delay="100">
       <a href="#request-call" class="btn btn-primary">Request a Call</a>
       <a href="#how-it-works" class="btn btn-on-dark">See How It Works</a>
