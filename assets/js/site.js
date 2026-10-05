@@ -129,9 +129,9 @@
       function off(){hub.classList.remove('focusing');li.classList.remove('hot');lines[i]&&lines[i].classList.remove('hot')}
       a.addEventListener('mouseenter',on);a.addEventListener('mouseleave',off);a.addEventListener('focus',on);a.addEventListener('blur',off)});}
   // How it works: each segment fills between two circles as you scroll; a circle activates when the fill reaches it
-  var tl=document.querySelector('.tl'),lis=tl?[].slice.call(tl.children):[],ticking=false;
+  var tls=[].slice.call(document.querySelectorAll('.tl')),ticking=false;
   function clamp(v){return v<0?0:v>1?1:v}
-  function frame(){ticking=false;if(!tl)return;var vh=innerHeight;
+  function one(tl){var lis=[].slice.call(tl.children),vh=innerHeight;
     if(reduce){lis.forEach(function(li){li.classList.add('active');var g=li.querySelector('.tl-line');g&&g.style.setProperty('--f',1)});return}
     var vertical=getComputedStyle(tl).gridTemplateColumns.split(' ').length===1;
     var dots=lis.map(function(li){return li.querySelector('.dot').getBoundingClientRect()});
@@ -142,6 +142,7 @@
       lis.forEach(function(li,i){var g=li.querySelector('.tl-line');if(g)g.style.setProperty('--f',clamp(sN-i).toFixed(3));
         li.classList.toggle('active',p>0&&sN>=i-.0005)})}
   }
+  function frame(){ticking=false;tls.forEach(one)}
   function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
   addEventListener('scroll',req,{passive:true});addEventListener('resize',req);frame();
 })();
