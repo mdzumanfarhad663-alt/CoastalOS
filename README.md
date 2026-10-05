@@ -57,7 +57,7 @@ Sections, in order:
 3. Operating relationship: "What CoastalOS handles" (navy) and "What you keep" cards, link to Services
 4. The platform (`#platform`): hub diagram, CoastalOS core plus eight functions; connector lines draw once; 2-column list on mobile
 5. How it works (navy): five steps, horizontal on desktop, vertical on mobile
-6. Why CoastalOS is different: three comparison cards (software vendor / management company / CoastalOS in navy); shared `.why-grid` component in `site.css`
+6. About teaser: Jed Tarr's photo (same file as the About page), the origin story using only facts from `about.html`, a draft line carrying the comparison idea, Jed's approved quote, and a "Read More" link to About. Replaced the comparison cards (`.why-grid`, removed).
 7. Built for independent & boutique hotels: property types, "Is My Property a Good Fit?" CTA, photo
 8. Portfolio: the three property cards and "View full portfolio"
 9. Owner testimonials: data-driven slider (JSON in `#tst-data`), HIDDEN until real quotes are approved; the results cards are also hidden
@@ -98,7 +98,7 @@ Open questions for the client (home-v2):
 - The site may say CoastalOS is built by the team behind Coastal Hospitality Group (Home owners band, About origin).
 - Facts used, taken from search results for coastalhospitalitygroup.com and coastalmanagementco.com (verified against coastalhospitalitygroup.com on 2026-10-03; the Coastal Management Company figure was not re-checked on its own site): CHG founded 2012 by founder and CEO Jed Tarr with a small beach motel in San Clemente, CA; 14 hotels owned and operated as of 2026; currently in North Carolina, Florida and California; Coastal Management Company reports it often lifts a hotel's bottom line 10-30% within its first year of operating it (wording confirmed by the client).
 - Contact details (temporary, from CHG): (877) 350-0053, info@coastalhospitalitygroup.com, 711 S El Camino Real, San Clemente, CA 92672. Shown in every footer and on the Contact page. Replace if CoastalOS gets its own.
-- The current logo stays unless Jed sends a new one.
+- Logo: client-approved CoastalOS logo in `assets/brand/`. `coastalos-logo-original.png` is the supplied file (trimmed); `coastalos-logo-light.webp` (white wordmark) is used on dark backgrounds (homepage header over the hero, all footers) and `coastalos-logo-dark.webp` (wordmark recoloured navy, waves and "OS" unchanged) on light headers. The platform hub centre mark on the homepage still uses the earlier placeholder icon.
 
 **Facts still needed from Jed (left out of the About and Services pages)**
 - Team or leadership names, roles and photos.

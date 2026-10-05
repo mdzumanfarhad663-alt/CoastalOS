@@ -74,8 +74,10 @@ header.site{position:relative;z-index:50;background:rgba(246,249,250,.85);backdr
 header.site.scrolled{border-color:var(--line);background:rgba(255,255,255,.92)}
 .nav{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-word{font:600 1.45rem var(--display);color:var(--navy);letter-spacing:-.02em}
-.logo-word span{color:var(--teal)}
+/* Client-approved logo (assets/brand): navy wordmark on light headers, white wordmark on dark backgrounds */
+.logo-img{display:block;height:44px;width:auto}
+.logo-foot{height:48px}
+@media (max-width:760px){.logo-img{height:38px}}
 .nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}
 .nav ul a{text-decoration:none;color:var(--muted);font-weight:500;font-size:.97rem;padding:8px 14px;border-radius:var(--r-pill);transition:color .2s,background .2s}
 .nav ul a:hover,.nav ul a.active{color:var(--navy);background:rgba(14,42,71,.06)}
@@ -196,7 +198,6 @@ legend{margin-bottom:8px;padding:0}
 footer{background:var(--navy-3);color:#A9BDD0;padding:64px 0 40px;font-size:.95rem}
 .foot{display:grid;grid-template-columns:1.3fr .8fr 1fr 1.3fr;gap:32px}
 .foot li{overflow-wrap:anywhere}
-footer .logo-word{color:#fff}
 footer h4{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}
 footer ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 footer a{text-decoration:none;transition:color .2s}
@@ -433,19 +434,6 @@ footer a:hover{color:#fff}
 .to-top svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
 @media (max-width:760px){.to-top{bottom:calc(84px + env(safe-area-inset-bottom,0px))}}
 
-/* Comparison cards (software vendor / management company / CoastalOS) */
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);align-items:stretch}
-.why{padding:clamp(24px,3vw,32px);display:flex;flex-direction:column;gap:10px}
-.why .who-label{font:600 .85rem var(--display);color:var(--muted);letter-spacing:.02em}
-.why h3{font-size:1.25rem}
-.why p{color:var(--muted);font-size:.97rem;line-height:1.55}
-.why.ours{background:var(--navy);border-color:var(--navy);box-shadow:var(--shadow-lg)}
-.why.ours .who-label{color:var(--teal-2)}
-.why.ours h3{color:#fff}
-.why.ours p{color:#C6D4E1}
-.why.ours .ic{background:rgba(111,208,204,.14)}
-.why.ours .ic svg{stroke:var(--teal-2)}
-@media (max-width:900px){.why-grid{grid-template-columns:1fr}.why-grid .why.ours{order:-1}}
 
 /* ===== Shared from the homepage: photo sections, final CTA, centred section heads, property-type pills =====
    The homepage adds its own overrides (inline form layout) on top of these. */
@@ -487,5 +475,4 @@ footer a:hover{color:#fff}
 .fcta .hx-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 
 /* accessibility (same as the homepage): brand "OS" contrast and footer headings */
-.page-calm .logo-word span{color:var(--teal-ink)}
 .page-calm footer .foot-h{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}
