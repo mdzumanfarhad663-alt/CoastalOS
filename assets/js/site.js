@@ -12,7 +12,7 @@
   function target(a){return document.getElementById(a.getAttribute('href').split('#')[1])}
   function onScroll(){
     var y=scrollY;header.classList.toggle('scrolled',y>8);
-    if(mcta){var r=review?review.getBoundingClientRect().top:Infinity,past=mctaAfter?mctaAfter.getBoundingClientRect().bottom<0:y>600;mcta.classList.toggle('show',past&&r>innerHeight*.6)}
+    if(mcta){var r=review?review.getBoundingClientRect().top:Infinity,past=mctaAfter?mctaAfter.getBoundingClientRect().bottom<0:y>600;var ft=document.querySelector('footer');var fr=ft?ft.getBoundingClientRect().top:Infinity;mcta.classList.toggle('show',past&&r>innerHeight*.6&&fr>innerHeight)}
     if(spy.length){var cur=null;spy.forEach(function(a){var s=target(a);if(s&&s.getBoundingClientRect().top<160)cur=a});
       spy.forEach(function(a){a.classList.toggle('active',a===cur)})}
   }
@@ -51,10 +51,10 @@
   // data-stagger="<anim>" on a parent (children get the anim and an 80ms step), data-delay="ms".
   // Reveals once at ~15% visibility; elements on screen at load start right away; never replays.
   var reduceM=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var STEP=80;
+  var STEP=50,MAXSTEP=2;
   [].forEach.call(document.querySelectorAll('[data-stagger]'),function(p){
     var kind=p.getAttribute('data-stagger')||'fade-up',base=+(p.getAttribute('data-delay')||0);
-    [].forEach.call(p.children,function(c,i){if(!c.hasAttribute('data-anim'))c.setAttribute('data-anim',kind);c.setAttribute('data-delay',base+i*STEP)});
+    [].forEach.call(p.children,function(c,i){if(!c.hasAttribute('data-anim'))c.setAttribute('data-anim',kind);c.setAttribute('data-delay',base+Math.min(i,MAXSTEP)*STEP)});
   });
   var anims=[].slice.call(document.querySelectorAll('[data-anim]'));
   function prepDraw(el){
@@ -77,7 +77,7 @@
   anims.forEach(function(el){if(el.getAttribute('data-anim')==='draw')prepDraw(el)});
   if(reduceM||!('IntersectionObserver' in window)){anims.forEach(function(el){el.classList.add('is-in')})}
   else{
-    var aio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);aio.unobserve(e.target)}})},{threshold:.15});
+    var aio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){show(e.target);aio.unobserve(e.target)}})},{threshold:0,rootMargin:'0px 0px 8% 0px'});
     // two frames so the hidden start state is painted before on-screen elements animate in
     requestAnimationFrame(function(){requestAnimationFrame(function(){anims.forEach(function(el){aio.observe(el)})})});
     // safety net for very fast scrolling: anything already scrolled past is shown at once

@@ -177,8 +177,6 @@
 .tl .tl-line i{display:block;width:100%;height:100%;border-radius:2px;background:var(--teal-2);transition:transform 150ms linear;transform:scaleX(var(--f,0));transform-origin:0 50%}
 .tl b{display:block;font:600 1.12rem/1.3 var(--display);color:#fff}
 .tl small{display:block;margin:6px auto 0;max-width:22ch;font-size:.95rem;line-height:1.5;color:#C6D4E1}
-.js .tl li b,.js .tl li small{opacity:0;transform:translateY(16px);transition:opacity var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out)}
-.js .tl li.active b,.js .tl li.active small{opacity:1;transform:none}
 html:not(.js) .tl li .dot{background:var(--teal);border-color:var(--teal-2);color:#fff}
 html:not(.js) .tl .tl-line i{transform:none}
 @media (max-width:820px){
@@ -230,6 +228,60 @@ html:not(.js) .tl .tl-line i{transform:none}
 /* Built for: property types as text pills */
 .types{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .types li{font:500 .92rem var(--display);color:var(--navy);border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 16px;background:var(--paper)}
+/* ===== Structure upgrade ===== */
+/* Operating relationship */
+.rel-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);max-width:980px;margin:0 auto}
+.rel-card{padding:clamp(26px,3vw,36px)}
+.rel-card h3{font-size:1.3rem}
+.rel-list{list-style:none;margin:18px 0 0;padding:0}
+.rel-list li{display:flex;gap:12px;padding:11px 0;border-top:1px solid var(--line);font-size:1rem;color:var(--ink)}
+.rel-list li:first-child{border-top:0}
+.rel-list li::before{content:"";flex:none;width:12px;height:7px;margin-top:.45em;border-left:2px solid var(--teal);border-bottom:2px solid var(--teal);transform:rotate(-45deg)}
+.rel-ours{background:var(--navy);border-color:var(--navy);box-shadow:var(--shadow-lg)}
+.rel-ours h3{color:#fff}.rel-ours .rel-list li{color:#D4E0EB;border-color:rgba(255,255,255,.12)}.rel-ours .rel-list li::before{border-color:var(--teal-2)}
+.rel-more{text-align:center;margin-top:28px}
+@media (max-width:760px){.rel-grid{grid-template-columns:1fr}}
+/* Testimonials slider (section hidden until real quotes) */
+.tst-slider{max-width:820px;margin:0 auto;text-align:center}
+.tst-slide{margin:0}
+.tst-q{font:500 clamp(1.25rem,2.2vw,1.65rem)/1.5 var(--display);color:#fff!important;letter-spacing:-.01em}
+.tst-slide figcaption{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:22px}
+.tst-photo{width:52px;height:52px;border-radius:50%;object-fit:cover}
+.tst-name{display:block;color:#fff;font-family:var(--display)}
+.tst-meta{display:block;color:#C6D4E1;font-size:.92rem}
+.tst-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:30px}
+.tst-btn{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .2s,border-color .2s}
+.tst-btn:hover{border-color:var(--teal-2);background:rgba(111,208,204,.12)}
+.tst-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tst-btn:focus-visible,.tst-dots button:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.tst-dots{display:flex;gap:8px}
+.tst-dots button{width:10px;height:10px;padding:0;border-radius:50%;border:0;background:rgba(255,255,255,.3);cursor:pointer}
+.tst-dots button[aria-selected="true"]{background:var(--sun)}
+.tst-slide.swap{opacity:0;transform:translateY(6px)}
+.tst-slide{transition:opacity .3s var(--ease-out),transform .3s var(--ease-out)}
+@media (prefers-reduced-motion:reduce){.tst-slide{transition:none}}
+/* Hub labels: full on desktop, short on mobile (full name stays in aria-label) */
+.lbl-short{display:none}
+@media (max-width:760px){.lbl-full{display:none}.lbl-short{display:inline}.hub-card span:last-child{-webkit-line-clamp:unset;display:block}}
+/* Hub: softer core glow */
+.hub-core{box-shadow:0 0 0 8px rgba(111,208,204,.16),0 12px 32px -14px rgba(28,140,138,.45)!important}
+/* Motion timing: quick, small reveals */
+.home-v2{--rise:14px;--dur-base:450ms}
+/* Shadows: cards get a border + very light shadow; key elements keep stronger shadows */
+.home-v2 .card{box-shadow:0 1px 2px rgba(14,42,71,.05)}
+.home-v2 .card.rel-ours,.home-v2 .card.why.ours{box-shadow:var(--shadow-lg)}
+.home-v2 .hub-card{box-shadow:0 1px 3px rgba(14,42,71,.07)}
+.home-v2 .side-photo img{box-shadow:var(--shadow)}
+/* Section spacing: consistent and tighter */
+.home-v2{--sec:clamp(64px,7vw,96px)}
+.home-v2 .sec-head{margin-bottom:clamp(32px,4vw,48px)}
+/* Mobile: no back-to-top; fixed bar never covers content; footer contact full width */
+@media (max-width:760px){
+  .home-v2 .to-top{display:none!important}
+  .home-v2{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .home-v2 .foot>div:last-child{grid-column:1/-1}
+  .home-v2 .foot>div:last-child li{overflow-wrap:normal}
+}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -262,13 +314,13 @@ html:not(.js) .tl .tl-line i{transform:none}
   <!-- IMAGE: hero background (swap: assets/home-v2/hero-sea-shells-exterior-*.webp, 800/1280/1600 widths, 3:2) -->
   <div class="bg-par" aria-hidden="true"><img class="bg" src="assets/home-v2/hero-sea-shells-exterior-1280.webp" srcset="assets/home-v2/hero-sea-shells-exterior-800.webp 800w, assets/home-v2/hero-sea-shells-exterior-1280.webp 1280w, assets/home-v2/hero-sea-shells-exterior-1600.webp 1600w" sizes="100vw" width="1600" height="1065" alt="" fetchpriority="high" decoding="async"></div>
   <div class="wrap">
-    <h1><span class="ln"><span data-anim="fade-up" data-delay="60">The Operating System</span></span> <span class="ln"><span data-anim="fade-up" data-delay="140">for Independent Hotels</span></span></h1>
-    <p class="lede" data-anim="fade-up" data-delay="330">We combine technology, people and proven operating systems to increase revenue, reduce costs and deliver a great guest experience, while you enjoy a more hands-off ownership experience.</p>
-    <div class="hx-ctas" data-anim="fade-up" data-delay="430">
+    <h1><span class="ln"><span data-anim="fade-up">The Operating System</span></span> <span class="ln"><span data-anim="fade-up" data-delay="50">for Independent Hotels</span></span></h1>
+    <p class="lede" data-anim="fade-up" data-delay="100">Our central hospitality team runs your hotel’s core functions, from revenue and reservations to operations and reporting, using technology and systems built around your property.</p>
+    <div class="hx-ctas" data-anim="fade-up" data-delay="100">
       <a href="#request-call" class="btn btn-primary">Request a Call</a>
-      <a href="#platform" class="btn btn-on-dark">See How It Works</a>
+      <a href="#how-it-works" class="btn btn-on-dark">See How It Works</a>
     </div>
-    <ul class="benefits" aria-label="Benefits" data-stagger="fade-up" data-delay="560">
+    <ul class="benefits" aria-label="Benefits" data-stagger="fade-up" data-delay="100">
       <li>Higher revenue</li><li>Lower operating costs</li><li>Better guest experience</li><li>Hands-off ownership</li>
     </ul>
   </div>
@@ -286,22 +338,24 @@ html:not(.js) .tl .tl-line i{transform:none}
       <!-- IMAGE: challenge side photo (swap: assets/home-v2/challenge-hickory-falls.webp) -->
       <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/challenge-hickory-falls.webp" width="548" height="685" alt="Vine-covered exterior of Hickory Falls Inn, Lake Lure, North Carolina" loading="lazy" decoding="async"></figure>
     </div>
-    <ul class="ch-list" data-stagger="fade-up" data-delay="150">
+    <ul class="ch-list" data-stagger="fade-up" data-delay="100">
       <li>Manual rate management</li><li>Too much time on daily operations</li><li>High labor costs</li><li>Reliance on OTAs</li><li>Inconsistent guest experience</li><li>Complex technology</li><li>Hiring and staffing challenges</li><li>Limited reporting and visibility</li>
     </ul>
   </div>
 </section>
 
-<!-- 3. THE SOLUTION -->
-<section class="sec sec-white">
-  <div class="wrap split2">
-    <div data-anim="fade-up">
-      <h2 class="big-h">Centralize. Automate. Elevate.</h2>
-      <p class="lede">CoastalOS takes on the day-to-day operating work using proven systems, modern technology and an experienced hospitality team, so you keep the benefits of ownership without the operational burden.</p>
-      <a href="services.html" class="btn btn-primary">Explore Our Services</a>
+<!-- 3. OPERATING RELATIONSHIP (draft copy, see CONTENT-REVIEW.md) -->
+<section class="sec sec-white" aria-labelledby="rel-h">
+  <div class="wrap">
+    <div class="sec-head is-centered" data-anim="fade-up">
+      <h2 id="rel-h">We run the core operations. You keep ownership and oversight</h2>
+      <p class="lede">A clear partnership, with defined responsibilities and regular reporting, so you always know how your property is performing.</p>
     </div>
-    <!-- IMAGE: solution photo (swap: assets/home-v2/solution-island-house.webp) -->
-    <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/solution-island-house.webp" width="1200" height="900" alt="Courtyard pool and cabanas at Island House Resort, North Redington Beach, Florida" loading="lazy" decoding="async"></figure>
+    <div class="rel-grid" data-stagger="fade-up">
+      <div class="card rel-card rel-ours"><h3>What CoastalOS handles</h3><ul class="rel-list"><li>Revenue management and pricing</li><li>Reservations and guest communication</li><li>Marketing and direct bookings</li><li>On-site team support, scheduling and payroll</li><li>Accounting and financial reporting</li></ul></div>
+      <div class="card rel-card"><h3>What you keep</h3><ul class="rel-list"><li>Ownership of your property</li><li>Your brand and your guests</li><li>Oversight through regular reporting</li><li>A say in the decisions that matter</li></ul></div>
+    </div>
+    <p class="rel-more" data-anim="fade-up"><a class="text-link" href="services.html">Explore our services</a></p>
   </div>
 </section>
 
@@ -316,24 +370,24 @@ html:not(.js) .tl .tl-line i{transform:none}
       <svg class="lines" data-anim="draw" data-delay="250" viewBox="0 0 960 600" aria-hidden="true"><line x1="480" y1="300" x2="480" y2="66"/><line x1="480" y1="300" x2="724" y2="135"/><line x1="480" y1="300" x2="826" y2="300"/><line x1="480" y1="300" x2="724" y2="465"/><line x1="480" y1="300" x2="480" y2="534"/><line x1="480" y1="300" x2="236" y2="465"/><line x1="480" y1="300" x2="134" y2="300"/><line x1="480" y1="300" x2="236" y2="135"/></svg>
       <!-- LOGO: replace this mark with the client's final logo SVG -->
       <div class="hub-core" data-anim="scale-in"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M9 21a11 11 0 0 1 22 0" fill="none" stroke="#C9932F" stroke-width="2.4" stroke-linecap="round"/><path d="M5 26c5-3 9 3 15 0s10 3 15 0" fill="none" stroke="#6FD0CC" stroke-width="2.4" stroke-linecap="round"/><path d="M10 31c4-2 6 2 10 0s6 2 10 0" fill="none" stroke="#6FD0CC" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/></svg><span>CoastalOS</span></div>
-      <ul class="hub-list" aria-label="Functions run on the CoastalOS platform"><li class="hub-item" style="--x:50.0%;--y:11.0%;--ox:-0px;--oy:33px"><a class="hub-card" href="services.html#revenue" data-anim="scale-in" data-delay="450"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><span>Revenue Management</span></a></li><li class="hub-item" style="--x:75.5%;--y:22.4%;--ox:-49px;--oy:33px"><a class="hub-card" href="services.html#revenue" data-anim="scale-in" data-delay="530"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l5 4V6L7 10H4zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><span>Marketing & Direct Bookings</span></a></li><li class="hub-item" style="--x:86.0%;--y:50.0%;--ox:-116px;--oy:-0px"><a class="hub-card" href="services.html#operations" data-anim="scale-in" data-delay="610"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/></svg></span><span>On-Site Operations & Staff Management</span></a></li><li class="hub-item" style="--x:75.5%;--y:77.6%;--ox:-49px;--oy:-33px"><a class="hub-card" href="services.html#reporting" data-anim="scale-in" data-delay="690"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><span>Owner Reporting & Oversight</span></a></li><li class="hub-item" style="--x:50.0%;--y:89.0%;--ox:-0px;--oy:-33px"><a class="hub-card" href="services.html#reporting" data-anim="scale-in" data-delay="770"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><span>Accounting & Financial Reporting</span></a></li><li class="hub-item" style="--x:24.5%;--y:77.6%;--ox:49px;--oy:-33px"><a class="hub-card" href="services.html#technology" data-anim="scale-in" data-delay="850"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span>Technology & Systems</span></a></li><li class="hub-item" style="--x:14.0%;--y:50.0%;--ox:116px;--oy:-0px"><a class="hub-card" href="services.html#technology" data-anim="scale-in" data-delay="930"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg></span><span>Digital Check&#8209;In</span></a></li><li class="hub-item" style="--x:24.5%;--y:22.4%;--ox:49px;--oy:33px"><a class="hub-card" href="services.html#reservations" data-anim="scale-in" data-delay="1010"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"/></svg></span><span>Reservations & Guest Support</span></a></li></ul>
+      <ul class="hub-list" aria-label="Functions run on the CoastalOS platform"><li class="hub-item" style="--x:50.0%;--y:11.0%;--ox:-0px;--oy:33px"><a class="hub-card" href="services.html#revenue" aria-label="Reservations &amp; Guest Support" aria-label="Accounting &amp; Financial Reporting" aria-label="On-Site Operations &amp; Staff Management" data-anim="scale-in" data-delay="450"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><span>Revenue Management</span></a></li><li class="hub-item" style="--x:75.5%;--y:22.4%;--ox:-49px;--oy:33px"><a class="hub-card" href="services.html#revenue" data-anim="scale-in" data-delay="530"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l5 4V6L7 10H4zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><span>Marketing & Direct Bookings</span></a></li><li class="hub-item" style="--x:86.0%;--y:50.0%;--ox:-116px;--oy:-0px"><a class="hub-card" aria-label="On-Site Operations &amp; Staff Management" href="services.html#operations" data-anim="scale-in" data-delay="610"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/></svg></span><span><span class="lbl-full">On-Site Operations &amp; Staff Management</span><span class="lbl-short" aria-hidden="true">Operations &amp; Staffing</span></span></a></li><li class="hub-item" style="--x:75.5%;--y:77.6%;--ox:-49px;--oy:-33px"><a class="hub-card" href="services.html#reporting" data-anim="scale-in" data-delay="690"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><span>Owner Reporting & Oversight</span></a></li><li class="hub-item" style="--x:50.0%;--y:89.0%;--ox:-0px;--oy:-33px"><a class="hub-card" aria-label="Accounting &amp; Financial Reporting" href="services.html#reporting" data-anim="scale-in" data-delay="770"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><span><span class="lbl-full">Accounting &amp; Financial Reporting</span><span class="lbl-short" aria-hidden="true">Accounting &amp; Finance</span></span></a></li><li class="hub-item" style="--x:24.5%;--y:77.6%;--ox:49px;--oy:-33px"><a class="hub-card" href="services.html#technology" data-anim="scale-in" data-delay="850"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span>Technology & Systems</span></a></li><li class="hub-item" style="--x:14.0%;--y:50.0%;--ox:116px;--oy:-0px"><a class="hub-card" href="services.html#technology" data-anim="scale-in" data-delay="930"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg></span><span>Digital Check&#8209;In</span></a></li><li class="hub-item" style="--x:24.5%;--y:22.4%;--ox:49px;--oy:33px"><a class="hub-card" aria-label="Reservations &amp; Guest Support" href="services.html#reservations" data-anim="scale-in" data-delay="1010"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"/></svg></span><span><span class="lbl-full">Reservations &amp; Guest Support</span><span class="lbl-short" aria-hidden="true">Reservations &amp; Guests</span></span></a></li></ul>
     </div>
-    <p class="hub-more" data-anim="fade-in" data-delay="200"><a class="text-link" href="platform.html">See the full platform</a></p>
+    <p class="hub-more" data-anim="fade-in" data-delay="100"><a class="text-link" href="platform.html">See the full platform</a></p>
   </div>
 </section>
 
 <!-- 5. HOW IT WORKS -->
-<section class="sec navy-band" id="how">
+<section class="sec navy-band" id="how-it-works">
   <div class="wrap">
     <div class="sec-head is-centered" data-anim="fade-up">
       <h2>A simple path to a <span class="nw">higher-performing</span> hotel</h2>
     </div>
     <ol class="tl" id="tl">
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Discovery</b><small>Understand your goals and evaluate your property.</small></li>
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Onboarding</b><small>Seamless setup of systems, staff and processes.</small></li>
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13a5 5 0 0 1 10 0M4 17c3-2 5 2 8 0s5 2 8 0"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Management</b><small>We operate and optimize your property with CoastalOS.</small></li>
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Results</b><small>Stronger revenue, lower costs and happier guests, with clear owner reporting.</small></li>
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></span><b>Ongoing Partnership</b><small>Continuous improvement and dedicated support.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Discovery</b><small>We learn your goals and review how your property runs today.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Onboarding</b><small>We set up systems, reporting and team processes for a smooth transition.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13a5 5 0 0 1 10 0M4 17c3-2 5 2 8 0s5 2 8 0"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Management</b><small>Our central team runs the core functions day to day.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Reporting &amp; review</b><small>You receive regular reporting and review performance with us.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></span><b>Ongoing partnership</b><small>We keep refining operations as your property and goals evolve.</small></li>
       </ol>
   </div>
 </section>
@@ -347,9 +401,69 @@ html:not(.js) .tl .tl-line i{transform:none}
     </div>
     <div class="why-grid" data-stagger="fade-up">
       <article class="card why"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span class="who-label">Software vendor</span><h3>Gives you tools</h3><p>Useful technology, but you and your team still run reservations, pricing, staffing and reporting yourselves.</p></article>
-      <article class="card why"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span><span class="who-label">Traditional management company</span><h3>Runs the hotel its own way</h3><p>The day-to-day is handled for you, on the management company’s own terms and approach.</p></article>
+      <article class="card why"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span><span class="who-label">Traditional management company</span><h3>Handles the day-to-day</h3><p>Operations are run for you, typically under the company’s own standard model and approach.</p></article>
       <article class="card why ours"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="who-label">CoastalOS</span><h3>An operator-built platform</h3><p>Runs the core functions of your hotel centrally, with clear owner reporting, while your brand, your guests and your independence stay yours.</p></article>
     </div>
+  </div>
+</section>
+
+<!-- 7. OWNER TESTIMONIALS — HIDDEN until real, approved quotes are supplied.
+     Edit the JSON in #tst-data (quote, name, role, property, location, optional photo path), then remove `hidden` from the section. -->
+<section class="sec navy-band tst-sec" id="testimonials" hidden aria-roledescription="carousel" aria-labelledby="tst-h">
+  <div class="wrap">
+    <div class="sec-head is-centered"><h2 id="tst-h">What owners say</h2></div>
+    <div class="tst-slider" id="tstSlider">
+      <figure class="tst-slide" aria-live="polite"><blockquote><p class="tst-q"></p></blockquote><figcaption><img class="tst-photo" alt="" hidden><span><b class="tst-name"></b><span class="tst-meta"></span></span></figcaption></figure>
+      <div class="tst-nav">
+        <button type="button" class="tst-btn" data-dir="-1" aria-label="Previous testimonial"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <div class="tst-dots" role="tablist" aria-label="Choose testimonial"></div>
+        <button type="button" class="tst-btn" data-dir="1" aria-label="Next testimonial"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+    <script type="application/json" id="tst-data">
+[
+  {
+    "quote": "I used to spend most of my week on scheduling, rate changes and guest emails. Now the central team handles the routine work, and I spend my time on the parts of the business I actually enjoy.",
+    "name": "[Owner name]",
+    "role": "Owner",
+    "property": "[Property name]",
+    "location": "[City, State]",
+    "photo": ""
+  },
+  {
+    "quote": "Every month I get a clear report on how the property is doing, and we go through it together. I no longer have to piece the picture together from different systems.",
+    "name": "[Owner name]",
+    "role": "Owner",
+    "property": "[Property name]",
+    "location": "[City, State]",
+    "photo": ""
+  },
+  {
+    "quote": "I was worried about the switch, but the onboarding was well organised. Our team knew what was changing and when, and the transition felt calm rather than disruptive.",
+    "name": "[Owner name]",
+    "role": "Owner",
+    "property": "[Property name]",
+    "location": "[City, State]",
+    "photo": ""
+  },
+  {
+    "quote": "Guests get quick, consistent answers before they arrive and during their stay. My on-site team can focus on welcoming people instead of chasing messages.",
+    "name": "[Owner name]",
+    "role": "Owner",
+    "property": "[Property name]",
+    "location": "[City, State]",
+    "photo": ""
+  },
+  {
+    "quote": "We kept our name, our look and our regulars. It still feels like our hotel, just with a much stronger operation behind it.",
+    "name": "[Owner name]",
+    "role": "Owner",
+    "property": "[Property name]",
+    "location": "[City, State]",
+    "photo": ""
+  }
+]
+    </script>
   </div>
 </section>
 
@@ -359,7 +473,7 @@ html:not(.js) .tl .tl-line i{transform:none}
     <div data-anim="fade-up">
       <h2 class="big-h">Built for independent &amp; boutique hotels</h2>
       <p class="lede">Whether you own one property or a small portfolio, CoastalOS gives you the operating infrastructure used by larger hotel companies, without losing your independence.</p>
-      <ul class="types" aria-label="Property types" data-stagger="fade-up" data-delay="200">
+      <ul class="types" aria-label="Property types" data-stagger="fade-up" data-delay="100">
         <li>Boutique Hotels</li><li>Motels</li><li>Resorts</li><li>Inns</li><li>Extended Stay</li><li>Unique Properties</li>
       </ul>
       <a href="contact.html" class="btn btn-primary">Is My Property a Good Fit?</a>
@@ -399,13 +513,7 @@ html:not(.js) .tl .tl-line i{transform:none}
     </div>
   </div>
 </section>
-<section class="photo-sec tst" hidden>
-  <!-- IMAGE: testimonial background (swap: assets/home-v2/testimonial-bluebird.webp) -->
-  <img class="bg" src="assets/home-v2/testimonial-bluebird.webp" width="1484" height="835" alt="" loading="lazy" decoding="async">
-  <div class="wrap">
-    <figure class="tst-card" style="margin:0"><blockquote style="margin:0"><p></p></blockquote><figcaption></figcaption></figure>
-  </div>
-</section>
+
 
 <!-- 10. FAQ -->
 <section class="sec sec-white">
@@ -419,6 +527,8 @@ html:not(.js) .tl .tl-line i{transform:none}
       <details><summary>What size of property is it built for?</summary><p>Independent and boutique hotels, motels, inns and resorts that want to keep their own brand and guests.</p></details>
       <details><summary>Do we keep our own brand?</summary><p>Yes. Your property keeps its name, website and guests. CoastalOS works behind the scenes to grow direct business under your brand.</p></details>
       <details><summary>What happens in a property review?</summary><p>We look at how your hotel runs today and where centralization and technology could add revenue, lower cost, or improve visibility.</p></details>
+      <details><summary>How do we get started?</summary><p>Request a call. We’ll learn about your property and goals, and talk through whether CoastalOS is a good fit.</p></details>
+      <details><summary>Do I keep control of my property?</summary><p>Yes. You keep ownership of your property, your brand and your guests, with regular reporting so you can see how it’s performing.</p></details>
     </div>
   </div>
 </section>
@@ -432,15 +542,15 @@ html:not(.js) .tl .tl-line i{transform:none}
       <h2 id="rc-h"><span class="br">Your property</span> <span class="br">Our operating system</span></h2>
       <p class="rc-lede">Tell us a little about your hotel and we’ll set up a call.</p>
       <ol class="next rc-next">
-        <li><span>1</span><div><b>Share a few details</b></div></li>
-        <li><span>2</span><div><b>We review your property</b></div></li>
-        <li><span>3</span><div><b>Talk through the findings</b></div></li>
+        <li><span>1</span><div><b>Share your details</b></div></li>
+        <li><span>2</span><div><b>We arrange a call</b></div></li>
+        <li><span>3</span><div><b>Discuss your property and fit</b></div></li>
       </ol>
     </div>
     <!-- FORM: prototype only. Front-end validation in assets/js/site.js; nothing is sent.
          Replace with the WordPress form plugin (e.g. Gravity Forms / WPForms) keeping these fields:
          name*, email*, phone, property*, rooms. -->
-    <form id="reviewForm" class="rc-form" data-anim="fade-up" data-delay="120" novalidate aria-labelledby="rc-form-h">
+    <form id="reviewForm" class="rc-form" data-anim="fade-up" data-delay="100" novalidate aria-labelledby="rc-form-h">
       <div class="form-head"><b id="rc-form-h">Request a Call</b></div>
       <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required aria-describedby="name-err"><span class="err" id="name-err" aria-live="polite"></span></div>
       <div class="f"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required aria-describedby="email-err"><span class="err" id="email-err" aria-live="polite"></span></div>
@@ -480,6 +590,26 @@ html:not(.js) .tl .tl-line i{transform:none}
 <div class="mcta" id="mcta"><a href="#request-call" class="btn btn-primary">Request a Call</a></div>
 
 <script src="assets/js/site.js"></script>
+<script>
+// Testimonial slider: data-driven from #tst-data; no autoplay; buttons, dots, swipe, arrow keys
+(function(){
+  var sec=document.getElementById('testimonials'),dataEl=document.getElementById('tst-data');if(!sec||!dataEl)return;
+  var items;try{items=JSON.parse(dataEl.textContent)}catch(e){return}if(!items.length)return;
+  var slide=sec.querySelector('.tst-slide'),q=sec.querySelector('.tst-q'),nm=sec.querySelector('.tst-name'),meta=sec.querySelector('.tst-meta'),ph=sec.querySelector('.tst-photo'),dots=sec.querySelector('.tst-dots'),i=0;
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  items.forEach(function(_,k){var b=document.createElement('button');b.type='button';b.setAttribute('role','tab');b.setAttribute('aria-label','Testimonial '+(k+1)+' of '+items.length);b.addEventListener('click',function(){go(k)});dots.appendChild(b)});
+  function paint(){var t=items[i];q.textContent='“'+t.quote+'”';nm.textContent=t.name;meta.textContent=[t.role,t.property,t.location].filter(Boolean).join(', ');
+    if(t.photo){ph.src=t.photo;ph.hidden=false}else{ph.hidden=true}
+    [].forEach.call(dots.children,function(d,k){d.setAttribute('aria-selected',k===i)})}
+  function go(k){i=(k+items.length)%items.length;if(reduce){paint();return}slide.classList.add('swap');setTimeout(function(){paint();slide.classList.remove('swap')},220)}
+  sec.querySelectorAll('.tst-btn').forEach(function(b){b.addEventListener('click',function(){go(i+ +b.dataset.dir)})});
+  sec.addEventListener('keydown',function(e){if(e.key==='ArrowRight')go(i+1);if(e.key==='ArrowLeft')go(i-1)});
+  var x0=null;slide.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+  slide.addEventListener('touchend',function(e){if(x0===null)return;var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40)go(i+(dx<0?1:-1));x0=null});
+  paint();
+})();
+</script>
+
 <script>
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;

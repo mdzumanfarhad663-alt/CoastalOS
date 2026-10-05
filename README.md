@@ -54,13 +54,13 @@ Motion: only three effects — scroll reveal (fade up 24px, 600ms, 80ms stagger 
 Sections, in order:
 1. Hero (centered): photo background with an even navy overlay, H1, "Request a Call" + "See How It Works", four benefit items (2×2 on mobile)
 2. The challenge: copy, side photo (desktop), eight challenge cards (4×2 desktop, 2 columns mobile)
-3. The solution: "Centralize. Automate. Elevate." with photo, CTA to Services
+3. Operating relationship: "What CoastalOS handles" (navy) and "What you keep" cards, link to Services
 4. The platform (`#platform`): hub diagram, CoastalOS core plus eight functions; connector lines draw once; 2-column list on mobile
 5. How it works (navy): five steps, horizontal on desktop, vertical on mobile
 6. Why CoastalOS is different: three comparison cards (software vendor / management company / CoastalOS in navy); shared `.why-grid` component in `site.css`
 7. Built for independent & boutique hotels: property types, "Is My Property a Good Fit?" CTA, photo
 8. Portfolio: the three property cards and "View full portfolio"
-9. Results and testimonial: built but HIDDEN (see below)
+9. Owner testimonials: data-driven slider (JSON in `#tst-data`), HIDDEN until real quotes are approved; the results cards are also hidden
 10. FAQ: the four standard questions
 11. Final CTA: photo background with navy overlay, heading, next steps and the inline request-a-call form
 
@@ -131,6 +131,8 @@ Every item below shows a gold "Sample" tag on the page. Search the HTML for `cla
 - Contact FAQ: onboarding time, existing systems, agreements, choosing individual services.
 - Portfolio, case study: a 40-room coastal motel with sample figures (+18%, -9%, 4 → 1). Need an approved case study with real numbers.
 - Image frames on Platform and Services (see Structure).
+
+**Draft homepage copy:** all new or changed homepage copy is listed in `CONTENT-REVIEW.md` for Jed to confirm.
 
 **Questions for Jed (homepage FAQ, not published until answered)**
 - How is CoastalOS priced?
