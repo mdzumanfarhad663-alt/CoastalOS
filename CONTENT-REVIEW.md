@@ -57,7 +57,7 @@ The slider is visible with a "Sample" tag for prototype review. Before launch it
 
 Question for Jed: which owners could give a real quote (with name, property, location and an optional photo)?
 
-## 6. FAQ (two new questions)
+## 6. FAQ (two new questions) — **removed from the homepage**; the FAQ remains on the Contact page. Kept here in case these answers are wanted there
 
 | Copy | Question for Jed |
 |---|---|
