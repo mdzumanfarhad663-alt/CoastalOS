@@ -286,7 +286,7 @@ The footer's "Ready to talk about your property?" strip was removed from every p
 
 | Copy | Question for Jed |
 |---|---|
-| Main title (70px on desktop): "CoastalOS Operations" (was "The Operating System for Independent Hotels") | Is "CoastalOS Operations" OK as a headline? It can read like an official company name; the business may legally be just "CoastalOS" |
+| Main title (60px on desktop, shown in capitals): "CoastalOS Operations" (was "The Operating System for Independent Hotels") | Is "CoastalOS Operations" OK as a headline? It can read like an official company name; the business may legally be just "CoastalOS" |
 | Subheading: "Operating Platform for Independent & Boutique Hotels" | — |
 
 Removed: the hero paragraph ("Our central hospitality team runs your hotel’s core functions…"). Buttons and the benefits strip are unchanged. The tagline "The Operating System for Independent Hotels" still appears in the footer.
