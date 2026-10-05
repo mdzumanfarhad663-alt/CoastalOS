@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CoastalOS — The Operating System for Independent Hotels</title>
 <meta name="description" content="CoastalOS is a technology-enabled hotel management platform for independent and boutique hotels.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="assets/home-v2/hero-blind-pass-pool-1920.webp" imagesrcset="assets/home-v2/hero-blind-pass-pool-800.webp 800w, assets/home-v2/hero-blind-pass-pool-1280.webp 1280w, assets/home-v2/hero-blind-pass-pool-1920.webp 1920w, assets/home-v2/hero-blind-pass-pool-2560.webp 2560w" imagesizes="100vw" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/outfit-latin-3.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-sans-latin-1.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
 /* ===== HOMEPAGE V2 (merged concept). Page-only styles; shared system lives in site.css ===== */
@@ -201,6 +201,13 @@
 @media (max-width:1100px){.hx .wrap::before{background:radial-gradient(ellipse 60% 52% at 50% 50%,rgba(10,32,56,.82) 0%,rgba(10,32,56,.65) 50%,rgba(10,32,56,.25) 78%,rgba(10,32,56,0) 100%)}}
 @media (max-width:760px){.hx.hx-center::before,.hx::before{background:linear-gradient(0deg,rgba(10,32,56,.8) 0,rgba(10,32,56,.4) 120px,rgba(10,32,56,0) 240px),linear-gradient(rgba(14,42,71,.3),rgba(14,42,71,.3))}.hx .bg{object-position:72% 40%}}
 .hx .hx-title,.hx .hx-sub{text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 16px rgba(10,32,56,.45)}
+
+/* Hero benefits on phones: 2x2 grid, no dots, one line each (single column if a phone is too narrow) */
+@media (max-width:600px){
+  .hx .benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px;row-gap:10px;justify-items:center;font-size:.875rem}
+  .hx .benefits li{white-space:nowrap;justify-content:center}
+  .hx .benefits li::before,.hx .benefits li+li::before,.hx .benefits li:nth-child(2n)::before{display:none!important}
+}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>

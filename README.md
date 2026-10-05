@@ -172,3 +172,5 @@ The property rows on `our-work.html` and the stat line ("10 properties · 3 stat
 Why a script and not hand-written rows: the JSON stays the single source, the rows and stat line can't drift from it, and the output is plain static HTML (good for SEO; Render serves it without a build step). The homepage shows three properties as cards that link to their rows on Our Work; update those by hand if the featured properties change.
 
 Navigation (all pages): Home · Services · Our Work · About · Contact, plus Request a Call.
+
+**Fonts:** Outfit (headings) and Instrument Sans (body) are self-hosted in `assets/fonts/` (variable WOFF2, latin + latin-ext, SIL Open Font License) via `assets/fonts/fonts.css` with `font-display: swap`; the two latin files are preloaded on every page. No request goes to Google Fonts.
