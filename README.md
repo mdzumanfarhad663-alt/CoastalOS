@@ -10,9 +10,9 @@ All six agreed pages are built.
 |---|---|
 | `index.html` | Home (the former home-v2 concept): hero, challenge, solution, platform hub, how it works, owner visibility, who it's for, hotels, FAQ, final CTA |
 | `index-v1-backup.html` | Previous homepage, kept for reference only (`noindex`, not linked) |
-| `platform.html` | Platform / How It Works: central vs on-site split (hero), operating model with the three principles, guest journey, owner view (links to Services). The comparison toggle lives only on Home and the guest journey only here. |
+| `platform.html` | Platform: centred photo hero, larger platform hub (cards link to Services groups), "How a day is split between two teams", 7-step guest journey on the shared timeline, "What owners receive", final CTA |
 | `about.html` | About CoastalOS: centred story hero, origin, what we believe, who we work with (pills), the Coastal family, founder note, final CTA |
-| `services.html` | Services: five service groups as cards in one section (the single source for the service list), engagement steps |
+| `services.html` | Services: centred photo hero, sticky jump-nav pills, the five service groups as split sections (the single source for the service list; photos for groups 1–3, tinted panels for 4–5), the homepage 5-step engagement timeline with a link to the Contact FAQ, final CTA |
 | `contact.html` | Contact: a single Request a Call form (same fields as the homepage form plus an optional message), next steps, the site's only FAQ (6 questions) |
 | `portfolio.html` | Portfolio: centred hero with a stat line counted from the cards, property-type pills, the ten current Coastal Hospitality Group hotels (see below), final CTA |
 | `index-1.html` | Redirect to `index.html` (an earlier homepage lived here; it remains in git history) |
@@ -40,7 +40,7 @@ Then visit http://localhost:8000.
 - Design system: each page has one navy band (`.navy-band` in `site.css`; on the homepage it is the platform section), open layouts instead of boxed cards where cards add nothing, and a light closing CTA (`.cta-band`). The Contact page's navy hero holds the form.
 - Each page keeps its page-specific CSS in a small `<style>` block. Homepage-only scripts (outcome tabs) stay inline in `index.html`.
 - `assets/portfolio/` — property photos from the CHG site, for the homepage hotels section and `portfolio.html`.
-- Image frames (`.img-frame` in `site.css`): seven labelled placeholders waiting for real photos. Platform: "Team at work" (banner), "Guest check-in", "Housekeeping", "Owner dashboard screenshot". Services: "Front desk welcome" (banner), "Team member at work", "Owner reporting". To fill one, replace its `<div class="img-frame" ...>` with an `<img>` of the same proportions. `assets/site/` now holds only the Contact background.
+- Image frames (`.img-frame` in `site.css`): no longer used on any page; the Platform and Services placeholders were replaced with real (temporary) photos.
 - `assets/about/` — Hickory Falls Inn room photo and Jed Tarr's headshot (About page).
 
 ## Homepage (formerly home-v2)
@@ -126,8 +126,6 @@ Open questions for the client (home-v2):
 
 Every item below shows a gold "Sample" tag on the page. Search the HTML for `class="sample"` to find them all.
 - Home, "In their words": three testimonials. Need approved quotes with names, roles and properties.
-- Services, "Is CoastalOS right for your property?": property size (15-100 rooms), locations and ways to work together.
-- Image frames on Platform and Services (see Structure).
 
 **Draft homepage copy:** all new or changed homepage copy is listed in `CONTENT-REVIEW.md` for Jed to confirm.
 
@@ -152,3 +150,11 @@ To publish one, copy a `<details>` block in the homepage FAQ (`.faq-list`) and r
 - `.pcard-calm` gives property cards a subtle lift on hover, no image zoom.
 - `.sec-head.is-centered` and `.types` (text pills) are shared from `site.css`.
 - On the contact page, `?request=call` scrolls the form into view on single-column layouts.
+
+**Platform and Services images:** temporary photos from coastalgetaway.com, pending Jed's approval. Files in `assets/platform/` and `assets/services/`, listed with source URLs in `assets/portfolio/SOURCES.md`.
+
+**Shared components (update)**
+- Header logo: 36px desktop / 30px mobile, nudged up 20% so the wordmark lines up with the menu (the logo file has no spare whitespace to trim).
+- Footer (`footer.ft` in `site.css`): logo and tagline, "Ready to talk about your property?" with Request a Call, Platform / Company / Contact columns, bottom bar. Same markup on every page.
+- Platform hub (`.hub`) and scroll-linked timeline (`.tl`) styles and scripts now live in `site.css` / `site.js` (used on Home, Platform and Services).
+- `.photo-hero`: centred inner-page hero over a property photo (Platform, Services).

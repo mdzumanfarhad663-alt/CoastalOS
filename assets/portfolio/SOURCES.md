@@ -24,3 +24,16 @@ About page (`assets/about/`):
 Past properties (Little Cat Lodge, Gaslamp Quarter Hotel, Sunny Palms Inn, Mediterraneo Resort) are not shown.
 
 Contact page background (`assets/site/contact-sea-shells-sunset.webp`): "Seashells_Sunset.jpg" from https://coastalgetaway.com/ (wp-content/uploads/2020/12/), the sunset at Sea Shells Beach Club, Daytona Beach, FL, a Coastal Hospitality Group hotel. Cropped to 16:9 around the sun and resized to 1600×900 WebP. Downloaded 2026-10-03.
+
+## Platform and Services images (temporary, pending Jed's approval)
+
+All downloaded on 2026-10-05 from coastalgetaway.com (Coastal Hospitality Group's booking site), resized and converted to WebP. None show faces, signs or logos. Property names marked "unconfirmed" should be checked with Jed.
+
+| File | Used on | Source URL | Property |
+|---|---|---|---|
+| `assets/platform/hero-island-house-deck-800/1280/1600.webp` | Platform hero | https://coastalgetaway.com/wp-content/uploads/2026/09/home-intro-01-scaled.jpg | Covered deck and pool courtyard, Island House Resort (unconfirmed) |
+| `assets/services/hero-pool-courtyard-800/1280/1600.webp` | Services hero | https://coastalgetaway.com/wp-content/uploads/2026/09/Drone8.jpg | Aerial view of a pool courtyard with palms (property unconfirmed) |
+| `assets/services/revenue-geneva-grounds-800/1024.webp` | Services, group 1 | https://coastalgetaway.com/wp-content/uploads/2022/02/geneva-2-2-1024x768-1.jpg | Geneva Riverside Hotel & Tiki, Lake Lure, NC |
+| `assets/services/reservations-sea-shells-sunset-800/1280.webp` | Services, group 2 | https://coastalgetaway.com/wp-content/uploads/2020/12/Seashells_Sunset.jpg | Sea Shells Beach Club, Daytona Beach, FL (cropped to 4:3; same source as the Contact background) |
+| `assets/services/operations-bluebird-lawn-800/1024.webp` | Services, group 3 | https://coastalgetaway.com/wp-content/uploads/2022/02/310665568.jpg | Bluebird Day Inn & Suites, South Lake Tahoe, CA (similar shot to the portfolio card) |
+

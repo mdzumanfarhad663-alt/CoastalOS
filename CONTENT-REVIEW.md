@@ -1,7 +1,7 @@
 # CoastalOS — content for review
 
 For: Jed
-Pages: `index.html` (homepage, sections 1–8), `about.html`, `portfolio.html`, `contact.html` (sections 9–11)
+Pages: `index.html` (homepage, sections 1–8), `about.html`, `portfolio.html`, `contact.html` (sections 9–11), `platform.html`, `services.html`, footer (sections 12–14)
 
 Every line below is new or changed draft copy. Nothing here is a confirmed fact. Please confirm, edit or reject each item. Lines marked **Hidden** are built but not shown on the site.
 
@@ -153,3 +153,47 @@ The three existing FAQ answers (software, property size, own brand) are unchange
 - Four sample FAQ answers with unconfirmed facts: onboarding time ("30 to 60 days"), existing systems, agreements, choosing individual services. Ask Jed for real answers (see "Questions to answer later" in section 6).
 
 **Contact details to confirm** (temporary, taken from Coastal Hospitality Group; already in every page footer): (877) 350-0053 · info@coastalhospitalitygroup.com · 711 S El Camino Real, San Clemente, CA 92672. Should CoastalOS have its own phone, email and address?
+
+## 12. Platform (`platform.html`)
+
+| Copy | Question for Jed |
+|---|---|
+| Hero: "How CoastalOS runs your hotel" / "A closer look at the work our central team runs, what stays with your people on site, and what you see as the owner." | — |
+| Hub heading: "One platform, every core function" / "Each function connects to the same central team and systems. Select one to see the services behind it." | — |
+| "How a day is split between two teams" / "The work that repeats at every property goes to the central team. The work that needs a person on site stays with yours." | Is this split right for every property? |
+| Central team, day-to-day lines: Rate changes and channel updates · Campaigns and your direct booking website · Booking questions, confirmations and messages before arrival · Payroll runs and HR paperwork · Bookkeeping and financial statements · Regular reports on how the property is performing | Is each line accurate? |
+| On-site team, day-to-day lines: Arrivals, departures and questions in person · Rooms that are clean, ready and to standard · Repairs and upkeep around the property · Whatever a guest needs on the spot · The recommendations only someone local can give | — |
+| "What owners receive": "…You review it with our team and decide what matters next." List: Revenue, Occupancy, Rates, Expenses, Labor, Property performance | How often is reporting sent, and in what format? (Not stated on the page.) |
+| Final CTA: "See what CoastalOS could run for your property" / "Tell us a little about your property and we’ll set up a call." | — |
+
+Guest journey: the 7 steps and their Central team / On site / Both labels are unchanged and still need confirmation (see the README).
+
+**Removed:** the "Run once. Delivered to every property" section and its three principles (About covers the story), the hero card, and four image placeholders.
+
+## 13. Services (`services.html`)
+
+| Copy | Question for Jed |
+|---|---|
+| Hero: "Everything CoastalOS can run for your property" / "Five service groups, each run by our central team. See exactly what comes off your team’s plate." | Are all five groups run by the central team? |
+| Engagement heading: "How engagement works" (steps reuse the homepage timeline wording) | — |
+| "Questions before you call? Read the FAQ" (links to the Contact FAQ) | — |
+| Final CTA: "Find the services that fit your property" / "Tell us a little about your property and we’ll set up a call." | — |
+
+The five groups and 14 services are unchanged (only the icons were removed).
+
+**Removed — ask Jed for real data:** the Sample section "Is CoastalOS right for your property?": "typically 15 to 100 rooms", "Leisure markets across the United States, from beach towns to mountain destinations", "The full platform, or selected service groups to start, agreed after a property review". Also removed: the old 3-step engagement (Property review → Tailored plan → Ongoing operation).
+
+**Images (temporary, pending Jed's approval):** Platform hero (pool deck, possibly Island House), Services hero (aerial pool courtyard, property unconfirmed), Geneva Riverside grounds, Sea Shells Beach Club sunset, Bluebird Day Inn lawn. Sources in `assets/portfolio/SOURCES.md`.
+
+**Question:** a CHG cover photo labelled "LCL" (a lakeside lodge) was not used. What property is it? It may be Little Cat Lodge, a past property.
+
+## 14. Footer (all pages)
+
+| Copy | Question for Jed |
+|---|---|
+| Tagline: "The Operating System for Independent Hotels" (unchanged, period removed) | — |
+| "Ready to talk about your property?" + Request a Call | — |
+| Contact details (temporary, from Coastal Hospitality Group): (877) 350-0053 · info@coastalhospitalitygroup.com · 711 S El Camino Real, San Clemente, CA 92672 | Should CoastalOS have its own phone, email and address? |
+
+No social icons: no CoastalOS social accounts are known. Add them if they exist.
+
