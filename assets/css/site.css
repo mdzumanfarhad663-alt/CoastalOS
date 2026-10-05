@@ -470,3 +470,13 @@ html:not(.js) .tl .tl-line i{transform:none}
 .ft-social a:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
 .ft-social svg{width:18px;height:18px;fill:currentColor}
 .ft-social svg.stroke{fill:none;stroke:currentColor;stroke-width:1.8}
+
+/* ===== Lighter photo overlays (same approach as the homepage hero):
+   a light navy tint so photos keep their colours, plus a soft shade only behind the text ===== */
+.fcta::before,.photo-hero::before{background:linear-gradient(rgba(14,42,71,.3),rgba(14,42,71,.3))}
+@media (max-width:760px){.fcta::before,.photo-hero::before{background:linear-gradient(rgba(14,42,71,.32),rgba(14,42,71,.32))}}
+.fcta-inner,.photo-hero-inner{position:relative}
+.fcta-inner::before,.photo-hero-inner::before{content:"";position:absolute;left:50%;top:50%;width:min(1200px,160vw);height:170%;transform:translate(-50%,-50%);background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(10,32,56,.8) 0%,rgba(10,32,56,.62) 45%,rgba(10,32,56,.25) 75%,rgba(10,32,56,0) 100%);z-index:-1;pointer-events:none}
+.fcta-inner h2,.fcta-inner p,.photo-hero h1,.photo-hero .lede{text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 16px rgba(10,32,56,.4)}
+/* Step-number circles on photo sections: solid dark fill so the number reads on any photo */
+.photo-sec .next li span,.contact-top .next li span{background:#0A2038}

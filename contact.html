@@ -10,8 +10,12 @@
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
-.contact-top{padding-top:clamp(36px,4vw,56px);background:linear-gradient(90deg,rgba(14,42,71,.93) 0%,rgba(14,42,71,.72) 45%,rgba(14,42,71,.3) 100%),url(assets/site/contact-sea-shells-sunset.webp) center/cover}
-@media (max-width:760px){.contact-top{background:linear-gradient(180deg,rgba(10,32,56,.9),rgba(14,42,71,.86)),url(assets/site/contact-sea-shells-sunset.webp) center/cover}}
+.contact-top{padding-top:clamp(36px,4vw,56px);background:linear-gradient(rgba(14,42,71,.3),rgba(14,42,71,.3)),url(assets/site/contact-sea-shells-sunset.webp) center/cover;position:relative;isolation:isolate}
+.contact-top .cta-grid>div:first-child{position:relative}
+.contact-top .alt-contact p{color:#fff}
+.contact-top .cta-grid>div:first-child::before{content:"";position:absolute;left:45%;top:55%;width:170%;height:175%;transform:translate(-50%,-50%);background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(10,32,56,.9) 0%,rgba(10,32,56,.82) 50%,rgba(10,32,56,.45) 78%,rgba(10,32,56,0) 100%);z-index:-1;pointer-events:none}
+.contact-top h1,.contact-top .lede,.contact-top .next b,.contact-top .alt-contact{text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 14px rgba(10,32,56,.4)}
+@media (max-width:760px){.contact-top{background:linear-gradient(rgba(14,42,71,.32),rgba(14,42,71,.32)),url(assets/site/contact-sea-shells-sunset.webp) center/cover}}
 .contact-top h1{color:#fff;font-size:clamp(2.1rem,3.4vw,3rem)}
 .contact-next{margin-top:26px;gap:12px}
 .contact-next li{align-items:center}

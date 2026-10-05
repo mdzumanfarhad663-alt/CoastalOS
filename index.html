@@ -138,11 +138,14 @@
 .rc-next li span{border-color:rgba(111,208,204,.6);color:var(--teal-2)}
 .rc-form .form-head b{font-size:1.25rem}
 .rc-form label i,.rc-form legend i{font-style:normal;font-weight:400;color:var(--muted)}
-.fcta::before{background:linear-gradient(100deg,rgba(10,32,56,.9) 0%,rgba(14,42,71,.84) 50%,rgba(14,42,71,.62) 100%)}
+.fcta::before{background:linear-gradient(rgba(14,42,71,.3),rgba(14,42,71,.3))}
+.fcta .rc-copy{position:relative}
+.fcta .rc-copy h2,.fcta .rc-copy p,.fcta .rc-copy b{text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 14px rgba(10,32,56,.4)}
+.fcta .rc-copy::before{content:"";position:absolute;left:45%;top:50%;width:170%;height:150%;transform:translate(-50%,-50%);background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(10,32,56,.9) 0%,rgba(10,32,56,.82) 50%,rgba(10,32,56,.45) 78%,rgba(10,32,56,0) 100%);z-index:-1;pointer-events:none}
 .fcta .rc-form p{color:var(--muted);margin:0;max-width:none;font-size:.85rem}
 .fcta .rc-form .form-done{color:var(--teal-ink);font-size:1rem}
 @media (max-width:900px){.rc-grid{grid-template-columns:1fr}}
-@media (max-width:760px){.fcta::before{background:linear-gradient(180deg,rgba(10,32,56,.9),rgba(14,42,71,.86))}}
+@media (max-width:760px){.fcta::before{background:linear-gradient(rgba(14,42,71,.32),rgba(14,42,71,.32))}}
 /* Hero benefits: one centered line, dot separators */
 .benefits{list-style:none;margin:clamp(40px,6vw,72px) 0 0;padding:22px 0 28px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;justify-content:center;gap:6px 0}
 .benefits li{font:500 .98rem var(--display);color:#fff;display:flex;align-items:center}
