@@ -43,9 +43,9 @@ The headline and buttons are unchanged.
 | 4. Reporting & review | "You receive regular reporting and review performance with us." | How often are reviews held, and in what format? |
 | 5. Ongoing partnership | "We keep refining operations as your property and goals evolve." | — |
 
-## 5. Owner testimonials — **Hidden**
+## 5. Owner testimonials — **Shown as Sample**
 
-The slider is built but hidden. It will only be switched on with real, approved quotes, each with the owner's name, role, property and location (and their permission). The quotes below are **examples only**, written to show the format. They must not be published as they are.
+The slider is visible with a "Sample" tag for prototype review. Before launch it must use real, approved quotes, each with the owner's name, role, property and location (and their permission). The quotes below are **examples only**, written to show the format. They must not be published as they are.
 
 | Theme | Example quote |
 |---|---|
