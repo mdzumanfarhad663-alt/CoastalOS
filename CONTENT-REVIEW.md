@@ -266,3 +266,9 @@ Status for every item: **Draft — needs Jed's confirmation**.
 
 Images: "About us" uses the Blind Pass Resort photo and "Who we work with" the Patriots’ Boutique Motel photo, both already listed under Our Work in `assets/portfolio/SOURCES.md`.
 
+
+## 18. Footer social links (all pages)
+
+A "Social links" block (Facebook, Instagram, YouTube) sits at the top right of the footer. **The links are placeholders (`#`)**: no CoastalOS social accounts are known. Coastal Getaway has its own Facebook page, but that belongs to the booking site, not CoastalOS.
+
+**Question for Jed:** which CoastalOS (or Coastal Hospitality Group) accounts should these link to? Should YouTube be TikTok instead? Remove any icon without an account before launch.

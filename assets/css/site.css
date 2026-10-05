@@ -462,3 +462,13 @@ html:not(.js) .tl .tl-line i{transform:none}
 @media (max-width:480px){.photo-hero .hx-ctas .btn{flex:1 1 100%}}
 /* Back to top: desktop only (all pages) */
 @media (max-width:760px){.to-top{display:none!important}}
+/* Footer social links (top right) */
+.ft-right{display:flex;align-items:center;gap:clamp(24px,4vw,48px);flex-wrap:wrap;justify-content:flex-end}
+.ft-social .ft-h{margin-bottom:12px}
+.ft-social ul{display:flex!important;gap:10px}
+.ft-social a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.22);display:grid;place-items:center;color:#C6D4E1;transition:color .2s,border-color .2s,background .2s}
+.ft-social a:hover{color:#fff;border-color:var(--teal-2);background:rgba(111,208,204,.1)}
+.ft-social a:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.ft-social svg{width:18px;height:18px;fill:currentColor}
+.ft-social svg.stroke{fill:none;stroke:currentColor;stroke-width:1.8}
+@media (max-width:760px){.ft-right{flex-direction:column;align-items:flex-start;width:100%}}
