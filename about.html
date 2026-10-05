@@ -25,14 +25,14 @@
 .types{justify-content:center}
 .family .lede{margin-top:16px}
 .family .text-link{display:inline-block;margin-top:18px}
-.founder-card{display:grid;grid-template-columns:200px 1fr;gap:clamp(24px,4vw,56px);align-items:center;max-width:960px;margin:0}
-.founder-card img{width:200px;height:200px;object-fit:cover;border-radius:50%;box-shadow:0 0 0 4px rgba(111,208,204,.35)}
+.founder-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px;max-width:760px;margin:0 auto}
+.founder-card img{width:150px;height:150px;object-fit:cover;border-radius:50%;box-shadow:0 0 0 4px rgba(111,208,204,.35)}
 .founder-quote{margin:0}
 .founder-quote p{font:500 clamp(1.25rem,2vw,1.6rem)/1.45 var(--display);color:#fff!important;letter-spacing:-.01em}
-.founder-bio-sm{margin-top:16px;font-size:.95rem;line-height:1.6}
+.founder-bio-sm{margin:18px auto 0;max-width:62ch;font-size:.95rem;line-height:1.6}
 .founder-name{margin-top:18px;color:#A9BDD0}
 .founder-name b{display:block;color:#fff;font-family:var(--display)}
-@media (max-width:700px){.founder-card{grid-template-columns:1fr}.founder-card img{width:140px;height:140px}}
+@media (max-width:700px){.founder-card{gap:22px}.founder-card img{width:120px;height:120px}}
 .owners-grid h2+.lede{margin-top:16px}
 .owners-grid .lede+.lede{margin-top:14px}
 /* Who we work with: pills left-aligned in the split */
