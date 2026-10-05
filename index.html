@@ -37,20 +37,14 @@
 .hx .btn-primary{background:var(--teal);}
 .hx .btn-primary:hover{background:#167C7A}
 .hx a:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
-.benefits{list-style:none;margin:clamp(48px,7vw,88px) 0 0;padding:26px 0 30px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid rgba(255,255,255,.18)}
-.benefits li{display:flex;align-items:center;gap:14px;font:600 1rem var(--display);color:#fff}
-.benefits .ic{background:rgba(111,208,204,.16)}.benefits .ic svg{stroke:var(--teal-2)}
-@media (max-width:760px){.hx{min-height:0;padding-top:min(62vw,300px)}.hx .bg{object-position:62% 30%}.hx::before{background:linear-gradient(180deg,rgba(14,42,71,.25) 0%,rgba(14,42,71,.6) 18%,rgba(10,32,56,.86) 34%,rgba(10,32,56,.9) 100%)}.benefits{grid-template-columns:1fr 1fr}.benefits li{font-size:.92rem;align-items:flex-start;flex-direction:column;gap:10px}.hx-ctas .btn{flex:1 1 100%}}
+@media (max-width:760px){.hx{min-height:0;padding-top:min(62vw,300px)}.hx .bg{object-position:62% 30%}.hx::before{background:linear-gradient(180deg,rgba(14,42,71,.25) 0%,rgba(14,42,71,.6) 18%,rgba(10,32,56,.86) 34%,rgba(10,32,56,.9) 100%)}.hx-ctas .btn{flex:1 1 100%}}
 
 /* 2 challenge */
 .ch-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,64px);align-items:center}
 .ch-strong{margin-top:16px;font:600 1.1rem var(--display);color:var(--navy)}
-.ch-cards{list-style:none;margin:clamp(32px,4vw,44px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.ch-cards li{display:flex;flex-direction:column;gap:12px;padding:18px 18px 20px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);font:500 .95rem/1.4 var(--display);color:var(--navy)}
 .side-photo{margin:0}
 .side-photo img{width:100%;height:auto;display:block;border-radius:var(--r-lg);box-shadow:var(--shadow-lg)}
 @media (max-width:980px){.ch-grid{grid-template-columns:1fr}.ch-grid .side-photo{display:none}}
-@media (max-width:900px){.ch-cards{grid-template-columns:1fr 1fr}}
 
 /* split layouts (3, 6, 7) */
 .split2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
@@ -100,9 +94,6 @@
 @media (min-width:821px){.steps-5{grid-template-columns:repeat(5,1fr)}.steps-5::before,.steps-5::after{left:10%;right:10%}.steps-5 small{max-width:22ch;margin-inline:auto}}
 
 /* 7 fit */
-.types{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px 12px}
-.types li{display:flex;align-items:center;gap:10px;font:600 .93rem var(--display);color:var(--navy)}
-@media (max-width:420px){.types{grid-template-columns:1fr 1fr}}
 
 /* 8 portfolio head */
 .pf-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;max-width:none}
@@ -166,9 +157,9 @@
 .hx.hx-center h1{margin-inline:auto;max-width:20ch}
 .hx.hx-center .lede{margin-inline:auto}
 .hx.hx-center .hx-ctas{justify-content:center}
-.hx.hx-center .benefits li{justify-content:center}
+.hx.hx-center 
 .hx.hx-center::before{background:linear-gradient(0deg,rgba(10,32,56,.9) 0,rgba(10,32,56,.55) 120px,rgba(10,32,56,0) 230px),radial-gradient(ellipse 62% 74% at 50% 50%,rgba(10,32,56,.88) 0%,rgba(14,42,71,.83) 60%,rgba(14,42,71,.42) 100%)}
-@media (max-width:760px){.hx.hx-center .benefits li{align-items:center}.hx.hx-center::before{background:linear-gradient(180deg,rgba(14,42,71,.25) 0%,rgba(14,42,71,.6) 18%,rgba(10,32,56,.86) 34%,rgba(10,32,56,.9) 100%)}}
+@media (max-width:760px){.hx.hx-center .hx.hx-center::before{background:linear-gradient(180deg,rgba(14,42,71,.25) 0%,rgba(14,42,71,.6) 18%,rgba(10,32,56,.86) 34%,rgba(10,32,56,.9) 100%)}}
 
 /* ===== Section alignment: full-width sections center their heading block ===== */
 .sec-head.is-centered{text-align:center;margin-inline:auto;max-width:760px}
@@ -204,15 +195,6 @@ html:not(.js) .tl .tl-line i{transform:none}
 /* heading line control */
 .nw{white-space:nowrap}
 @media (min-width:761px){.fcta h2{max-width:none}.fcta h2 .br{display:block}}
-/* Challenge cards: centered content, frosted-glass hover */
-.ch-cards li{align-items:center;text-align:center;transition:background-color 250ms var(--ease-out),transform 250ms var(--ease-out),box-shadow 250ms var(--ease-out),border-color 250ms}
-.ch-cards li .ic{transition:background-color 250ms var(--ease-out)}
-.ch-cards li .ic svg{transition:stroke 250ms var(--ease-out)}
-.ch-cards li:hover,.ch-cards li:focus-within{background:rgba(255,255,255,.92);transform:translateY(-4px);box-shadow:0 18px 36px -20px rgba(14,42,71,.4);border-color:rgba(28,140,138,.35)}
-@supports ((backdrop-filter:blur(8px)) or (-webkit-backdrop-filter:blur(8px))){.ch-cards li:hover,.ch-cards li:focus-within{background:rgba(255,255,255,.6);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}}
-.ch-cards li:hover .ic,.ch-cards li:focus-within .ic{background:var(--teal)}
-.ch-cards li:hover .ic svg,.ch-cards li:focus-within .ic svg{stroke:#fff}
-@media (prefers-reduced-motion:reduce){.ch-cards li:hover,.ch-cards li:focus-within{transform:none}}
 /* Challenge photo: no taller than the text column */
 .ch-grid{align-items:stretch}
 .ch-grid .side-photo{position:relative;min-height:0}
@@ -234,6 +216,20 @@ html:not(.js) .tl .tl-line i{transform:none}
 .fcta .rc-form .form-done{color:var(--teal-ink);font-size:1rem}
 @media (max-width:900px){.rc-grid{grid-template-columns:1fr}}
 @media (max-width:760px){.fcta::before{background:linear-gradient(180deg,rgba(10,32,56,.9),rgba(14,42,71,.86))}}
+/* Hero benefits: one centered line, dot separators */
+.benefits{list-style:none;margin:clamp(40px,6vw,72px) 0 0;padding:22px 0 28px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;justify-content:center;gap:6px 0}
+.benefits li{font:500 .98rem var(--display);color:#fff;display:flex;align-items:center}
+.benefits li+li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--teal-2);margin:0 16px}
+@media (max-width:760px){.benefits{display:grid;grid-template-columns:auto auto;justify-content:center;column-gap:0;row-gap:8px;font-size:.92rem}
+  .benefits li{justify-content:center}.benefits li+li::before{display:none}.benefits li:nth-child(2n)::before{display:block;margin:0 12px}}
+/* Challenge: editorial two-column list */
+.ch-list{list-style:none;margin:clamp(32px,4vw,44px) 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(32px,5vw,64px)}
+.ch-list li{display:flex;align-items:center;gap:14px;padding:18px 0;border-bottom:1px solid var(--line);font:500 1.05rem/1.4 var(--display);color:var(--navy)}
+.ch-list li::before{content:"";flex:none;width:14px;height:2px;border-radius:2px;background:var(--sun)}
+@media (max-width:760px){.ch-list{grid-template-columns:1fr}}
+/* Built for: property types as text pills */
+.types{list-style:none;margin:24px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.types li{font:500 .92rem var(--display);color:var(--navy);border:1px solid var(--line);border-radius:var(--r-pill);padding:8px 16px;background:var(--paper)}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -273,7 +269,7 @@ html:not(.js) .tl .tl-line i{transform:none}
       <a href="#platform" class="btn btn-on-dark">See How It Works</a>
     </div>
     <ul class="benefits" aria-label="Benefits" data-stagger="fade-up" data-delay="560">
-      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span>Higher Revenue</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2.2 0 2.9 6 1.6 6 4.6 0 1.3-1.3 2.2-3 2.2-1.5 0-2.6-.6-3.1-1.6M12 6.5v11"/></svg></span>Lower Operating Costs</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>Better Guest Experience</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span>Hands-Off Ownership</li>
+      <li>Higher revenue</li><li>Lower operating costs</li><li>Better guest experience</li><li>Hands-off ownership</li>
     </ul>
   </div>
 </section>
@@ -290,8 +286,8 @@ html:not(.js) .tl .tl-line i{transform:none}
       <!-- IMAGE: challenge side photo (swap: assets/home-v2/challenge-hickory-falls.webp) -->
       <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/challenge-hickory-falls.webp" width="548" height="685" alt="Vine-covered exterior of Hickory Falls Inn, Lake Lure, North Carolina" loading="lazy" decoding="async"></figure>
     </div>
-    <ul class="ch-cards" data-stagger="fade-up" data-delay="150">
-      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>Manual rate management</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Too much time on daily operations</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/></svg></span>High labor costs</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Reliance on OTAs</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>Inconsistent guest experience</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>Complex technology</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M3 21a7 7 0 0 1 12.6-4.2M19 15v6M16 18h6"/></svg></span>Hiring and staffing challenges</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span>Limited reporting and visibility</li>
+    <ul class="ch-list" data-stagger="fade-up" data-delay="150">
+      <li>Manual rate management</li><li>Too much time on daily operations</li><li>High labor costs</li><li>Reliance on OTAs</li><li>Inconsistent guest experience</li><li>Complex technology</li><li>Hiring and staffing challenges</li><li>Limited reporting and visibility</li>
     </ul>
   </div>
 </section>
@@ -364,7 +360,7 @@ html:not(.js) .tl .tl-line i{transform:none}
       <h2 class="big-h">Built for independent &amp; boutique hotels</h2>
       <p class="lede">Whether you own one property or a small portfolio, CoastalOS gives you the operating infrastructure used by larger hotel companies, without losing your independence.</p>
       <ul class="types" aria-label="Property types" data-stagger="fade-up" data-delay="200">
-        <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span>Boutique Hotels</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M4 21V10h16v11M7 14h2M11 14h2M15 14h2M3 10l9-6 9 6"/></svg></span>Motels</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21V11M12 11c-4-1-6-4-6-7 3 0 5 2 6 4 1-2 3-4 6-4 0 3-2 6-6 7zM4 21h16"/></svg></span>Resorts</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 13h6v8H9z"/></svg></span>Inns</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h3M13 7h3M8 11h3M13 11h3M10 21v-4h4v4"/></svg></span>Extended Stay</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l3 6 6 .9-4.5 4.4 1 6.2L12 17.6 6.5 20.5l1-6.2L3 9.9 9 9z"/></svg></span>Unique Properties</li>
+        <li>Boutique Hotels</li><li>Motels</li><li>Resorts</li><li>Inns</li><li>Extended Stay</li><li>Unique Properties</li>
       </ul>
       <a href="contact.html" class="btn btn-primary">Is My Property a Good Fit?</a>
     </div>
