@@ -113,14 +113,10 @@
 .home-v2 .card.pcard.anim-done:hover,.home-v2 .card.pcard.anim-done:focus-visible,html:not(.js) .home-v2 .card.pcard:hover{transform:translateY(-4px)}
 .home-v2 .pcard:focus-visible{outline:3px solid var(--sun);outline-offset:4px;border-radius:var(--r-md)}
 /* accessibility: brand "OS" and footer headings */
-.home-v2 .logo-word span{color:var(--teal-ink)}
 .home-v2 footer .foot-h{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}
 /* ===== Transparent header over the hero (homepage only; scrolls away with the page) ===== */
 .home-v2 header.site{position:absolute;top:0;left:0;right:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:transparent}
 .home-v2 header.site.scrolled{background:transparent;border-bottom-color:transparent}
-.home-v2 header.site .logo-word{color:#fff}
-.home-v2 header.site .logo-word span{color:var(--teal-2)}
-.home-v2 header.site .logo svg path:last-child{stroke:#fff}
 @media (min-width:981px){
   .home-v2 header.site .nav ul a{color:#fff}
   .home-v2 header.site .nav ul a:hover,.home-v2 header.site .nav ul a.active{color:#fff;background:rgba(255,255,255,.14)}
@@ -244,7 +240,7 @@ html:not(.js) .tl .tl-line i{transform:none}
 .home-v2{--rise:14px;--dur-base:450ms}
 /* Shadows: cards get a border + very light shadow; key elements keep stronger shadows */
 .home-v2 .card{box-shadow:0 1px 2px rgba(14,42,71,.05)}
-.home-v2 .card.rel-ours,.home-v2 .card.why.ours{box-shadow:0 10px 24px -16px rgba(14,42,71,.4)}
+.home-v2 .card.rel-ours{box-shadow:0 10px 24px -16px rgba(14,42,71,.4)}
 .home-v2 .hub-card{box-shadow:0 1px 3px rgba(14,42,71,.07)}
 .home-v2 .side-photo img{box-shadow:var(--shadow)}
 /* Section spacing: consistent and tighter */
@@ -257,6 +253,15 @@ html:not(.js) .tl .tl-line i{transform:none}
   .home-v2 .foot>div:last-child{grid-column:1/-1}
   .home-v2 .foot>div:last-child li{overflow-wrap:normal}
 }
+/* About teaser: founder photo + origin story */
+.at-photo{margin:0;max-width:440px;justify-self:center;width:100%}
+.at-photo img{width:100%;height:auto;display:block;border-radius:var(--r-lg);border:1px solid var(--line);box-shadow:var(--shadow)}
+.at-line{margin-top:16px;font:500 1.08rem/1.5 var(--display);color:var(--navy)}
+.at-quote{margin:22px 0 0;padding-left:16px;border-left:2px solid var(--teal)}
+.at-quote p{font-size:.97rem;line-height:1.55;color:var(--muted);font-style:italic}
+.at-quote .at-cite{margin-top:8px;font-size:.88rem;font-style:normal}
+.at-quote .at-cite b{color:var(--navy);font-family:var(--display)}
+@media (max-width:900px){.at-photo{max-width:320px}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -266,9 +271,7 @@ html:not(.js) .tl .tl-line i{transform:none}
 <header class="site" id="top">
   <div class="wrap nav" id="nav">
     <a href="#top" class="logo" aria-label="CoastalOS home">
-      <!-- LOGO: replace this SVG + wordmark with the client's final logo file -->
-      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true"><path d="M9 21a11 11 0 0 1 22 0" fill="none" stroke="#C9932F" stroke-width="2.6" stroke-linecap="round"/><path d="M5 26c5-3 9 3 15 0s10 3 15 0" fill="none" stroke="#1C8C8A" stroke-width="2.6" stroke-linecap="round"/><path d="M10 31c4-2 6 2 10 0s6 2 10 0" fill="none" stroke="#0E2A47" stroke-width="2.2" stroke-linecap="round"/></svg>
-      <span class="logo-word">Coastal<span>OS</span></span>
+      <img class="logo-img" src="assets/brand/coastalos-logo-light.webp" width="373" height="112" alt="CoastalOS">
     </a>
     <ul id="menu">
       <li><a href="platform.html">Platform</a></li>
@@ -310,8 +313,8 @@ html:not(.js) .tl .tl-line i{transform:none}
         <p class="lede" style="margin-top:16px">Independent owners are asked to do it all: reservations, pricing, marketing, staff, guest issues and accounting, often with outdated systems and limited support.</p>
         <p class="ch-cta"><a href="#request-call" class="btn btn-primary">Request a Call</a></p>
       </div>
-      <!-- IMAGE: challenge side photo (swap: assets/home-v2/challenge-hickory-falls.webp) -->
-      <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/challenge-hickory-falls.webp" width="548" height="685" alt="Vine-covered exterior of Hickory Falls Inn, Lake Lure, North Carolina" loading="lazy" decoding="async"></figure>
+      <!-- IMAGE: challenge side photo (client-supplied guest room photo; swap: assets/home-v2/challenge-room.webp) -->
+      <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/challenge-room.webp" width="1024" height="679" alt="Guest room with a dark panelled wall, framed deer and bear prints, and a neatly made bed" loading="lazy" decoding="async"></figure>
     </div>
     
   </div>
@@ -365,17 +368,17 @@ html:not(.js) .tl .tl-line i{transform:none}
   </div>
 </section>
 
-<!-- 6. WHY COASTALOS IS DIFFERENT -->
-<section class="sec" aria-labelledby="why-h">
-  <div class="wrap">
-    <div class="sec-head is-centered" data-anim="fade-up">
-      <h2 id="why-h">Not just software. Not a traditional management company</h2>
-      <p class="lede">Independent owners usually choose between buying software or handing the hotel to a management company. CoastalOS takes a different route</p>
-    </div>
-    <div class="why-grid" data-stagger="fade-up">
-      <article class="card why"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span class="who-label">Software vendor</span><h3>Gives you tools</h3><p>Useful technology, but you and your team still run reservations, pricing, staffing and reporting yourselves.</p></article>
-      <article class="card why"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span><span class="who-label">Traditional management company</span><h3>Handles the day-to-day</h3><p>Operations are run for you, typically under the company’s own standard model and approach.</p></article>
-      <article class="card why ours"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></span><span class="who-label">CoastalOS</span><h3>An operator-built platform</h3><p>Runs the core functions of your hotel centrally, with clear owner reporting, while your brand, your guests and your independence stay yours.</p></article>
+<!-- 6. ABOUT TEASER (facts match about.html; replaces the comparison section) -->
+<section class="sec" aria-labelledby="about-h">
+  <div class="wrap split2 about-teaser">
+    <!-- IMAGE: founder photo, same file as about.html -->
+    <figure class="at-photo"><img src="assets/about/jed-tarr.webp" width="480" height="480" alt="Portrait of Jed Tarr, founder and CEO of Coastal Hospitality Group" loading="lazy" decoding="async"></figure>
+    <div data-anim="fade-up">
+      <h2 id="about-h">Built by hotel owners, for hotel owners</h2>
+      <p class="lede">CoastalOS comes from Coastal Hospitality Group, which has acquired, developed and operated independent hotels since 2012. Founder and CEO Jed Tarr started the company with a small beach motel in San Clemente, California. Today the group operates hotels in North Carolina, Florida and California.</p>
+      <p class="at-line">Not just software, and not a traditional management company: an operating platform built from running our own hotels.</p>
+      <blockquote class="at-quote"><p>“We built CoastalOS around the work we know firsthand: running independent hotels. Our goal is to give owners dependable operational support while preserving what makes each property their own.”</p><p class="at-cite"><b>Jed Tarr</b>, Founder &amp; CEO, Coastal Hospitality Group</p></blockquote>
+      <a href="about.html" class="btn btn-ghost">Read More</a>
     </div>
   </div>
 </section>
@@ -526,7 +529,7 @@ html:not(.js) .tl .tl-line i{transform:none}
   <div class="wrap">
     <div class="foot">
       <div>
-        <span class="logo-word">Coastal<span style="color:#6FD0CC">OS</span></span>
+        <img class="logo-img logo-foot" src="assets/brand/coastalos-logo-light.webp" width="373" height="112" alt="CoastalOS" loading="lazy" decoding="async">
         <p style="margin-top:10px;max-width:34ch">The Operating System for Independent Hotels.</p>
       </div>
       <div><h3 class="foot-h">Explore</h3><ul><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>

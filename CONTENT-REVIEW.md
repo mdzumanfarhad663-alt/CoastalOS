@@ -31,11 +31,13 @@ The line "It doesn't have to be that way." and the list of 8 owner problems were
 | Card "What you keep": Ownership of your property · Your brand and your guests · Oversight through regular reporting · A say in the decisions that matter | Which decisions stay with the owner (budgets, capital spend, hiring, pricing strategy)? |
 | Link: "Explore our services" | — |
 
-## 3. Comparison ("Not just software. Not a traditional management company")
+## 3. About teaser (replaces the comparison section)
+
+The comparison cards were removed from the homepage. The teaser uses only facts already on `about.html` (2012, San Clemente beach motel, North Carolina, Florida and California, Jed's quote and photo). No hotel count is stated, because 14 vs 10 is still open.
 
 | Copy | Question for Jed |
 |---|---|
-| Management company card: title "Handles the day-to-day", text "Operations are run for you, typically under the company's own standard model and approach." | Is this a fair, neutral description of traditional management companies? |
+| "Not just software, and not a traditional management company: an operating platform built from running our own hotels." | Is this a fair way to describe CoastalOS? |
 
 ## 4. How it works (timeline)
 
