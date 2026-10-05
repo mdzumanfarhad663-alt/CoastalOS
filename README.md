@@ -63,7 +63,7 @@ Images (all in `assets/home-v2/`, WebP; temporary, pending the client's own phot
 
 | File | Where | Source |
 |---|---|---|
-| `hero-sea-shells-sunset-800/1280/1879.webp` | Hero background (preloaded, `srcset`) | Sea Shells Beach Club sunset, coastalgetaway.com |
+| `hero-sea-shells-exterior-800/1280/1600.webp` (3:2) | Hero background (preloaded, `srcset`) | Sea Shells Beach Club exterior at dusk, CHG site. The source is only 921px wide, so the 1280/1600 versions are upscaled; replace with a 2400px+ original when the client supplies one. |
 | `challenge-hickory-falls.webp` (4:5) | Challenge side photo | Hickory Falls Inn, CHG site |
 | `solution-island-house.webp` (4:3) | Solution photo | Island House Resort, CHG site |
 | `fit-the-pineola.webp` (4:3) | "Built for" photo | The Pineola, CHG site |
@@ -72,7 +72,7 @@ Images (all in `assets/home-v2/`, WebP; temporary, pending the client's own phot
 
 Hidden sections: "Proven results for independent hotels" (four metric cards) and the testimonial card are in the markup with empty values and the `hidden` attribute. Enable them only when the client supplies verified figures and a real, approved quote: fill the values and remove `hidden`.
 
-Text over photos uses a navy gradient overlay. Worst-case contrast (brightest image pixel under the overlay): hero 8.3:1 white / 6.6:1 body text; final CTA 7.2:1 / 5.7:1. All pass WCAG AA.
+Text over photos uses navy gradient overlays: the hero fades from about 90% navy behind the text on the left to 25% on the right, with a darker band behind the benefit row; the final CTA uses a radial gradient that is darkest behind the centered text. Contrast was measured per text element against the brightest pixel behind it at 1440, 820 and 390px: lowest hero 5.1:1, lowest final CTA 5.2:1. All pass WCAG AA.
 
 Open questions for the client (home-v2):
 - Verified numbers for the results cards (revenue, cost, guest rating, direct bookings), and their source.
