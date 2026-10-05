@@ -296,3 +296,15 @@ Removed: the hero paragraph ("Our central hospitality team runs your hotel’s c
 - Title is now "CoastalOS" in normal mixed case (replaces "CoastalOS Operations"). Subtitle unchanged: "Operating Platform for Independent & Boutique Hotels".
 - Hero photo: Blind Pass Resort pool (temporary, from Coastal Getaway).
 - **Hero photo: need high-res property photo from Jed (min 2400px wide).**
+
+## 22. Homepage hero copy — **Approved by Jed**
+
+| Copy | Status |
+|---|---|
+| H1: "CoastalOS" | Approved by Jed |
+| Subtitle: "Third-Party Hotel Management Services Designed for Independent Hotel Owners" | Approved by Jed |
+| Supporting line: "Plug into our platform and experience the difference" | Approved by Jed |
+| Page title: "CoastalOS — Third-Party Hotel Management for Independent & Boutique Hotels" | Matches the approved copy |
+| Meta description: "CoastalOS provides third-party hotel management services designed for independent hotel owners and boutique hotels, with revenue, reservations, operations and reporting run by one central team." | Matches the approved copy |
+
+**Suggested (not applied):** the homepage About section starts "CoastalOS is an operating platform for independent and boutique hotels." To match the hero, it could read: "CoastalOS is a third-party hotel management operator for independent and boutique hotels." Waiting for approval.
