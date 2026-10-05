@@ -22,7 +22,7 @@
 .photo-sec .kicker{color:#fff}
 .photo-sec .kicker::before{background:var(--teal-2)}
 .hx h1{font-size:clamp(2.3rem,4.6vw,3.9rem);line-height:1.05;letter-spacing:-.03em;max-width:17ch}
-.hx.hx-center h1.hx-title,.hx h1.hx-title{font-size:clamp(3rem,2rem + 4vw,5rem);line-height:1.05;max-width:none;letter-spacing:-.02em}
+.hx.hx-center h1.hx-title,.hx h1.hx-title{font-size:clamp(2.75rem,2rem + 3vw,4.5rem);line-height:1.05;max-width:none;letter-spacing:-.02em}
 @media (min-width:761px){.hx h1.hx-title .ln{display:inline-block}}
 /* Extra shade only behind the hero text block (keeps the rest of the photo unchanged) */
 .hx .wrap{position:relative}
@@ -193,6 +193,14 @@
 @media (max-width:760px){
   .home-v2 .to-top{display:none!important}
 }
+
+/* ===== Hero overlay (lighter): light navy tint, subtle bottom fade, shade only behind the text block ===== */
+.hx.hx-center::before,.hx::before{background:linear-gradient(0deg,rgba(10,32,56,.78) 0,rgba(10,32,56,.4) 110px,rgba(10,32,56,0) 230px),linear-gradient(rgba(14,42,71,.28),rgba(14,42,71,.28))}
+.hx .bg{object-position:78% 55%}
+.hx .wrap::before{top:24%;width:min(1300px,150vw);height:120%;transform:translate(-50%,-50%);background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(10,32,56,.8) 0%,rgba(10,32,56,.62) 45%,rgba(10,32,56,.25) 75%,rgba(10,32,56,0) 100%)}
+@media (max-width:1100px){.hx .wrap::before{background:radial-gradient(ellipse 60% 52% at 50% 50%,rgba(10,32,56,.82) 0%,rgba(10,32,56,.65) 50%,rgba(10,32,56,.25) 78%,rgba(10,32,56,0) 100%)}}
+@media (max-width:760px){.hx.hx-center::before,.hx::before{background:linear-gradient(0deg,rgba(10,32,56,.8) 0,rgba(10,32,56,.4) 120px,rgba(10,32,56,0) 240px),linear-gradient(rgba(14,42,71,.3),rgba(14,42,71,.3))}.hx .bg{object-position:72% 40%}}
+.hx .hx-title,.hx .hx-sub{text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 16px rgba(10,32,56,.45)}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
