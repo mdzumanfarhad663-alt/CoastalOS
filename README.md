@@ -11,10 +11,10 @@ All six agreed pages are built.
 | `index.html` | Home (the former home-v2 concept): hero, challenge, solution, platform hub, how it works, owner visibility, who it's for, hotels, FAQ, final CTA |
 | `index-v1-backup.html` | Previous homepage, kept for reference only (`noindex`, not linked) |
 | `platform.html` | Platform / How It Works: central vs on-site split (hero), operating model with the three principles, guest journey, owner view (links to Services). The comparison toggle lives only on Home and the guest journey only here. |
-| `about.html` | About CoastalOS: three operating models compared (hero), origin with who we work with |
+| `about.html` | About CoastalOS: centred story hero, origin, what we believe, who we work with (pills), the Coastal family, founder note, final CTA |
 | `services.html` | Services: five service groups as cards in one section (the single source for the service list), engagement steps |
-| `contact.html` | Contact: request a property review or a call (form, next steps, FAQ) |
-| `portfolio.html` | Portfolio: the ten current Coastal Hospitality Group hotels (see below) |
+| `contact.html` | Contact: a single Request a Call form (same fields as the homepage form plus an optional message), next steps, the site's only FAQ (6 questions) |
+| `portfolio.html` | Portfolio: centred hero with a stat line counted from the cards, property-type pills, the ten current Coastal Hospitality Group hotels (see below), final CTA |
 | `index-1.html` | Redirect to `index.html` (an earlier homepage lived here; it remains in git history) |
 | `privacy.html` | Privacy Policy (starter text written for this prototype; the client will replace it with reviewed wording) |
 | `home-v2.html` | Redirect to `index.html` (the concept became the homepage; old links keep working) |
@@ -128,8 +128,6 @@ Open questions for the client (home-v2):
 Every item below shows a gold "Sample" tag on the page. Search the HTML for `class="sample"` to find them all.
 - Home, "In their words": three testimonials. Need approved quotes with names, roles and properties.
 - Services, "Is CoastalOS right for your property?": property size (15-100 rooms), locations and ways to work together.
-- Contact FAQ: onboarding time, existing systems, agreements, choosing individual services.
-- Portfolio, case study: a 40-room coastal motel with sample figures (+18%, -9%, 4 → 1). Need an approved case study with real numbers.
 - Image frames on Platform and Services (see Structure).
 
 **Draft homepage copy:** all new or changed homepage copy is listed in `CONTENT-REVIEW.md` for Jed to confirm.
@@ -148,3 +146,10 @@ To publish one, copy a `<details>` block in the homepage FAQ (`.faq-list`) and r
 - `privacy.html` is starter text, linked from every footer and below both forms. Have it reviewed before real data is collected, and update it to name the form service once one is chosen.
 - Connect the forms to a real destination (email, CRM or form service).
 - Testimonials (Home, "In their words"): three quotes supplied by the client, attributed only as Hotel owner, Investor and Partner. Adding names, roles and property (with permission) would make them stronger.
+
+**Shared components for inner pages (About, Portfolio, Contact)**
+- `body.page-calm` gives these pages the homepage motion values (450ms, 14px rise) and accessibility fixes. They use `data-anim` / `data-stagger`; the older `.rv` reveal stays in `site.css` for Services and Platform.
+- The final CTA (`.photo-sec.fcta`) lives in `site.css`. Inner pages use it centred with one "Request a Call" button (`.fcta-inner`); the homepage adds its inline form layout on top.
+- `.pcard-calm` gives property cards a subtle lift on hover, no image zoom.
+- `.sec-head.is-centered` and `.types` (text pills) are shared from `site.css`.
+- On the contact page, `?request=call` scrolls the form into view on single-column layouts.
