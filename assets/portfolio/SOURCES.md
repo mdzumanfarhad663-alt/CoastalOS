@@ -53,3 +53,15 @@ One image per property, cropped 4:3, WebP. Coastal Getaway images downloaded 202
 | `patriots-boutique-motel-800/1280.webp` | Patriots’ Boutique Motel | Coastal Getaway gallery (courtyard) — https://coastalgetaway.com/property/patriots-boutique-motel/ |
 | `sea-shells-beach-club-800.webp` | Sea Shells Beach Club | existing `assets/portfolio/chg-sea-shells.webp` (CHG site) — https://coastalgetaway.com/property/sea-shells-beach-club/ |
 | `the-pineola-800/1280.webp` | The Pineola | Coastal Getaway gallery (aerial) — https://coastalgetaway.com/property/the-pineola-newland-nc/ |
+
+## Services illustrations (`assets/services/illustrations/`)
+
+Supplied by the client (Zuman), 2026-10-05. Transparent artwork, 1536×1024. Each is kept as a full-size PNG master plus 480px and 840px transparent WebP versions used on `services.html`.
+
+| File | Section |
+|---|---|
+| `01-revenue-marketing-distribution` | 01 Revenue, Marketing & Distribution |
+| `02-reservations-guest-support` | 02 Reservations & Guest Support |
+| `03-property-operations-team-support` | 03 Property Operations & Team Support |
+| `04-technology-digital-check-in` | 04 Technology & Digital Check-In |
+| `05-accounting-owner-reporting` | 05 Accounting & Owner Reporting |
