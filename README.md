@@ -54,7 +54,7 @@ Motion: only three effects — scroll reveal (fade up 24px, 600ms, 80ms stagger 
 Sections, in order:
 1. Hero (centered): photo background with an even navy overlay, H1, "Request a Call" + "See How It Works", four benefit items (2×2 on mobile)
 2. The challenge: copy, side photo (desktop), eight challenge cards (4×2 desktop, 2 columns mobile)
-3. Operating relationship: "What CoastalOS handles" (navy) and "What you keep" cards, link to Services
+3. About CoastalOS: split section, Island House pool-deck photo (left) and a short draft description of CoastalOS with a "Read more" link to About (right).
 4. The platform (`#platform`): hub diagram, CoastalOS core plus eight functions; connector lines draw once; 2-column list on mobile
 5. How it works (navy): five steps, horizontal on desktop, vertical on mobile
 7. Built for independent & boutique hotels: property types, "Is My Property a Good Fit?" CTA, photo

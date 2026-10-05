@@ -21,15 +21,15 @@ The headline and buttons are unchanged.
 
 The line "It doesn't have to be that way." and the list of 8 owner problems were removed from the homepage. A "Request a Call" button was added instead. No new copy.
 
-## 2. Operating relationship (new section, after "Running a hotel shouldn't run your life")
+## 2. About CoastalOS (replaces "Operating relationship", after "Running a hotel shouldn't run your life")
 
 | Copy | Question for Jed |
 |---|---|
-| Heading: "We run the core operations. You keep ownership and oversight" | Does this describe the relationship accurately? |
-| Intro: "A clear partnership, with defined responsibilities and regular reporting, so you always know how your property is performing." | How often is reporting sent (weekly, monthly)? Should we say so? |
-| Card "What CoastalOS handles": Revenue management and pricing · Reservations and guest communication · Marketing and direct bookings · On-site team support, scheduling and payroll · Accounting and financial reporting | Is each item part of the standard offer? Anything missing or not offered? |
-| Card "What you keep": Ownership of your property · Your brand and your guests · Oversight through regular reporting · A say in the decisions that matter | Which decisions stay with the owner (budgets, capital spend, hiring, pricing strategy)? |
-| Link: "Explore our services" | — |
+| Heading: "What is CoastalOS" | Alternative: "An operating platform built for independent hotels" |
+| "CoastalOS is an operating platform for independent and boutique hotels. It brings together a central hospitality team, modern technology and proven operating systems to run the core functions of a hotel: revenue, reservations, marketing, staffing support and reporting. Owners get the advantages of a larger hotel company while keeping ownership of their property, their brand and their guests, with regular reporting so they always know how the property is performing." | Is every function listed offered today? Is "proven operating systems" accurate? |
+| Button: "Read more" → About page | — |
+
+**Removed:** the "We run the core operations. You keep ownership and oversight" section, its intro and its two cards ("What CoastalOS handles" / "What you keep"), and the "Explore our services" link.
 
 ## 3. About teaser — removed
 
