@@ -12,7 +12,7 @@ All six agreed pages are built.
 | `index-v1-backup.html` | Previous homepage, kept for reference only (`noindex`, not linked) |
 | `platform.html` | Redirect to `services.html` (the Platform page was merged into Services) |
 | `about.html` | About CoastalOS: centred story hero, origin, what we believe, who we work with (pills), the Coastal family, founder note, final CTA |
-| `services.html` | Services: photo hero, platform hub (cards jump to the groups below), "How a day is split between two teams", the 7-step guest journey, jump nav and the five service groups, the engagement timeline, final CTA |
+| `services.html` | Services: short photo hero, "What we run for your property" overview cards (scroll to each group), the five service groups (identical layout; each task in one group), "What we handle and what stays with your team", hidden "Ways to work with us" (preview with `?preview=engagement`), FAQ/onboarding links, final CTA |
 | `contact.html` | Contact: a single Request a Call form (same fields as the homepage form plus an optional message), next steps, the site's only FAQ (6 questions) |
 | `portfolio.html` | Redirect to `our-work.html` |
 | `our-work.html` | Our Work: centred hero with a stat line, then one full-width row per property (photo, type and location, name, short description, "Visit website ↗"). Rows are generated from `data/properties.json` |

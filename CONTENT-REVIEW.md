@@ -231,3 +231,21 @@ Left out from the source: Blind Pass Resort's TripAdvisor rating and Today Show 
 - Island House Resort Hotel is labelled "Beach hotel", but on Coastal Getaway it is only in the "Coastal suites" category. Is "Beach hotel" right?
 - Hotel count: About says 14 hotels owned and operated; Our Work shows 10. Which number is correct, and should Our Work include past properties?
 - Property websites are taken from the earlier portfolio (CHG site); they could not be re-checked from this environment.
+
+## 16. Services restructure (`services.html`, replaces the copy in sections 12–13)
+
+Status for every item: **Draft — needs Jed's confirmation**.
+
+| Copy | Question for Jed |
+|---|---|
+| Hero: "Our services" / "Five service groups, run by one central team." | — |
+| "What we run for your property" — cards: 01 Revenue, Marketing & Distribution: "More bookings, with more of them coming to you direct" · 02 Reservations & Guest Support: "Every call, email and guest message handled" · 03 Property Operations & Team Support: "Support and structure for your on-site team" · 04 Technology & Digital Check-In: "Modern systems set up and run for you" · 05 Accounting & Owner Reporting: "Clear numbers and back-office handled" | Are the group names right? |
+| New service lines: "Distribution & booking channels — Your rooms listed and kept up to date on the channels where guests book." · "Marketing — Search, social and email that keep your property visible and bring guests back." · "Automation — Confirmations, reminders and routine reports that go out on their own." | Is each one offered? |
+| Renamed items: "On-site team support", "Operating standards & controls", "Accounting & financial reporting", "Payroll & HR administration" | — |
+| How each group connects with the property team: "Your team shares local events and changes on site, so pricing and marketing stay accurate." · "Your on-site team is kept informed about arrivals and guest requests." · "Your team runs the property day to day; we provide the structure and support behind them." · "Your team works in the same systems, with help available when they need it." · "Your team records the day’s activity; we turn it into clear numbers for you." | Does each line match how CoastalOS works? |
+| "What we handle and what stays with your team" (same lists as before, condensed) | — |
+| **Hidden** "Ways to work with us" (preview: services.html?preview=engagement): "Full operating partnership — CoastalOS runs all five service groups, with regular owner reporting and one team accountable for the day-to-day." / "Selected services — Start with the service groups your property needs most, and add more over time." | Are both ways offered? Show the section once confirmed. |
+| Links: "Questions before you call? Read the FAQ" · "See how onboarding works" | — |
+
+**Removed from Services:** the platform hub, the guest journey timeline, the engagement timeline (now a link to the homepage), the jump nav and the group photos.
+

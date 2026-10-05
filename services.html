@@ -10,76 +10,57 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
-/* Jump navigation: sticky pills (header is not sticky) */
-.jump-bar{position:sticky;top:0;z-index:40;background:rgba(246,249,250,.94);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
-.jump-bar ul{list-style:none;margin:0 auto;padding:12px 0;display:flex;gap:8px;justify-content:center;overflow-x:auto;scrollbar-width:none}
-.jump-bar ul::-webkit-scrollbar{display:none}
-.jump-bar a{display:block;white-space:nowrap;text-decoration:none;font:500 .92rem var(--display);color:var(--navy);border:1px solid var(--line);background:var(--paper);border-radius:var(--r-pill);padding:7px 14px;transition:background .2s,border-color .2s}
-.jump-bar a:hover,.jump-bar a.active{border-color:var(--teal);background:var(--teal-soft)}
-.jump-bar a:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
-@media (max-width:1100px){.jump-bar ul{justify-content:flex-start;padding-inline:clamp(16px,4vw,40px);margin:0}.jump-bar .wrap{padding:0;max-width:none}}
-.grp-sec{scroll-margin-top:64px}
-/* Service group: text + list, with a photo or a tinted panel */
-.grp-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
-.grp-split.flip>.grp-photo{order:-1}
+/* Hero: shorter than other photo heroes */
+.svc-hero{min-height:min(56vh,600px);display:grid;align-items:center;padding:clamp(56px,7vw,88px) 0}
+@media (max-width:760px){.svc-hero{min-height:0;padding:64px 0}}
+/* Services at a glance */
+.glance{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--gap)}
+.glance a{display:flex;flex-direction:column;height:100%;padding:22px 20px;text-decoration:none;color:inherit;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:0 1px 2px rgba(14,42,71,.05);transition:border-color .2s,transform var(--dur-fast) var(--ease-out)}
+.glance a:hover{border-color:var(--teal);transform:translateY(-2px)}
+.glance a:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.glance .n{font:600 .9rem var(--display);color:var(--teal-ink)}
+.glance b{display:block;margin-top:8px;font:600 1.05rem/1.3 var(--display);color:var(--navy)}
+.glance p{margin-top:8px;font-size:.93rem;line-height:1.5;color:var(--muted);flex:1}
+.glance .go{margin-top:14px;font:600 .9rem var(--display);color:var(--teal-ink)}
+@media (max-width:1100px){.glance{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:700px){.glance{grid-template-columns:1fr}}
+/* Service groups: identical layout, subtle alternating background */
+.grp-sec{scroll-margin-top:-56px;background:#fff}
+.grp-sec.alt{background:var(--paper)}
+.grp-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(32px,5vw,80px);align-items:start}
 .grp-n{font:600 .95rem var(--display);color:var(--teal-ink)}
-.grp-text h2{margin-top:6px}
-.grp-text .lede{margin-top:14px;max-width:46ch}
+.grp-head h2{margin-top:6px;font-size:clamp(1.7rem,2.6vw,2.2rem)}
+.grp-head .lede{margin-top:14px}
 .grp-tag{display:inline-block;margin-top:16px;font:500 .85rem var(--display);color:var(--navy);background:var(--sun-soft);border-radius:var(--r-pill);padding:4px 12px}
-.svc-list{list-style:none;margin:24px 0 0;padding:0}
-.svc-list li{padding:14px 0;border-top:1px solid var(--line)}
+.svc-list{list-style:none;margin:0;padding:0}
+.svc-list li{padding:18px 0;border-top:1px solid var(--line)}
 .svc-list li:last-child{border-bottom:1px solid var(--line)}
-.svc-list b{display:block;font:600 1.05rem var(--display);color:var(--navy)}
-.svc-list span{display:block;margin-top:3px;color:var(--muted);font-size:.95rem;line-height:1.5}
-.grp-photo{margin:0}
-.grp-photo img{width:100%;height:auto;display:block;border-radius:var(--r-lg);border:1px solid var(--line);box-shadow:var(--shadow)}
-/* Groups without a photo: a tinted panel keeps the rhythm */
-.grp-panel{background:var(--teal-soft);border-radius:var(--r-lg);padding:clamp(28px,4vw,48px)}
-.grp-panel.navy{background:#EAF0F5}
-.grp-panel .grp-split{align-items:start}
-.grp-panel .svc-list{margin-top:0}
-@media (max-width:900px){.grp-split{grid-template-columns:1fr}.grp-split>.grp-photo,.grp-split.flip>.grp-photo{order:-1}}
-.faq-link{text-align:center;margin-top:clamp(28px,4vw,40px);color:#DCE6EF}
-.faq-link a{color:#fff}
-/* Larger hub */
-.hub-lg{width:min(100%,1100px)}
-@media (min-width:1001px){.hub-lg .hub-item{width:250px;height:70px}.hub-lg .hub-card{font-size:.95rem}}
-@media (max-width:1000px) and (min-width:761px){.hub-lg .hub-item{width:212px}}
-/* Two teams */
-.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);max-width:1040px;margin:0 auto}
-.team{padding:clamp(24px,3vw,36px)}
-.team h3{font-size:1.3rem}
-.team p.team-who{margin-top:4px;font-size:.92rem;color:var(--muted)}
-.team ul{list-style:none;margin:18px 0 0;padding:0}
-.team li{padding:12px 0;border-top:1px solid var(--line)}
-.team li b{display:block;font:600 1rem var(--display);color:var(--navy)}
-.team li span{display:block;margin-top:2px;font-size:.93rem;color:var(--muted)}
-.team.central{background:var(--navy);border-color:var(--navy);box-shadow:0 10px 24px -16px rgba(14,42,71,.4)}
+.svc-list b{display:block;font:600 1.08rem var(--display);color:var(--navy)}
+.svc-list span{display:block;margin-top:4px;color:var(--muted);line-height:1.55}
+.grp-link{margin-top:18px;font-size:.95rem;color:var(--muted)}
+@media (max-width:900px){.grp-layout{grid-template-columns:1fr}}
+/* What we handle / what stays with your team (condensed) */
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);max-width:980px;margin:0 auto}
+.team{padding:clamp(22px,2.6vw,30px)}
+.team h3{font-size:1.2rem}
+.team ul{list-style:none;margin:12px 0 0;padding:0}
+.team li{padding:9px 0;border-top:1px solid var(--line)}
+.team li b{display:block;font:600 .98rem var(--display);color:var(--navy)}
+.team li span{display:block;font-size:.9rem;color:var(--muted)}
+.team.central{background:var(--navy);border-color:var(--navy)}
 .team.central h3,.team.central li b{color:#fff}
-.team.central p.team-who,.team.central li span{color:#B9CADB}
+.team.central li span{color:#B9CADB}
 .team.central li{border-top-color:rgba(255,255,255,.14)}
-@media (max-width:860px){.split-grid{grid-template-columns:1fr}}
-/* Guest journey: seven steps on the shared timeline */
-.tl.tl-7{grid-template-columns:repeat(7,1fr)}
-.tl.tl-7 li{padding:0 6px}
-.tl.tl-7 b{font-size:1rem}
-.tl.tl-7 small{font-size:.88rem}
-.tl-who{display:inline-block;margin-top:10px;font:600 .74rem var(--display);letter-spacing:.02em;border-radius:var(--r-pill);padding:3px 10px;white-space:nowrap}
-.tl-who.w-central{background:var(--teal-2);color:var(--navy)}
-.tl-who.w-site{background:var(--sun-soft);color:var(--navy)}
-.tl-who.w-both{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
-@media (max-width:1100px){
-  .tl.tl-7{grid-template-columns:1fr}
-  .tl.tl-7 li{display:grid;grid-template-columns:48px 1fr;column-gap:18px;text-align:left;padding:0 0 26px}
-  .tl.tl-7 li:last-child{padding-bottom:0}
-  .tl.tl-7 .dot{grid-row:span 3;margin:0}
-  .tl.tl-7 b{align-self:end;padding-top:2px}
-  .tl.tl-7 small{margin:2px 0 0;max-width:none}
-  .tl.tl-7 .tl-who{justify-self:start;margin-top:6px}
-  .tl.tl-7 .tl-line{top:48px;bottom:0;left:23px;width:2px;height:auto}
-  .tl.tl-7 .tl-line i{transform:scaleY(var(--f,0));transform-origin:50% 0}
-}
-.tl-wrap{max-width:1160px;margin:0 auto}
+@media (max-width:820px){.split-grid{grid-template-columns:1fr}}
+/* Ways to work with us (hidden until confirmed) */
+.ways-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);max-width:980px;margin:0 auto}
+.way{padding:clamp(24px,3vw,34px)}
+.way h3{font-size:1.25rem}
+.way p{margin-top:10px;color:var(--muted)}
+.way.ours{background:var(--navy);border-color:var(--navy)}
+.way.ours h3{color:#fff}.way.ours p{color:#C6D4E1}
+@media (max-width:820px){.ways-grid{grid-template-columns:1fr}}
+.more-links{text-align:center;padding:clamp(32px,4vw,48px) 0;display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:center}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -104,201 +85,169 @@
 
 <main id="main">
 
-<!-- HERO: centred over a property photo (temporary image, pending Jed's approval) -->
-<section class="photo-sec photo-hero" data-mcta-after aria-labelledby="svc-h">
+<!-- HERO (temporary image, pending Jed's approval) -->
+<section class="photo-sec photo-hero svc-hero" data-mcta-after aria-labelledby="svc-h">
   <img class="bg" src="assets/services/hero-pool-courtyard-1600.webp" srcset="assets/services/hero-pool-courtyard-800.webp 800w, assets/services/hero-pool-courtyard-1280.webp 1280w, assets/services/hero-pool-courtyard-1600.webp 1600w" sizes="100vw" width="1600" height="900" alt="" fetchpriority="high" decoding="async">
   <div class="wrap photo-hero-inner" data-anim="fade-up">
-    <h1 id="svc-h">Everything CoastalOS can run for your property</h1>
-    <p class="lede">Five service groups, each run by our central team. See exactly what comes off your team’s plate.</p>
+    <h1 id="svc-h">Our services</h1>
+    <p class="lede">Five service groups, run by one central team.</p>
     <div class="hx-ctas"><a href="contact.html?request=call" class="btn btn-light">Request a Call</a></div>
   </div>
 </section>
 
-<!-- PLATFORM HUB (shared component; each card jumps to its service group below) -->
-<section class="sec hub-sec" aria-labelledby="hub-h">
+<!-- SERVICES AT A GLANCE: each card scrolls to its group -->
+<section class="sec" aria-labelledby="glance-h">
   <div class="wrap">
     <div class="sec-head is-centered" data-anim="fade-up">
-      <h2 id="hub-h">One platform, every core function</h2>
-      <p class="lede">Each function connects to the same central team and systems. Select one to jump to the services behind it.</p>
+      <h2 id="glance-h">What we run for your property</h2>
     </div>
-    <div class="hub hub-lg" id="hub">
-      <svg class="lines" data-anim="draw" data-delay="250" viewBox="0 0 960 600" aria-hidden="true"><line x1="480" y1="300" x2="480" y2="66"/><line x1="480" y1="300" x2="724" y2="135"/><line x1="480" y1="300" x2="826" y2="300"/><line x1="480" y1="300" x2="724" y2="465"/><line x1="480" y1="300" x2="480" y2="534"/><line x1="480" y1="300" x2="236" y2="465"/><line x1="480" y1="300" x2="134" y2="300"/><line x1="480" y1="300" x2="236" y2="135"/></svg>
-      <div class="hub-core" data-anim="scale-in"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M9 21a11 11 0 0 1 22 0" fill="none" stroke="#C9932F" stroke-width="2.4" stroke-linecap="round"/><path d="M5 26c5-3 9 3 15 0s10 3 15 0" fill="none" stroke="#6FD0CC" stroke-width="2.4" stroke-linecap="round"/><path d="M10 31c4-2 6 2 10 0s6 2 10 0" fill="none" stroke="#6FD0CC" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/></svg><span>CoastalOS</span></div>
-      <ul class="hub-list" aria-label="Functions run on the CoastalOS platform"><li class="hub-item" style="--x:50.0%;--y:11.0%;--ox:-0px;--oy:33px"><a class="hub-card" href="#revenue" data-anim="scale-in" data-delay="300"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><span>Revenue Management</span></a></li><li class="hub-item" style="--x:75.5%;--y:22.4%;--ox:-49px;--oy:33px"><a class="hub-card" href="#revenue" data-anim="scale-in" data-delay="300"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l5 4V6L7 10H4zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><span>Marketing & Direct Bookings</span></a></li><li class="hub-item" style="--x:86.0%;--y:50.0%;--ox:-116px;--oy:-0px"><a class="hub-card" aria-label="On-Site Operations &amp; Staff Management" href="#operations" data-anim="scale-in" data-delay="300"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/></svg></span><span><span class="lbl-full">On-Site Operations &amp; Staff Management</span><span class="lbl-short" aria-hidden="true">Operations &amp; Staffing</span></span></a></li><li class="hub-item" style="--x:75.5%;--y:77.6%;--ox:-49px;--oy:-33px"><a class="hub-card" href="#reporting" data-anim="scale-in" data-delay="300"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><span>Owner Reporting & Oversight</span></a></li><li class="hub-item" style="--x:50.0%;--y:89.0%;--ox:-0px;--oy:-33px"><a class="hub-card" aria-label="Accounting &amp; Financial Reporting" href="#reporting" data-anim="scale-in" data-delay="300"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><span><span class="lbl-full">Accounting &amp; Financial Reporting</span><span class="lbl-short" aria-hidden="true">Accounting &amp; Finance</span></span></a></li><li class="hub-item" style="--x:24.5%;--y:77.6%;--ox:49px;--oy:-33px"><a class="hub-card" href="#technology" data-anim="scale-in" data-delay="300"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span>Technology & Systems</span></a></li><li class="hub-item" style="--x:14.0%;--y:50.0%;--ox:116px;--oy:-0px"><a class="hub-card" href="#technology" data-anim="scale-in" data-delay="300"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg></span><span>Digital Check&#8209;In</span></a></li><li class="hub-item" style="--x:24.5%;--y:22.4%;--ox:49px;--oy:33px"><a class="hub-card" aria-label="Reservations &amp; Guest Support" href="#reservations" data-anim="scale-in" data-delay="300"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"/></svg></span><span><span class="lbl-full">Reservations &amp; Guest Support</span><span class="lbl-short" aria-hidden="true">Reservations &amp; Guests</span></span></a></li></ul>
+    <ul class="glance" data-stagger="fade-up">
+      <li><a href="#revenue"><span class="n">01</span><b>Revenue, Marketing &amp; Distribution</b><p>More bookings, with more of them coming to you direct</p><span class="go">See what’s included <span aria-hidden="true">↓</span></span></a></li>
+      <li><a href="#reservations"><span class="n">02</span><b>Reservations &amp; Guest Support</b><p>Every call, email and guest message handled</p><span class="go">See what’s included <span aria-hidden="true">↓</span></span></a></li>
+      <li><a href="#operations"><span class="n">03</span><b>Property Operations &amp; Team Support</b><p>Support and structure for your on-site team</p><span class="go">See what’s included <span aria-hidden="true">↓</span></span></a></li>
+      <li><a href="#technology"><span class="n">04</span><b>Technology &amp; Digital Check-In</b><p>Modern systems set up and run for you</p><span class="go">See what’s included <span aria-hidden="true">↓</span></span></a></li>
+      <li><a href="#reporting"><span class="n">05</span><b>Accounting &amp; Owner Reporting</b><p>Clear numbers and back-office handled</p><span class="go">See what’s included <span aria-hidden="true">↓</span></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- THE FIVE SERVICE GROUPS (single source for the service list; each task appears once) -->
+<section class="sec grp-sec alt" id="revenue" aria-labelledby="revenue-h">
+  <div class="wrap grp-layout">
+    <div class="grp-head" data-anim="fade-up">
+      <p class="grp-n">01</p>
+      <h2 id="revenue-h">Revenue, Marketing &amp; Distribution</h2>
+      <p class="lede">Pricing, marketing and channels managed together, with a steady focus on bookings that come to you direct.</p>
+      <p class="grp-tag">Grow revenue</p>
+    </div>
+    <div data-anim="fade-up">
+      <ul class="svc-list" aria-label="What CoastalOS handles: Revenue, Marketing &amp; Distribution">
+          <li><b>Revenue management</b><span>Pricing and inventory decisions across every channel your property sells on.</span></li>
+          <li><b>Distribution &amp; booking channels</b><span>Your rooms listed and kept up to date on the channels where guests book.</span></li>
+          <li><b>Marketing</b><span>Search, social and email that keep your property visible and bring guests back.</span></li>
+          <li><b>Direct booking</b><span>Reservations through your own branded website, so more guests book with you directly.</span></li>
+      </ul>
+      <p class="grp-link">Your team shares local events and changes on site, so pricing and marketing stay accurate.</p>
+    </div>
+  </div>
+</section>
+<section class="sec grp-sec" id="reservations" aria-labelledby="reservations-h">
+  <div class="wrap grp-layout">
+    <div class="grp-head" data-anim="fade-up">
+      <p class="grp-n">02</p>
+      <h2 id="reservations-h">Reservations &amp; Guest Support</h2>
+      <p class="lede">A central team that looks after guests before, during and after their stay.</p>
+      <p class="grp-tag">Modernize the guest experience</p>
+    </div>
+    <div data-anim="fade-up">
+      <ul class="svc-list" aria-label="What CoastalOS handles: Reservations &amp; Guest Support">
+          <li><b>Central reservations</b><span>Calls, emails and booking requests handled centrally, in line with your property’s policies.</span></li>
+          <li><b>Guest communication</b><span>Clear, timely messages before arrival and during the stay, so guests know what to expect.</span></li>
+          <li><b>Guest support</b><span>Responsive help when guests need it, with your on-site team kept informed.</span></li>
+      </ul>
+      <p class="grp-link">Your on-site team is kept informed about arrivals and guest requests.</p>
+    </div>
+  </div>
+</section>
+<section class="sec grp-sec alt" id="operations" aria-labelledby="operations-h">
+  <div class="wrap grp-layout">
+    <div class="grp-head" data-anim="fade-up">
+      <p class="grp-n">03</p>
+      <h2 id="operations-h">Property Operations &amp; Team Support</h2>
+      <p class="lede">Your on-site team stays focused on guests, with the structure behind them handled centrally.</p>
+      <p class="grp-tag">Reduce operating costs</p>
+    </div>
+    <div data-anim="fade-up">
+      <ul class="svc-list" aria-label="What CoastalOS handles: Property Operations &amp; Team Support">
+          <li><b>On-site team support</b><span>Support and oversight for the people who run your property day to day.</span></li>
+          <li><b>Hiring, scheduling &amp; training</b><span>Help finding the right people, planning schedules and bringing new team members up to speed.</span></li>
+          <li><b>Operating standards &amp; controls</b><span>Consistent standards and checks that keep the property running the way it should.</span></li>
+      </ul>
+      <p class="grp-link">Your team runs the property day to day; we provide the structure and support behind them.</p>
+    </div>
+  </div>
+</section>
+<section class="sec grp-sec" id="technology" aria-labelledby="technology-h">
+  <div class="wrap grp-layout">
+    <div class="grp-head" data-anim="fade-up">
+      <p class="grp-n">04</p>
+      <h2 id="technology-h">Technology &amp; Digital Check-In</h2>
+      <p class="lede">Modern hotel technology set up and run for you, so routine work happens in the background.</p>
+      <p class="grp-tag">Reduce operating costs</p>
+    </div>
+    <div data-anim="fade-up">
+      <ul class="svc-list" aria-label="What CoastalOS handles: Technology &amp; Digital Check-In">
+          <li><b>Property management technology</b><span>The core systems a hotel runs on, set up and managed as part of the platform.</span></li>
+          <li><b>Automation</b><span>Confirmations, reminders and routine reports that go out on their own.</span></li>
+          <li><b>Digital &amp; self check-in</b><span>Convenient, contactless arrival for guests who want it, with help available when they need it.</span></li>
+      </ul>
+      <p class="grp-link">Your team works in the same systems, with help available when they need it.</p>
+    </div>
+  </div>
+</section>
+<section class="sec grp-sec alt" id="reporting" aria-labelledby="reporting-h">
+  <div class="wrap grp-layout">
+    <div class="grp-head" data-anim="fade-up">
+      <p class="grp-n">05</p>
+      <h2 id="reporting-h">Accounting &amp; Owner Reporting</h2>
+      <p class="lede">Clear numbers and back-office support, so owners always know how the property is performing.</p>
+      <p class="grp-tag">Give owners visibility</p>
+    </div>
+    <div data-anim="fade-up">
+      <ul class="svc-list" aria-label="What CoastalOS handles: Accounting &amp; Owner Reporting">
+          <li><b>Accounting &amp; financial reporting</b><span>Accounting and financial statements that give a clear picture of the property.</span></li>
+          <li><b>Payroll &amp; HR administration</b><span>Payroll and HR administration coordinated centrally, so it is handled consistently.</span></li>
+          <li><b>Owner reporting</b><span>Reporting on revenue, occupancy, rates, expenses and labor, all in one place.</span></li>
+      </ul>
+      <p class="grp-link">Your team records the day’s activity; we turn it into clear numbers for you.</p>
     </div>
   </div>
 </section>
 
-<!-- TWO TEAMS: the day-to-day split -->
-<section class="sec sec-white" aria-labelledby="split-h">
+<!-- WHAT WE HANDLE / WHAT STAYS WITH YOUR TEAM -->
+<section class="sec" aria-labelledby="split-h">
   <div class="wrap">
     <div class="sec-head is-centered" data-anim="fade-up">
-      <h2 id="split-h">How a day is split between two teams</h2>
-      <p class="lede">The work that repeats at every property goes to the central team. The work that needs a person on site stays with yours.</p>
+      <h2 id="split-h">What we handle and what stays with your team</h2>
     </div>
     <div class="split-grid" data-stagger="fade-up">
-      <div class="card team central">
-        <h3>Handled centrally</h3><p class="team-who">CoastalOS team</p>
-        <ul>
+      <div class="card team central"><h3>Handled centrally</h3><ul>
           <li><b>Revenue management, pricing and distribution</b><span>Rate changes and channel updates</span></li>
           <li><b>Marketing</b><span>Campaigns and your direct booking website</span></li>
           <li><b>Reservations and guest communication</b><span>Booking questions, confirmations and messages before arrival</span></li>
           <li><b>Payroll and HR administration</b><span>Payroll runs and HR paperwork</span></li>
           <li><b>Accounting and financial reporting</b><span>Bookkeeping and financial statements</span></li>
           <li><b>Owner reporting</b><span>Regular reports on how the property is performing</span></li>
-        </ul>
-      </div>
-      <div class="card team">
-        <h3>Stays at your property</h3><p class="team-who">Your team</p>
-        <ul>
+        </ul></div>
+      <div class="card team"><h3>Stays at your property</h3><ul>
           <li><b>Welcoming guests</b><span>Arrivals, departures and questions in person</span></li>
           <li><b>Housekeeping and room standards</b><span>Rooms that are clean, ready and to standard</span></li>
           <li><b>Maintenance</b><span>Repairs and upkeep around the property</span></li>
           <li><b>Solving problems in person</b><span>Whatever a guest needs on the spot</span></li>
           <li><b>Local knowledge</b><span>The recommendations only someone local can give</span></li>
-        </ul>
-      </div>
+        </ul></div>
     </div>
   </div>
 </section>
 
-<!-- GUEST JOURNEY (shared scroll-linked timeline) -->
-<section class="sec navy-band" aria-labelledby="journey-h">
+<!-- WAYS TO WORK WITH US: HIDDEN until Jed confirms. Preview: services.html?preview=engagement -->
+<section class="sec sec-white" id="ways" hidden aria-labelledby="ways-h">
   <div class="wrap">
     <div class="sec-head is-centered" data-anim="fade-up">
-      <h2 id="journey-h">How a stay moves through the platform</h2>
-      <p class="lede">Each step shows who looks after it: the central team, your team on site, or both working together.</p>
+      <h2 id="ways-h">Ways to work with us</h2>
     </div>
-    <div class="tl-wrap">
-      <ol class="tl tl-7" id="journey-tl" aria-label="Guest journey steps and who handles each one">
-        <li><span class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Booking</b><small>Direct or any channel</small><span class="tl-who w-central">Central team</span></li>
-        <li><span class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13a5 5 0 0 1 10 0M4 17c3-2 5 2 8 0s5 2 8 0"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>CoastalOS</b><small>Managed centrally</small><span class="tl-who w-central">Central team</span></li>
-        <li><span class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Guest communication</b><small>Before arrival</small><span class="tl-who w-central">Central team</span></li>
-        <li><span class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Digital check-in</b><small>Contactless arrival</small><span class="tl-who w-both">Both</span></li>
-        <li><span class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Property operations</b><small>On-site team</small><span class="tl-who w-site">On site</span></li>
-        <li><span class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Review</b><small>Feedback captured</small><span class="tl-who w-both">Both</span></li>
-        <li><span class="dot" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></span><b>Repeat guest</b><small>Back direct</small><span class="tl-who w-both">Both</span></li>
-      </ol>
+    <div class="ways-grid" data-stagger="fade-up">
+      <div class="card way ours"><h3>Full operating partnership</h3><p>CoastalOS runs all five service groups, with regular owner reporting and one team accountable for the day-to-day.</p></div>
+      <div class="card way"><h3>Selected services</h3><p>Start with the service groups your property needs most, and add more over time.</p></div>
     </div>
   </div>
 </section>
+<script>if(/[?&]preview=engagement(&|$)/.test(location.search))document.getElementById('ways').hidden=false</script>
 
-<!-- JUMP NAV: sticky on desktop, scrolls sideways on mobile -->
-<nav class="jump-bar" aria-label="Service groups">
-  <div class="wrap">
-    <ul>
-      <li><a href="#revenue">Revenue &amp; Distribution</a></li>
-      <li><a href="#reservations">Reservations &amp; Guest Support</a></li>
-      <li><a href="#operations">Property Operations</a></li>
-      <li><a href="#technology">Technology &amp; Automation</a></li>
-      <li><a href="#reporting">Financial &amp; Owner Reporting</a></li>
-    </ul>
-  </div>
-</nav>
-
-<!-- SERVICE GROUPS (single source for the service list) -->
-<section class="sec sec-white grp-sec" id="revenue" aria-labelledby="revenue-h">
-  <div class="wrap grp-split">
-      <div class="grp-text" data-anim="fade-up">
-        <p class="grp-n">01</p>
-        <h2 id="revenue-h">Revenue &amp; Distribution</h2>
-        <p class="lede">Pricing, marketing and channels managed together, with a steady focus on bookings that come to you direct.</p>
-        <p class="grp-tag">Grow revenue</p>
-        <ul class="svc-list" aria-label="Revenue &amp; Distribution services">
-          <li><b>Revenue management</b><span>Data-driven pricing and inventory decisions across every channel your property sells on.</span></li>
-          <li><b>Marketing &amp; distribution</b><span>Search, social, email and channel management that keeps your property visible and brings guests back.</span></li>
-          <li><b>Direct booking</b><span>Reservations through your own branded website, so more guests book with you directly.</span></li>
-        </ul>
-      </div>
-      <figure class="grp-photo"><img src="assets/services/revenue-geneva-grounds-1024.webp" srcset="assets/services/revenue-geneva-grounds-800.webp 800w, assets/services/revenue-geneva-grounds-1024.webp 1024w" sizes="(max-width:900px) 100vw, 560px" width="1024" height="768" alt="Lawn, picnic tables and lodging under tall trees with a mountain behind" loading="lazy" decoding="async"></figure>
-  </div>
-</section>
-<section class="sec  grp-sec" id="reservations" aria-labelledby="reservations-h">
-  <div class="wrap grp-split flip">
-      <div class="grp-text" data-anim="fade-up">
-        <p class="grp-n">02</p>
-        <h2 id="reservations-h">Reservations &amp; Guest Support</h2>
-        <p class="lede">A central team that looks after guests before, during and after their stay.</p>
-        <p class="grp-tag">Modernize the guest experience</p>
-        <ul class="svc-list" aria-label="Reservations &amp; Guest Support services">
-          <li><b>Central reservations</b><span>Calls, emails and booking requests handled centrally, in line with your property’s policies.</span></li>
-          <li><b>Guest communication</b><span>Clear, timely messages before arrival and during the stay, so guests know what to expect.</span></li>
-          <li><b>Guest support</b><span>Responsive help when guests need it, with your on-site team kept informed.</span></li>
-        </ul>
-      </div>
-      <figure class="grp-photo"><img src="assets/services/reservations-sea-shells-sunset-1280.webp" srcset="assets/services/reservations-sea-shells-sunset-800.webp 800w, assets/services/reservations-sea-shells-sunset-1280.webp 1280w" sizes="(max-width:900px) 100vw, 560px" width="1280" height="960" alt="Sunset over the ocean seen from a beachfront hotel balcony, with palm trees and the pool deck below" loading="lazy" decoding="async"></figure>
-  </div>
-</section>
-<section class="sec sec-white grp-sec" id="operations" aria-labelledby="operations-h">
-  <div class="wrap grp-split">
-      <div class="grp-text" data-anim="fade-up">
-        <p class="grp-n">03</p>
-        <h2 id="operations-h">Property Operations</h2>
-        <p class="lede">Your on-site team stays focused on guests, with the structure behind them handled centrally.</p>
-        <p class="grp-tag">Reduce operating costs</p>
-        <ul class="svc-list" aria-label="Property Operations services">
-          <li><b>On-site team management</b><span>Support and oversight for the people who run your property day to day.</span></li>
-          <li><b>Hiring, scheduling &amp; training</b><span>Help finding the right people, planning schedules and bringing new team members up to speed.</span></li>
-          <li><b>Operational controls</b><span>Consistent standards and checks that keep the property running the way it should.</span></li>
-        </ul>
-      </div>
-      <figure class="grp-photo"><img src="assets/services/operations-bluebird-lawn-1024.webp" srcset="assets/services/operations-bluebird-lawn-800.webp 800w, assets/services/operations-bluebird-lawn-1024.webp 1024w" sizes="(max-width:900px) 100vw, 560px" width="1024" height="768" alt="Lawn with loungers in front of a single-storey motel, with pine-covered mountains behind" loading="lazy" decoding="async"></figure>
-  </div>
-</section>
-<section class="sec  grp-sec" id="technology" aria-labelledby="technology-h">
-  <div class="wrap">
-    <div class="grp-panel">
-      <div class="grp-split">
-      <div class="grp-text" data-anim="fade-up">
-        <p class="grp-n">04</p>
-        <h2 id="technology-h">Technology &amp; Automation</h2>
-        <p class="lede">Modern hotel technology set up and run for you, so routine work happens in the background.</p>
-        <p class="grp-tag">Reduce operating costs</p>
-      </div>
-        <ul class="svc-list" aria-label="Technology &amp; Automation services" data-anim="fade-up">
-          <li><b>Property management technology</b><span>The core systems a hotel runs on, set up and managed as part of the platform.</span></li>
-          <li><b>Digital &amp; self check-in</b><span>Convenient, contactless arrival for guests who want it, with help available when they need it.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-<section class="sec sec-white grp-sec" id="reporting" aria-labelledby="reporting-h">
-  <div class="wrap">
-    <div class="grp-panel navy">
-      <div class="grp-split">
-      <div class="grp-text" data-anim="fade-up">
-        <p class="grp-n">05</p>
-        <h2 id="reporting-h">Financial &amp; Owner Reporting</h2>
-        <p class="lede">Clear numbers and back-office support, so owners always know how the property is performing.</p>
-        <p class="grp-tag">Give owners visibility</p>
-      </div>
-        <ul class="svc-list" aria-label="Financial &amp; Owner Reporting services" data-anim="fade-up">
-          <li><b>Payroll &amp; HR</b><span>Payroll and HR administration coordinated centrally, so it is handled consistently.</span></li>
-          <li><b>Financial reporting</b><span>Accounting and financial statements that give a clear picture of the property.</span></li>
-          <li><b>Owner reporting</b><span>Reporting on revenue, occupancy, rates, expenses and labor, all in one place.</span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW ENGAGEMENT WORKS (same steps and wording as the homepage) -->
-<section class="sec navy-band" aria-labelledby="engage-h">
-  <div class="wrap">
-    <div class="sec-head is-centered" data-anim="fade-up">
-      <h2 id="engage-h">How engagement works</h2>
-    </div>
-    <ol class="tl" id="tl" aria-label="Engagement steps">
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Discovery</b><small>We learn your goals and review how your property runs today.</small></li>
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Onboarding</b><small>We set up systems, reporting and team processes for a smooth transition.</small></li>
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13a5 5 0 0 1 10 0M4 17c3-2 5 2 8 0s5 2 8 0"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Management</b><small>Our central team runs the core functions day to day.</small></li>
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><span class="tl-line" aria-hidden="true"><i></i></span><b>Reporting &amp; review</b><small>You receive regular reporting and review performance with us.</small></li>
-        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></span><b>Ongoing partnership</b><small>We keep refining operations as your property and goals evolve.</small></li>
-      </ol>
-    <p class="faq-link">Questions before you call? <a class="text-link" href="contact.html#faq-h">Read the FAQ</a></p>
-  </div>
-</section>
+<div class="wrap more-links">
+  <p>Questions before you call? <a class="text-link" href="contact.html#faq-h">Read the FAQ</a></p>
+  <p><a class="text-link" href="index.html#how-it-works">See how onboarding works</a></p>
+</div>
 
 <!-- FINAL CTA (shared .fcta styles in site.css) -->
 <section class="photo-sec fcta" data-mcta-hide aria-labelledby="cta-h">
