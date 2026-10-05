@@ -120,7 +120,7 @@ Status for every item below: **Draft — needs Jed's confirmation**, unless mark
 
 **Removed:** the "Three ways to run an independent hotel" comparison card (the comparison now lives on the homepage only).
 
-## 10. Portfolio (`portfolio.html`)
+## 10. Portfolio (`portfolio.html`) — replaced by Our Work (section 15); kept for reference
 
 | Copy | Question for Jed |
 |---|---|
@@ -154,7 +154,7 @@ The three existing FAQ answers (software, property size, own brand) are unchange
 
 **Contact details to confirm** (temporary, taken from Coastal Hospitality Group; already in every page footer): (877) 350-0053 · info@coastalhospitalitygroup.com · 711 S El Camino Real, San Clemente, CA 92672. Should CoastalOS have its own phone, email and address?
 
-## 12. Platform (`platform.html`)
+## 12. Platform (`platform.html`) — merged into Services; the hub, "two teams" and guest journey copy below now appear on `services.html`. "What owners receive" was dropped
 
 | Copy | Question for Jed |
 |---|---|
@@ -197,3 +197,37 @@ The five groups and 14 services are unchanged (only the icons were removed).
 
 No social icons: no CoastalOS social accounts are known. Add them if they exist.
 
+## 15. Our Work (`our-work.html`)
+
+Status for every item: **Draft — needs Jed's confirmation**. Property facts come from https://coastalgetaway.com/property-gateways/ and each property page (checked 2026-10-05). Descriptions are trimmed from the source; ratings, awards and "best" claims on the source were left out.
+
+| Copy | Question for Jed |
+|---|---|
+| Hero: "Our work" / "Hotels owned and operated by Coastal Hospitality Group, the team behind CoastalOS." | Is this the right framing? |
+| Stat line: "10 properties · 3 states" (counted from the data) | — |
+| Button on each row: "Visit website ↗" | — |
+
+| Property | Label shown | Description shown (draft) |
+|---|---|---|
+| Blind Pass Resort | Beach hotel · St Pete Beach, Florida | A 25-room boutique hotel a short walk from the Gulf waters of St. Pete Beach. Guests have a temperature-controlled pool with courtyard fountains, free Wi-Fi and parking, and a free shuttle around the island and its beaches. |
+| Bluebird Day Inn & Suites | Mountain escape · South Lake Tahoe, California | Set across the street from Lake Tahoe, within walking distance of the local beaches and five minutes from the base of Heavenly Ski Mountain. Guests get free wireless internet, fresh coffee and views of the trees and mountains. |
+| Coastal Suites | Beach hotel · Wilmington, North Carolina | A hotel off Highway 17, near Historic Downtown Wilmington and the University of North Carolina Wilmington. Wrightsville Beach, Carolina Beach, Kure Beach and Fort Fisher are all nearby. |
+| Geneva Riverside Hotel & Tiki Bar | Mountain escape · Lake Lure, North Carolina | A riverside lodge in Lake Lure with an onsite Tiki Bar & Grill. The lodge is surrounded by flowing creeks and mature trees, a short distance from the lake, and guests can fish for bass and trout on the property. |
+| Hickory Falls Inn | Mountain escape · Chimney Rock, North Carolina | — (none on the source; row shows label, name and button only) |
+| Island House Resort Hotel | Beach hotel · North Redington Beach, Florida | A relaxed boutique beach hotel just across Gulf Boulevard from the white-sand beach. Guests have spacious accommodations, a large outdoor pool, a furnished sundeck, and easy access to St. Pete Beach and Clearwater. |
+| Malibu Resort Motel | Beach hotel · St Pete Beach, Florida | A family-oriented, retro boutique motel with a heated pool, a grassy lawn and a large sun deck. The beach and Gulf waters are right across the street, with local shops within walking distance. |
+| Patriots’ Boutique Motel | Beach hotel · San Clemente, California | — (none on the source; row shows label, name and button only) |
+| Sea Shells Beach Club | Beach hotel · Daytona Beach, Florida | An oceanfront resort on Daytona Beach, with stays by the night, by the week or longer. The pier, Ocean Walk and beach activities are within walking distance, and rooms range from studios and efficiencies to one- and two-bedroom suites. |
+| The Pineola | Mountain escape · Newland, North Carolina | — (none on the source; row shows label, name and button only) |
+
+Left out from the source: Blind Pass Resort's TripAdvisor rating and Today Show mention; Sea Shells Beach Club's "best oceanfront resort" wording; Bluebird's "infamous Tahoe Lake" wording.
+
+**Questions for Jed**
+- Hickory Falls Inn: Coastal Getaway lists **Chimney Rock, NC**; the earlier portfolio said **Lake Lure, NC**. Which is correct? (The page currently shows Chimney Rock.)
+- Malibu Resort Motel: Coastal Getaway lists **St Pete Beach, FL**, but its address on the same page is **17001 Gulf Blvd, North Redington Beach, FL**. Which should we show? (The page currently shows St Pete Beach.)
+- Geneva: Coastal Getaway calls it "Geneva Riverside Hotel & Tiki Bar"; the CHG site says "Geneva Hotel & Tiki Bar" and "in redevelopment". Which name, and is it still in redevelopment?
+- Missing descriptions: Hickory Falls Inn, Patriots' Boutique Motel and The Pineola have no description on the source. Can Jed supply 2–3 factual sentences for each?
+- Patriots' Boutique Motel's address (711 South El Camino Real, San Clemente) is the same as the CoastalOS contact address. Is that intended?
+- Island House Resort Hotel is labelled "Beach hotel", but on Coastal Getaway it is only in the "Coastal suites" category. Is "Beach hotel" right?
+- Hotel count: About says 14 hotels owned and operated; Our Work shows 10. Which number is correct, and should Our Work include past properties?
+- Property websites are taken from the earlier portfolio (CHG site); they could not be re-checked from this environment.

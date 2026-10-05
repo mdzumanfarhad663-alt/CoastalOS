@@ -10,11 +10,12 @@ All six agreed pages are built.
 |---|---|
 | `index.html` | Home (the former home-v2 concept): hero, challenge, solution, platform hub, how it works, owner visibility, who it's for, hotels, FAQ, final CTA |
 | `index-v1-backup.html` | Previous homepage, kept for reference only (`noindex`, not linked) |
-| `platform.html` | Platform: centred photo hero, larger platform hub (cards link to Services groups), "How a day is split between two teams", 7-step guest journey on the shared timeline, "What owners receive", final CTA |
+| `platform.html` | Redirect to `services.html` (the Platform page was merged into Services) |
 | `about.html` | About CoastalOS: centred story hero, origin, what we believe, who we work with (pills), the Coastal family, founder note, final CTA |
-| `services.html` | Services: centred photo hero, sticky jump-nav pills, the five service groups as split sections (the single source for the service list; photos for groups 1–3, tinted panels for 4–5), the homepage 5-step engagement timeline with a link to the Contact FAQ, final CTA |
+| `services.html` | Services: photo hero, platform hub (cards jump to the groups below), "How a day is split between two teams", the 7-step guest journey, jump nav and the five service groups, the engagement timeline, final CTA |
 | `contact.html` | Contact: a single Request a Call form (same fields as the homepage form plus an optional message), next steps, the site's only FAQ (6 questions) |
-| `portfolio.html` | Portfolio: centred hero with a stat line counted from the cards, property-type pills, the ten current Coastal Hospitality Group hotels (see below), final CTA |
+| `portfolio.html` | Redirect to `our-work.html` |
+| `our-work.html` | Our Work: centred hero with a stat line, then one full-width row per property (photo, type and location, name, short description, "Visit website ↗"). Rows are generated from `data/properties.json` |
 | `index-1.html` | Redirect to `index.html` (an earlier homepage lived here; it remains in git history) |
 | `privacy.html` | Privacy Policy (starter text written for this prototype; the client will replace it with reviewed wording) |
 | `home-v2.html` | Redirect to `index.html` (the concept became the homepage; old links keep working) |
@@ -158,3 +159,16 @@ To publish one, copy a `<details>` block in the homepage FAQ (`.faq-list`) and r
 - Footer (`footer.ft` in `site.css`): logo and tagline, "Ready to talk about your property?" with Request a Call, Platform / Company / Contact columns, bottom bar. Same markup on every page.
 - Platform hub (`.hub`) and scroll-linked timeline (`.tl`) styles and scripts now live in `site.css` / `site.js` (used on Home, Platform and Services).
 - `.photo-hero`: centred inner-page hero over a property photo (Platform, Services).
+
+## Our Work: adding or editing a property
+
+The property rows on `our-work.html` and the stat line ("10 properties · 3 states") are generated from one file.
+
+1. Edit `data/properties.json`. Fields: `slug`, `name`, `city`, `state` (FL, NC, CA…), `type` ("Beach hotel" / "Mountain escape"), `website`, `sourceUrl`, `description` (leave `""` if there is no factual description; the row then shows only the label, name and button), `image` (`base` path and available `widths`), `alt`.
+2. Add the photo as WebP in `assets/work/`, named `<slug>-800.webp` (and `<slug>-1280.webp` if the source is large enough), cropped 4:3, under ~250KB.
+3. Run `node scripts/build-work.mjs` (Node 18+, no install needed). It rewrites only the parts of `our-work.html` between the `<!-- work:... -->` markers.
+4. Add the image to `assets/portfolio/SOURCES.md` and the new copy to `CONTENT-REVIEW.md`.
+
+Why a script and not hand-written rows: the JSON stays the single source, the rows and stat line can't drift from it, and the output is plain static HTML (good for SEO; Render serves it without a build step). The homepage shows three properties as cards that link to their rows on Our Work; update those by hand if the featured properties change.
+
+Navigation (all pages): Services · Our Work · About · Contact, plus Request a Call.
