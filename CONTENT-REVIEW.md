@@ -281,3 +281,12 @@ A "Social links" block (Facebook, Instagram, YouTube) sits at the top right of t
 | Homepage "Built for" button: "Discuss My Property" (was "Is My Property a Good Fit?"), links to the Contact page | — |
 
 The footer's "Ready to talk about your property?" strip was removed from every page: all main pages now end with their own final CTA.
+
+## 20. Homepage hero (replaces section 1)
+
+| Copy | Question for Jed |
+|---|---|
+| Main title (70px on desktop): "CoastalOS Operations" (was "The Operating System for Independent Hotels") | Is "CoastalOS Operations" OK as a headline? It can read like an official company name; the business may legally be just "CoastalOS" |
+| Subheading: "Operating Platform for Independent & Boutique Hotels" | — |
+
+Removed: the hero paragraph ("Our central hospitality team runs your hotel’s core functions…"). Buttons and the benefits strip are unchanged. The tagline "The Operating System for Independent Hotels" still appears in the footer.
