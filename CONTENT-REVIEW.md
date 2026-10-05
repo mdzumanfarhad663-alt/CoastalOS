@@ -272,3 +272,12 @@ Images: "About us" uses the Blind Pass Resort photo and "Who we work with" the P
 A "Social links" block (Facebook, Instagram, YouTube) sits at the top right of the footer. **The links are placeholders (`#`)**: no CoastalOS social accounts are known. Coastal Getaway has its own Facebook page, but that belongs to the booking site, not CoastalOS.
 
 **Question for Jed:** which CoastalOS (or Coastal Hospitality Group) accounts should these link to? Should YouTube be TikTok instead? Remove any icon without an account before launch.
+
+## 19. Final CTA and button text
+
+| Copy | Question for Jed |
+|---|---|
+| Our Work final CTA: "Run an independent property?" / "Tell us a little about your property and we’ll set up a call." + Request a Call | — |
+| Homepage "Built for" button: "Discuss My Property" (was "Is My Property a Good Fit?"), links to the Contact page | — |
+
+The footer's "Ready to talk about your property?" strip was removed from every page: all main pages now end with their own final CTA.
