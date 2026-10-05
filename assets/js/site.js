@@ -16,6 +16,17 @@
     if(spy.length){var cur=null;spy.forEach(function(a){var s=target(a);if(s&&s.getBoundingClientRect().top<160)cur=a});
       spy.forEach(function(a){a.classList.toggle('active',a===cur)})}
   }
+  // Back to top: shown after the first section (the hero), smooth scroll unless reduced motion, then focus the skip link
+  var top=document.createElement('button');top.type='button';top.className='to-top';top.setAttribute('aria-label','Back to top');
+  top.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';document.body.appendChild(top);
+  var firstSec=document.querySelector('main > section');
+  function syncTop(){var past=firstSec?firstSec.getBoundingClientRect().bottom<0:scrollY>600;top.classList.toggle('show',past)}
+  top.addEventListener('click',function(){var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    scrollTo({top:0,behavior:rm?'auto':'smooth'});
+    var skip=document.querySelector('.skip')||document.body,done=false;
+    function focusTop(){if(done)return;done=true;if(skip===document.body){document.body.setAttribute('tabindex','-1')}skip.focus({preventScroll:true})}
+    if(rm)focusTop();else{addEventListener('scrollend',focusTop,{once:true});setTimeout(focusTop,900)}});
+  addEventListener('scroll',syncTop,{passive:true});syncTop();
   addEventListener('scroll',onScroll,{passive:true});onScroll();
 
   var nav=document.getElementById('nav'),btn=nav.querySelector('.menu-btn');

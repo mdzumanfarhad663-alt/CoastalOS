@@ -26,7 +26,7 @@
 /* 1 hero */
 .hx{min-height:max(88vh,640px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(64px,9vw,110px) 0 0}
 .hx .bg{object-position:68% 55%}
-.hx::before{background:linear-gradient(0deg,rgba(10,32,56,.9) 0,rgba(10,32,56,.6) 110px,rgba(10,32,56,0) 220px),linear-gradient(90deg,rgba(10,32,56,.9) 0%,rgba(14,42,71,.86) 44%,rgba(14,42,71,.6) 60%,rgba(14,42,71,.25) 100%)}
+.hx::before{background:linear-gradient(0deg,rgba(10,32,56,.9) 0,rgba(10,32,56,.6) 110px,rgba(10,32,56,0) 220px),linear-gradient(90deg,rgba(10,32,56,.9) 0%,rgba(14,42,71,.87) 50%,rgba(14,42,71,.6) 64%,rgba(14,42,71,.25) 100%)}
 @media (max-width:1099px) and (min-width:761px){.hx::before{background:linear-gradient(0deg,rgba(10,32,56,.9) 0,rgba(10,32,56,.6) 150px,rgba(10,32,56,0) 260px),linear-gradient(90deg,rgba(10,32,56,.92) 0%,rgba(14,42,71,.88) 62%,rgba(14,42,71,.4) 100%)}}
 .photo-sec .kicker{color:#fff}
 .photo-sec .kicker::before{background:var(--teal-2)}
@@ -64,11 +64,11 @@
 /* 4 platform hub */
 .hub-head{text-align:center;max-width:none}
 .hub-head .kicker{justify-content:center}
-.hub-head .lede{margin:12px auto 0}
+.hub-head .lede{margin:12px auto 0;max-width:60ch}
 .hub{position:relative;width:min(100%,960px);aspect-ratio:960/600;margin:clamp(8px,2vw,16px) auto 0}
 .hub svg.lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 .hub svg.lines line{stroke:var(--teal);stroke-opacity:.5;stroke-width:1.9;stroke-linecap:round;transition:stroke-opacity var(--dur-fast) var(--ease-out),stroke var(--dur-fast)}
-.hub-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:clamp(150px,17vw,168px);aspect-ratio:1;border-radius:50%;background:var(--navy);box-shadow:0 0 0 10px rgba(111,208,204,.22),0 0 0 22px rgba(111,208,204,.08),0 18px 48px -12px rgba(28,140,138,.55);display:grid;place-content:center;justify-items:center;gap:6px;color:#fff;font:600 1.2rem var(--display);z-index:2}
+.hub-core{position:absolute;left:50%;top:50%;translate:-50% -50%;width:clamp(150px,17vw,168px);aspect-ratio:1;border-radius:50%;background:var(--navy);box-shadow:0 0 0 10px rgba(111,208,204,.22),0 0 0 22px rgba(111,208,204,.08),0 18px 48px -12px rgba(28,140,138,.55);display:grid;place-content:center;justify-items:center;gap:6px;color:#fff;font:600 1.2rem var(--display);z-index:2}
 .hub-core svg{width:56px;height:56px}
 .hub-core::after{content:"";position:absolute;inset:0;border-radius:50%;box-shadow:0 0 0 14px rgba(111,208,204,.35);opacity:0;pointer-events:none}
 .hub-core.is-in::after{animation:corePulse 1.6s var(--ease-out) .35s 1 both}
@@ -88,7 +88,7 @@
 @media (max-width:760px){
   .hub{aspect-ratio:auto;width:100%}
   .hub svg.lines{display:none}
-  .hub-core{position:static;transform:none;margin:40px auto 40px;width:150px}
+  .hub-core{position:relative;left:auto;top:auto;translate:none;margin:40px auto 40px;width:150px}
   .hub-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
   .hub-item{position:static;transform:none;width:auto;height:auto}
   .hub-card{flex-direction:column;align-items:flex-start;gap:10px;padding:14px;height:100%}
@@ -179,12 +179,6 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 .home-v2 .pcard:focus-visible{outline:3px solid var(--sun);outline-offset:4px;border-radius:var(--r-md)}
 /* FAQ smooth height (JS animates the details height on user toggle) */
 .faq-list details{overflow:hidden}
-/* header: visual shrink + shadow (transform only, no layout change) and scroll progress */
-.home-v2 header.site{transition:transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast),background .2s,border-color .2s}
-.home-v2 header.site .nav{transition:transform var(--dur-fast) var(--ease-out)}
-.home-v2 header.site.scrolled{transform:translateY(-8px);box-shadow:0 10px 28px -18px rgba(14,42,71,.45)}
-.home-v2 header.site.scrolled .nav{transform:translateY(4px)}
-.home-v2 header.site::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--teal);transform:scaleX(var(--p,0));transform-origin:0 50%}
 /* accessibility: brand "OS" and footer headings */
 .home-v2 .logo-word span{color:var(--teal-ink)}
 .home-v2 footer .foot-h{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}
@@ -194,8 +188,43 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
   .js .scrolly .steps-flow::after{transform:none!important}
   .js .scrolly .steps-flow li b,.js .scrolly .steps-flow li small{opacity:1!important;transform:none!important}
   .hub-core.is-in::after{animation:none}
-  .home-v2 header.site,.home-v2 header.site .nav{transform:none!important}
 }
+/* ===== Transparent header over the hero (homepage only; scrolls away with the page) ===== */
+.home-v2 header.site{position:absolute;top:0;left:0;right:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:transparent}
+.home-v2 header.site.scrolled{background:transparent;border-bottom-color:transparent}
+.home-v2 header.site .logo-word{color:#fff}
+.home-v2 header.site .logo-word span{color:var(--teal-2)}
+.home-v2 header.site .logo svg path:last-child{stroke:#fff}
+@media (min-width:981px){
+  .home-v2 header.site .nav ul a{color:#fff}
+  .home-v2 header.site .nav ul a:hover,.home-v2 header.site .nav ul a.active{color:#fff;background:rgba(255,255,255,.14)}
+  .home-v2 header.site .nav ul a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+}
+.home-v2 header.site .nav-cta{background:#fff;color:var(--navy)}
+.home-v2 header.site .nav-cta:hover{background:var(--sun-soft);color:var(--navy)}
+.home-v2 header.site .nav-cta:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+/* hero content clears the header (76px) */
+.hx{padding-top:calc(76px + clamp(48px,7vw,96px))}
+@media (max-width:760px){.hx{padding-top:calc(76px + min(52vw,240px))}}
+/* darker band at the top of the hero so the header text keeps AA contrast over the photo */
+.hx::after{content:"";position:absolute;inset:0 0 auto 0;height:150px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(10,32,56,.78) 0%,rgba(10,32,56,.45) 55%,rgba(10,32,56,0) 100%)}
+
+/* ===== Centered hero variant: home-v2.html?hero=center ===== */
+.hx.hx-center .wrap{text-align:center}
+.hx.hx-center .kicker{justify-content:center}
+.hx.hx-center h1{margin-inline:auto;max-width:20ch}
+.hx.hx-center .lede{margin-inline:auto}
+.hx.hx-center .hx-ctas{justify-content:center}
+.hx.hx-center .benefits li{justify-content:center}
+.hx.hx-center::before{background:linear-gradient(0deg,rgba(10,32,56,.9) 0,rgba(10,32,56,.55) 120px,rgba(10,32,56,0) 230px),radial-gradient(ellipse 62% 74% at 50% 50%,rgba(10,32,56,.88) 0%,rgba(14,42,71,.83) 60%,rgba(14,42,71,.42) 100%)}
+@media (max-width:760px){.hx.hx-center .benefits li{align-items:center}.hx.hx-center::before{background:linear-gradient(180deg,rgba(14,42,71,.25) 0%,rgba(14,42,71,.6) 18%,rgba(10,32,56,.86) 34%,rgba(10,32,56,.9) 100%)}}
+
+/* ===== Section alignment: full-width sections center their heading block ===== */
+.sec-head.is-centered{text-align:center;margin-inline:auto;max-width:760px}
+.sec-head.is-centered .kicker{justify-content:center}
+.sec-head.is-centered h2{margin-inline:auto}
+.sec-head.is-centered .lede{max-width:60ch;margin-inline:auto}
+.pf-more{text-align:center;margin-top:clamp(28px,3.5vw,40px)}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -225,6 +254,7 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 
 <!-- 1. HERO -->
 <section class="photo-sec hx" data-mcta-after>
+  <script>if(/[?&]hero=center(&|$)/.test(location.search))document.currentScript.parentNode.classList.add('hx-center')</script>
   <!-- IMAGE: hero background (swap: assets/home-v2/hero-sea-shells-exterior-*.webp, 800/1280/1600 widths, 3:2) -->
   <div class="bg-par" aria-hidden="true"><img class="bg" src="assets/home-v2/hero-sea-shells-exterior-1280.webp" srcset="assets/home-v2/hero-sea-shells-exterior-800.webp 800w, assets/home-v2/hero-sea-shells-exterior-1280.webp 1280w, assets/home-v2/hero-sea-shells-exterior-1600.webp 1600w" sizes="100vw" width="1600" height="1065" alt="" fetchpriority="high" decoding="async"></div>
   <div class="wrap">
@@ -295,7 +325,7 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 <!-- 5. HOW IT WORKS -->
 <section class="sec navy-band scrolly" id="how">
   <div class="wrap">
-    <div class="sec-head" data-anim="fade-up">
+    <div class="sec-head is-centered" data-anim="fade-up">
       <p class="kicker">How it works</p>
       <h2>A simple path to a higher-performing hotel.</h2>
     </div>
@@ -345,18 +375,16 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
 <!-- 8. PORTFOLIO -->
 <section class="sec">
   <div class="wrap">
-    <div class="sec-head pf-head" data-anim="fade-up">
-      <div>
+    <div class="sec-head is-centered" data-anim="fade-up">
         <p class="kicker">Our hotels</p>
         <h2>Hotels owned and operated by Coastal Hospitality Group.</h2>
-      </div>
-      <a href="portfolio.html" class="btn btn-ghost">View full portfolio</a>
     </div>
     <div class="pcard-grid pcard-grid-3" data-stagger="fade-up" data-delay="100">
       <a class="card pcard" href="https://www.islandhousebeachhotel.com/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="Visit the Island House Resort website (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/chg-island-house.webp" width="1000" height="750" alt="Courtyard pool and loungers at Island House Resort" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Island House Resort</h3><p class="pcard-loc">North Redington Beach, FL</p><span class="pcard-view" aria-hidden="true">Visit website <i>↗</i></span></div></a>
       <a class="card pcard" href="https://www.seashellsbeachclub.com/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="Visit the Sea Shells Beach Club website (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/chg-sea-shells.webp" width="1000" height="750" alt="Sea Shells Beach Club building at sunset" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Sea Shells Beach Club</h3><p class="pcard-loc">Daytona Beach, FL</p><span class="pcard-view" aria-hidden="true">Visit website <i>↗</i></span></div></a>
       <a class="card pcard" href="https://www.thepineola.com/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="Visit the The Pineola website (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/chg-pineola.webp" width="1000" height="750" alt="Aerial view of The Pineola with mountains behind" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">The Pineola</h3><p class="pcard-loc">Newland, NC</p><span class="pcard-view" aria-hidden="true">Visit website <i>↗</i></span></div></a>
     </div>
+    <p class="pf-more" data-anim="fade-up"><a href="portfolio.html" class="btn btn-ghost">View full portfolio</a></p>
   </div>
 </section>
 
@@ -364,7 +392,7 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
      To enable: fill the empty values below and remove the `hidden` attribute from each <section>. -->
 <section class="sec sec-white" hidden aria-labelledby="results-h">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head is-centered">
       <p class="kicker">Results that matter</p>
       <h2 id="results-h">Proven results for independent hotels.</h2>
     </div>
@@ -444,9 +472,9 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
       function on(){hub.classList.add('focusing');li.classList.add('hot');lines[i]&&lines[i].classList.add('hot')}
       function off(){hub.classList.remove('focusing');li.classList.remove('hot');lines[i]&&lines[i].classList.remove('hot')}
       a.addEventListener('mouseenter',on);a.addEventListener('mouseleave',off);a.addEventListener('focus',on);a.addEventListener('blur',off)});}
-  // Scroll-linked: hero parallax (desktop), How-it-works progress, header progress bar
+  // Scroll-linked: hero parallax (desktop) and How-it-works progress
   var par=document.querySelector('.hx .bg-par'),hero=document.querySelector('.hx'),how=document.getElementById('how'),
-      flow=how&&how.querySelector('.steps-flow'),steps=flow?[].slice.call(flow.children):[],header=document.querySelector('header.site');
+      flow=how&&how.querySelector('.steps-flow'),steps=flow?[].slice.call(flow.children):[];
   var desk=matchMedia('(min-width:1024px)'),ticking=false;
   function frame(){ticking=false;var vh=innerHeight,y=scrollY;
     if(par){par.style.transform=(desk.matches&&!reduce&&y<hero.offsetHeight)?'translate3d(0,'+Math.min(y*.15,60).toFixed(1)+'px,0)':''}
@@ -456,7 +484,6 @@ html:not(.js) .scrolly .steps-flow::after{transform:none}
       else{var s=how.getBoundingClientRect();p=(vh*.78-s.top)/(s.height*.55)}
       p=Math.max(0,Math.min(1,p));flow.style.setProperty('--prog',p.toFixed(3));
       steps.forEach(function(li,i){var on=reduce||(vertical?li.querySelector('.dot').getBoundingClientRect().top+22<vh*.62:p>=i/(steps.length-1)-.001);li.classList.toggle('active',on)})}
-    if(header){var max=document.documentElement.scrollHeight-vh;header.style.setProperty('--p',reduce?0:(max>0?Math.min(1,y/max):0).toFixed(4))}
   }
   function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
   addEventListener('scroll',req,{passive:true});addEventListener('resize',req);frame();
