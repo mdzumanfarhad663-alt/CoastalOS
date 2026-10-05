@@ -7,226 +7,220 @@
 <meta name="description" content="CoastalOS is a technology-enabled hotel management platform for independent and boutique hotels.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/home-v2/hero-sea-shells-exterior-1280.webp" imagesrcset="assets/home-v2/hero-sea-shells-exterior-800.webp 800w, assets/home-v2/hero-sea-shells-exterior-1280.webp 1280w, assets/home-v2/hero-sea-shells-exterior-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <style>
-/* ===== HERO ===== */
-.hero{padding:clamp(48px,6vw,84px) 0 clamp(72px,8vw,112px);position:relative}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(40px,5vw,72px);align-items:center}
-.hero h1{max-width:none}
+/* ===== HOMEPAGE V2 (merged concept). Page-only styles; shared system lives in site.css ===== */
+/* photo sections: one <img> per element, navy overlay for AA text contrast */
+.photo-sec{position:relative;isolation:isolate;color:#fff;overflow:hidden}
+.photo-sec>.bg,.photo-sec .bg-par{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.photo-sec .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-sec::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(100deg,rgba(10,32,56,.94) 0%,rgba(14,42,71,.82) 48%,rgba(14,42,71,.55) 100%)}
+.photo-sec h1,.photo-sec h2{color:#fff}
+.photo-sec .kicker{color:var(--teal-2)}
+.photo-sec p{color:#DCE6EF}
+@media (max-width:760px){.photo-sec::before{background:linear-gradient(180deg,rgba(10,32,56,.9) 0%,rgba(14,42,71,.84) 60%,rgba(14,42,71,.9) 100%)}}
 
-.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.08em}
-.hero h1 .ln>span{display:inline-block}
-.js .hero h1 .ln>span{transform:translateY(105%);transition:transform .9s var(--ease)}
-.js .loaded .hero h1 .ln>span{transform:none}
-.hero h1 .ln:nth-child(2)>span{transition-delay:.08s}
-.hero h1 .ln:nth-child(3)>span{transition-delay:.16s}
-.js .hero-fade{opacity:0;transition:opacity .8s var(--ease) .35s}
-.js .loaded .hero-fade{opacity:1}
-.hero .lede{margin-top:24px;max-width:46ch}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.hero-points{list-style:none;padding:0;margin:36px 0 0;display:flex;flex-wrap:wrap;gap:8px 24px;font-size:.93rem;color:var(--muted)}
-.hero-points li{white-space:nowrap;display:flex;align-items:center;gap:8px}
-.hero-points li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal)}
-.hero-points li:nth-child(2)::before{background:var(--sun)}
+/* 1 hero */
+.hx{min-height:max(88vh,640px);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(64px,9vw,110px) 0 0}
+.hx .bg{object-position:68% 55%}
+.hx::before{background:linear-gradient(0deg,rgba(10,32,56,.9) 0,rgba(10,32,56,.6) 110px,rgba(10,32,56,0) 220px),linear-gradient(90deg,rgba(10,32,56,.9) 0%,rgba(14,42,71,.87) 50%,rgba(14,42,71,.6) 64%,rgba(14,42,71,.25) 100%)}
+@media (max-width:1099px) and (min-width:761px){.hx::before{background:linear-gradient(0deg,rgba(10,32,56,.9) 0,rgba(10,32,56,.6) 150px,rgba(10,32,56,0) 260px),linear-gradient(90deg,rgba(10,32,56,.92) 0%,rgba(14,42,71,.88) 62%,rgba(14,42,71,.4) 100%)}}
+.photo-sec .kicker{color:#fff}
+.photo-sec .kicker::before{background:var(--teal-2)}
+.hx h1{font-size:clamp(2.3rem,4.6vw,3.9rem);line-height:1.05;letter-spacing:-.03em;max-width:17ch}
+.hx .lede{margin-top:20px;max-width:52ch;font-size:clamp(1.02rem,1.3vw,1.15rem);color:#DCE6EF}
+.hx-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn-on-dark{border-color:rgba(255,255,255,.45);color:#fff;background:transparent}
+.btn-on-dark:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+.hx .btn-primary{background:var(--teal);}
+.hx .btn-primary:hover{background:#167C7A}
+.hx a:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.benefits{list-style:none;margin:clamp(48px,7vw,88px) 0 0;padding:26px 0 30px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;border-top:1px solid rgba(255,255,255,.18)}
+.benefits li{display:flex;align-items:center;gap:14px;font:600 1rem var(--display);color:#fff}
+.benefits .ic{background:rgba(111,208,204,.16)}.benefits .ic svg{stroke:var(--teal-2)}
+@media (max-width:760px){.hx{min-height:0;padding-top:min(62vw,300px)}.hx .bg{object-position:62% 30%}.hx::before{background:linear-gradient(180deg,rgba(14,42,71,.25) 0%,rgba(14,42,71,.6) 18%,rgba(10,32,56,.86) 34%,rgba(10,32,56,.9) 100%)}.benefits{grid-template-columns:1fr 1fr}.benefits li{font-size:.92rem;align-items:flex-start;flex-direction:column;gap:10px}.hx-ctas .btn{flex:1 1 100%}}
 
+/* 2 challenge */
+.ch-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(32px,5vw,64px);align-items:center}
+.ch-strong{margin-top:16px;font:600 1.1rem var(--display);color:var(--navy)}
+.ch-cards{list-style:none;margin:clamp(32px,4vw,44px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.ch-cards li{display:flex;flex-direction:column;gap:12px;padding:18px 18px 20px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);font:500 .95rem/1.4 var(--display);color:var(--navy)}
+.side-photo{margin:0}
+.side-photo img{width:100%;height:auto;display:block;border-radius:var(--r-lg);box-shadow:var(--shadow-lg)}
+@media (max-width:980px){.ch-grid{grid-template-columns:1fr}.ch-grid .side-photo{display:none}}
+@media (max-width:900px){.ch-cards{grid-template-columns:1fr 1fr}}
 
-@media (max-width:480px){.hero-ctas .btn{width:100%}}
-@media (max-width:980px){.hero-grid{grid-template-columns:1fr}}
+/* split layouts (3, 6, 7) */
+.split2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.split2 .lede{margin-top:16px}
+.split2 .btn{margin-top:28px}
+.split2.flip>:first-child{order:2}
+@media (max-width:900px){.split2{grid-template-columns:1fr}.split2.flip>:first-child{order:0}}
+.big-h{font-size:clamp(2.1rem,4vw,3.2rem);letter-spacing:-.03em}
 
-/* ===== OPPORTUNITY ===== */
-.opp-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(32px,6vw,80px);align-items:center}
-.opp h2{max-width:15ch}
-.opp-body{margin-top:24px}
-.opp-body p{color:var(--muted)}
-.opp-body p+p{margin-top:16px}
-@media (max-width:860px){.opp-grid{grid-template-columns:1fr}}
-
-/* ===== PLATFORM (capabilities + philosophy + journey, combined) ===== */
-.cap-groups{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
-.cap-group{padding:clamp(22px,3vw,32px)}
-.cap-group h3{display:flex;align-items:center;gap:10px;font-size:1.1rem}
-.cap-group h3::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--sun)}
-.cap-group.run h3::before{background:var(--teal)}
-.cap-group ul{list-style:none;margin:20px 0 0;padding:0;display:grid}
-.cap-group li{display:flex;gap:14px;padding:16px 0;border-top:1px solid var(--line)}
-.cap-group li:first-child{border-top:0;padding-top:4px}
-.cap-group b{display:block;font:600 1.02rem var(--display);color:var(--navy)}
-.cap-group span{font-size:.94rem;color:var(--muted);line-height:1.5}
-@media (max-width:820px){.cap-groups{grid-template-columns:1fr}}
-
-.how{margin-top:clamp(56px,7vw,88px);display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px,5vw,64px);align-items:start}
-.how h3.big{font-size:clamp(1.5rem,2.4vw,1.9rem);max-width:16ch}
-.how .lede{margin-top:14px;font-size:1.05rem}
-@media (max-width:900px){.how{grid-template-columns:1fr}}
-
-/* ===== OUTCOMES ===== */
-.outcomes{background:var(--navy);color:#D4E0EB;overflow:hidden}
-.outcomes h2{color:#fff;max-width:16ch}
-.outcomes .kicker{color:var(--teal-2)}
-.outcomes .lede{color:#A9BDD0}
-.out-tabs{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,64px);align-items:stretch}
-.out-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(255,255,255,.14)}
-.out-list button{all:unset;box-sizing:border-box;display:block;width:100%;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.14);cursor:pointer;position:relative}
-.out-list button:focus-visible{outline:3px solid var(--sun);outline-offset:4px;border-radius:6px}
-.out-list h3{color:#8AA2BA;font-size:clamp(1.25rem,2vw,1.5rem);transition:color .3s}
-.out-list button:hover h3{color:#C9D7E4}
-.out-list p{max-height:0;overflow:hidden;opacity:0;color:#B6C7D8;font-size:.97rem;transition:max-height .45s var(--ease),opacity .35s,margin .35s;max-width:46ch}
-.out-list button::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--sun);transform:scaleX(0);transform-origin:0 50%;transition:transform .5s var(--ease)}
-.out-list button[aria-selected="true"]::after{transform:scaleX(1)}
-.out-list button[aria-selected="true"] h3{color:#fff}
-.out-list button[aria-selected="true"] p{max-height:120px;opacity:1;margin-top:10px}
-.out-panel{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:clamp(22px,3vw,32px);min-height:360px;display:flex;flex-direction:column}
-.out-panel .ptitle{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#fff;font:600 1rem var(--display)}
-.out-panel .illus{color:#A9BDD0;border-color:rgba(255,255,255,.2)}
-.viz{flex:1;margin-top:18px;position:relative;min-height:220px}
-.viz>div{position:absolute;inset:0;opacity:0;transition:opacity .4s;pointer-events:none}
-.viz>div.on{opacity:1;pointer-events:auto}
-.viz svg{width:100%;height:100%}
-.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.82rem;color:#A9BDD0;padding-top:14px}
-.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
-.draw{stroke-dasharray:900;stroke-dashoffset:900}
-.on .draw{animation:dr 1.4s var(--ease) forwards}
-@keyframes dr{to{stroke-dashoffset:0}}
-.grow{transform:scaleY(0);transform-origin:bottom;transform-box:fill-box}
-.on .grow{animation:gr .8s var(--ease) forwards}
-@keyframes gr{to{transform:scaleY(1)}}
-.chat{display:flex;flex-direction:column;gap:12px}
-.bub{max-width:80%;padding:11px 14px;border-radius:14px;font-size:.9rem;opacity:0}
-.on .bub{animation:pop .4s var(--ease) forwards}
-.on .bub:nth-child(2){animation-delay:.35s}.on .bub:nth-child(3){animation-delay:.7s}
-@keyframes pop{to{opacity:1}}
-.bub.g{background:rgba(255,255,255,.1);color:#E6EEF5;align-self:flex-start;border-bottom-left-radius:4px}
-.bub.h{background:var(--teal);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
-.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px;display:grid;gap:10px}
-.kpi small{color:#A9BDD0;font-size:.82rem}
-.kpi .spark{height:28px}
-.tagline{margin-top:clamp(56px,7vw,80px);padding-top:clamp(32px,4vw,44px);border-top:1px solid rgba(255,255,255,.12);font:500 clamp(1.4rem,2.6vw,2rem)/1.3 var(--display);color:#fff;max-width:26ch;letter-spacing:-.02em}
-.tagline em{font-style:normal;color:var(--teal-2)}
-@media (max-width:900px){.out-tabs{grid-template-columns:1fr}.out-panel{min-height:320px}}
-
-/* ===== OWNERS ===== */
-.owners-band{max-width:900px;text-align:center}
-.owners-band .kicker{justify-content:center}
-.owners-band h2{margin-inline:auto;max-width:26ch}
-.owners-band .lede{margin:18px auto 0;max-width:52ch}
-.owners-link{margin-top:22px}
-.proof-stats{margin:36px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);text-align:left}
-.proof-stats>div{display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:8px;padding:22px;border:1px solid var(--line);border-radius:var(--r-md);background:var(--paper)}
-.proof-stats dd{margin:0;font:600 clamp(1.9rem,3vw,2.4rem)/1 var(--display);color:var(--navy);letter-spacing:-.02em}
-.proof-stats dt{font-size:.9rem;color:var(--muted);line-height:1.45}
-.stats-src{margin-top:14px;font-size:.85rem;color:var(--muted)}
-@media (max-width:760px){.proof-stats{grid-template-columns:1fr}}
-
-/* ===== PROOF ===== */
-.proof-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:var(--gap)}
-.prop{padding:12px 12px 20px;display:flex;flex-direction:column}
-.prop .ph-img{aspect-ratio:4/3;border-radius:12px}
-.prop:first-child .ph-img{flex:1;aspect-ratio:auto;min-height:220px}
-.prop .meta{display:grid;gap:9px;padding:18px 6px 0}
-.metrics{margin-top:var(--gap);display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
-.metric{padding:22px;display:grid;gap:12px}
-.metric small{font-size:.9rem;color:var(--muted)}
-.prop .ph-img>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.prop .ph-img:has(img)::after{content:none}
-.prop h3{font-size:1.15rem;margin:0;color:var(--ink)}
-.prop .loc{margin:0;font-size:.9rem;color:var(--muted)}
-.metrics-note{margin-top:var(--gap);padding:22px;color:var(--muted);font-size:.95rem}
-.proof-note{margin-top:18px;font-size:.88rem;color:var(--muted)}
-.more-link{margin-top:clamp(28px,3.5vw,40px);text-align:center}
-.proof-head{max-width:none;display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
-.proof-head>div{flex:1 1 420px;max-width:62ch}
-@media (max-width:900px){.proof-grid{grid-template-columns:1fr}.prop:first-child .ph-img{min-height:0;flex:none;aspect-ratio:16/9}.metrics{grid-template-columns:1fr 1fr}}
-
-@media (prefers-reduced-motion:reduce){
-  .js .hero-fade,.js .hero h1 .ln>span,.bub{opacity:1!important;transform:none!important}
-  .draw{stroke-dashoffset:0}.grow{transform:none}
+/* 4 platform hub */
+.hub-head{text-align:center;max-width:none}
+.hub-head .kicker{justify-content:center}
+.hub-head .lede{margin:12px auto 0;max-width:60ch}
+.hub{position:relative;width:min(100%,960px);aspect-ratio:960/600;margin:clamp(8px,2vw,16px) auto 0}
+.hub svg.lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.hub svg.lines line{stroke:var(--teal);stroke-opacity:.5;stroke-width:1.9;stroke-linecap:round;transition:stroke-opacity var(--dur-fast) var(--ease-out),stroke var(--dur-fast)}
+.hub-core{position:absolute;left:50%;top:50%;translate:-50% -50%;width:clamp(150px,17vw,168px);aspect-ratio:1;border-radius:50%;background:var(--navy);box-shadow:0 0 0 10px rgba(111,208,204,.22),0 0 0 22px rgba(111,208,204,.08),0 18px 48px -12px rgba(28,140,138,.55);display:grid;place-content:center;justify-items:center;gap:6px;color:#fff;font:600 1.2rem var(--display);z-index:2}
+.hub-core svg{width:56px;height:56px}
+.hub-list{list-style:none;margin:0;padding:0}
+.hub-item{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);width:232px;height:66px;z-index:1}
+.hub-card{display:flex;align-items:center;gap:12px;width:100%;height:100%;padding:0 14px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--shadow);font:600 .9rem/1.25 var(--display);color:var(--navy);text-decoration:none;transition:border-color var(--dur-fast),box-shadow var(--dur-fast),opacity var(--dur-fast) var(--ease-out),transform var(--dur-fast) var(--ease-out)}
+.hub-card span:last-child{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hub-card .ic{width:40px;height:40px}
+.hub-item::after{content:"";position:absolute;left:calc(50% + var(--ox));top:calc(50% + var(--oy));width:9px;height:9px;margin:-4.5px 0 0 -4.5px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 3px var(--paper);pointer-events:none}
+.hub .hub-card:hover,.hub .hub-card:focus-visible{border-color:var(--teal);box-shadow:var(--shadow-lg);transform:translateY(-3px)}
+.hub .hub-card:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.hub.focusing .hub-item:not(.hot) .hub-card{opacity:.55}
+.hub svg.lines line.hot{stroke-opacity:1;stroke:var(--teal-ink)}
+.hub-more{text-align:center;margin-top:clamp(12px,2vw,20px)}
+@media (max-width:1000px) and (min-width:761px){.hub-item{width:212px}.hub-card{padding:0 10px;gap:10px}}
+@media (max-width:760px){
+  .hub{aspect-ratio:auto;width:100%}
+  .hub svg.lines{display:none}
+  .hub-core{position:relative;left:auto;top:auto;translate:none;margin:40px auto 40px;width:150px}
+  .hub-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .hub-item{position:static;transform:none;width:auto;height:auto}
+  .hub-card{flex-direction:column;align-items:flex-start;gap:10px;padding:14px;height:100%}
+  .hub-item::after{display:none}
 }
-/* ===== Homepage layer (body.v2): navy platform band, light outcomes and inquiry ===== */
-.v2{--sec:clamp(72px,8vw,112px)}
-.v2 .js .rv,.js .v2 .rv{transform:translateY(10px);transition-duration:.45s}
-/* hero */
-.v2 .hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
-.v2 .hero h1{font-size:clamp(2.1rem,3.4vw,2.95rem);line-height:1.06;letter-spacing:-.03em}
-.v2 .hero .lede{font-size:clamp(1.05rem,1.3vw,1.2rem);max-width:40ch}
-.v2 .hero-ctas{align-items:center;gap:12px}
-.v2 .hero-ctas .btn-primary{padding:18px 32px;font-size:1.05rem;box-shadow:0 14px 30px -14px rgba(14,42,71,.6)}
-.v2 .hero-points{margin-top:30px}
-.v2 .hero-art{max-width:520px;justify-self:end;width:100%}
-.v2-textlink{font:600 1rem var(--display);color:var(--navy);text-decoration:none;border-bottom:2px solid var(--teal-2);padding-bottom:2px;transition:color .2s,border-color .2s}
-.v2-textlink:hover{color:var(--teal-ink);border-color:var(--teal)}
-.v2-textlink:focus-visible{outline:3px solid var(--sun);outline-offset:4px;border-radius:4px}
-.v2-on-navy{color:#fff;border-color:var(--teal-2)}
-.v2-on-navy:hover{color:var(--teal-2)}
-@media (max-width:980px){.v2 .hero-grid{grid-template-columns:1fr}.v2 .hero-art{justify-self:stretch;max-width:none}}
-@media (max-width:480px){.v2 .hero-ctas{flex-direction:column;align-items:stretch}}
-/* opportunity: open layout, compare stays a card */
-.v2 .opp h2{font-size:clamp(1.9rem,3.2vw,2.6rem);max-width:18ch}
-/* platform: the one strong navy section */
-.v2 #platform{background:var(--navy);color:#C9D7E4}
-.v2 #platform h2{color:#fff}
-.v2 #platform .kicker{color:var(--teal-2)}
-.v2 #platform .lede{color:#A9BDD0}
-.v2 .cap-groups{gap:clamp(32px,5vw,72px)}
-.v2 .cap-group{background:none;border:0;border-radius:0;box-shadow:none;padding:0;border-top:2px solid var(--sun)}
-.v2 .cap-group.run{border-top-color:var(--teal-2)}
-.v2 .cap-group h3{color:#fff;padding-top:22px;font-size:1.25rem}
-.v2 .cap-group h3::before{display:none}
-.v2 .cap-group li{border-top-color:rgba(255,255,255,.12);padding:18px 0}
-.v2 .cap-group b{color:#fff}
-.v2 .cap-group span{color:#A9BDD0}
-.v2 .cap-group .ic{background:rgba(111,208,204,.12)}
-.v2 .cap-group .ic svg{stroke:var(--teal-2)}
-.v2 #platform .more-link{text-align:left;margin-top:clamp(32px,4vw,48px)}
-/* outcomes: light background, chart panel stays navy */
-.v2 .outcomes{background:var(--bg);color:var(--ink)}
-.v2 .outcomes h2{color:var(--navy)}
-.v2 .outcomes .kicker{color:var(--teal-ink)}
-.v2 .outcomes .lede{color:var(--muted)}
-.v2 .out-list{border-top-color:var(--line)}
-.v2 .out-list button{border-bottom-color:var(--line)}
-.v2 .out-list h3{color:#6A7D90}
-.v2 .out-list button:hover h3{color:var(--navy)}
-.v2 .out-list button[aria-selected="true"] h3{color:var(--navy)}
-.v2 .out-list p{color:var(--muted)}
-.v2 .out-list button::after{background:var(--teal)}
-.v2 .out-list button:focus-visible{outline-color:var(--teal)}
-.v2 .out-panel{background:var(--navy);border:0;box-shadow:var(--shadow-lg)}
-.v2 .tagline{color:var(--navy);border-top-color:var(--line)}
-.v2 .tagline em{color:var(--teal-ink)}
-/* operator story: text + photo */
-.v2-story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:center}
-.v2-story h2{font-size:clamp(2rem,3.4vw,2.8rem);max-width:16ch}
-.v2-story .lede{margin-top:14px;max-width:44ch}
-.v2-story .lede+.lede{margin-top:8px}
-.v2 .proof-stats{margin:30px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.v2 .proof-stats>div{display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:8px;padding:14px 0 0;background:none;border:0;border-radius:0;border-top:2px solid var(--navy)}
-.v2 .proof-stats dd{margin:0;font:600 clamp(1.5rem,2.3vw,2rem)/1 var(--display);color:var(--navy);letter-spacing:-.02em;white-space:nowrap}
-.v2 .proof-stats dt{font-size:.85rem;color:var(--muted);line-height:1.45}
-.v2 .stats-src{margin-top:14px;font-size:.82rem;color:var(--muted)}
-.v2 .owners-link{margin-top:18px}
-.v2-photo{margin:0}
-.v2-photo img{width:100%;height:auto;display:block;border-radius:var(--r-lg);box-shadow:var(--shadow-lg)}
-.v2-photo figcaption{margin-top:10px;font-size:.85rem;color:var(--muted)}
-@media (max-width:900px){.v2-story{grid-template-columns:1fr}.v2-photo{order:-1}}
-@media (max-width:560px){.v2 .proof-stats{grid-template-columns:1fr}}
-/* inquiry: light composition, distinct from the navy platform band */
-.v2 .cta{background:linear-gradient(180deg,var(--teal-soft),var(--bg));color:var(--muted)}
-.v2 .cta::after{display:none}
-.v2 .cta h2{color:var(--navy);font-size:clamp(2.2rem,4vw,3.2rem)}
-.v2 .cta .kicker{color:var(--teal-ink)}
-.v2 .cta .lede{color:var(--muted)}
-.v2 .next b{color:var(--navy)}
-.v2 .next li span{border-color:var(--teal);color:var(--teal-ink)}
-.v2 .alt-contact{border-top-color:var(--line)}
-.v2 .alt-contact b{color:var(--navy)}
-.v2 #reviewForm{border:1px solid var(--line);border-top:4px solid var(--navy)}
-@media (prefers-reduced-motion:reduce){.js .v2 .rv{transition:none;transform:none}}
+
+.hub-sec{padding:clamp(64px,7vw,96px) 0}
+.hub-head{margin-bottom:0}
+
+/* 5 how it works */
+.steps-5 b{font-size:1.12rem}
+.steps-5 small{font-size:.95rem;line-height:1.5;margin-top:6px}
+@media (min-width:821px){.steps-5{grid-template-columns:repeat(5,1fr)}.steps-5::before,.steps-5::after{left:10%;right:10%}.steps-5 small{max-width:22ch;margin-inline:auto}}
+
+/* 6 visibility */
+.checks{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
+.checks li{display:flex;align-items:center;gap:12px;font:500 1rem var(--display);color:var(--navy)}
+.checks .ck{width:26px;height:26px;border-radius:50%;background:var(--teal-soft);display:grid;place-items:center;flex:none}
+.checks .ck svg{width:15px;height:15px;stroke:var(--teal-ink);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.owner-panel{background:var(--navy);border-radius:var(--r-lg);padding:clamp(22px,3vw,32px);box-shadow:var(--shadow-lg)}
+.owner-panel .ptitle{display:flex;justify-content:space-between;align-items:center;gap:10px;color:#fff;font:600 1rem var(--display);margin-bottom:18px}
+.owner-panel .illus{color:#C6D4E1;border-color:rgba(255,255,255,.25)}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px;display:grid;gap:14px}
+.kpi small{color:#D4E0EB;font-size:.88rem}
+.kpi .spark{height:30px;width:100%}
+
+/* 7 fit */
+.types{list-style:none;margin:26px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px 12px}
+.types li{display:flex;align-items:center;gap:10px;font:600 .93rem var(--display);color:var(--navy)}
+@media (max-width:420px){.types{grid-template-columns:1fr 1fr}}
+
+/* 8 portfolio head */
+.pf-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;max-width:none}
+
+/* 9 hidden results + testimonial */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
+.metric{padding:22px;display:grid;gap:10px}
+.metric b{font:600 2rem var(--display);color:var(--navy)}
+.tst{padding:clamp(80px,10vw,140px) 0}
+.tst-card{max-width:560px;background:#fff;color:var(--ink);border-radius:var(--r-lg);padding:clamp(24px,3vw,36px);box-shadow:var(--shadow-lg)}
+
+/* 11 final CTA */
+.fcta{padding:clamp(88px,11vw,150px) 0;text-align:center}
+.fcta .bg{object-position:50% 60%}
+.fcta::before{background:radial-gradient(ellipse 60% 75% at 50% 50%,rgba(10,32,56,.86) 0%,rgba(14,42,71,.78) 45%,rgba(14,42,71,.3) 100%)}
+@media (max-width:760px){.fcta::before{background:radial-gradient(ellipse 95% 70% at 50% 50%,rgba(10,32,56,.86) 0%,rgba(14,42,71,.78) 55%,rgba(14,42,71,.4) 100%)}}
+.fcta h2{font-size:clamp(2.2rem,4.4vw,3.4rem);max-width:18ch;margin:0 auto}
+.fcta p{margin:16px auto 0;max-width:46ch;font-size:1.1rem}
+.fcta .hx-ctas{justify-content:center}
+@media (max-width:480px){.fcta .hx-ctas .btn{flex:1 1 100%}}
+.faq-grid h2{max-width:12ch}
+
+/* ===== Motion (home-v2) ===== */
+/* slide-ins never create sideways scroll (clip, unlike hidden, keeps sticky/scroll behaviour) */
+.home-v2 main{overflow-x:clip}
+.hx h1 .ln{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.hx h1 .ln>span{display:block;--rise:.55em}
+/* hover/focus: button colour + card lift only */
+.home-v2 .pcard .pcard-img img,.home-v2 .pcard:hover .pcard-img img{transform:none}
+.home-v2 .pcard .pcard-view i,.home-v2 .pcard:hover .pcard-view i{transform:none}
+.home-v2 .btn{transition:background .2s,color .2s,border-color .2s,transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast)}
+.home-v2 .card.pcard{transition:transform var(--dur-fast) var(--ease-out),opacity var(--dur-base) var(--ease-out)}
+.home-v2 .card.pcard.anim-done:hover,.home-v2 .card.pcard.anim-done:focus-visible,html:not(.js) .home-v2 .card.pcard:hover{transform:translateY(-4px)}
+.home-v2 .pcard:focus-visible{outline:3px solid var(--sun);outline-offset:4px;border-radius:var(--r-md)}
+/* accessibility: brand "OS" and footer headings */
+.home-v2 .logo-word span{color:var(--teal-ink)}
+.home-v2 footer .foot-h{font:600 .95rem var(--display);color:#fff;margin:0 0 14px}
+/* ===== Transparent header over the hero (homepage only; scrolls away with the page) ===== */
+.home-v2 header.site{position:absolute;top:0;left:0;right:0;background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom-color:transparent}
+.home-v2 header.site.scrolled{background:transparent;border-bottom-color:transparent}
+.home-v2 header.site .logo-word{color:#fff}
+.home-v2 header.site .logo-word span{color:var(--teal-2)}
+.home-v2 header.site .logo svg path:last-child{stroke:#fff}
+@media (min-width:981px){
+  .home-v2 header.site .nav ul a{color:#fff}
+  .home-v2 header.site .nav ul a:hover,.home-v2 header.site .nav ul a.active{color:#fff;background:rgba(255,255,255,.14)}
+  .home-v2 header.site .nav ul a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+}
+.home-v2 header.site .nav-cta{background:#fff;color:var(--navy)}
+.home-v2 header.site .nav-cta:hover{background:var(--sun-soft);color:var(--navy)}
+.home-v2 header.site .nav-cta:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+/* hero content clears the header (76px) */
+.hx{padding-top:calc(76px + clamp(48px,7vw,96px))}
+@media (max-width:760px){.hx{padding-top:calc(76px + min(52vw,240px))}}
+/* darker band at the top of the hero so the header text keeps AA contrast over the photo */
+.hx::after{content:"";position:absolute;inset:0 0 auto 0;height:150px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(10,32,56,.78) 0%,rgba(10,32,56,.45) 55%,rgba(10,32,56,0) 100%)}
+
+/* ===== Hero: centered layout ===== */
+.hx.hx-center .wrap{text-align:center}
+.hx.hx-center .kicker{justify-content:center}
+.hx.hx-center h1{margin-inline:auto;max-width:20ch}
+.hx.hx-center .lede{margin-inline:auto}
+.hx.hx-center .hx-ctas{justify-content:center}
+.hx.hx-center .benefits li{justify-content:center}
+.hx.hx-center::before{background:linear-gradient(0deg,rgba(10,32,56,.9) 0,rgba(10,32,56,.55) 120px,rgba(10,32,56,0) 230px),radial-gradient(ellipse 62% 74% at 50% 50%,rgba(10,32,56,.88) 0%,rgba(14,42,71,.83) 60%,rgba(14,42,71,.42) 100%)}
+@media (max-width:760px){.hx.hx-center .benefits li{align-items:center}.hx.hx-center::before{background:linear-gradient(180deg,rgba(14,42,71,.25) 0%,rgba(14,42,71,.6) 18%,rgba(10,32,56,.86) 34%,rgba(10,32,56,.9) 100%)}}
+
+/* ===== Section alignment: full-width sections center their heading block ===== */
+.sec-head.is-centered{text-align:center;margin-inline:auto;max-width:760px}
+.sec-head.is-centered .kicker{justify-content:center}
+.sec-head.is-centered h2{margin-inline:auto}
+.sec-head.is-centered .lede{max-width:60ch;margin-inline:auto}
+.pf-more{text-align:center;margin-top:clamp(28px,3.5vw,40px)}
+/* ===== How it works: timeline (scroll-linked; segments sit between circles) ===== */
+.tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.tl li{position:relative;text-align:center;padding:0 10px}
+.tl .dot{position:relative;z-index:1;width:48px;height:48px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;background:var(--navy-3);border:1.5px solid rgba(255,255,255,.22);color:#7F97AE;transition:background var(--dur-fast),border-color var(--dur-fast),color var(--dur-fast),box-shadow var(--dur-fast)}
+.tl .dot svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tl li.active .dot{background:var(--teal);border-color:var(--teal-2);color:#fff;box-shadow:0 0 0 6px rgba(111,208,204,.16),0 0 26px rgba(111,208,204,.35)}
+.tl .seg{position:absolute;top:23px;left:calc(50% + 32px);width:calc(100% - 64px);height:2px;border-radius:2px;background:rgba(255,255,255,.16);overflow:hidden}
+.tl .seg i{display:block;width:100%;height:100%;background:var(--teal-2);transform:scaleX(var(--f,0));transform-origin:0 50%}
+.tl b{display:block;font:600 1.12rem/1.3 var(--display);color:#fff}
+.tl small{display:block;margin:6px auto 0;max-width:22ch;font-size:.95rem;line-height:1.5;color:#C6D4E1}
+.js .tl li b,.js .tl li small{opacity:0;transform:translateY(16px);transition:opacity var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out)}
+.js .tl li.active b,.js .tl li.active small{opacity:1;transform:none}
+html:not(.js) .tl li .dot{background:var(--teal);border-color:var(--teal-2);color:#fff}
+html:not(.js) .tl .seg i{transform:none}
+@media (max-width:820px){
+  .tl{grid-template-columns:1fr}
+  .tl li{display:grid;grid-template-columns:48px 1fr;column-gap:18px;text-align:left;padding:0 0 30px}
+  .tl li:last-child{padding-bottom:0}
+  .tl .dot{grid-row:span 2;margin:0}
+  .tl b{align-self:end;padding-top:2px}
+  .tl small{margin:4px 0 0;max-width:none}
+  .tl .seg{top:56px;bottom:8px;left:23px;width:2px;height:auto}
+  .tl .seg i{transform:scaleY(var(--f,0));transform-origin:50% 0}
+}
+@media (prefers-reduced-motion:reduce){.tl .seg i{transform:none!important}.js .tl li b,.js .tl li small{opacity:1!important;transform:none!important}}
+/* heading line control */
+.nw{white-space:nowrap}
+@media (min-width:761px){.fcta h2{max-width:none}.fcta h2 .br{display:block}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
-<body class="v2">
+<body class="home-v2">
 <a class="skip" href="#main">Skip to content</a>
 
 <header class="site" id="top">
@@ -243,295 +237,194 @@
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="contact.html" class="btn btn-primary nav-cta">Request a Property Review</a>
+    <a href="contact.html?request=call" class="btn btn-primary nav-cta">Request a Call</a>
     <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <main id="main">
 
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <h1><span class="ln"><span>The operating system</span></span><span class="ln"><span>for independent</span></span><span class="ln"><span>hotels.</span></span></h1>
-      <div class="hero-fade">
-        <p class="lede">A technology-enabled hotel management platform that runs the work every property repeats, centrally, so owners can focus on revenue, costs and performance.</p>
-        <div class="hero-ctas">
-          <a href="#platform" class="btn btn-primary">See How CoastalOS Works</a>
-          <a href="contact.html?request=call" class="btn btn-ghost">Talk to Our Team</a>
-        </div>
-        <ul class="hero-points">
-          <li>Direct revenue</li><li>Leaner operations</li><li>Owner visibility</li>
-        </ul>
-      </div>
+<!-- 1. HERO -->
+<section class="photo-sec hx hx-center" data-mcta-after>
+  <!-- IMAGE: hero background (swap: assets/home-v2/hero-sea-shells-exterior-*.webp, 800/1280/1600 widths, 3:2) -->
+  <div class="bg-par" aria-hidden="true"><img class="bg" src="assets/home-v2/hero-sea-shells-exterior-1280.webp" srcset="assets/home-v2/hero-sea-shells-exterior-800.webp 800w, assets/home-v2/hero-sea-shells-exterior-1280.webp 1280w, assets/home-v2/hero-sea-shells-exterior-1600.webp 1600w" sizes="100vw" width="1600" height="1065" alt="" fetchpriority="high" decoding="async"></div>
+  <div class="wrap">
+    <h1><span class="ln"><span data-anim="fade-up" data-delay="60">The Operating System</span></span> <span class="ln"><span data-anim="fade-up" data-delay="140">for Independent Hotels.</span></span></h1>
+    <p class="lede" data-anim="fade-up" data-delay="330">We combine technology, people and proven operating systems to increase revenue, reduce costs and deliver a great guest experience, while you enjoy a more hands-off ownership experience.</p>
+    <div class="hx-ctas" data-anim="fade-up" data-delay="430">
+      <a href="contact.html?request=call" class="btn btn-primary">Request a Call</a>
+      <a href="#platform" class="btn btn-on-dark">See How It Works</a>
     </div>
+    <ul class="benefits" aria-label="Benefits" data-stagger="fade-up" data-delay="560">
+      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span>Higher Revenue</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9.5c-.5-1-1.6-1.5-3-1.5-1.7 0-3 .9-3 2.2 0 2.9 6 1.6 6 4.6 0 1.3-1.3 2.2-3 2.2-1.5 0-2.6-.6-3.1-1.6M12 6.5v11"/></svg></span>Lower Operating Costs</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>Better Guest Experience</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span>Hands-Off Ownership</li>
+    </ul>
+  </div>
+</section>
 
-    <figure class="hero-art" role="img" aria-label="Diagram: revenue and operations functions connect to the central CoastalOS platform, which is delivered to your independent hotel." style="margin:0">
-      <div class="ha-grid">
-        <div class="ha-col ha-left">
-          <p>Grow direct revenue</p>
-          <ul>
-            <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M9 15l2 2 4-4"/></svg>Direct booking</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 10v4h3l5 4V6L7 10H4zM16 9a4 4 0 0 1 0 6"/></svg>Marketing</li>
-            <li><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/></svg>Revenue management</li>
-            <li><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"/></svg>Reservations</li>
-          </ul>
-        </div>
-        <div class="ha-core">
-          <svg viewBox="0 0 40 40" aria-hidden="true"><path class="sun-arc" d="M9 21a11 11 0 0 1 22 0" fill="none" stroke="#C9932F" stroke-width="2.4" stroke-linecap="round"/><path d="M5 26c5-3 9 3 15 0s10 3 15 0" fill="none" stroke="#6FD0CC" stroke-width="2.4" stroke-linecap="round"/><path d="M10 31c4-2 6 2 10 0s6 2 10 0" fill="none" stroke="#6FD0CC" stroke-opacity=".5" stroke-width="2" stroke-linecap="round"/></svg>
-          <b>CoastalOS</b>
-          <small>Operating platform, managed centrally</small>
-        </div>
-        <div class="ha-col ha-right">
-          <p>Run the hotel</p>
-          <ul>
-            <li><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg>Digital check-in</li>
-            <li><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7"/></svg>Team &amp; payroll</li>
-            <li><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6"/></svg>Financials</li>
-            <li><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg>Owner reporting</li>
-          </ul>
-        </div>
+<!-- 2. THE CHALLENGE -->
+<section class="sec">
+  <div class="wrap">
+    <div class="ch-grid">
+      <div data-anim="fade-up">
+        <h2 class="big-h">Running a hotel shouldn’t run your life.</h2>
+        <p class="lede" style="margin-top:16px">Independent owners are asked to do it all: reservations, pricing, marketing, staff, guest issues and accounting, often with outdated systems and limited support.</p>
+        <p class="ch-strong">It doesn’t have to be that way.</p>
       </div>
-      <div class="ha-down" aria-hidden="true"></div>
-      <div class="ha-hotel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg><span><b>Your independent hotel.</b> Your brand, your guests, a leaner operation.</span></div>
+      <!-- IMAGE: challenge side photo (swap: assets/home-v2/challenge-hickory-falls.webp) -->
+      <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/challenge-hickory-falls.webp" width="548" height="685" alt="Vine-covered exterior of Hickory Falls Inn, Lake Lure, North Carolina" loading="lazy" decoding="async"></figure>
+    </div>
+    <ul class="ch-cards" data-stagger="fade-up" data-delay="150">
+      <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.6 13.4L13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></span>Manual rate management</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>Too much time on daily operations</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/></svg></span>High labor costs</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>Reliance on OTAs</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></span>Inconsistent guest experience</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>Complex technology</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M3 21a7 7 0 0 1 12.6-4.2M19 15v6M16 18h6"/></svg></span>Hiring and staffing challenges</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span>Limited reporting and visibility</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3. THE SOLUTION -->
+<section class="sec sec-white">
+  <div class="wrap split2">
+    <div data-anim="fade-up">
+      <h2 class="big-h">Centralize. Automate. Elevate.</h2>
+      <p class="lede">CoastalOS takes on the day-to-day operating work using proven systems, modern technology and an experienced hospitality team, so you keep the benefits of ownership without the operational burden.</p>
+      <a href="services.html" class="btn btn-primary">Explore Our Services</a>
+    </div>
+    <!-- IMAGE: solution photo (swap: assets/home-v2/solution-island-house.webp) -->
+    <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/solution-island-house.webp" width="1200" height="900" alt="Courtyard pool and cabanas at Island House Resort, North Redington Beach, Florida" loading="lazy" decoding="async"></figure>
+  </div>
+</section>
+
+<!-- 4. THE PLATFORM -->
+<section class="sec hub-sec" id="platform">
+  <div class="wrap">
+    <div class="sec-head hub-head" data-anim="fade-up">
+      <h2>A modern operating platform for real hotel owners.</h2>
+      <p class="lede">You own the property. We handle the rest.</p>
+    </div>
+    <div class="hub" id="hub">
+      <svg class="lines" data-anim="draw" data-delay="250" viewBox="0 0 960 600" aria-hidden="true"><line x1="480" y1="300" x2="480" y2="66"/><line x1="480" y1="300" x2="724" y2="135"/><line x1="480" y1="300" x2="826" y2="300"/><line x1="480" y1="300" x2="724" y2="465"/><line x1="480" y1="300" x2="480" y2="534"/><line x1="480" y1="300" x2="236" y2="465"/><line x1="480" y1="300" x2="134" y2="300"/><line x1="480" y1="300" x2="236" y2="135"/></svg>
+      <!-- LOGO: replace this mark with the client's final logo SVG -->
+      <div class="hub-core" data-anim="scale-in"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M9 21a11 11 0 0 1 22 0" fill="none" stroke="#C9932F" stroke-width="2.4" stroke-linecap="round"/><path d="M5 26c5-3 9 3 15 0s10 3 15 0" fill="none" stroke="#6FD0CC" stroke-width="2.4" stroke-linecap="round"/><path d="M10 31c4-2 6 2 10 0s6 2 10 0" fill="none" stroke="#6FD0CC" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/></svg><span>CoastalOS</span></div>
+      <ul class="hub-list" aria-label="Functions run on the CoastalOS platform"><li class="hub-item" style="--x:50.0%;--y:11.0%;--ox:-0px;--oy:33px"><a class="hub-card" href="services.html#revenue" data-anim="scale-in" data-delay="450"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><span>Revenue Management</span></a></li><li class="hub-item" style="--x:75.5%;--y:22.4%;--ox:-49px;--oy:33px"><a class="hub-card" href="services.html#revenue" data-anim="scale-in" data-delay="530"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l5 4V6L7 10H4zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><span>Marketing & Direct Bookings</span></a></li><li class="hub-item" style="--x:86.0%;--y:50.0%;--ox:-116px;--oy:-0px"><a class="hub-card" href="services.html#operations" data-anim="scale-in" data-delay="610"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/></svg></span><span>On-Site Operations & Staff Management</span></a></li><li class="hub-item" style="--x:75.5%;--y:77.6%;--ox:-49px;--oy:-33px"><a class="hub-card" href="services.html#reporting" data-anim="scale-in" data-delay="690"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><span>Owner Reporting & Oversight</span></a></li><li class="hub-item" style="--x:50.0%;--y:89.0%;--ox:-0px;--oy:-33px"><a class="hub-card" href="services.html#reporting" data-anim="scale-in" data-delay="770"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><span>Accounting & Financial Reporting</span></a></li><li class="hub-item" style="--x:24.5%;--y:77.6%;--ox:49px;--oy:-33px"><a class="hub-card" href="services.html#technology" data-anim="scale-in" data-delay="850"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><span>Technology & Systems</span></a></li><li class="hub-item" style="--x:14.0%;--y:50.0%;--ox:116px;--oy:-0px"><a class="hub-card" href="services.html#technology" data-anim="scale-in" data-delay="930"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg></span><span>Digital Check&#8209;In</span></a></li><li class="hub-item" style="--x:24.5%;--y:22.4%;--ox:49px;--oy:33px"><a class="hub-card" href="services.html#reservations" data-anim="scale-in" data-delay="1010"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"/></svg></span><span>Reservations & Guest Support</span></a></li></ul>
+    </div>
+    <p class="hub-more" data-anim="fade-in" data-delay="200"><a class="text-link" href="platform.html">See the full platform</a></p>
+  </div>
+</section>
+
+<!-- 5. HOW IT WORKS -->
+<section class="sec navy-band" id="how">
+  <div class="wrap">
+    <div class="sec-head is-centered" data-anim="fade-up">
+      <h2>A simple path to a <span class="nw">higher-performing</span> hotel.</h2>
+    </div>
+    <ol class="tl" id="tl">
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></span><span class="seg" aria-hidden="true"><i></i></span><b>Discovery</b><small>Understand your goals and evaluate your property.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></span><span class="seg" aria-hidden="true"><i></i></span><b>Onboarding</b><small>Seamless setup of systems, staff and processes.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13a5 5 0 0 1 10 0M4 17c3-2 5 2 8 0s5 2 8 0"/></svg></span><span class="seg" aria-hidden="true"><i></i></span><b>Management</b><small>We operate and optimize your property with CoastalOS.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><span class="seg" aria-hidden="true"><i></i></span><b>Results</b><small>Stronger revenue, lower costs and happier guests.</small></li>
+        <li><span class="dot"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-3-6.2M20 4v5h-5"/></svg></span><b>Ongoing Partnership</b><small>Continuous improvement and dedicated support.</small></li>
+      </ol>
+  </div>
+</section>
+
+<!-- 6. OWNER VISIBILITY -->
+<section class="sec">
+  <div class="wrap split2">
+    <div data-anim="fade-up">
+      <h2 class="big-h">Complete visibility without the headache.</h2>
+      <p class="lede">Regular reporting on revenue, occupancy, expenses, guest satisfaction and labor, gathered in one place instead of pieced together from separate systems.</p>
+      <ul class="checks">
+        <li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>Performance reporting</li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>Monthly financial reports</li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>Guest review tracking</li><li><span class="ck" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12l5 5 9-10"/></svg></span>Labor and expense oversight</li>
+      </ul>
+    </div>
+    <figure class="owner-panel" data-anim="fade-up" role="img" aria-label="Illustrative owner reporting layout with no real data" style="margin:0">
+      <div class="ptitle"><span>An owner’s reporting view</span><span class="illus">Illustrative only</span></div>
+      <div class="kpis"><div class="kpi"><small>Revenue</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 22 L20 18 L40 20 L60 12 L80 14 L100 6 L120 8" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div><div class="kpi"><small>Occupancy</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 20 L20 21 L40 16 L60 15 L80 10 L100 11 L120 5" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div><div class="kpi"><small>Expenses</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 8 L20 10 L40 9 L60 13 L80 12 L100 15 L120 14" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div><div class="kpi"><small>Labor</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 6 L20 9 L40 8 L60 14 L80 15 L100 19 L120 20" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div><div class="kpi"><small>Guest satisfaction</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 18 L20 16 L40 17 L60 12 L80 10 L100 9 L120 7" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div><div class="kpi"><small>Property performance</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path d="M0 21 L20 17 L40 18 L60 13 L80 11 L100 10 L120 6" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div></div>
     </figure>
   </div>
 </section>
 
-<!-- OPPORTUNITY -->
-<section class="sec sec-white opp" id="about">
-  <div class="wrap opp-grid">
-    <div class="rv">
-      <p class="kicker">The opportunity</p>
-      <h2>Your hotel shouldn’t require an entire company to operate it.</h2>
-      <div class="opp-body">
-        <p>Every independent property carries the same jobs: reservations, front desk, pricing, guest messages, marketing, payroll, bookkeeping and reporting. Usually each one is handled separately, property by property.</p>
-        <p>Modern technology makes it possible to run much of that work once, centrally, and well. That leaves your on-site team free for the hospitality only they can deliver.</p>
-      </div>
+<!-- 7. BUILT FOR INDEPENDENT & BOUTIQUE HOTELS -->
+<section class="sec sec-white">
+  <div class="wrap split2 flip">
+    <div data-anim="fade-up">
+      <h2 class="big-h">Built for independent &amp; boutique hotels.</h2>
+      <p class="lede">Whether you own one property or a small portfolio, CoastalOS gives you the operating infrastructure used by larger hotel companies, without losing your independence.</p>
+      <ul class="types" aria-label="Property types" data-stagger="fade-up" data-delay="200">
+        <li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M10 21v-5h4v5"/></svg></span>Boutique Hotels</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M4 21V10h16v11M7 14h2M11 14h2M15 14h2M3 10l9-6 9 6"/></svg></span>Motels</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21V11M12 11c-4-1-6-4-6-7 3 0 5 2 6 4 1-2 3-4 6-4 0 3-2 6-6 7zM4 21h16"/></svg></span>Resorts</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 13h6v8H9z"/></svg></span>Inns</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h3M13 7h3M8 11h3M13 11h3M10 21v-4h4v4"/></svg></span>Extended Stay</li><li><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l3 6 6 .9-4.5 4.4 1 6.2L12 17.6 6.5 20.5l1-6.2L3 9.9 9 9z"/></svg></span>Unique Properties</li>
+      </ul>
+      <a href="contact.html" class="btn btn-primary">Is My Property a Good Fit?</a>
     </div>
-    <div class="card compare rv d2" id="compare">
-      <div class="seg" role="group" aria-label="Compare operating models">
-        <span class="thumb"></span>
-        <button type="button" aria-pressed="true" data-mode="today">Managed separately</button>
-        <button type="button" aria-pressed="false" data-mode="central">With CoastalOS</button>
-      </div>
-      <div class="cmp-stage" aria-hidden="true">
-        <svg viewBox="0 0 460 300" preserveAspectRatio="xMidYMid meet">
-          <g class="scatter">
-            <path class="lnk" d="M95 60 L230 150 M365 60 L230 150 M60 150 L230 150 M400 150 L230 150 M95 240 L230 150 M365 240 L230 150 M95 60 L60 150 M365 60 L400 150 M95 240 L365 240" stroke-dasharray="3 6"/>
-            <rect x="198" y="132" width="64" height="36" rx="10" fill="#F6EBD5" stroke="#C9932F"/><text x="230" y="155" text-anchor="middle">Owner</text>
-          </g>
-          <g class="hub">
-            <path d="M95 60 L230 150 M365 60 L230 150 M60 150 L230 150 M400 150 L230 150 M95 240 L230 150 M365 240 L230 150" stroke="#1C8C8A" stroke-width="1.6" fill="none"/>
-            <rect x="178" y="122" width="104" height="56" rx="14" fill="#0E2A47"/><text x="230" y="155" text-anchor="middle" style="fill:#fff;font-weight:600;font-family:Outfit,sans-serif;font-size:14px">CoastalOS</text>
-          </g>
-          <g class="box"><rect x="45" y="42" width="100" height="36" rx="18"/><text x="95" y="65" text-anchor="middle">Pricing</text></g>
-          <g class="box"><rect x="315" y="42" width="100" height="36" rx="18"/><text x="365" y="65" text-anchor="middle">Reservations</text></g>
-          <g class="box"><rect x="5" y="132" width="110" height="36" rx="18"/><text x="60" y="155" text-anchor="middle">Guest messages</text></g>
-          <g class="box"><rect x="345" y="132" width="110" height="36" rx="18"/><text x="400" y="155" text-anchor="middle">Scheduling</text></g>
-          <g class="box"><rect x="45" y="222" width="100" height="36" rx="18"/><text x="95" y="245" text-anchor="middle">Payroll &amp; HR</text></g>
-          <g class="box"><rect x="315" y="222" width="100" height="36" rx="18"/><text x="365" y="245" text-anchor="middle">Reporting</text></g>
-        </svg>
-      </div>
-      <p class="cmp-cap" aria-live="polite">Each function runs on its own tools and people, and the owner is left connecting the pieces.</p>
-    </div>
+    <!-- IMAGE: fit photo (swap: assets/home-v2/fit-the-pineola.webp) -->
+    <figure class="side-photo" data-anim="fade-up"><img src="assets/home-v2/fit-the-pineola.webp" width="1200" height="900" alt="Aerial view of The Pineola inn with the Blue Ridge Mountains behind, Newland, North Carolina" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
-<!-- PLATFORM + HOW IT OPERATES (combined) -->
-<section class="sec" id="platform">
+<!-- 8. PORTFOLIO -->
+<section class="sec">
   <div class="wrap">
-    <div class="sec-head split-head rv">
-      <div><p class="kicker">The CoastalOS platform</p>
-      <h2>The work behind every stay, run in one place.</h2></div>
-      <p class="lede">CoastalOS takes on the work behind a hotel that can be run centrally, from pricing and reservations to payroll and owner reporting. Your property keeps its brand and its on-site team.</p>
-    </div>
-
-    <div class="cap-groups">
-      <div class="card cap-group rv d1">
-        <h3>Grow direct revenue</h3>
-        <ul>
-          <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></span><div><b>Direct Booking</b><span>Reservations on each hotel’s own branded website.</span></div></li>
-          <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l5 4V6L7 10H4zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span><div><b>Marketing &amp; Distribution</b><span>Search, social, email and channel management that brings guests back direct.</span></div></li>
-          <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><div><b>Revenue Management</b><span>Data-driven pricing and inventory across every channel.</span></div></li>
-          <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"/></svg></span><div><b>Reservations &amp; Guest Support</b><span>A central team handling calls, chat and email.</span></div></li>
-        </ul>
-      </div>
-      <div class="card cap-group run rv d2">
-        <h3>Run the hotel</h3>
-        <ul>
-          <li><span class="ic"><svg viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l9-9M17 6l3 3"/></svg></span><div><b>Digital &amp; Self Check-In</b><span>Contactless arrival with help available when guests need it.</span></div></li>
-          <li><span class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/></svg></span><div><b>On-Site Team &amp; Payroll</b><span>Hiring, scheduling, training, payroll and HR coordinated centrally.</span></div></li>
-          <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></span><div><b>Financials &amp; Controls</b><span>Back office, purchasing, accounting and operational controls.</span></div></li>
-          <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 16v-4M12 16V8M16 16v-6"/></svg></span><div><b>Owner Reporting</b><span>Clear reporting on revenue, rates, labor and performance.</span></div></li>
-        </ul>
-      </div>
-    </div>
-
-    <p class="more-link rv"><a href="platform.html" class="v2-textlink v2-on-navy">See the full platform <span aria-hidden="true">→</span></a></p>
-  </div>
-</section>
-
-<!-- OUTCOMES -->
-<section class="sec outcomes" id="outcomes">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="kicker">Outcomes</p>
-      <h2>What the platform is built to improve.</h2>
-      <p class="lede">Four goals guide how CoastalOS runs each property. The charts are illustrations, not results.</p>
-    </div>
-
-    <div class="out-tabs" id="outTabs">
-      <div class="out-list rv d1" role="tablist" aria-label="Outcomes">
-        <button role="tab" id="t0" aria-controls="p0" aria-selected="true"><h3>Grow revenue</h3><p>Revenue management, distribution, marketing and centralized rate control, with a steady push toward direct bookings.</p></button>
-        <button role="tab" id="t1" aria-controls="p1" aria-selected="false" tabindex="-1"><h3>Reduce operating costs</h3><p>Technology, centralization and automation, with efficient staffing and clear oversight of payroll and labor.</p></button>
-        <button role="tab" id="t2" aria-controls="p2" aria-selected="false" tabindex="-1"><h3>Modernize the guest experience</h3><p>Easy booking, fast communication, convenient check-in, and support that responds when guests need it.</p></button>
-        <button role="tab" id="t3" aria-controls="p3" aria-selected="false" tabindex="-1"><h3>Give owners visibility</h3><p>Reporting on revenue, occupancy, rates, expenses, labor and property performance, all in one place.</p></button>
-      </div>
-
-      <div class="out-panel rv d2">
-        <div class="ptitle"><span id="ptitle">Direct versus third-party bookings</span><span class="illus">Illustrative only</span></div>
-        <div class="viz">
-          <div id="p0" role="tabpanel" aria-labelledby="t0" class="on">
-            <svg viewBox="0 0 400 220" role="img" aria-label="Illustrative chart with no real data: direct bookings line rising while third-party line eases">
-              <g stroke="rgba(255,255,255,.08)"><line x1="0" y1="40" x2="400" y2="40"/><line x1="0" y1="100" x2="400" y2="100"/><line x1="0" y1="160" x2="400" y2="160"/></g>
-              <path class="draw" d="M0 170 C60 160 90 150 140 130 S230 90 280 75 S360 50 400 40" fill="none" stroke="#6FD0CC" stroke-width="3"/>
-              <path class="draw" d="M0 90 C70 95 120 110 180 118 S300 135 400 140" fill="none" stroke="#C9932F" stroke-width="3" style="animation-delay:.2s"/>
-            </svg>
-          </div>
-          <div id="p1" role="tabpanel" aria-labelledby="t1">
-            <svg viewBox="0 0 400 220" role="img" aria-label="Illustrative chart with no real data: cost by function, managed separately versus centralized">
-              <g font-family="Instrument Sans,sans-serif" font-size="11" fill="#A9BDD0"><text x="30" y="214">Front desk</text><text x="128" y="214">Reservations</text><text x="238" y="214">Admin</text><text x="322" y="214">Marketing</text></g>
-              <rect class="grow" x="30" y="40" width="34" height="160" rx="5" fill="rgba(255,255,255,.18)"/><rect class="grow" x="70" y="90" width="34" height="110" rx="5" fill="#6FD0CC"/>
-              <rect class="grow" x="130" y="60" width="34" height="140" rx="5" fill="rgba(255,255,255,.18)"/><rect class="grow" x="170" y="120" width="34" height="80" rx="5" fill="#6FD0CC"/>
-              <rect class="grow" x="232" y="80" width="34" height="120" rx="5" fill="rgba(255,255,255,.18)"/><rect class="grow" x="272" y="130" width="34" height="70" rx="5" fill="#6FD0CC"/>
-              <rect class="grow" x="318" y="100" width="34" height="100" rx="5" fill="rgba(255,255,255,.18)"/><rect class="grow" x="358" y="135" width="34" height="65" rx="5" fill="#6FD0CC"/>
-            </svg>
-          </div>
-          <div id="p2" role="tabpanel" aria-labelledby="t2">
-            <div class="chat">
-              <div class="bub g">Hi! We land late tonight, around 11pm. Is that OK?</div>
-              <div class="bub h">No problem at all. Your digital check-in is ready, and your arrival details will come by text.</div>
-              <div class="bub g">Perfect, thank you!</div>
-            </div>
-          </div>
-          <div id="p3" role="tabpanel" aria-labelledby="t3">
-            <div class="kpis">
-              <div class="kpi"><small>Occupancy</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path class="draw" d="M0 22 L20 18 L40 20 L60 12 L80 14 L100 6 L120 8" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div>
-              <div class="kpi"><small>Average daily rate</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path class="draw" d="M0 20 L20 21 L40 16 L60 15 L80 10 L100 11 L120 5" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div>
-              <div class="kpi"><small>Labor cost</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path class="draw" d="M0 6 L20 9 L40 8 L60 14 L80 15 L100 19 L120 20" fill="none" stroke="#6FD0CC" stroke-width="2"/></svg></div>
-              <div class="kpi"><small>Guest rating</small><svg class="spark" viewBox="0 0 120 28" aria-hidden="true"><path class="draw" d="M0 18 L20 16 L40 17 L60 12 L80 10 L100 9 L120 7" fill="none" stroke="#C9932F" stroke-width="2"/></svg></div>
-            </div>
-          </div>
-        </div>
-        <div class="legend" id="legend"><span><i style="background:#6FD0CC"></i>Direct bookings</span><span><i style="background:#C9932F"></i>Third-party channels</span></div>
-      </div>
-    </div>
-    <p class="tagline rv">High-touch hospitality where it matters. <em>Technology where it doesn’t.</em></p>
-  </div>
-</section>
-
-<!-- OWNERS -->
-<section class="sec sec-white owners">
-  <div class="wrap v2-story">
-    <div class="rv">
-      <p class="kicker">Built by hotel owners</p>
-      <h2>Built by the team behind Coastal Hospitality Group.</h2>
-      <p class="lede">Coastal Hospitality Group has acquired, developed and operated independent hotels since 2012.</p>
-      <p class="lede">CoastalOS is built from that day-to-day operating experience.</p>
-      <dl class="proof-stats">
-        <div><dt>Operating hotels since</dt><dd>2012</dd></div>
-        <div><dt>Hotels owned and operated since 2012, 10 in today’s portfolio</dt><dd>14</dd></div>
-        <div><dt>Bottom-line gain Coastal Management Company reports it often achieves in a hotel’s first year</dt><dd>+10–30%</dd></div>
-      </dl>
-      <p class="stats-src">Figures from Coastal Hospitality Group and its operating company, Coastal Management Company. <a class="text-link" href="portfolio.html#case-study">See an example case study</a></p>
-      <p class="owners-link"><a class="text-link" href="about.html">Read how CoastalOS started</a></p>
-    </div>
-    <figure class="v2-photo rv d2"><img src="assets/portfolio/chg-hickory-falls.webp" width="1000" height="750" alt="Hickory Falls Inn, Lake Lure, NC" loading="lazy" decoding="async"><figcaption>Hickory Falls Inn, Lake Lure, NC: a Coastal Hospitality Group hotel</figcaption></figure>
-  </div>
-</section>
-
-<!-- PROOF -->
-<!-- TESTIMONIALS -->
-<section class="sec quotes" aria-labelledby="quotes-h">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="kicker">What people say <span class="sample">Sample</span></p>
-      <h2 id="quotes-h">In their words.</h2>
-    </div>
-    <div class="quote-grid">
-      <figure class="quote rv d1"><blockquote><p>“Having reservations, pricing and day-to-day operations coordinated in one place makes ownership feel more manageable. We have a clearer picture of what needs attention.”</p></blockquote><figcaption>Hotel owner<span class="q-name">Name and property to be confirmed</span></figcaption></figure>
-      <figure class="quote rv d2"><blockquote><p>“Clear reporting and consistent communication are what we value most. Understanding both the numbers and the operational priorities helps us make informed decisions.”</p></blockquote><figcaption>Investor<span class="q-name">Name and property to be confirmed</span></figcaption></figure>
-      <figure class="quote rv d3"><blockquote><p>“We value a management partner who communicates clearly and follows through. A shared focus on the property and its guests makes collaboration easier.”</p></blockquote><figcaption>Partner<span class="q-name">Name and property to be confirmed</span></figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<!-- Properties and photos from coastalhospitalitygroup.com. See assets/portfolio/SOURCES.md -->
-<section class="sec sec-white" id="proof">
-  <div class="wrap">
-    <div class="sec-head proof-head rv">
-      <div>
-        <p class="kicker">Our hotels</p>
+    <div class="sec-head is-centered" data-anim="fade-up">
         <h2>Hotels owned and operated by Coastal Hospitality Group.</h2>
-        <p class="lede">The team behind CoastalOS runs independent hotels in coastal and mountain markets: the kind of property CoastalOS is built for.</p>
-      </div>
-      <a href="portfolio.html" class="btn btn-ghost">View all properties</a>
     </div>
-    <div class="pcard-grid pcard-grid-3">
-      <a class="card pcard rv d1" href="https://www.islandhousebeachhotel.com/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="Visit the Island House Resort website (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/chg-island-house.webp" width="1000" height="750" alt="Courtyard pool and loungers at Island House Resort" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Island House Resort</h3><p class="pcard-loc">North Redington Beach, FL</p><span class="pcard-view" aria-hidden="true">Visit website <i>↗</i></span></div></a>
-      <a class="card pcard rv d2" href="https://www.seashellsbeachclub.com/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="Visit the Sea Shells Beach Club website (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/chg-sea-shells.webp" width="1000" height="750" alt="Sea Shells Beach Club building at sunset" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Sea Shells Beach Club</h3><p class="pcard-loc">Daytona Beach, FL</p><span class="pcard-view" aria-hidden="true">Visit website <i>↗</i></span></div></a>
-      <a class="card pcard rv d3" href="https://www.thepineola.com/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="Visit the The Pineola website (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/chg-pineola.webp" width="1000" height="750" alt="Aerial view of The Pineola with mountains behind" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">The Pineola</h3><p class="pcard-loc">Newland, NC</p><span class="pcard-view" aria-hidden="true">Visit website <i>↗</i></span></div></a>
+    <div class="pcard-grid pcard-grid-3" data-stagger="fade-up" data-delay="100">
+      <a class="card pcard" href="https://www.islandhousebeachhotel.com/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="Visit the Island House Resort website (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/chg-island-house.webp" width="1000" height="750" alt="Courtyard pool and loungers at Island House Resort" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Island House Resort</h3><p class="pcard-loc">North Redington Beach, FL</p><span class="pcard-view" aria-hidden="true">Visit website <i>↗</i></span></div></a>
+      <a class="card pcard" href="https://www.seashellsbeachclub.com/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="Visit the Sea Shells Beach Club website (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/chg-sea-shells.webp" width="1000" height="750" alt="Sea Shells Beach Club building at sunset" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Sea Shells Beach Club</h3><p class="pcard-loc">Daytona Beach, FL</p><span class="pcard-view" aria-hidden="true">Visit website <i>↗</i></span></div></a>
+      <a class="card pcard" href="https://www.thepineola.com/?utm_source=coastalos&amp;utm_medium=portfolio&amp;utm_campaign=property_card" target="_blank" rel="noopener" aria-label="Visit the The Pineola website (opens in a new tab)"><div class="pcard-img"><img src="assets/portfolio/chg-pineola.webp" width="1000" height="750" alt="Aerial view of The Pineola with mountains behind" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">The Pineola</h3><p class="pcard-loc">Newland, NC</p><span class="pcard-view" aria-hidden="true">Visit website <i>↗</i></span></div></a>
+    </div>
+    <p class="pf-more" data-anim="fade-up"><a href="portfolio.html" class="btn btn-ghost">View full portfolio</a></p>
+  </div>
+</section>
+
+<!-- 9. RESULTS + TESTIMONIAL: HIDDEN until the client supplies verified figures and a real, approved quote.
+     To enable: fill the empty values below and remove the `hidden` attribute from each <section>. -->
+<section class="sec sec-white" hidden aria-labelledby="results-h">
+  <div class="wrap">
+    <div class="sec-head is-centered">
+      <h2 id="results-h">Proven results for independent hotels.</h2>
+    </div>
+    <div class="metrics">
+      <div class="card metric"><b></b><span>Average revenue increase</span></div>
+      <div class="card metric"><b></b><span>Average operating cost reduction</span></div>
+      <div class="card metric"><b></b><span>Average guest review score</span></div>
+      <div class="card metric"><b></b><span>Direct booking growth</span></div>
+    </div>
+  </div>
+</section>
+<section class="photo-sec tst" hidden>
+  <!-- IMAGE: testimonial background (swap: assets/home-v2/testimonial-bluebird.webp) -->
+  <img class="bg" src="assets/home-v2/testimonial-bluebird.webp" width="1484" height="835" alt="" loading="lazy" decoding="async">
+  <div class="wrap">
+    <figure class="tst-card" style="margin:0"><blockquote style="margin:0"><p></p></blockquote><figcaption></figcaption></figure>
+  </div>
+</section>
+
+<!-- 10. FAQ -->
+<section class="sec sec-white">
+  <div class="wrap faq-grid">
+    <div data-anim="fade-up">
+      <h2>Before you get in touch.</h2>
+    </div>
+    <div class="faq-list" data-stagger="fade-up" data-delay="100">
+      <details><summary>Is CoastalOS software I install?</summary><p>No. CoastalOS is an operating platform: our team, technology and processes working together to run the core functions of your hotel, centrally.</p></details>
+      <details><summary>What size of property is it built for?</summary><p>Independent and boutique hotels, motels, inns and resorts that want to keep their own brand and guests.</p></details>
+      <details><summary>Do we keep our own brand?</summary><p>Yes. Your property keeps its name, website and guests. CoastalOS works behind the scenes to grow direct business under your brand.</p></details>
+      <details><summary>What happens in a property review?</summary><p>We look at how your hotel runs today and where centralization and technology could add revenue, lower cost, or improve visibility.</p></details>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="sec cta" id="review">
-  <div class="wrap cta-grid">
-    <div class="rv">
-      <p class="kicker">Request a property review</p>
-      <h2>Your property. Our operating platform.</h2>
-      <p class="lede">Tell us about your hotel. We’ll review how it runs today and show you where CoastalOS could add revenue, reduce cost, and give you clearer visibility.</p>
-      <ol class="next" data-steps="review">
-        <li><span>1</span><div><b>Share a few details</b><small>About your property and goals.</small></div></li>
-        <li><span>2</span><div><b>We review your property</b><small>Revenue, operations and costs.</small></div></li>
-        <li><span>3</span><div><b>Talk through the findings</b><small>A clear conversation with our team.</small></div></li>
-      </ol>
-      <ol class="next" data-steps="call" hidden>
-        <li><span>1</span><div><b>Share a few details</b><small>About your property and what you’d like to discuss.</small></div></li>
-        <li><span>2</span><div><b>We arrange a call</b><small>At a time that suits you.</small></div></li>
-        <li><span>3</span><div><b>Talk it through</b><small>A conversation with our team, no review needed first.</small></div></li>
-      </ol>
-      <div class="alt-contact"><b>Prefer to talk first?</b><p>Select “A call with our team” in the form, and we’ll arrange a conversation instead of starting with a review.</p></div>
+<!-- 11. FINAL CTA -->
+<section class="photo-sec fcta" data-mcta-hide>
+  <!-- IMAGE: final CTA background (swap: assets/home-v2/cta-mountain-pool.webp) -->
+  <div class="bg-par" aria-hidden="true"><img class="bg" src="assets/home-v2/cta-mountain-pool.webp" width="1600" height="900" alt="" loading="lazy" decoding="async"></div>
+  <div class="wrap">
+    <h2 data-anim="fade-up"><span class="br">Your property.</span> <span class="br">Our operating system.</span></h2>
+    <p data-anim="fade-up" data-delay="100">See what your hotel could look like with CoastalOS.</p>
+    <div class="hx-ctas" data-anim="fade-up" data-delay="200">
+      <a href="contact.html?request=call" class="btn btn-primary">Request a Call</a>
+      <a href="platform.html" class="btn btn-on-dark">Explore the Platform</a>
     </div>
-    <form id="reviewForm" class="rv d2" novalidate>
-      <div class="form-head"><b>Request a Property Review</b></div>
-      <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required><span class="err" aria-live="polite"></span></div>
-      <div class="f"><label for="email">Work email</label><input id="email" name="email" type="email" autocomplete="email" required><span class="err" aria-live="polite"></span></div>
-      <div class="f"><label for="property">Property name</label><input id="property" name="property" required><span class="err" aria-live="polite"></span></div>
-      <div class="f"><label for="location">Location</label><input id="location" name="location" placeholder="City, state"></div>
-      <fieldset class="f full"><legend>I’d like</legend>
-        <div class="chips">
-          <input type="radio" name="request" id="q1" value="Property review" checked><label for="q1">A property review</label>
-          <input type="radio" name="request" id="q2" value="Call with the team"><label for="q2">A call with our team</label>
-        </div>
-      </fieldset>
-      <fieldset class="f full"><legend>Number of rooms</legend>
-        <div class="chips">
-          <input type="radio" name="rooms" id="r1" value="Under 15"><label for="r1">Under 15</label>
-          <input type="radio" name="rooms" id="r2" value="15–40"><label for="r2">15–40</label>
-          <input type="radio" name="rooms" id="r3" value="41–100"><label for="r3">41–100</label>
-          <input type="radio" name="rooms" id="r4" value="100+"><label for="r4">100+</label>
-        </div>
-      </fieldset>
-      <div class="f full"><label for="msg">What would you like to improve? <i>(optional)</i></label><textarea id="msg" name="message"></textarea></div>
-            <div class="f full"><button class="btn btn-primary" type="submit">Request a Property Review</button></div>
-      <p class="form-privacy">We use these details only to respond to your request. See our <a href="privacy.html">Privacy Policy</a>.</p>
-    </form>
   </div>
 </section>
+
 </main>
 
 <footer>
@@ -541,35 +434,43 @@
         <span class="logo-word">Coastal<span style="color:#6FD0CC">OS</span></span>
         <p style="margin-top:10px;max-width:34ch">The Operating System for Independent Hotels.</p>
       </div>
-      <div><h4>Explore</h4><ul><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div><h4>Get started</h4><ul><li><a href="contact.html">Request a Property Review</a></li><li><a href="contact.html?request=call">Talk to Our Team</a></li></ul></div>
-      <div><h4>Contact</h4><ul><li><a href="tel:+18773500053">(877) 350-0053</a></li><li><a href="mailto:info@coastalhospitalitygroup.com">info@coastalhospitalitygroup.com</a></li><li>711 S El Camino Real, San Clemente, CA 92672</li></ul></div>
+      <div><h3 class="foot-h">Explore</h3><ul><li><a href="platform.html">Platform</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div><h3 class="foot-h">Get started</h3><ul><li><a href="contact.html?request=call">Request a Call</a></li><li><a href="platform.html">Explore the Platform</a></li></ul></div>
+      <div><h3 class="foot-h">Contact</h3><ul><li><a href="tel:+18773500053">(877) 350-0053</a></li><li><a href="mailto:info@coastalhospitalitygroup.com">info@coastalhospitalitygroup.com</a></li><li>711 S El Camino Real, San Clemente, CA 92672</li></ul></div>
     </div>
     <div class="foot-bottom">© 2026 CoastalOS · <a href="privacy.html">Privacy Policy</a></div>
   </div>
 </footer>
 
-<div class="mcta" id="mcta"><a href="contact.html" class="btn btn-primary">Request a Property Review</a></div>
+<div class="mcta" id="mcta"><a href="contact.html?request=call" class="btn btn-primary">Request a Call</a></div>
 
 <script src="assets/js/site.js"></script>
 <script>
 (function(){
-  // outcome tabs (user-driven, no autoplay)
-  var wrap=document.getElementById('outTabs'),tabs=[].slice.call(wrap.querySelectorAll('[role=tab]')),panels=wrap.querySelectorAll('[role=tabpanel]');
-  var titles=['Direct versus third-party bookings','Cost by function, before and after','A guest conversation, handled centrally','An owner’s reporting view'];
-  var legends=['<span><i style="background:#6FD0CC"></i>Direct bookings</span><span><i style="background:#C9932F"></i>Third-party channels</span>','<span><i style="background:rgba(255,255,255,.3)"></i>Managed separately</span><span><i style="background:#6FD0CC"></i>Centralized</span>','<span>Sample conversation</span>','<span>Sample layout, no data shown</span>'];
-  function show(i,focus){
-    tabs.forEach(function(t,k){t.setAttribute('aria-selected',k===i);t.tabIndex=k===i?0:-1});
-    panels.forEach(function(p,k){p.classList.remove('on');if(k===i){void p.offsetWidth;p.classList.add('on')}});
-    document.getElementById('ptitle').textContent=titles[i];document.getElementById('legend').innerHTML=legends[i];
-    if(focus)tabs[i].focus();
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Hub: hovering or focusing a card highlights its line and dims the others
+  var hub=document.getElementById('hub');
+  if(hub){var lines=hub.querySelectorAll('svg.lines line'),items=[].slice.call(hub.querySelectorAll('.hub-item'));
+    items.forEach(function(li,i){var a=li.querySelector('a');
+      function on(){hub.classList.add('focusing');li.classList.add('hot');lines[i]&&lines[i].classList.add('hot')}
+      function off(){hub.classList.remove('focusing');li.classList.remove('hot');lines[i]&&lines[i].classList.remove('hot')}
+      a.addEventListener('mouseenter',on);a.addEventListener('mouseleave',off);a.addEventListener('focus',on);a.addEventListener('blur',off)});}
+  // How it works: each segment fills between two circles as you scroll; a circle activates when the fill reaches it
+  var tl=document.getElementById('tl'),lis=tl?[].slice.call(tl.children):[],ticking=false;
+  function clamp(v){return v<0?0:v>1?1:v}
+  function frame(){ticking=false;if(!tl)return;var vh=innerHeight;
+    if(reduce){lis.forEach(function(li){li.classList.add('active');var g=li.querySelector('.seg');g&&g.style.setProperty('--f',1)});return}
+    var vertical=getComputedStyle(tl).gridTemplateColumns.split(' ').length===1;
+    var dots=lis.map(function(li){return li.querySelector('.dot').getBoundingClientRect()});
+    if(vertical){var y=vh*.62;
+      lis.forEach(function(li,i){var g=li.querySelector('.seg');if(g){var a=dots[i].bottom,b=dots[i+1].top;g.style.setProperty('--f',clamp((y-a)/(b-a)).toFixed(3))}
+        li.classList.toggle('active',dots[i].top+dots[i].height/2<y)})}
+    else{var r=tl.getBoundingClientRect(),start=vh*.85,end=vh*.35,p=clamp((start-r.top)/(start-end)),sN=p*(lis.length-1);
+      lis.forEach(function(li,i){var g=li.querySelector('.seg');if(g)g.style.setProperty('--f',clamp(sN-i).toFixed(3));
+        li.classList.toggle('active',p>0&&sN>=i-.0005)})}
   }
-  tabs.forEach(function(t,i){
-    t.addEventListener('click',function(){show(i)});
-    t.addEventListener('keydown',function(e){var n=null;if(e.key==='ArrowDown'||e.key==='ArrowRight')n=(i+1)%4;if(e.key==='ArrowUp'||e.key==='ArrowLeft')n=(i+3)%4;if(n!==null){e.preventDefault();show(n,true)}});
-  });
-  var oo=new IntersectionObserver(function(es){if(es[0].isIntersecting){oo.disconnect();show(0)}},{threshold:.3});oo.observe(wrap);
-
+  function req(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  addEventListener('scroll',req,{passive:true});addEventListener('resize',req);frame();
 })();
 </script>
 </body>

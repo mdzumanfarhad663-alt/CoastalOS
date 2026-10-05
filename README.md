@@ -8,7 +8,8 @@ All six agreed pages are built.
 
 | File | Page |
 |---|---|
-| `index.html` | Home: full sales journey (opportunity, platform, outcomes, CHG track record, properties, property review form) |
+| `index.html` | Home (the former home-v2 concept): hero, challenge, solution, platform hub, how it works, owner visibility, who it's for, hotels, FAQ, final CTA |
+| `index-v1-backup.html` | Previous homepage, kept for reference only (`noindex`, not linked) |
 | `platform.html` | Platform / How It Works: central vs on-site split (hero), operating model with the three principles, guest journey, owner view (links to Services). The comparison toggle lives only on Home and the guest journey only here. |
 | `about.html` | About CoastalOS: three operating models compared (hero), origin with who we work with |
 | `services.html` | Services: five service groups as cards in one section (the single source for the service list), engagement steps |
@@ -16,7 +17,7 @@ All six agreed pages are built.
 | `portfolio.html` | Portfolio: the ten current Coastal Hospitality Group hotels (see below) |
 | `index-1.html` | Redirect to `index.html` (an earlier homepage lived here; it remains in git history) |
 | `privacy.html` | Privacy Policy (starter text written for this prototype; the client will replace it with reviewed wording) |
-| `home-v2.html` | Merged homepage concept (client layout + our design system), for side-by-side comparison with `index.html`. Not linked from the site; `noindex`. See "Homepage concept (home-v2)" below. |
+| `home-v2.html` | Redirect to `index.html` (the concept became the homepage; old links keep working) |
 
 Platform, Services, About, Portfolio and Contact in the header and footer go to their own pages on every site page. On the homepage, "See How CoastalOS Works" scrolls to the homepage platform section, which ends with a "See the full platform" link. The primary call to action everywhere is **"Request a Call"**, linking to `contact.html?request=call`, which pre-selects "A call with our team" in the form. The secondary button next to it is "See How It Works" (homepage hero, scrolls to `#platform`) or "Explore the Platform" (`platform.html`) elsewhere. The form's submit label follows the chosen option ("Request a Call" / "Request a Property Review"). The homepage keeps its own copy of the form.
 
@@ -42,13 +43,13 @@ Then visit http://localhost:8000.
 - Image frames (`.img-frame` in `site.css`): seven labelled placeholders waiting for real photos. Platform: "Team at work" (banner), "Guest check-in", "Housekeeping", "Owner dashboard screenshot". Services: "Front desk welcome" (banner), "Team member at work", "Owner reporting". To fill one, replace its `<div class="img-frame" ...>` with an `<img>` of the same proportions. `assets/site/` now holds only the Contact background.
 - `assets/about/` — Hickory Falls Inn room photo and Jed Tarr's headshot (About page).
 
-## Homepage concept (home-v2)
+## Homepage (formerly home-v2)
 
 Design rules: section headings have no eyebrow/kicker label (removed site-wide). Single-column sections center their heading, intro (max ~60ch) and buttons; split sections (text + image) stay left/right.
 
 Motion: only three effects — scroll reveal (fade up 24px, 600ms, 80ms stagger in lists), the How-it-works timeline (scroll-linked: each teal segment fills between two circles, then the next circle activates and its text fades up; vertical on mobile), and the platform hub (core scales in, connector lines draw, cards pop in). No background-image motion. Reduced motion shows everything at once; without JavaScript all content is visible.
 
-`home-v2.html` merges the client's layout concept with our design system (fonts, tokens, buttons, cards, icon tiles, header, footer, mobile menu, sticky mobile CTA, reveal animations). All page-only styles sit in its `<style>` block; `site.css` and `site.js` are shared and unchanged. The current homepage (`index.html`) is untouched.
+`index.html` (built as `home-v2.html`) merges the client's layout concept with our design system (fonts, tokens, buttons, cards, icon tiles, header, footer, mobile menu, sticky mobile CTA, reveal animations). All page-only styles sit in its `<style>` block; `site.css` and `site.js` are shared and unchanged. The previous homepage is kept as `index-v1-backup.html`.
 
 Sections, in order:
 1. Hero (centered): photo background with an even navy overlay, H1, "Request a Call" + "See How It Works", four benefit items (2×2 on mobile)
