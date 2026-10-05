@@ -17,6 +17,10 @@ Status for every item: **Draft — needs Jed's confirmation**
 
 The headline and buttons are unchanged.
 
+## 1b. "Running a hotel shouldn't run your life"
+
+The line "It doesn't have to be that way." and the list of 8 owner problems were removed from the homepage. A "Request a Call" button was added instead. No new copy.
+
 ## 2. Operating relationship (new section, after "Running a hotel shouldn't run your life")
 
 | Copy | Question for Jed |
