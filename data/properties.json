@@ -55,7 +55,7 @@
     "type": "Mountain escape",
     "website": "https://www.hickoryfallsinn.com/",
     "sourceUrl": "https://coastalgetaway.com/property/hickory-falls-inn/",
-    "description": "",
+    "description": "A pet-friendly boutique hotel in the Western North Carolina mountains, with twelve redesigned guest rooms, serene grounds and views of Hickory Nut Falls. Chimney Rock State Park and the shops and eateries of Chimney Rock Village are close by.",
     "image": { "base": "assets/work/hickory-falls-inn", "widths": [800] },
     "alt": "Vine-covered exterior of Hickory Falls Inn"
   },
@@ -91,7 +91,7 @@
     "type": "Beach hotel",
     "website": "https://www.thepatriotsmotel.com/",
     "sourceUrl": "https://coastalgetaway.com/property/patriots-boutique-motel/",
-    "description": "",
+    "description": "A coastal boutique motel close to the San Clemente Pier and the shops and restaurants of Avenida Del Mar. Rooms include Double Queen, King and a suite with a full kitchen, private patio, BBQ and fire pit, and Trestles and T-Street beaches are a short drive away.",
     "image": { "base": "assets/work/patriots-boutique-motel", "widths": [800, 1280] },
     "alt": "Courtyard with red umbrellas, palm trees and seating at Patriots’ Boutique Motel"
   },
@@ -115,7 +115,7 @@
     "type": "Mountain escape",
     "website": "https://www.thepineola.com/",
     "sourceUrl": "https://coastalgetaway.com/property/the-pineola-newland-nc/",
-    "description": "",
+    "description": "A mountain getaway with RV sites, cabins and lodge rooms, five minutes from the Blue Ridge Parkway and ten from Grandfather Mountain. The Pineola Grill serves local craft beers, wines, ciders and cocktails, with live music on weekends.",
     "image": { "base": "assets/work/the-pineola", "widths": [800, 1280] },
     "alt": "Aerial view of The Pineola with mountains behind"
   }

@@ -436,3 +436,15 @@ FAQ answers use only Jed’s content. The complimentary assessment answer promis
 | Privacy, fields | Name and work email; property name, location and number of rooms | Name, work email and optional phone; property name and optional number of rooms |
 | Privacy, uses | Arrange a property review or call; prepare and discuss the review | Arrange a call; prepare and discuss a complimentary assessment, if you ask for one |
 | Privacy, last updated | October 3, 2026 | October 6, 2026 |
+
+## 26. Our Work descriptions (Oct 2026)
+
+Added short descriptions for the three properties that had none. All facts come from each property's own website (checked Oct 6, 2026).
+
+| Property | Source | Description |
+|---|---|---|
+| Hickory Falls Inn | hickoryfallsinn.com | A pet-friendly boutique hotel in the Western North Carolina mountains, with twelve redesigned guest rooms, serene grounds and views of Hickory Nut Falls. Chimney Rock State Park and the shops and eateries of Chimney Rock Village are close by. |
+| Patriots’ Boutique Motel | thepatriotsmotel.com | A coastal boutique motel close to the San Clemente Pier and the shops and restaurants of Avenida Del Mar. Rooms include Double Queen, King and a suite with a full kitchen, private patio, BBQ and fire pit, and Trestles and T-Street beaches are a short drive away. |
+| The Pineola | thepineola.com | A mountain getaway with RV sites, cabins and lodge rooms, five minutes from the Blue Ridge Parkway and ten from Grandfather Mountain. The Pineola Grill serves local craft beers, wines, ciders and cocktails, with live music on weekends. |
+
+**Question for Jed:** The Pineola's own website title says "Linville, North Carolina"; this site lists it as "Newland, NC". Which is correct?
