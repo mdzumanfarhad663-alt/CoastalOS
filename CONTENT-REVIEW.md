@@ -448,3 +448,10 @@ Added short descriptions for the three properties that had none. All facts come 
 | The Pineola | thepineola.com | A mountain getaway with RV sites, cabins and lodge rooms, five minutes from the Blue Ridge Parkway and ten from Grandfather Mountain. The Pineola Grill serves local craft beers, wines, ciders and cocktails, with live music on weekends. |
 
 **Question for Jed:** The Pineola's own website title says "Linville, North Carolina"; this site lists it as "Newland, NC". Which is correct?
+
+## 27. Final pre-review fixes (Oct 2026)
+
+| Location | Was | Now |
+|---|---|---|
+| Homepage portfolio card | Island House Resort | Island House Resort Hotel (matches the hotel's own website and Our Work) |
+| Services, above group 01 | No heading for the five service groups | H2: What CoastalOS manages. Lede: Five service groups, all run by CoastalOS for your hotel. |
