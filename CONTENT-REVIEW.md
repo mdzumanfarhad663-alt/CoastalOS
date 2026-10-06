@@ -422,3 +422,17 @@ FAQ answers use only Jed’s content. The complimentary assessment answer promis
 - Timeline "A simple path to a higher-performing hotel" moved from the homepage to Services (`services.html#how-it-works`).
 - Homepage hero button "See How It Works" now links to `services.html#how-it-works` (link target only; text and design unchanged).
 - Footer "How it works" link on all pages now points to `services.html#how-it-works`.
+
+## 25. Pre-review refinements (Oct 2026)
+
+| Location | Was | Now |
+|---|---|---|
+| Services final CTA heading | Find the services that fit your property | Let’s talk about your hotel |
+| Services final CTA subtext | Tell us a little about your property and we’ll set up a call. | Request a complimentary AI-driven revenue and operational assessment for your hotel. |
+| Homepage final CTA, new line under subtext | — | Request a complimentary AI-driven revenue and operational assessment for your hotel. |
+| About hero lead | …while the owner keeps ownership of the property. | …while you keep ownership of your property. |
+| About H2 | About us | Untapped potential, modern performance (new heading, needs Jed’s OK) |
+| Privacy, intro | When you request a property review or a call… | When you request a call or a complimentary assessment… |
+| Privacy, fields | Name and work email; property name, location and number of rooms | Name, work email and optional phone; property name and optional number of rooms |
+| Privacy, uses | Arrange a property review or call; prepare and discuss the review | Arrange a call; prepare and discuss a complimentary assessment, if you ask for one |
+| Privacy, last updated | October 3, 2026 | October 6, 2026 |
