@@ -480,3 +480,16 @@ html:not(.js) .tl .tl-line i{transform:none}
 .fcta-inner h2,.fcta-inner p,.photo-hero h1,.photo-hero .lede{text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 16px rgba(10,32,56,.4)}
 /* Step-number circles on photo sections: solid dark fill so the number reads on any photo */
 .photo-sec .next li span,.contact-top .next li span{background:#0A2038}
+/* ===== Relationship tiers (Home, Services): vertical text stack, Owner / CoastalOS / On-site team ===== */
+.tiers{max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:stretch}
+.tier{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);padding:clamp(20px,2.4vw,28px);box-shadow:0 1px 2px rgba(14,42,71,.05)}
+.tier h3{font-size:1.2rem;color:var(--navy)}
+.tier h3 small{display:block;margin-top:4px;font:500 .92rem var(--body);color:var(--muted)}
+.tier p{margin-top:10px;color:var(--muted);line-height:1.55}
+.tier-main{border-color:var(--teal);box-shadow:0 0 0 1px var(--teal)}
+.tier ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.tier li{font:500 .9rem var(--display);color:var(--navy);border:1px solid var(--line);border-radius:var(--r-pill);padding:6px 14px;background:#fff}
+.tier .text-link{display:inline-block;margin-top:14px}
+.tier-link{display:flex;flex-direction:column;align-items:center;padding:6px 0}
+.tier-link::before,.tier-link::after{content:"";width:2px;height:18px;background:var(--teal);opacity:.5}
+.tier-link span{font:600 .85rem var(--display);color:var(--teal-ink);padding:6px 0}

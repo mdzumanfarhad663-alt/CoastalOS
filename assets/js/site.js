@@ -105,6 +105,9 @@
   if(form){
   // ?request=call (from "Request a Call" links on other pages) brings the form into view when it sits below the intro (single-column layout)
   if(/[?&]request=call(&|$)/.test(location.search))requestAnimationFrame(function(){if(innerWidth<=900)form.scrollIntoView({block:'start'})})
+  // ?interest=<value> (e.g. "transition" from the homepage) preselects the optional interest field and brings the form into view
+  var im=location.search.match(/[?&]interest=([a-z]+)/),sel=document.getElementById('interest');
+  if(im&&sel&&sel.querySelector('option[value="'+im[1]+'"]')){sel.value=im[1];requestAnimationFrame(function(){if(innerWidth<=900)form.scrollIntoView({block:'start'})})}
   form.addEventListener('submit',function(e){
     e.preventDefault();var ok=true;
     form.querySelectorAll('[required]').forEach(function(el){

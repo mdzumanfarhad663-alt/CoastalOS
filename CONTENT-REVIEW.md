@@ -308,3 +308,108 @@ Removed: the hero paragraph ("Our central hospitality team runs your hotel’s c
 | Meta description: "CoastalOS provides third-party hotel management services designed for independent hotel owners and boutique hotels, with revenue, reservations, operations and reporting run by one central team." | Matches the approved copy |
 
 **Applied (approved):** the homepage About section now starts "CoastalOS is a third-party hotel management operator for independent and boutique hotels." (was "CoastalOS is an operating platform for independent and boutique hotels.")
+
+## 23. Positioning update — source: "Jed content, Oct 2026"
+
+Every line below was changed from Jed's content brief (Oct 2026). Headlines and key phrases are used exactly as Jed wrote them. Body copy is lightly edited. Status: **Jed content, Oct 2026**. The homepage hero (H1, subtitle, tagline, buttons, pills, image) is unchanged.
+
+### Homepage (`index.html`)
+
+| Location | Was | Now |
+|---|---|---|
+| Page title | CoastalOS — Third-Party Hotel Management for Independent & Boutique Hotels | CoastalOS — Third-Party Hotel Management for Independent Hotels |
+| Meta description | …with revenue, reservations, operations and reporting run by one central team. | CoastalOS is a technology-forward third-party hotel management company for independent hotels. We run the hotel day to day while you keep ownership of the property. |
+| Challenge H2 | Running a hotel shouldn’t run your life | The Modern Hotel Landscape Has Changed. We Handle the Shift |
+| Challenge copy | Independent owners are asked to do it all… | Hospitality is about people, but today’s hotel business requires managing endless software, algorithms and digital platforms. If you have the passion for your property but lack the time to chase the latest tech trends, let us handle it. We blend traditional hotel management with modern AI tools to optimize your bookings, lower your stress and run your hotel at peak efficiency. |
+| What is CoastalOS, paragraph | CoastalOS is a third-party hotel management operator… | CoastalOS is a technology-forward third-party hotel management company built for independent hotels. We take responsibility for the day-to-day operation of your hotel while you keep ownership of the property. |
+| What is CoastalOS, new points | — | Grow Revenue / Lower Operating Costs / Take Back Your Time (Jed’s text) |
+| What is CoastalOS, closing line | — | You own the property. We run the hotel. |
+| Hub H2 | A modern operating platform for real hotel owners | Our Operating System |
+| Hub intro | You own the property. We handle the rest. | Traditional hotel management can be fragmented across managers, vendors, software platforms, OTAs and individual employees. CoastalOS brings those functions together under one accountable management company. |
+| Hub nodes | 8 nodes, incl. Digital Check-In | 7 nodes: AI Revenue Management; Marketing & Direct Booking; Reservations & Guest Support; Property Operations; Staff Management; Accounting & Administration; Technology & Automation |
+| Below hub | Explore our services (link) | One management company. One operating strategy. One point of accountability. |
+| New section | — | How the relationship works: The Owner → Management Agreement → CoastalOS (link: See everything we manage) → On-Site Hotel Team (managed by CoastalOS) |
+| How it works steps | Discovery / Onboarding / Management / Reporting & review / Ongoing partnership | Discovery / Property Review / Transition / Day-to-Day Management / Reporting & Review (short text, no timelines) |
+| Fit H2 | Built for independent & boutique hotels | Built for independent hotels |
+| Fit copy | Whether you own one property or a small portfolio… | CoastalOS works with owners of non-brand-affiliated hotels who want stronger performance without running the business day to day. |
+| Fit pills | Boutique Hotels, Motels, Resorts, Inns, Extended Stay, Unique Properties | Independent Hotels, Motels, Inns, Resorts, Boutique Properties |
+| Fit, new line | — | Thinking about stepping back from daily operations? Let’s discuss a seamless transition plan. Button: Request a Call → contact.html?interest=transition |
+| Fit, button/link | Discuss My Property | Secondary link: Explore a Management Partnership → contact.html |
+| Final CTA H2 | Your property / Our operating system | You Own the Hotel. We Run the Business |
+| Final CTA subtext | Tell us a little about your hotel and we’ll set up a call. | Own the asset—not another full-time job. |
+
+Testimonials stay visible (Jed’s decision). The example quotes still mention “the central team”, “Our team” and “my on-site team”, which no longer match the positioning. They must be replaced with real, approved quotes before launch.
+
+### Services (`services.html`)
+
+| Location | Was | Now |
+|---|---|---|
+| Page title | Services — CoastalOS | Services — CoastalOS Hotel Management |
+| Meta description | Every critical hotel function on one operating platform… | CoastalOS takes over the day-to-day management of independent hotels: revenue, marketing, reservations, staff, accounting, technology and owner reporting. |
+| Hero H1 | Our services | A Smarter Way to Operate an Independent Hotel |
+| Hero lead | Five service groups, run by one central team. | CoastalOS takes over the day-to-day management of your hotel using centralized operations, modern technology and AI-driven revenue management to grow revenue, lower operating costs and reduce dependence on high-commission OTAs. You own the property. We run the hotel. |
+| Glance cards and group names | Revenue, Marketing & Distribution / Reservations & Guest Support / Property Operations & Team Support / Technology & Digital Check-In / Accounting & Owner Reporting | Revenue, Marketing & Direct Booking / Reservations & Guest Support / Property Operations & Staff Management / Technology & Automation / Accounting & Owner Reporting (card and group subtitles rewritten to match) |
+| 01 items | Revenue management, Distribution, Marketing, Direct booking | Smarter Revenue Management (Jed’s text), More Direct Bookings. Less OTA Dependence. (Jed’s text), Marketing, OTA management |
+| 02 items | Central reservations, Guest communication, Guest support | Reservations, Guest communication, Customer service |
+| 03 items | On-site team support, Hiring/scheduling/training, Operating standards | Staff management, Hiring & HR, Payroll administration, Operating procedures, Front desk strategy |
+| 04 items | Property management technology, Automation, Digital & self check-in | Hotel technology, Automation (digital check-in removed) |
+| 05 items | Accounting & financial reporting, Payroll & HR administration, Owner reporting | Accounting, Expense management, Owner reporting |
+| “Your team…” lines under each group | 5 lines | Removed |
+| Split section | What we handle and what stays with your team | Replaced by “Who does what”: Owner → Management Agreement → CoastalOS (16 functions) → On-Site Hotel Team (managed by CoastalOS) |
+| New table | — | What It Delivers for Your Asset (4 rows, Jed’s text) |
+| Links | See how onboarding works | See how it works → index.html#how-it-works (after the table) |
+
+**Flag:** the group 04 illustration (`assets/services/illustrations/04-technology-digital-check-in.*`) shows a phone key and a self check-in kiosk. Kept for now. A replacement without check-in is needed.
+
+### About (`about.html`)
+
+| Location | Was | Now |
+|---|---|---|
+| Page title / meta | About — CoastalOS | About — CoastalOS Hotel Management; new meta description |
+| Hero lead | CoastalOS comes from Coastal Hospitality Group… | Traditional Hospitality Values. Next-Generation Performance. + positioning sentence |
+| About us paragraphs | CoastalOS gives independent and boutique hotels the kind of operating backbone… / The platform grew out of… | Your hotel has decades of history and incredible untapped potential… (Jed’s text) / CoastalOS was built by the team behind Coastal Hospitality Group, which has acquired, developed and operated independent hotels since 2012. |
+| Beliefs H2 | What we believe (+ intro) | Technology Is Our Engine. Hospitality Is Our Soul |
+| Belief cards | Owners stay in charge / Central where it helps / Hospitality stays local | Preserving Identity / Enhancing Experience / Building Value (Jed’s text) |
+| Who we work with | We partner with owners of independent and boutique properties… | We work with owners of independent, non-brand-affiliated hotels who know their property has more to offer and want stronger performance without running the business day to day. |
+| Who we work with, pills | Independent hotels, Boutique hotels, Motels, Inns, Resorts | Independent hotels, Motels, Inns, Resorts, Boutique properties |
+| Who we work with, links | See our work | Explore a Management Partnership → contact.html, plus See our work |
+
+Jed’s quote and bio are unchanged. The team slider stays hidden.
+
+### Our Work (`our-work.html`)
+
+| Location | Was | Now |
+|---|---|---|
+| Page title | Our Work — CoastalOS | Our Work — CoastalOS Hotel Management |
+| H1 | Our work | Hands-on experience with independent hotels |
+
+The lead and the property rows are unchanged.
+
+### Contact (`contact.html`) and Privacy (`privacy.html`)
+
+| Location | Was | Now |
+|---|---|---|
+| Page title / meta | Contact — CoastalOS / Request a call with the CoastalOS team. | Contact — CoastalOS Hotel Management / Request a call with CoastalOS and a complimentary AI-driven revenue and operational assessment for your independent hotel. |
+| Under H1 | Tell us a little about your hotel and we’ll set up a call with our team. | H2: Discover Your Property’s Untapped Value. Subtext: Request a complimentary AI-driven revenue and operational assessment for your hotel. |
+| New form field | — | What are you interested in? (optional): Full hotel management / Stepping back from daily operations / Free property assessment / Not sure yet. Preselected from ?interest=transition |
+| FAQ removed | Is CoastalOS software I install? / Do we keep our own brand? / Do I keep control of my property? / How do we get started? | Merged into the new questions below |
+| FAQ added | — | Is CoastalOS a management company or software? / What does CoastalOS manage day to day? / Do I keep ownership of my hotel? / Can you help me step back from daily operations? / Will my hotel keep its name and character? / How does technology support personal guest service? / What is the complimentary assessment? / How does a management partnership begin? |
+| FAQ kept, answers edited | What size of property is it built for? / What do we discuss on the call? | Wording aligned with the new positioning |
+| Privacy, field list | Whether you would like a review or a call, and any message you add | What you are interested in, and any message you add |
+
+FAQ answers use only Jed’s content. The complimentary assessment answer promises no delivery time, format or outputs.
+
+### Sitewide
+
+| Location | Was | Now |
+|---|---|---|
+| Footer tagline (all pages) | The Operating System for Independent Hotels | Next-Generation Hotel Management for Independent Hotels |
+| Footer social links (all pages) | Placeholder “#” links shown | Hidden until real links arrive |
+
+### Open items
+
+- Team list, photos and roles (the team slider stays hidden).
+- Website email address (the site still uses info@coastalhospitalitygroup.com).
+- Social media links (Facebook, Instagram, YouTube).
+- Real, approved testimonials to replace the example quotes.
+- Replacement for the group 04 illustration (it shows check-in).

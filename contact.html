@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Contact — CoastalOS</title>
-<meta name="description" content="Request a call with the CoastalOS team.">
+<title>Contact — CoastalOS Hotel Management</title>
+<meta name="description" content="Request a call with CoastalOS and a complimentary AI-driven revenue and operational assessment for your independent hotel.">
 <link rel="preload" href="assets/fonts/outfit-latin-3.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/instrument-sans-latin-1.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/fonts/fonts.css">
@@ -22,6 +22,8 @@
 .form-head b{font-size:1.25rem}
 #reviewForm label i,#reviewForm legend i{font-style:normal;font-weight:400;color:var(--muted)}
 .faq-col{max-width:760px;margin:0 auto}
+.contact-top .contact-h2{color:#fff;margin-top:14px;font-size:clamp(1.35rem,2vw,1.7rem);text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 14px rgba(10,32,56,.4)}
+.contact-h2+.lede{margin-top:8px}
 .faq-col summary{text-wrap:pretty}
 </style>
 <script>document.documentElement.classList.add('js')</script>
@@ -53,7 +55,8 @@
   <div class="wrap cta-grid">
     <div data-anim="fade-up">
       <h1>Contact us</h1>
-      <p class="lede">Tell us a little about your hotel and we’ll set up a call with our team.</p>
+      <h2 class="contact-h2">Discover Your Property’s Untapped Value</h2>
+      <p class="lede">Request a complimentary AI-driven revenue and operational assessment for your hotel.</p>
       <ol class="next contact-next">
         <li><span>1</span><div><b>Share your details</b></div></li>
         <li><span>2</span><div><b>We arrange a call</b></div></li>
@@ -62,7 +65,7 @@
       <div class="alt-contact"><b>Prefer to reach us directly?</b><p class="direct">Call <a href="tel:+18773500053">(877) 350-0053</a>, or email <a href="mailto:info@coastalhospitalitygroup.com">info@coastalhospitalitygroup.com</a>.</p></div>
     </div>
     <!-- FORM: prototype only. Front-end validation in assets/js/site.js; nothing is sent.
-         Fields: name*, email*, phone, property*, rooms, message. -->
+         Fields: name*, email*, phone, property*, rooms, interest, message. -->
     <form id="reviewForm" data-anim="fade-up" data-delay="100" novalidate aria-labelledby="form-h">
       <div class="form-head"><b id="form-h">Request a Call</b></div>
       <div class="f"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required aria-describedby="name-err"><span class="err" id="name-err" aria-live="polite"></span></div>
@@ -77,6 +80,13 @@
           <input type="radio" name="rooms" id="r4" value="100+"><label for="r4">100+</label>
         </div>
       </fieldset>
+      <div class="f full"><label for="interest">What are you interested in? <i>(optional)</i></label><select id="interest" name="interest">
+        <option value="">Select one</option>
+        <option value="management">Full hotel management</option>
+        <option value="transition">Stepping back from daily operations</option>
+        <option value="assessment">Free property assessment</option>
+        <option value="unsure">Not sure yet</option>
+      </select></div>
       <div class="f full"><label for="msg">Anything you’d like us to know? <i>(optional)</i></label><textarea id="msg" name="message"></textarea></div>
       <div class="f full"><button class="btn btn-primary" type="submit">Request a Call</button></div>
       <p class="form-privacy">We use these details only to respond to your request. See our <a href="privacy.html">Privacy Policy</a>.</p>
@@ -91,12 +101,16 @@
       <h2 id="faq-h">Before you get in touch</h2>
     </div>
     <div class="faq-col" data-anim="fade-up">
-      <details><summary>Is CoastalOS software I install?</summary><p>No. CoastalOS is an operating platform: our team, technology and processes working together to run the core functions of your hotel, centrally.</p></details>
-      <details><summary>What size of property is it built for?</summary><p>Independent and boutique hotels, motels, inns and resorts that want to keep their own brand and guests.</p></details>
-      <details><summary>Do we keep our own brand?</summary><p>Yes. Your property keeps its name, website and guests. CoastalOS works behind the scenes to grow direct business under your brand.</p></details>
-      <details><summary>Do I keep control of my property?</summary><p>Yes. You keep ownership of your property, your brand and your guests, with regular reporting so you can see how it’s performing.</p></details>
-      <details><summary>How do we get started?</summary><p>Request a call. We’ll learn about your property and goals, and talk through whether CoastalOS is a good fit.</p></details>
-      <details><summary>What do we discuss on the call?</summary><p>How your property runs today, what you’d like to improve, and whether CoastalOS is the right fit.</p></details>
+      <details><summary>Is CoastalOS a management company or software?</summary><p>CoastalOS is a third-party hotel management company. We take responsibility for the day-to-day operation of your hotel, using modern hotel technology, automation and AI-driven revenue management to run it.</p></details>
+      <details><summary>What does CoastalOS manage day to day?</summary><p>Revenue management, marketing, reservations, staffing, guest service, accounting and administration. The on-site hotel team, managed by CoastalOS, looks after housekeeping, maintenance, property care and physical guest needs.</p></details>
+      <details><summary>Do I keep ownership of my hotel?</summary><p>Yes. You own the property and retain the asset. You receive reporting and financial results and set high-level ownership objectives. We run the hotel.</p></details>
+      <details><summary>Can you help me step back from daily operations?</summary><p>Yes. CoastalOS takes responsibility for day-to-day operations, employees, reservations, guest service and administration. Let’s discuss a seamless transition plan.</p></details>
+      <details><summary>Will my hotel keep its name and character?</summary><p>Yes. We don’t turn independent properties into sterile, automated chains. Your property keeps its name, and we work to grow direct business under it.</p></details>
+      <details><summary>How does technology support personal guest service?</summary><p>We use technology to eliminate administrative bottlenecks, allowing property staff to focus on face-to-face guest care.</p></details>
+      <details><summary>What is the complimentary assessment?</summary><p>A complimentary AI-driven revenue and operational assessment of your hotel, to help you discover your property’s untapped value. Request a call to get started.</p></details>
+      <details><summary>How does a management partnership begin?</summary><p>Request a call. We start with discovery and a review of your property, then plan the transition before CoastalOS takes over day-to-day management.</p></details>
+      <details><summary>What size of property is it built for?</summary><p>Independent, non-brand-affiliated hotels, motels, inns, resorts and boutique properties.</p></details>
+      <details><summary>What do we discuss on the call?</summary><p>How your property runs today, what you’d like to improve, and whether a management partnership with CoastalOS is the right fit.</p></details>
     </div>
   </div>
 </section>
@@ -106,9 +120,9 @@
   <svg class="ft-wave" viewBox="0 0 400 120" aria-hidden="true" focusable="false"><path d="M10 80 C120 10 220 10 390 60" stroke="#fff" stroke-width="18" fill="none" stroke-linecap="round"/><path d="M10 110 C120 40 220 40 360 90" stroke="#fff" stroke-width="14" fill="none" stroke-linecap="round"/></svg>
   <div class="wrap">
     <div class="ft-top">
-      <div class="ft-brand"><img class="logo-img logo-foot" src="assets/brand/coastalos-logo-light.webp" width="373" height="112" alt="CoastalOS" loading="lazy" decoding="async"><p>The Operating System for Independent Hotels</p></div>
-      <div class="ft-social"><h2 class="ft-h" id="ft-social-h">Social links</h2><ul aria-labelledby="ft-social-h">
-          <!-- SOCIAL: placeholder links until CoastalOS accounts exist (see CONTENT-REVIEW.md) -->
+      <div class="ft-brand"><img class="logo-img logo-foot" src="assets/brand/coastalos-logo-light.webp" width="373" height="112" alt="CoastalOS" loading="lazy" decoding="async"><p>Next-Generation Hotel Management for Independent Hotels</p></div>
+      <div class="ft-social" hidden><h2 class="ft-h" id="ft-social-h">Social links</h2><ul aria-labelledby="ft-social-h">
+          <!-- SOCIAL: hidden until real CoastalOS account links arrive (see CONTENT-REVIEW.md). Replace href="#" and remove hidden from .ft-social -->
           <li><a href="#" aria-label="CoastalOS on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4 1.7-4 4.3V10H7v4h3v7h4v-7h3l1-4h-4V8.6c0-.4.3-.6.6-.6z"/></svg></a></li>
           <li><a href="#" aria-label="CoastalOS on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" class="stroke"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg></a></li>
           <li><a href="#" aria-label="CoastalOS on YouTube"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8zM10 15V9l5.2 3z"/></svg></a></li>
