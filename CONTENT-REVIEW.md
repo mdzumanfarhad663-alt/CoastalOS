@@ -413,3 +413,12 @@ FAQ answers use only Jed’s content. The complimentary assessment answer promis
 - Social media links (Facebook, Instagram, YouTube).
 - Real, approved testimonials to replace the example quotes.
 - Replacement for the group 04 illustration (it shows check-in).
+
+## 24. Services restructure and timeline move (Oct 2026)
+
+- Services: removed the "What we run for your property" cards. New order: Hero, Who does what, 5 service groups, What It Delivers, A simple path, Final CTA.
+- Services: "Who does what" redesigned as Owner card, wide CoastalOS panel with 4 groups (Revenue & Marketing, Guests, People, Business & Systems), On-Site Hotel Team card. No copy changes to the items.
+- Services: removed the "See how it works" link under What It Delivers (the timeline now follows it).
+- Timeline "A simple path to a higher-performing hotel" moved from the homepage to Services (`services.html#how-it-works`).
+- Homepage hero button "See How It Works" now links to `services.html#how-it-works` (link target only; text and design unchanged).
+- Footer "How it works" link on all pages now points to `services.html#how-it-works`.
