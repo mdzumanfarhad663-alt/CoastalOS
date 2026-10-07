@@ -126,9 +126,9 @@
 @media (max-width:900px){.rc-grid{grid-template-columns:1fr}}
 @media (max-width:760px){.fcta::before{background:linear-gradient(rgba(14,42,71,.32),rgba(14,42,71,.32))}}
 /* Hero benefits: one centered line, dot separators */
-.benefits{list-style:none;margin:clamp(40px,6vw,72px) 0 0;padding:22px 0 28px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;justify-content:center;gap:6px 0}
-.benefits li{font:500 .98rem var(--display);color:#fff;display:flex;align-items:center}
-.benefits li+li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--teal-2);margin:0 16px}
+.benefits{list-style:none;margin:clamp(40px,6vw,72px) 0 0;padding:22px 0 28px;border-top:1px solid rgba(255,255,255,.3);background:radial-gradient(ellipse 60% 100% at 50% 50%,rgba(10,32,56,.55),rgba(10,32,56,0));display:flex;flex-wrap:wrap;justify-content:center;gap:6px 0}
+.benefits li{font:600 1.1rem var(--display);color:#fff;display:flex;align-items:center;text-shadow:0 1px 2px rgba(10,32,56,.85),0 2px 12px rgba(10,32,56,.7)}
+.benefits li+li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal-2);margin:0 16px}
 @media (max-width:760px){.benefits{display:grid;grid-template-columns:auto auto;justify-content:center;column-gap:0;row-gap:8px;font-size:.92rem}
   .benefits li{justify-content:center}.benefits li+li::before{display:none}.benefits li:nth-child(2n)::before{display:block;margin:0 12px}}
 /* About CoastalOS: photo left, text right; photo height follows the text */
@@ -181,7 +181,8 @@
 
 /* Hero benefits on phones: 2x2 grid, no dots, one line each (single column if a phone is too narrow) */
 @media (max-width:600px){
-  .hx .benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px;row-gap:10px;justify-items:center;font-size:.875rem}
+  .hx .benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px;row-gap:10px;justify-items:center}
+  .hx .benefits li{font-size:.95rem}
   .hx .benefits li{white-space:nowrap;justify-content:center}
   .hx .benefits li::before,.hx .benefits li+li::before,.hx .benefits li:nth-child(2n)::before{display:none!important}
 }

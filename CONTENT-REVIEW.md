@@ -505,3 +505,11 @@ Still to come (batch 2): Contact form and email, About bio and Who We Work With,
 - Please confirm the info@coastalos.com mailbox exists and receives mail before launch.
 - Coastal Hospitality Group wording is kept on About (intro and bio) and in the Privacy "Who we are" section, as agreed.
 
+## 30. Home polish (Oct 2026)
+
+| Location | Change |
+|---|---|
+| Header, all pages | Logo about 28% larger on desktop (50px → 64px tall), tagline 0.84rem; tablet 48px and phone 40px, header still one row (76px) |
+| Home hero benefit strip | Larger, bolder text with a stronger shadow and a soft navy shade behind the strip for contrast over the photo. Text unchanged |
+| Home, Our Operating System (desktop) | The open bullet panel now sits 46px below the centre circle instead of touching it |
+
