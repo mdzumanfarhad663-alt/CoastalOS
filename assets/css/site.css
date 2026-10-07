@@ -79,10 +79,11 @@ header.site .logo-img{transform:translateY(-20%)}
 .logo-foot{height:48px}
 @media (max-width:760px){.logo-img{height:30px}.logo-foot{height:40px}}
 /* Header logo (Jed, Oct 7 2026): larger, with the tagline under it on desktop only (tablet/phone keep a one-row bar) */
-.logo{flex-direction:column;align-items:flex-start;gap:4px}
+.logo{flex-direction:column;align-items:flex-start;gap:3px}
 header.site .logo-img{height:48px}
-.logo-tag{display:none;font:500 .84rem/1.25 var(--display);color:var(--muted);letter-spacing:.005em}
-.logo-tag span{display:block;white-space:nowrap}
+/* tagline never wider than the wordmark: width follows the logo image, text wraps to two lines, left edge on the "C" */
+.logo-tag{display:none;width:0;min-width:100%;font:400 .75rem/1.3 var(--display);color:var(--muted);letter-spacing:.01em}
+.logo-tag span{display:inline}
 @media (min-width:1101px){.nav{height:116px}header.site .logo-img{height:64px;transform:none}.logo-tag{display:block}}
 @media (max-width:760px){header.site .logo-img{height:40px}}
 .nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0}

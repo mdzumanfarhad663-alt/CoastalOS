@@ -512,4 +512,4 @@ Still to come (batch 2): Contact form and email, About bio and Who We Work With,
 | Header, all pages | Logo about 28% larger on desktop (50px → 64px tall), tagline 0.84rem; tablet 48px and phone 40px, header still one row (76px) |
 | Home hero benefit strip | Larger, bolder text with a stronger shadow and a soft navy shade behind the strip for contrast over the photo. Text unchanged |
 | Home, Our Operating System (desktop) | The open bullet panel now sits 46px below the centre circle instead of touching it |
-
+| Header tagline (desktop) | Regular weight, 12px, never wider than the wordmark (two lines, left edge on the "C"), 3px under the wordmark; on the homepage 90% white with a soft shadow over the hero photo |
