@@ -69,7 +69,8 @@ Images (all in `assets/home-v2/`, WebP; temporary, pending the client's own phot
 
 | File | Where | Source |
 |---|---|---|
-| `hero-blind-pass-pool-800/1280/1920/2560.webp` (3:2) | Hero background (preloaded, `srcset`) | Blind Pass Resort pool, Coastal Getaway gallery (3000px original). Temporary; a 2400px+ property photo from Jed should replace it. The previous Sea Shells files (`hero-sea-shells-exterior-*`, from a 921px source) are kept but unused. |
+| `hero-blind-pass-pool-800/1280/1920/2560.webp` (3:2) | Hero background (preloaded, `srcset`) | Blind Pass Resort pool, Coastal Getaway gallery (3000px original). Approved by Jed (Oct 2026) as the hero photo. The previous Sea Shells files (`hero-sea-shells-exterior-*`, from a 921px source) are kept but unused. |
+| `hero-option-1/2/3-1280/1920.webp` (3:2) | Unused | Alternative pool photos from Jed, reviewed in Oct 2026 and not chosen. Kept for possible later use. Option 1 has a high-res source; options 2 and 3 were upscaled from 600px and 800px sources, so ask Jed for originals before using them. |
 | `challenge-hickory-falls.webp` (4:5) | Challenge side photo | Hickory Falls Inn, CHG site |
 | `solution-island-house.webp` (4:3) | Solution photo | Island House Resort, CHG site |
 | `fit-the-pineola.webp` (4:3) | Unused since Oct 7 2026 (the "Built for" section was removed) | The Pineola, CHG site |
