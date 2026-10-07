@@ -524,3 +524,21 @@ Still to come (batch 2): Contact form and email, About bio and Who We Work With,
 | About, "Untapped potential" section | Kept: "Your hotel has decades of history and incredible untapped potential… currently leaving on the table." This paragraph is Jed's text (section 23) | Jed |
 | Services, "A simple path to a higher-performing hotel" | The source had single spaces; the inline `<span>` around "higher-performing" (no styling on this page) could read as extra spaces in copied or extracted text, so it was removed. No visual change | Fix |
 
+## 32. De-duplication, Oct 7 2026 — removed (Jed text, restorable)
+
+Jed asked for less repetition. These were removed only (nothing reworded). The exact text is below so any line can be put back.
+
+| # | Location | Removed text (exact) | Source |
+|---|---|---|---|
+| 1 | Home hero, benefit strip under the buttons | Higher revenue · Lower operating costs · Higher margins · Hands-off ownership | Older copy (wording per Jed's email) |
+| 2 | Home, Challenge, last line | You built a valuable hotel. We help it unlock its full potential. | Jed |
+| 3 | Home, From Owner-Operator to Passive Owner, CoastalOS column heading | We Run the Business | Jed |
+| 4 | Same column, list | Revenue management & dynamic pricing · Marketing & direct bookings · Reservations & guest service (24/7) · Staff management, HR & payroll · Property operations · Accounting & administration · Technology & automation · Financial & owner reporting | Jed |
+| 5 | Same section, banner subline (end of sentence) | while giving you your time back (the subline now ends "…the performance of your hotel.") | Jed |
+| 6 | Home final CTA, benefit descriptions | Higher Revenue: AI-driven pricing, stronger marketing and more direct bookings. · Lower Operating Costs: Centralized management and modern technology increase efficiency. · Higher Margins: Higher revenue and lower costs mean more profit from your property. (our draft) · Hands-off Ownership: Passive ownership of a unique and valuable asset. | Jed (Higher Margins line: our draft) |
+| 7 | Home, portfolio cards | View in our work → (on each of the 3 cards; cards stay clickable, "View all our work" stays) | Older copy |
+
+Kept in the CoastalOS column: the logo, "The Operating System for Independent Hotels" and "CoastalOS assumes responsibility for the hotel's performance and day-to-day operations." The column is now a shorter navy card, vertically centred between the arrows (desktop) and stacked between the downward arrows (phone).
+
+The "two similar closing lines" open item (section 28) is resolved by #2. The Higher Margins draft (sections 28–29) no longer appears on the site.
+

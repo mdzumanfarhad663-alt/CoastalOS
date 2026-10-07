@@ -36,6 +36,8 @@
 @media (min-width:761px){.hx-sub .sub-l{display:block;white-space:nowrap}}
 .hx-tag{margin:10px auto 0;max-width:40ch;font:400 clamp(.98rem,.9rem + .3vw,1.1rem)/1.5 var(--body);color:#C6D4E1;text-wrap:balance;text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 12px rgba(10,32,56,.4)}
 .hx .hx-ctas{margin-top:26px}
+/* benefit strip removed (Oct 7 2026): space under the buttons instead */
+.hx{padding-bottom:clamp(64px,8vw,104px)}
 .hx .lede{margin-top:20px;max-width:52ch;font-size:clamp(1.02rem,1.3vw,1.15rem);color:#DCE6EF}
 .hx-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .btn-on-dark{border-color:rgba(255,255,255,.45);color:#fff;background:transparent}
@@ -66,7 +68,6 @@
 .hx h1 .ln>span{display:block;--rise:.55em}
 /* hover/focus: button colour + card lift only */
 .home-v2 .pcard .pcard-img img,.home-v2 .pcard:hover .pcard-img img{transform:none}
-.home-v2 .pcard .pcard-view i,.home-v2 .pcard:hover .pcard-view i{transform:none}
 .home-v2 .btn{transition:background .2s,color .2s,border-color .2s,transform var(--dur-fast) var(--ease-out),box-shadow var(--dur-fast)}
 .home-v2 .card.pcard{transition:transform var(--dur-fast) var(--ease-out),opacity var(--dur-base) var(--ease-out)}
 .home-v2 .card.pcard.anim-done:hover,.home-v2 .card.pcard.anim-done:focus-visible,html:not(.js) .home-v2 .card.pcard:hover{transform:translateY(-4px)}
@@ -119,18 +120,12 @@
 .rc-form label i,.rc-form legend i{font-style:normal;font-weight:400;color:var(--muted)}
 .fcta::before{background:linear-gradient(rgba(14,42,71,.3),rgba(14,42,71,.3))}
 .fcta .rc-copy{position:relative}
-.fcta .rc-copy h2,.fcta .rc-copy p,.fcta .rc-copy b,.fcta .rc-copy li span{text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 14px rgba(10,32,56,.4)}
+.fcta .rc-copy h2,.fcta .rc-copy p,.fcta .rc-copy b{text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 14px rgba(10,32,56,.4)}
 .fcta .rc-copy::before{content:"";position:absolute;left:45%;top:50%;width:170%;height:150%;transform:translate(-50%,-50%);background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(10,32,56,.9) 0%,rgba(10,32,56,.82) 50%,rgba(10,32,56,.45) 78%,rgba(10,32,56,0) 100%);z-index:-1;pointer-events:none}
 .fcta .rc-form p{color:var(--muted);margin:0;max-width:none;font-size:.85rem}
 .fcta .rc-form .form-done{color:var(--teal-ink);font-size:1rem}
 @media (max-width:900px){.rc-grid{grid-template-columns:1fr}}
 @media (max-width:760px){.fcta::before{background:linear-gradient(rgba(14,42,71,.32),rgba(14,42,71,.32))}}
-/* Hero benefits: one centered line, dot separators */
-.benefits{list-style:none;margin:clamp(40px,6vw,72px) 0 0;padding:22px 0 28px;border-top:1px solid rgba(255,255,255,.3);background:radial-gradient(ellipse 60% 100% at 50% 50%,rgba(10,32,56,.55),rgba(10,32,56,0));display:flex;flex-wrap:wrap;justify-content:center;gap:6px 0}
-.benefits li{font:600 1.1rem var(--display);color:#fff;display:flex;align-items:center;text-shadow:0 1px 2px rgba(10,32,56,.85),0 2px 12px rgba(10,32,56,.7)}
-.benefits li+li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--teal-2);margin:0 16px}
-@media (max-width:760px){.benefits{display:grid;grid-template-columns:auto auto;justify-content:center;column-gap:0;row-gap:8px;font-size:.92rem}
-  .benefits li{justify-content:center}.benefits li+li::before{display:none}.benefits li:nth-child(2n)::before{display:block;margin:0 12px}}
 /* About CoastalOS: photo left, text right; photo height follows the text */
 .ab-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:stretch}
 .ab-photo{margin:0;position:relative;min-height:360px}
@@ -150,14 +145,13 @@
 .ch-body{margin-top:18px;display:grid;gap:14px;max-width:60ch}
 .ch-body p{color:var(--muted);font-size:clamp(1.02rem,1.2vw,1.1rem);line-height:1.65;text-wrap:pretty}
 .ch-body .ch-strong{margin:0;color:var(--navy);font:600 clamp(1.05rem,1.3vw,1.15rem)/1.45 var(--display)}
-/* Final CTA: heading, subline, four benefits with round icons (per Jed's mockup) */
+/* Final CTA: heading, subline, four benefit labels with round icons (per Jed's mockup) */
 .fcta .rc-copy h2{max-width:16ch}
-.rc-ben{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:16px}
+.rc-ben{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:14px}
 .rc-ben li{display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:center}
 .rb-ic{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;background:rgba(111,208,204,.16);border:1px solid rgba(111,208,204,.45);color:var(--teal-2)}
 .rb-ic svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .rc-ben b{display:block;font:600 1.05rem var(--display);color:#fff}
-.rc-ben li span:not(.rb-ic){display:block;margin-top:2px;font-size:.95rem;line-height:1.45;color:#DCE6EF}
 /* Motion timing: quick, small reveals */
 .home-v2{--rise:14px;--dur-base:450ms}
 /* Shadows: cards get a border + very light shadow; key elements keep stronger shadows */
@@ -178,14 +172,6 @@
 @media (max-width:1100px){.hx .wrap::before{background:radial-gradient(ellipse 60% 52% at 50% 50%,rgba(10,32,56,.82) 0%,rgba(10,32,56,.65) 50%,rgba(10,32,56,.25) 78%,rgba(10,32,56,0) 100%)}}
 @media (max-width:760px){.hx.hx-center::before,.hx::before{background:linear-gradient(0deg,rgba(10,32,56,.8) 0,rgba(10,32,56,.4) 120px,rgba(10,32,56,0) 240px),linear-gradient(rgba(14,42,71,.3),rgba(14,42,71,.3))}.hx .bg{object-position:72% 40%}}
 .hx .hx-title,.hx .hx-sub{text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 16px rgba(10,32,56,.45)}
-
-/* Hero benefits on phones: 2x2 grid, no dots, one line each (single column if a phone is too narrow) */
-@media (max-width:600px){
-  .hx .benefits{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px;row-gap:10px;justify-items:center}
-  .hx .benefits li{font-size:.95rem}
-  .hx .benefits li{white-space:nowrap;justify-content:center}
-  .hx .benefits li::before,.hx .benefits li+li::before,.hx .benefits li:nth-child(2n)::before{display:none!important}
-}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -223,9 +209,6 @@
       <a href="#request-call" class="btn btn-primary">Request a Call</a>
       <a href="services.html#how-it-works" class="btn btn-on-dark">See How It Works</a>
     </div>
-    <ul class="benefits" aria-label="Benefits" data-stagger="fade-up" data-delay="100">
-      <li>Higher revenue</li><li>Lower operating costs</li><li>Higher margins</li><li>Hands-off ownership</li>
-    </ul>
   </div>
 </section>
 
@@ -240,7 +223,6 @@
           <p>Technology has transformed nearly every part of the hotel business—from how guests find you and book, to how rooms are priced, reviews are managed and guests are communicated with. Keeping up with dynamic pricing, OTAs, Google, SEO, digital marketing, AI automation and constantly evolving hotel technology has become a full-time job of its own.</p>
           <p class="ch-strong">That’s where CoastalOS comes in.</p>
           <p>We take over the day-to-day management of your hotel and bring the technology, AI, marketing expertise and centralized operating team needed to compete in today’s market—while preserving the independent character and reputation you worked years to build.</p>
-          <p class="ch-strong">You built a valuable hotel. We help it unlock its full potential.</p>
         </div>
         <p class="ch-cta"><a href="#request-call" class="btn btn-primary">Request a Call</a></p>
       </div>
@@ -291,9 +273,7 @@
       </div>
       <div class="o2p-col o2p-main">
         <div class="o2p-brand"><img src="assets/brand/coastalos-logo-light.webp" width="373" height="112" alt="CoastalOS" loading="lazy" decoding="async"><p>The Operating System for Independent Hotels</p></div>
-        <h3>We Run the Business</h3>
         <p class="o2p-sub">CoastalOS assumes responsibility for the hotel’s performance and day-to-day operations.</p>
-        <ul class="o2p-list"><li><span class="oi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span>Revenue management &amp; dynamic pricing</li><li><span class="oi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l5 4V6L7 10H4zM16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span>Marketing &amp; direct bookings</li><li><span class="oi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2M4 14h3v5H4zM17 14h3v5h-3z"/></svg></span>Reservations &amp; guest service (24/7)</li><li><span class="oi"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M3 20a6 6 0 0 1 12 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3 6"/></svg></span>Staff management, HR &amp; payroll</li><li><span class="oi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-5h4v5"/></svg></span>Property operations</li><li><span class="oi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></svg></span>Accounting &amp; administration</li><li><span class="oi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>Technology &amp; automation</li><li><span class="oi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 16v-3M12 16v-6M15 16v-4"/></svg></span>Financial &amp; owner reporting</li></ul>
       </div>
       <div class="o2p-next"><svg class="o2p-arr" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></div>
       <div class="o2p-col o2p-passive">
@@ -304,7 +284,7 @@
       </div>
       <div class="o2p-banner">
         <img src="assets/brand/coastalos-logo-light.webp" width="373" height="112" alt="" loading="lazy" decoding="async">
-        <div><h3>You Own the Property. We Run the Business</h3><p>Professional management designed to maximize the performance of your hotel while giving you your time back.</p></div>
+        <div><h3>You Own the Property. We Run the Business</h3><p>Professional management designed to maximize the performance of your hotel.</p></div>
       </div>
     </div>
   </div>
@@ -373,9 +353,9 @@
         <h2>Hotels Powered by CoastalOS</h2>
     </div>
     <div class="pcard-grid pcard-grid-3" data-stagger="fade-up" data-delay="100">
-      <a class="card pcard" href="our-work.html#island-house-resort"><div class="pcard-img"><img src="assets/portfolio/chg-island-house.webp" width="1000" height="750" alt="Courtyard pool and loungers at Island House Resort Hotel" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Island House Resort Hotel</h3><p class="pcard-loc">North Redington Beach, FL</p><span class="pcard-view" aria-hidden="true">View in our work <i>→</i></span></div></a>
-      <a class="card pcard" href="our-work.html#sea-shells-beach-club"><div class="pcard-img"><img src="assets/portfolio/chg-sea-shells.webp" width="1000" height="750" alt="Sea Shells Beach Club building at sunset" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Sea Shells Beach Club</h3><p class="pcard-loc">Daytona Beach, FL</p><span class="pcard-view" aria-hidden="true">View in our work <i>→</i></span></div></a>
-      <a class="card pcard" href="our-work.html#the-pineola"><div class="pcard-img"><img src="assets/portfolio/chg-pineola.webp" width="1000" height="750" alt="Aerial view of The Pineola with mountains behind" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">The Pineola</h3><p class="pcard-loc">Newland, NC</p><span class="pcard-view" aria-hidden="true">View in our work <i>→</i></span></div></a>
+      <a class="card pcard" href="our-work.html#island-house-resort"><div class="pcard-img"><img src="assets/portfolio/chg-island-house.webp" width="1000" height="750" alt="Courtyard pool and loungers at Island House Resort Hotel" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Island House Resort Hotel</h3><p class="pcard-loc">North Redington Beach, FL</p></div></a>
+      <a class="card pcard" href="our-work.html#sea-shells-beach-club"><div class="pcard-img"><img src="assets/portfolio/chg-sea-shells.webp" width="1000" height="750" alt="Sea Shells Beach Club building at sunset" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">Sea Shells Beach Club</h3><p class="pcard-loc">Daytona Beach, FL</p></div></a>
+      <a class="card pcard" href="our-work.html#the-pineola"><div class="pcard-img"><img src="assets/portfolio/chg-pineola.webp" width="1000" height="750" alt="Aerial view of The Pineola with mountains behind" loading="lazy" decoding="async"></div><div class="pcard-meta"><h3 class="pcard-name">The Pineola</h3><p class="pcard-loc">Newland, NC</p></div></a>
     </div>
     <p class="pf-more" data-anim="fade-up"><a href="our-work.html" class="btn btn-ghost">View all our work</a></p>
   </div>
@@ -389,8 +369,7 @@
     <div class="rc-copy" data-anim="fade-up">
       <h2 id="rc-h">A More Profitable, More Passive Way to Own a Hotel</h2>
       <p class="rc-lede">We handle the management of your hotel business—so you can enjoy the benefits of ownership without the day-to-day demands.</p>
-      <ul class="rc-ben"><li><span class="rb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M6 17v-5M11 17V8M16 17v-8M20 17V5"/></svg></span><div><b>Higher Revenue</b><span>AI-driven pricing, stronger marketing and more direct bookings.</span></div></li><li><span class="rb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></span><div><b>Lower Operating Costs</b><span>Centralized management and modern technology increase efficiency.</span></div></li><li><span class="rb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M19 5L5 19"/></svg></span><div><b>Higher Margins</b><span>Higher revenue and lower costs mean more profit from your property.</span></div></li><li><span class="rb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-9M12 12c-1-4-5-5-8-4M12 12c1-4 5-5 8-4M12 12c-3-2-3-6-1-8M12 12c3-2 3-6 1-8M5 21h14"/></svg></span><div><b>Hands-off Ownership</b><span>Passive ownership of a unique and valuable asset.</span></div></li></ul>
-      <!-- "Higher Margins" description is a DRAFT (needs Jed's confirmation, see CONTENT-REVIEW.md) -->
+      <ul class="rc-ben"><li><span class="rb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M6 17v-5M11 17V8M16 17v-8M20 17V5"/></svg></span><b>Higher Revenue</b></li><li><span class="rb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1"/></svg></span><b>Lower Operating Costs</b></li><li><span class="rb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M19 5L5 19"/></svg></span><b>Higher Margins</b></li><li><span class="rb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21v-9M12 12c-1-4-5-5-8-4M12 12c1-4 5-5 8-4M12 12c-3-2-3-6-1-8M12 12c3-2 3-6 1-8M5 21h14"/></svg></span><b>Hands-off Ownership</b></li></ul>
     </div>
     <!-- FORM: prototype only. Front-end validation in assets/js/site.js; nothing is sent.
          Replace with the WordPress form plugin (e.g. Gravity Forms / WPForms) keeping these fields (Jed, Oct 7 2026):

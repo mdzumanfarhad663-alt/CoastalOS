@@ -466,6 +466,11 @@ html:not(.js) .os-lines{display:none}
 .o2p-passive .o2p-tag{background:var(--teal-soft);color:var(--teal-ink)}
 .o2p-passive .oi{background:var(--teal-soft);color:var(--teal)}
 .o2p-main{background:var(--navy);border-color:var(--navy);box-shadow:var(--shadow-lg)}
+/* CoastalOS column after de-duplication: logo, line and one sentence in a deliberately shorter card, vertically centred between the arrows */
+.o2p-main{align-self:center;padding-block:clamp(32px,3.4vw,44px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.o2p-main .o2p-brand{display:flex;flex-direction:column;align-items:center;padding-bottom:18px}
+.o2p-main .o2p-brand img{height:56px}
+.o2p-main .o2p-sub{margin-top:18px;max-width:26ch;font-size:1.02rem;line-height:1.5}
 .o2p-main h3{color:#fff}
 .o2p-main .o2p-sub{color:#C6D4E1}
 .o2p-main li{color:#E3ECF4;border-top-color:rgba(255,255,255,.12)}
