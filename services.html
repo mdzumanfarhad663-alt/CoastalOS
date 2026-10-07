@@ -21,21 +21,6 @@
 .deliver td{color:var(--muted)}
 .deliver-more{text-align:center;margin-top:24px}
 @media (max-width:640px){.deliver th,.deliver td{display:block;width:auto;padding-right:0}.deliver th{padding-bottom:4px}.deliver td{border-top:0;padding-top:0}.deliver tr:last-child th{border-bottom:0}}
-/* Who does what: owner card (left), wide navy CoastalOS panel with 4 grouped columns, on-site card (right) */
-.wdw{max-width:1120px;margin:0 auto}
-.wdw-side{max-width:560px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);padding:20px 24px;box-shadow:0 1px 2px rgba(14,42,71,.05)}
-.wdw-team{margin-left:auto}
-.wdw-side h3{font-size:1.1rem;color:var(--navy)}
-.wdw-side p{margin-top:6px;color:var(--muted);line-height:1.6}
-.wdw-label{margin:14px 0;text-align:center;font:600 .85rem var(--display);color:var(--teal-ink)}
-.wdw-panel{background:var(--navy);border-radius:var(--r-lg);padding:clamp(28px,3.4vw,44px);box-shadow:var(--shadow-lg)}
-.wdw-panel h3{color:#fff;font-size:1.5rem}
-.wdw-cols{margin-top:22px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
-.wdw-col h4{font:600 .95rem var(--display);color:var(--teal-2);padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.18)}
-.wdw-col ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
-.wdw-col li{color:#DCE6EF;line-height:1.4}
-@media (max-width:1000px){.wdw-cols{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:600px){.wdw-cols{grid-template-columns:1fr;gap:22px}.wdw-side{max-width:none}}
 /* Hero: shorter than other photo heroes */
 .svc-hero{min-height:min(56vh,600px);display:grid;align-items:center;padding:clamp(56px,7vw,88px) 0}
 @media (max-width:760px){.svc-hero{min-height:0;padding:64px 0}}
@@ -125,31 +110,6 @@
   </div>
 </section>
 
-<!-- WHO DOES WHAT: owner card, wide CoastalOS panel with 4 grouped columns, on-site team card -->
-<section class="sec sec-white" aria-labelledby="who-h">
-  <div class="wrap">
-    <div class="sec-head is-centered" data-anim="fade-up">
-      <h2 id="who-h">Who does what</h2>
-    </div>
-    <div class="wdw" data-anim="fade-up">
-      <div class="wdw-side wdw-owner">
-        <h3>Owner</h3>
-        <p>Owns the real estate · Retains the asset · Receives reporting and financial results · Sets high-level ownership objectives</p>
-      </div>
-      <p class="wdw-label">Management Agreement</p>
-      <div class="wdw-panel">
-        <h3>CoastalOS</h3>
-        <div class="wdw-cols"><div class="wdw-col"><h4>Revenue &amp; Marketing</h4><ul><li>Revenue Management</li><li>Dynamic Pricing / AI</li><li>Marketing</li><li>Direct Booking Strategy</li><li>OTA Management</li></ul></div><div class="wdw-col"><h4>Guests</h4><ul><li>Reservations</li><li>Customer Service</li><li>Front Desk Strategy</li></ul></div><div class="wdw-col"><h4>People</h4><ul><li>Staff Management</li><li>Hiring / HR</li><li>Payroll Administration</li></ul></div><div class="wdw-col"><h4>Business &amp; Systems</h4><ul><li>Accounting</li><li>Expense Management</li><li>Owner Reporting</li><li>Technology</li><li>Operating Procedures</li></ul></div></div>
-      </div>
-      <p class="wdw-label">Managed by CoastalOS</p>
-      <div class="wdw-side wdw-team">
-        <h3>On-Site Hotel Team</h3>
-        <p>Housekeeping · Maintenance · Property Care · Physical Guest Needs · Other location-dependent functions</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- THE FIVE SERVICE GROUPS (single source for the service list; each task appears once) -->
 <section class="sec grp-sec alt" id="revenue" aria-labelledby="revenue-h">
   <div class="wrap">
@@ -186,7 +146,6 @@
       <p class="grp-tag">Modernize the guest experience</p>
     </div>
     <div class="grp-body" data-anim="fade-up">
-      <p class="grp-lede">Guests are looked after before, during and after their stay.</p>
       <ul class="svc-list" aria-label="What CoastalOS handles: Reservations &amp; Guest Support">
           <li><b>Reservations</b><span>Calls, emails and booking requests handled in line with your property’s policies.</span></li>
           <li><b>Guest communication</b><span>Clear, timely messages before arrival and during the stay, so guests know what to expect.</span></li>

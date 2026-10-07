@@ -542,3 +542,10 @@ Kept in the CoastalOS column: the logo, "The Operating System for Independent Ho
 
 The "two similar closing lines" open item (section 28) is resolved by #2. The Higher Margins draft (sections 28–29) no longer appears on the site.
 
+
+## 33. Jed feedback, Oct 8 2026 — Services page (`services.html`)
+
+| # | Location | Change | Source |
+|---|---|---|---|
+| 1 | Services, between the hero and "What CoastalOS manages" | Removed the whole "Who does what" section: Owner card, "Management Agreement" label, CoastalOS panel (Revenue & Marketing and the other 3 columns), "Managed by CoastalOS" label, On-Site Hotel Team card. Markup and its `.wdw` CSS deleted; it had no JS and no anchor, and no links pointed to it. The page now goes straight from the hero to "What CoastalOS manages". | Jed |
+| 2 | Services, 02 Reservations & Guest Support, intro line | Removed: "Guests are looked after before, during and after their stay." | Jed |
