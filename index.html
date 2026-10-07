@@ -172,6 +172,18 @@
 @media (max-width:1100px){.hx .wrap::before{background:radial-gradient(ellipse 60% 52% at 50% 50%,rgba(10,32,56,.82) 0%,rgba(10,32,56,.65) 50%,rgba(10,32,56,.25) 78%,rgba(10,32,56,0) 100%)}}
 @media (max-width:760px){.hx.hx-center::before,.hx::before{background:linear-gradient(0deg,rgba(10,32,56,.8) 0,rgba(10,32,56,.4) 120px,rgba(10,32,56,0) 240px),linear-gradient(rgba(14,42,71,.3),rgba(14,42,71,.3))}.hx .bg{object-position:72% 40%}}
 .hx .hx-title,.hx .hx-sub{text-shadow:0 1px 2px rgba(10,32,56,.5),0 2px 16px rgba(10,32,56,.45)}
+
+/* ===== TEMP hero preview: photo slideshow for Jed's review (remove with assets/js/hero-preview.js) ===== */
+.hxs .bg{opacity:0;transition:opacity 1s ease}
+.hxs .bg.on{opacity:1}
+.hxs-dots{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:4px;z-index:3}
+.hxs-dots button{width:32px;height:32px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center;border-radius:50%}
+.hxs-dots button::before{content:"";box-sizing:border-box;width:10px;height:10px;border-radius:50%;border:1.5px solid #fff;box-shadow:0 0 4px rgba(10,32,56,.5)}
+.hxs-dots button[aria-pressed="true"]::before{background:#fff}
+.hxs-dots button:focus-visible{outline:2px solid #fff;outline-offset:0}
+.hxs-label{position:absolute;left:clamp(16px,3vw,32px);bottom:22px;z-index:3;margin:0;padding:4px 10px;border-radius:var(--r-pill);background:rgba(10,32,56,.6);font:600 .85rem var(--display);color:#fff}
+@media (max-width:760px){.hxs-dots{bottom:8px;gap:0}.hxs-dots button{width:44px;height:44px}.hxs-dots button::before{width:12px;height:12px}.hxs-label{bottom:18px}}
+@media (prefers-reduced-motion:reduce){.hxs .bg{transition:none}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -436,6 +448,8 @@
 <div class="mcta" id="mcta"><a href="#request-call" class="btn btn-primary">Request a Call</a></div>
 
 <script src="assets/js/site.js"></script>
+<script src="assets/js/hero-preview.js"></script><!-- TEMP hero preview -->
+
 
 </body>
 </html>
