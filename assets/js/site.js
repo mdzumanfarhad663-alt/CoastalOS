@@ -31,8 +31,8 @@
   addEventListener('scroll',onScroll,{passive:true});onScroll();
 
   var nav=document.getElementById('nav'),btn=nav.querySelector('.menu-btn');
-  function closeMenu(){nav.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open menu')}
-  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Close menu':'Open menu')});
+  function closeMenu(){nav.classList.remove('open');document.documentElement.classList.remove('menu-open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open menu')}
+  btn.addEventListener('click',function(){var o=nav.classList.toggle('open');document.documentElement.classList.toggle('menu-open',o);btn.setAttribute('aria-expanded',o);btn.setAttribute('aria-label',o?'Close menu':'Open menu')});
   links.forEach(function(a){a.addEventListener('click',closeMenu)});
   addEventListener('keydown',function(e){if(e.key==='Escape'&&nav.classList.contains('open')){closeMenu();btn.focus()}});
 
