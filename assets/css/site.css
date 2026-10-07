@@ -316,7 +316,9 @@ footer.ft ul a:hover{color:#fff}
 .form-privacy{grid-column:1/-1;font-size:.85rem;color:var(--muted);margin:-4px 0 0}
 .form-privacy a{display:inline;color:var(--teal-ink);font-weight:600}
 /* Legal page */
-.legal{max-width:760px}
+.legal{max-width:760px;margin:0 auto}
+.legal-hero .wrap{text-align:center}
+.legal-hero h1,.legal-hero .lede{margin-left:auto;margin-right:auto}
 .legal h2{font-size:clamp(1.3rem,2vw,1.6rem);margin-top:44px}
 .legal h2:first-child{margin-top:0}
 .legal p,.legal li{color:var(--muted);line-height:1.7}
