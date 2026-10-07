@@ -474,7 +474,7 @@ Source: Jed's email "CoastalOS Changes to text" (Oct 7 2026) and the verbatim te
 | Home, Our Operating System | Hint under the diagram: "Select a function to see what it covers" | Draft |
 | Home, portfolio | Heading "Hotels owned and operated by Coastal Hospitality Group" → "Hotels Powered by CoastalOS" | Jed |
 | Home, final CTA | Heading "A More Profitable, More Passive Way to Own a Hotel", Jed's subline, four benefits, form title and button "Request a Property Assessment", Jed's form intro. Replaces "You Own the Hotel. We Run the Business" and the three next steps | Jed |
-| Home, final CTA, Higher Margins | "Stronger revenue and lower costs mean more of every dollar is kept." | **Draft — needs Jed's confirmation** |
+| Home, final CTA, Higher Margins | "Higher revenue and lower costs mean more profit from your property." (updated in section 29) | **Draft — needs Jed's confirmation** |
 | Home form | Fields: Property name*, City / State*, Property website, Number of rooms (Under 15 / 15–40 / 41–100 / 100+), Approx. annual revenue, Current management (Owner-operated / Third-party / Other), Name*, Email*, Phone (* required) | Jed (fields) |
 | Home form, revenue ranges | Under $500K / $500K–$1M / $1M–$3M / $3M–$5M / $5M+ | **Draft — needs Jed's confirmation** |
 
@@ -484,4 +484,24 @@ Source: Jed's email "CoastalOS Changes to text" (Oct 7 2026) and the verbatim te
 - Higher Margins description and the revenue ranges above are drafts.
 
 Still to come (batch 2): Contact form and email, About bio and Who We Work With, removing Our Team, Our Work heading and count, Privacy email.
+
+## 29. Jed content, Oct 7 2026 — home fixes and batch 2
+
+| Location | Change | Status |
+|---|---|---|
+| Home hero, benefit strip | "Better guest experience" → "Higher margins" (strip now: Higher revenue / Lower operating costs / Higher margins / Hands-off ownership). Hero layout unchanged | Jed |
+| Home final CTA, Higher Margins | "Higher revenue and lower costs mean more profit from your property." | **Draft — needs Jed's confirmation** |
+| Home, Our Operating System | Thin teal lines now run from the centre circle to all 10 function cards on desktop (the open card's line is darker). Phones/tablets keep the accordion | Design |
+| All pages | Favicon added: `assets/brand/favicon.svg`, `favicon-32.png`, `apple-touch-icon.png`, plus `/favicon.ico`. The mark (sun arc over waves) is the one used on the old platform hub; swap for an official icon if Jed has one | Design |
+| Contact form | Same fields, title, intro and button as the homepage form ("Request a Property Assessment"). The "What are you interested in?" and message fields were removed | Jed (fields) |
+| Email, all pages | info@coastalhospitalitygroup.com → info@coastalos.com (footers, Contact, Privacy body) | Jed |
+| About, founder | Jed's quote and three bio paragraphs, attribution "Jed Tarr, Founder". The previous bio lines about the Urban Land Institute, Arizona State University and Phoenix/Los Angeles real estate work were removed, as Jed's corrected bio leaves them out | Jed |
+| About, Our team | Section deleted completely (markup, placeholder team data, styles and slider script) | Jed |
+| About, Who We Work With | Heading "Who We Work With" and Jed's line. The property-type pills were removed; the two links stay | Jed |
+| Our Work | H1 "Current CoastalOS Powered Hotels". The Coastal Hospitality Group lede and meta description removed. Count line "14 properties since 2012" (set in `scripts/build-work.mjs` as `foundedTotal`/`foundedYear`) | Jed |
+
+**Open items for Jed:**
+- Our Work shows these 10 hotels under "Current": Blind Pass Resort, Bluebird Day Inn & Suites, Coastal Suites, Geneva Riverside Hotel & Tiki Bar, Hickory Falls Inn, Island House Resort Hotel, Malibu Resort Motel, Patriots' Boutique Motel, Sea Shells Beach Club, The Pineola. Please confirm none of these is one of the 4 sold properties.
+- Please confirm the info@coastalos.com mailbox exists and receives mail before launch.
+- Coastal Hospitality Group wording is kept on About (intro and bio) and in the Privacy "Who we are" section, as agreed.
 

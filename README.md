@@ -13,7 +13,7 @@ All six agreed pages are built.
 | `platform.html` | Redirect to `services.html` (the Platform page was merged into Services) |
 | `about.html` | About: "About CoastalOS" hero, "About us" (photo left), what we believe, founder note, hidden "Our team" slider (data in the `team-data` block; preview with `?preview=team`), "Who we work with" with property-type pills (photo right), final CTA |
 | `services.html` | Services: short photo hero, "What we run for your property" overview cards (scroll to each group), the five service groups (identical layout; each task in one group), "What we handle and what stays with your team", hidden "Ways to work with us" (preview with `?preview=engagement`), FAQ/onboarding links, final CTA |
-| `contact.html` | Contact: a single Request a Call form (same fields as the homepage form plus an optional message), next steps, the site's only FAQ (6 questions) |
+| `contact.html` | Contact: the Request a Property Assessment form (identical to the homepage form), next steps, the site's FAQ |
 | `portfolio.html` | Redirect to `our-work.html` |
 | `our-work.html` | Our Work: centred hero with a stat line, then one full-width row per property (photo, type and location, name, short description, "Visit website ↗"). Rows are generated from `data/properties.json` |
 | `index-1.html` | Redirect to `index.html` (an earlier homepage lived here; it remains in git history) |
@@ -51,6 +51,8 @@ Design rules: section headings have no eyebrow/kicker label (removed site-wide).
 Motion: only three effects — scroll reveal (fade up 24px, 600ms, 80ms stagger in lists), the How-it-works timeline (scroll-linked: each teal segment fills between two circles, then the next circle activates and its text fades up; vertical on mobile), and the platform hub (core scales in, connector lines draw, cards pop in). No background-image motion. Reduced motion shows everything at once; without JavaScript all content is visible.
 
 `index.html` (built as `home-v2.html`) merges the client's layout concept with our design system (fonts, tokens, buttons, cards, icon tiles, header, footer, mobile menu, sticky mobile CTA, reveal animations). All page-only styles sit in its `<style>` block; `site.css` and `site.js` are shared and unchanged. The previous homepage is kept as `index-v1-backup.html`.
+
+Favicons: `assets/brand/favicon.svg` (source), `favicon-32.png`, `apple-touch-icon.png` and `/favicon.ico`, linked in every page's `<head>`.
 
 Sections, in order (Jed's final order, Oct 7 2026):
 1. Hero (centered, locked): photo background with an even navy overlay, H1, "Request a Call" + "See How It Works" (goes to `services.html#how-it-works`), four benefit items (2×2 on mobile)

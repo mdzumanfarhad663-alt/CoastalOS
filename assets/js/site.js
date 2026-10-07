@@ -105,9 +105,6 @@
   if(form){
   // ?request=call (from "Request a Call" links on other pages) brings the form into view when it sits below the intro (single-column layout)
   if(/[?&]request=call(&|$)/.test(location.search))requestAnimationFrame(function(){if(innerWidth<=900)form.scrollIntoView({block:'start'})})
-  // ?interest=<value> (e.g. "transition" from the homepage) preselects the optional interest field and brings the form into view
-  var im=location.search.match(/[?&]interest=([a-z]+)/),sel=document.getElementById('interest');
-  if(im&&sel&&sel.querySelector('option[value="'+im[1]+'"]')){sel.value=im[1];requestAnimationFrame(function(){if(innerWidth<=900)form.scrollIntoView({block:'start'})})}
   form.addEventListener('submit',function(e){
     e.preventDefault();var ok=true;
     form.querySelectorAll('[required]').forEach(function(el){
@@ -128,8 +125,16 @@
   // (first open by default); <=900px it is an accordion where an open item can be closed. Arrow keys/Home/End move between nodes.
   var os=document.getElementById('os');
   if(os){var nodes=[].slice.call(os.querySelectorAll('.os-node')),acc=matchMedia('(max-width:900px)');
+    var svg=os.querySelector('.os-lines'),NS='http://www.w3.org/2000/svg';
+    // Desktop: a thin line from the edge of the centre circle to each card; the open card's line is highlighted
+    function draw(){if(!svg)return;svg.textContent='';if(acc.matches)return;
+      var o=os.getBoundingClientRect(),c=os.querySelector('.os-core').getBoundingClientRect(),cx=c.left+c.width/2-o.left,cy=c.top+c.height/2-o.top,r=c.width/2+10;
+      nodes.forEach(function(n){var b=n.getBoundingClientRect(),left=b.left+b.width/2<o.left+cx,x=(left?b.right:b.left)-o.left,y=b.top+b.height/2-o.top,a=Math.atan2(y-cy,x-cx);
+        var l=document.createElementNS(NS,'line');l.setAttribute('x1',cx+r*Math.cos(a));l.setAttribute('y1',cy+r*Math.sin(a));l.setAttribute('x2',x);l.setAttribute('y2',y);
+        if(n.getAttribute('aria-expanded')==='true')l.setAttribute('class','hot');svg.appendChild(l);
+        var d=document.createElementNS(NS,'circle');d.setAttribute('cx',x);d.setAttribute('cy',y);d.setAttribute('r',3.5);svg.appendChild(d)})}
     function set(b,on){b.setAttribute('aria-expanded',on?'true':'false');document.getElementById(b.getAttribute('aria-controls')).hidden=!on}
-    function only(b){nodes.forEach(function(n){set(n,n===b)})}
+    function only(b){nodes.forEach(function(n){set(n,n===b)});draw()}
     nodes.forEach(function(b,i){
       b.addEventListener('click',function(){if(acc.matches)set(b,b.getAttribute('aria-expanded')!=='true');else only(b)});
       b.addEventListener('keydown',function(e){var k=e.key,t=k==='ArrowDown'||k==='ArrowRight'?i+1:k==='ArrowUp'||k==='ArrowLeft'?i-1:k==='Home'?0:k==='End'?nodes.length-1:null;
@@ -137,7 +142,9 @@
     only(nodes[0]);
     // back on desktop exactly one node is open
     function sync(){if(acc.matches)return;var open=nodes.filter(function(n){return n.getAttribute('aria-expanded')==='true'});only(open[0]||nodes[0])}
-    if(acc.addEventListener)acc.addEventListener('change',sync);else acc.addListener(sync)}
+    if(acc.addEventListener)acc.addEventListener('change',sync);else acc.addListener(sync)
+    if('ResizeObserver' in window)new ResizeObserver(draw).observe(os);else addEventListener('resize',draw);
+    if(document.fonts)document.fonts.ready.then(draw)}
   // How it works: each segment fills between two circles as you scroll; a circle activates when the fill reaches it
   var tls=[].slice.call(document.querySelectorAll('.tl')),ticking=false;
   function clamp(v){return v<0?0:v>1?1:v}
