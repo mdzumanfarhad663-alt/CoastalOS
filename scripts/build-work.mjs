@@ -29,7 +29,7 @@ function row(p, i) {
 // Hero count: every property since founding (Jed, Oct 7 2026: 14 since 2012, 10 active, 4 sold),
 // not the number of rows below, which shows current hotels only.
 const foundedTotal = 14, foundedYear = 2012;
-const stat = `${foundedTotal} properties since ${foundedYear}`;
+const stat = `${foundedTotal} properties operated since ${foundedYear}`;
 
 function replace(html, name, content) {
   const re = new RegExp(`(<!-- work:${name} -->)[\\s\\S]*?(<!-- /work:${name} -->)`);

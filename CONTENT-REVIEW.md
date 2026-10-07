@@ -513,3 +513,14 @@ Still to come (batch 2): Contact form and email, About bio and Who We Work With,
 | Home hero benefit strip | Larger, bolder text with a stronger shadow and a soft navy shade behind the strip for contrast over the photo. Text unchanged |
 | Home, Our Operating System (desktop) | The open bullet panel now sits 46px below the centre circle instead of touching it |
 | Header tagline (desktop) | Regular weight, 12px, never wider than the wordmark (two lines, left edge on the "C"), 3px under the wordmark; on the homepage 90% white with a soft shadow over the hero photo |
+
+## 31. Content audit fixes (Oct 2026)
+
+| Location | Change | Status |
+|---|---|---|
+| Our Work count line | "14 properties since 2012" → "14 properties operated since 2012" (`scripts/build-work.mjs`). Heading unchanged | Decision |
+| Privacy, "Information we collect" | List now matches the form exactly: name, email, phone (optional); property name, city/state; optional website, number of rooms, approximate annual revenue, current management. Removed "What you are interested in, and any message you add" (those fields no longer exist) and "work" from email (the label is now "Email") | Decision |
+| About, "Untapped potential" section | Removed the sentence "CoastalOS was built by the team behind Coastal Hospitality Group, which has acquired, developed and operated independent hotels since 2012." It was our draft (section 23), not Jed's text. Not replaced; the "See our services" link stays | Decision |
+| About, "Untapped potential" section | Kept: "Your hotel has decades of history and incredible untapped potential… currently leaving on the table." This paragraph is Jed's text (section 23) | Jed |
+| Services, "A simple path to a higher-performing hotel" | The source had single spaces; the inline `<span>` around "higher-performing" (no styling on this page) could read as extra spaces in copied or extracted text, so it was removed. No visual change | Fix |
+
