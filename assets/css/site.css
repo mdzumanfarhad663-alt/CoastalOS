@@ -573,3 +573,10 @@ html:not(.js) .tl .tl-line i{transform:none}
 .tier-link{display:flex;flex-direction:column;align-items:center;padding:6px 0}
 .tier-link::before,.tier-link::after{content:"";width:2px;height:18px;background:var(--teal);opacity:.5}
 .tier-link span{font:600 .85rem var(--display);color:var(--teal-ink);padding:6px 0}
+
+/* ===== Lighter photo overlays, round 2 (Oct 2026, client request; matches the homepage hero):
+   thinner navy wash and text halo, stronger text shadow ===== */
+.fcta::before,.photo-hero::before{background:linear-gradient(rgba(14,42,71,.1),rgba(14,42,71,.1))}
+@media (max-width:760px){.fcta::before,.photo-hero::before{background:linear-gradient(rgba(14,42,71,.12),rgba(14,42,71,.12))}}
+.fcta-inner::before,.photo-hero-inner::before{background:radial-gradient(ellipse 50% 50% at 50% 50%,rgba(10,32,56,.56) 0%,rgba(10,32,56,.4) 45%,rgba(10,32,56,.14) 75%,rgba(10,32,56,0) 100%)}
+.fcta-inner h2,.fcta-inner p,.photo-hero h1,.photo-hero .lede{text-shadow:0 1px 3px rgba(10,32,56,.7),0 2px 18px rgba(10,32,56,.6)}
