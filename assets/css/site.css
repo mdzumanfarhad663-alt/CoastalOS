@@ -184,7 +184,7 @@ footer.ft{background:var(--navy-3);color:#B9CADB;font-size:.95rem;position:relat
 footer.ft ul{list-style:none;padding:0;margin:0;display:grid;gap:10px}
 footer.ft ul a{color:#C6D4E1;text-decoration:none;transition:color .2s}
 footer.ft ul a:hover{color:#fff}
-.ft-bottom{border-top:1px solid rgba(255,255,255,.12);padding:20px 0 28px;font-size:.85rem;color:#9DB2C6}
+.ft-bottom{text-align:center;border-top:1px solid rgba(255,255,255,.12);padding:20px 0 28px;font-size:.85rem;color:#9DB2C6}
 .ft-bottom a{color:inherit;text-decoration:underline;text-underline-offset:3px}
 .ft-bottom a:hover{color:#fff}
 @media (max-width:980px){.ft-cols{grid-template-columns:1fr 1fr}.ft-contact{grid-column:1/-1}}
@@ -601,4 +601,19 @@ html:not(.js) .tl .tl-line i{transform:none}
   .nav.open ul a.active{background:rgba(14,42,71,.06)}
   .nav.open .menu-btn{position:relative;z-index:61}
   .nav.open .logo{visibility:hidden}
+}
+
+/* ===== Footer polish (Oct 2026, client request) =====
+   Social icons shown (links still placeholders), back-to-top gets a light ring so it reads on the navy footer
+   and clears the bottom bar, whole footer centred on phones. */
+.ft-social{justify-self:end}
+.ft-bottom{padding-bottom:40px}
+.to-top{box-shadow:0 0 0 1.5px rgba(255,255,255,.35),0 6px 18px rgba(10,32,56,.3)}
+@media (max-width:760px){
+  .ft-top,.ft-cols,.ft-bottom{text-align:center}
+  .ft-brand .logo-img{margin:0 auto}
+  .ft-social{justify-self:center}
+  .ft-social ul{justify-content:center}
+  .ft-top{gap:28px}
+  .ft-cols{row-gap:36px}
 }
