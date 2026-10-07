@@ -121,16 +121,23 @@
   }
 })();
 
-/* Platform hub highlight and scroll-linked timeline (Home, Platform, Services) */
+/* Operating System nodes (Home) and scroll-linked timeline (Services) */
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // Hub: hovering or focusing a card highlights its line and dims the others
-  var hub=document.getElementById('hub');
-  if(hub){var lines=hub.querySelectorAll('svg.lines line'),items=[].slice.call(hub.querySelectorAll('.hub-item'));
-    items.forEach(function(li,i){var a=li.querySelector('a');
-      function on(){hub.classList.add('focusing');li.classList.add('hot');lines[i]&&lines[i].classList.add('hot')}
-      function off(){hub.classList.remove('focusing');li.classList.remove('hot');lines[i]&&lines[i].classList.remove('hot')}
-      a.addEventListener('mouseenter',on);a.addEventListener('mouseleave',off);a.addEventListener('focus',on);a.addEventListener('blur',off)});}
+  // Operating System: each node opens its list of services. Desktop shows one at a time in the centre
+  // (first open by default); <=900px it is an accordion where an open item can be closed. Arrow keys/Home/End move between nodes.
+  var os=document.getElementById('os');
+  if(os){var nodes=[].slice.call(os.querySelectorAll('.os-node')),acc=matchMedia('(max-width:900px)');
+    function set(b,on){b.setAttribute('aria-expanded',on?'true':'false');document.getElementById(b.getAttribute('aria-controls')).hidden=!on}
+    function only(b){nodes.forEach(function(n){set(n,n===b)})}
+    nodes.forEach(function(b,i){
+      b.addEventListener('click',function(){if(acc.matches)set(b,b.getAttribute('aria-expanded')!=='true');else only(b)});
+      b.addEventListener('keydown',function(e){var k=e.key,t=k==='ArrowDown'||k==='ArrowRight'?i+1:k==='ArrowUp'||k==='ArrowLeft'?i-1:k==='Home'?0:k==='End'?nodes.length-1:null;
+        if(t===null)return;e.preventDefault();nodes[(t+nodes.length)%nodes.length].focus()})});
+    only(nodes[0]);
+    // back on desktop exactly one node is open
+    function sync(){if(acc.matches)return;var open=nodes.filter(function(n){return n.getAttribute('aria-expanded')==='true'});only(open[0]||nodes[0])}
+    if(acc.addEventListener)acc.addEventListener('change',sync);else acc.addListener(sync)}
   // How it works: each segment fills between two circles as you scroll; a circle activates when the fill reaches it
   var tls=[].slice.call(document.querySelectorAll('.tl')),ticking=false;
   function clamp(v){return v<0?0:v>1?1:v}

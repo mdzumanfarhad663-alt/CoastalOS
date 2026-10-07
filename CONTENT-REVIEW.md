@@ -455,3 +455,33 @@ Added short descriptions for the three properties that had none. All facts come 
 |---|---|---|
 | Homepage portfolio card | Island House Resort | Island House Resort Hotel (matches the hotel's own website and Our Work) |
 | Services, above group 01 | No heading for the five service groups | H2: What CoastalOS manages. Lede: Five service groups, all run by CoastalOS for your hotel. |
+
+## 28. Jed content, Oct 7 2026 — homepage and header (batch 1)
+
+Source: Jed's email "CoastalOS Changes to text" (Oct 7 2026) and the verbatim text file. Text marked **Jed** is approved and used word for word. Text marked **Draft** needs Jed's confirmation.
+
+| Location | Change | Status |
+|---|---|---|
+| Header, all pages | Larger logo. Desktop (1101px and wider) shows "Next-Generation Hotel Management for Independent Hotels" under it, in two lines. Tablet and phone show the logo only, so the bar stays one row | Jed (tagline is the existing footer line) |
+| Home order | Hero → Challenge → What is CoastalOS → From Owner-Operator to Passive Owner → Our Operating System → Hotels Powered by CoastalOS → Final CTA | Jed |
+| Home, Built for independent hotels | Removed (less repetition) | Jed |
+| Home, testimonials | Sample-quote slider removed with its JSON, CSS and JS. This also removes the small slider dots that kept homepage Lighthouse accessibility at 97 (tap-target size) | Decision, Oct 7 2026 |
+| Home, Proven results | Hidden metrics section removed | Decision, Oct 7 2026 |
+| Home, Challenge | Heading and photo unchanged. Body replaced with Jed's five paragraphs | Jed |
+| Home, What is CoastalOS | New intro, three points (Maximize Your Hotel's Potential / Operate More Efficiently / Enjoy More Passive Ownership), closing line "You built a valuable asset. We help it reach its full potential." | Jed |
+| Home, How the relationship works | Replaced by "From Owner-Operator to Passive Owner", built from Jed's mockup with all of its text. Icons only, no people photos. Anchor `#how-it-works` | Jed |
+| Home, Our Operating System | New intro, ten functions with all of Jed's bullets, centre "CoastalOS / Centralized Hotel Management". Interactive (desktop: centre panel; phone/tablet: accordion). The old closing line "One management company. One operating strategy. One point of accountability." was removed | Jed |
+| Home, Our Operating System | Hint under the diagram: "Select a function to see what it covers" | Draft |
+| Home, portfolio | Heading "Hotels owned and operated by Coastal Hospitality Group" → "Hotels Powered by CoastalOS" | Jed |
+| Home, final CTA | Heading "A More Profitable, More Passive Way to Own a Hotel", Jed's subline, four benefits, form title and button "Request a Property Assessment", Jed's form intro. Replaces "You Own the Hotel. We Run the Business" and the three next steps | Jed |
+| Home, final CTA, Higher Margins | "Stronger revenue and lower costs mean more of every dollar is kept." | **Draft — needs Jed's confirmation** |
+| Home form | Fields: Property name*, City / State*, Property website, Number of rooms (Under 15 / 15–40 / 41–100 / 100+), Approx. annual revenue, Current management (Owner-operated / Third-party / Other), Name*, Email*, Phone (* required) | Jed (fields) |
+| Home form, revenue ranges | Under $500K / $500K–$1M / $1M–$3M / $3M–$5M / $5M+ | **Draft — needs Jed's confirmation** |
+
+**Open items for Jed:**
+- Two similar closing lines now sit close together on the homepage: "You built a valuable hotel. We help it unlock its full potential." (Challenge) and "You built a valuable asset. We help it reach its full potential." (What is CoastalOS). Keep both, or change one?
+- Operating System bullets used word for word, please check they read well to a third-party owner: "Consistent operating standards across all properties" (Centralized Staff Management) and "Spending reporting across portfolio to identify anomalies" (Cost Control).
+- Higher Margins description and the revenue ranges above are drafts.
+
+Still to come (batch 2): Contact form and email, About bio and Who We Work With, removing Our Team, Our Work heading and count, Privacy email.
+

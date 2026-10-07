@@ -8,7 +8,7 @@ All six agreed pages are built.
 
 | File | Page |
 |---|---|
-| `index.html` | Home (the former home-v2 concept): hero, challenge, solution, platform hub, how it works, owner visibility, who it's for, hotels, FAQ, final CTA |
+| `index.html` | Home: hero, challenge, What is CoastalOS, From Owner-Operator to Passive Owner, Our Operating System, Hotels Powered by CoastalOS, final CTA with the property assessment form |
 | `index-v1-backup.html` | Previous homepage, kept for reference only (`noindex`, not linked) |
 | `platform.html` | Redirect to `services.html` (the Platform page was merged into Services) |
 | `about.html` | About: "About CoastalOS" hero, "About us" (photo left), what we believe, founder note, hidden "Our team" slider (data in the `team-data` block; preview with `?preview=team`), "Who we work with" with property-type pills (photo right), final CTA |
@@ -52,17 +52,16 @@ Motion: only three effects — scroll reveal (fade up 24px, 600ms, 80ms stagger 
 
 `index.html` (built as `home-v2.html`) merges the client's layout concept with our design system (fonts, tokens, buttons, cards, icon tiles, header, footer, mobile menu, sticky mobile CTA, reveal animations). All page-only styles sit in its `<style>` block; `site.css` and `site.js` are shared and unchanged. The previous homepage is kept as `index-v1-backup.html`.
 
-Sections, in order:
-1. Hero (centered): photo background with an even navy overlay, H1, "Request a Call" + "See How It Works", four benefit items (2×2 on mobile)
-2. The challenge: copy, side photo (desktop), eight challenge cards (4×2 desktop, 2 columns mobile)
-3. About CoastalOS: split section, Island House pool-deck photo (left) and a short draft description of CoastalOS with a "Read more" link to About (right).
-4. The platform (`#platform`): hub diagram, CoastalOS core plus eight functions; connector lines draw once; 2-column list on mobile
-5. How it works (navy): five steps, horizontal on desktop, vertical on mobile
-7. Built for independent & boutique hotels: property types, "Is My Property a Good Fit?" CTA, photo
-8. Portfolio: the three property cards and "View full portfolio"
-9. Owner testimonials: data-driven slider (JSON in `#tst-data`), HIDDEN until real quotes are approved; the results cards are also hidden
-10. FAQ: the four standard questions
-11. Final CTA: photo background with navy overlay, heading, next steps and the inline request-a-call form
+Sections, in order (Jed's final order, Oct 7 2026):
+1. Hero (centered, locked): photo background with an even navy overlay, H1, "Request a Call" + "See How It Works" (goes to `services.html#how-it-works`), four benefit items (2×2 on mobile)
+2. The challenge: heading, Jed's five paragraphs, "Request a Call", side photo
+3. What is CoastalOS: split section, Island House pool-deck photo (left), intro, three points, closing line and "Read more" (right)
+4. From Owner-Operator to Passive Owner (`#how-it-works`): Owner-Operator, Management Agreement step, CoastalOS (navy) and Passive Owner columns with icon lists, navy banner below; stacks with downward arrows at 1024px and below
+5. Our Operating System (`#platform`): CoastalOS core plus ten function nodes. Desktop: choosing a node shows its services in the centre (first open by default). 900px and below: accordion. Buttons use `aria-expanded`/`aria-controls`; arrow keys, Home and End move between nodes. Script in `site.js` (`#os`)
+6. Hotels Powered by CoastalOS: three property cards and "View all our work"
+7. Final CTA: photo background, heading, subline, four benefits, inline "Request a Property Assessment" form
+
+The "Built for independent hotels" section, the testimonial slider and the hidden "Proven results" section were removed on Oct 7 2026 (with their CSS and JS).
 
 Images (all in `assets/home-v2/`, WebP; temporary, pending the client's own photos). Each is marked in the HTML with an `<!-- IMAGE: ... -->` comment; to swap one, replace the file with the same name and proportions:
 
@@ -71,11 +70,10 @@ Images (all in `assets/home-v2/`, WebP; temporary, pending the client's own phot
 | `hero-blind-pass-pool-800/1280/1920/2560.webp` (3:2) | Hero background (preloaded, `srcset`) | Blind Pass Resort pool, Coastal Getaway gallery (3000px original). Temporary; a 2400px+ property photo from Jed should replace it. The previous Sea Shells files (`hero-sea-shells-exterior-*`, from a 921px source) are kept but unused. |
 | `challenge-hickory-falls.webp` (4:5) | Challenge side photo | Hickory Falls Inn, CHG site |
 | `solution-island-house.webp` (4:3) | Solution photo | Island House Resort, CHG site |
-| `fit-the-pineola.webp` (4:3) | "Built for" photo | The Pineola, CHG site |
+| `fit-the-pineola.webp` (4:3) | Unused since Oct 7 2026 (the "Built for" section was removed) | The Pineola, CHG site |
 | `cta-mountain-pool.webp` (16:9) | Final CTA background | "Mountain escapes" photo, coastalgetaway.com |
-| `testimonial-bluebird.webp` (16:9) | Hidden testimonial background | Bluebird Day Inn & Suites, CHG site |
+| `testimonial-bluebird.webp` (16:9) | Unused | Bluebird Day Inn & Suites, CHG site |
 
-Hidden sections: "Proven results for independent hotels" (four metric cards) and the testimonial card are in the markup with empty values and the `hidden` attribute. Enable them only when the client supplies verified figures and a real, approved quote: fill the values and remove `hidden`.
 
 Text over photos uses navy gradient overlays: the hero fades from about 90% navy behind the text on the left to 25% on the right, with a darker band behind the benefit row; the final CTA uses a radial gradient that is darkest behind the centered text. Contrast was measured per text element against the brightest pixel behind it at 1440, 820 and 390px: lowest hero 5.1:1, lowest final CTA 5.2:1. All pass WCAG AA.
 
