@@ -501,8 +501,8 @@ Still to come (batch 2): Contact form and email, About bio and Who We Work With,
 | Our Work | H1 "Current CoastalOS Powered Hotels". The Coastal Hospitality Group lede and meta description removed. Count line "14 properties since 2012" (set in `scripts/build-work.mjs` as `foundedTotal`/`foundedYear`) | Jed |
 
 **Open items for Jed:**
-- Our Work shows these 10 hotels under "Current": Blind Pass Resort, Bluebird Day Inn & Suites, Coastal Suites, Geneva Riverside Hotel & Tiki Bar, Hickory Falls Inn, Island House Resort Hotel, Malibu Resort Motel, Patriots' Boutique Motel, Sea Shells Beach Club, The Pineola. Please confirm none of these is one of the 4 sold properties.
-- Please confirm the info@coastalos.com mailbox exists and receives mail before launch.
+- ~~Our Work shows these 10 hotels under "Current": Blind Pass Resort, Bluebird Day Inn & Suites, Coastal Suites, Geneva Riverside Hotel & Tiki Bar, Hickory Falls Inn, Island House Resort Hotel, Malibu Resort Motel, Patriots' Boutique Motel, Sea Shells Beach Club, The Pineola. Please confirm none of these is one of the 4 sold properties.~~ **Resolved:** confirmed, none of the 10 is sold, so "Current" is accurate.
+- ~~Please confirm the info@coastalos.com mailbox exists and receives mail before launch.~~ **Resolved:** confirmed, the mailbox exists and receives mail.
 - Coastal Hospitality Group wording is kept on About (intro and bio) and in the Privacy "Who we are" section, as agreed.
 
 ## 30. Home polish (Oct 2026)
